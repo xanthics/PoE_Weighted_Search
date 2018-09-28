@@ -14,30 +14,30 @@ from modlist import mods
 
 def main():
 	dps = {
-		'% fire'         : 24.9,
-		'% cold'         : 96.2,
-		'% lightning'    : 99.8,
-		'% elemental'    : 220.9,
+		'% fire'         : 0,
+		'% cold'         : 21.1,
+		'% lightning'    : 121.3,
+		'% elemental'    : 142.4,
 		'% chaos'        : 0,
-		'% physical'     : 171,
-		'% generic'      : 220.9,
-		'crit chance'    : 0,
-		'crit multi'     : 0,
+		'% physical'     : 0,
+		'% generic'      : 142.4,
+		'crit chance'    : 57,
+		'crit multi'     : 167.9,
 		'attack speed'   : 0,
-		'cast speed'     : 0,
-		'pen all'        : 1702.9,
-		'pen fire'       : 168.5,
-		'pen cold'       : 754.8,
-		'pen lightning'  : 779.6,
-		'flat phys'      : 249.4,
-		'flat lightning' : 135.4,
-		'flat fire'      : 149.6,
-		'flat cold'      : 135.4,
-		'flat chaos'     : 56.3,
-		'extra fire'     : 894.2,
-		'extra cold'     : 801.6,
-		'extra lightning': 787.3,
-		'ele as chaos'   : 1310.6
+		'cast speed'     : 517.4,
+		'pen all'        : 833.5,
+		'pen fire'       : 0,
+		'pen cold'       : 186.1,
+		'pen lightning'  : 647.4,
+		'flat phys'      : 86.5,
+		'flat lightning' : 107.6,
+		'flat fire'      : 56.2,
+		'flat cold'      : 58,
+		'flat chaos'     : 64.9,
+		'extra fire'     : 0,
+		'extra cold'     : 0,
+		'extra lightning': 0,
+		'ele as chaos'   : 648.9
 	}
 
 	dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning'])/3
@@ -58,7 +58,7 @@ def main():
 	# Hands: Shield, Duel Wielding, Two Handed Weapon
 	# Note that non-selected elements will be excluded
 
-	selections = {'Spell', 'Shield'}
+	selections = {'Spell', 'Shield', 'Totem', 'Elemental', 'Lightning'}
 
 	modstr = {
 		"#% increased Area Damage": dps['% generic'] if {'Area'}.issubset(selections) else 0,
@@ -217,7 +217,7 @@ def main():
 				mlist[mod] = modstr[mods[mod]]
 
 	searchstring = 'https://www.pathofexile.com/api/trade/search/Delve?redirect&source={{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}}]}}}}'
-	item = '{{"id":"{}","value":{{"weight":{}}},"disabled":false}}'
+	item = '{{"id":"{}","value":{{"weight":{}}}}}'
 	query = []
 	for i in mlist:
 		query.append(item.format(i, mlist[i]))
