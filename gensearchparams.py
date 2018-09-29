@@ -14,30 +14,31 @@ from modlist import mods
 
 def main():
 	dps = {
-		'% fire'         : 0,
-		'% cold'         : 21.1,
-		'% lightning'    : 121.3,
-		'% elemental'    : 142.4,
+		'% fire'         : 57.9,
+		'% cold'         : 162.2,
+		'% lightning'    : 239.5,
+		'% elemental'    : 459.6,
 		'% chaos'        : 0,
-		'% physical'     : 0,
-		'% generic'      : 142.4,
-		'crit chance'    : 57,
-		'crit multi'     : 167.9,
+		'% physical'     : 363.1,
+		'% generic'      : 459.6,
+		'crit chance'    : 0,
+		'crit multi'     : 0,
 		'attack speed'   : 0,
-		'cast speed'     : 517.4,
-		'pen all'        : 833.5,
-		'pen fire'       : 0,
-		'pen cold'       : 186.1,
-		'pen lightning'  : 647.4,
-		'flat phys'      : 86.5,
-		'flat lightning' : 107.6,
-		'flat fire'      : 56.2,
-		'flat cold'      : 58,
-		'flat chaos'     : 64.9,
-		'extra fire'     : 0,
-		'extra cold'     : 0,
-		'extra lightning': 0,
-		'ele as chaos'   : 648.9
+		'cast speed'     : 0,
+		'pen all'        : 2966.2,
+		'pen fire'       : 347,
+		'pen cold'       : 1045.7,
+		'pen lightning'  : 1573.5,
+		'flat phys'      : 401.7,
+		'flat lightning' : 185.4,
+		'flat fire'      : 200.8,
+		'flat cold'      : 181.5,
+		'flat chaos'     : 61.9,
+		'extra fire'     : 1355.7,
+		'extra cold'     : 1224.4,
+		'extra lightning': 1236,
+		'extra chaos'    : 2781.6,
+		'ele as chaos'   : 2334.4
 	}
 
 	dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning'])/3
@@ -48,7 +49,7 @@ def main():
 #		dps[val] /= t
 
 	# Do minion nodes affect your damage?
-	miniondamage = True
+	miniondamage = False
 	minionattackspeed = False
 
 	# Valid selection terms are:
@@ -58,7 +59,7 @@ def main():
 	# Hands: Shield, Duel Wielding, Two Handed Weapon
 	# Note that non-selected elements will be excluded
 
-	selections = {'Spell', 'Shield', 'Totem', 'Elemental', 'Lightning'}
+	selections = {'Spell', 'Shield'}
 
 	modstr = {
 		"#% increased Area Damage": dps['% generic'] if {'Area'}.issubset(selections) else 0,
@@ -207,7 +208,8 @@ def main():
 		"Gain #% of Physical Damage as Extra Fire Damage if you've dealt a Critical Strike Recently": dps['extra fire'],
 		"Gain #% of Physical Damage as Extra Lightning Damage": dps['extra lightning'],
 		"Minions deal #% increased Damage": dps['% generic'] if miniondamage else 0,
-		"Minions have #% increased Attack Speed": dps['attack speed'] if minionattackspeed else 0
+		"Minions have #% increased Attack Speed": dps['attack speed'] if minionattackspeed else 0,
+		"Gain #% of Non-Chaos Damage as extra Chaos Damage": dps['extra chaos']
 	}
 
 	mlist = {}

@@ -184,6 +184,14 @@ Item Level: 1
 1% of Physical Damage as Extra Lightning Damage
 
 Rarity: Rare
+Gain 1% of Non-Chaos damage as Extra Chaos Damage
+Prismatic Jewel
+--------
+Item Level: 1
+--------
+Gain 1% of Non-Chaos damage as Extra Chaos Damage
+
+Rarity: Rare
 Gain 1% of Elemental Damage as Extra Chaos Damage
 Prismatic Jewel
 --------
