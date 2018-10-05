@@ -10,9 +10,9 @@
 1% increased Attack Speed
 1% increased Cast Speed
 Damage Penetrates 1% Elemental Resistances
-Damage Penetrates 1% Fire Resistances
-Damage Penetrates 1% Cold Resistances
-Damage Penetrates 1% Lightning Resistances
+Damage Penetrates 1% Fire Resistance
+Damage Penetrates 1% Cold Resistance
+Damage Penetrates 1% Lightning Resistance
 Adds 1 to 1 Physical Damage
 Adds 1 to 1 Lightning Damage
 Adds 1 to 1 Fire Damage

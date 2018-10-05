@@ -96,27 +96,27 @@ Damage Penetrates 1% Elemental Resistances
 		</Item>
 		<Item>
 			Rarity: RARE
-Damage Penetrates 1% Fire Resistances
+Damage Penetrates 1% Fire Resistance
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Damage Penetrates 1% Fire Resistances
+Damage Penetrates 1% Fire Resistance
 		</Item>
 		<Item>
 			Rarity: RARE
-Damage Penetrates 1% Cold Resistances
+Damage Penetrates 1% Cold Resistance
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Damage Penetrates 1% Cold Resistances
+Damage Penetrates 1% Cold Resistance
 		</Item>
 		<Item>
 			Rarity: RARE
-Damage Penetrates 1% Lightning Resistances
+Damage Penetrates 1% Lightning Resistance
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Damage Penetrates 1% Lightning Resistances
+Damage Penetrates 1% Lightning Resistance
 		</Item>
 		<Item>
 			Rarity: RARE
