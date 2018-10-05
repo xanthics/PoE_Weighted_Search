@@ -7,13 +7,13 @@
 
 def gentxt():
 	header = '''
-	Rarity: Rare
-	{0}
-	Prismatic Jewel
-	--------
-	Item Level: 1
-	--------
-	{0}
+Rarity: Rare
+{0}
+Prismatic Jewel
+--------
+Item Level: 1
+--------
+{0}
 	
 	'''
 
