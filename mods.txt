@@ -23,3 +23,5 @@ Adds 1 to 1 Chaos Damage
 1% of Physical Damage as Extra Lightning Damage
 Gain 1% of Non-Chaos damage as Extra Chaos Damage
 Gain 1% of Elemental Damage as Extra Chaos Damage
++1 to Maximum Power Charges
++1 to Maximum Frenzy Charges

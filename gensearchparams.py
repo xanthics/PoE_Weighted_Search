@@ -14,31 +14,33 @@ from modlist import mods
 
 def main():
 	dps = {
-		'% fire'         : 57.9,
-		'% cold'         : 162.2,
-		'% lightning'    : 239.5,
-		'% elemental'    : 459.6,
-		'% chaos'        : 0,
-		'% physical'     : 363.1,
-		'% generic'      : 459.6,
-		'crit chance'    : 0,
-		'crit multi'     : 0,
-		'attack speed'   : 0,
-		'cast speed'     : 0,
-		'pen all'        : 2966.2,
-		'pen fire'       : 347,
-		'pen cold'       : 1045.7,
-		'pen lightning'  : 1573.5,
-		'flat phys'      : 401.7,
-		'flat lightning' : 185.4,
-		'flat fire'      : 200.8,
-		'flat cold'      : 181.5,
-		'flat chaos'     : 61.9,
-		'extra fire'     : 1355.7,
-		'extra cold'     : 1224.4,
-		'extra lightning': 1236,
-		'extra chaos'    : 2781.6,
-		'ele as chaos'   : 2334.4
+		'% fire'          : 0,
+		'% cold'          : 67.4,
+		'% lightning'     : 2.0,
+		'% elemental'     : 69.3,
+		'% chaos'         : 0,
+		'% physical'      : 108.1,
+		'% generic'       : 110,
+		'crit chance'     : 69.4,
+		'crit multi'      : 141.4,
+		'attack speed'    : 0,
+		'cast speed'      : 0,
+		'pen all'         : 663.2,
+		'pen fire'        : 0,
+		'pen cold'        : 639.2,
+		'pen lightning'   : 24,
+		'flat phys'       : 70.4,
+		'flat lightning'  : 43,
+		'flat fire'       : 44.9,
+		'flat cold'       : 44.9,
+		'flat chaos'      : 43.9,
+		'extra fire'      : 463.8,
+		'extra cold'      : 466.7,
+		'extra lightning' : 449.1,
+		'extra chaos'     : 977.0,
+		'ele as chaos'    : 512.6,
+		'+1 power charge' : 5914.5,
+		'+1 frenzy charge': 0
 	}
 
 	dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning'])/3
@@ -57,9 +59,10 @@ def main():
 	# Class: Bow, Wand, Claw, Sword, Axe, Dagger, Mace, Staff, Trap, Mine, Totem
 	# Tags: Melee, Area, Projectile, Elemental, Fire, Cold, Lightning
 	# Hands: Shield, Duel Wielding, Two Handed Weapon
+	# Charges: Frenzy, Power
 	# Note that non-selected elements will be excluded
 
-	selections = {'Spell', 'Shield'}
+	selections = {'Spell', 'Mine', 'Area', 'Elemental', 'Cold', 'Shield', 'Power'}
 
 	modstr = {
 		"#% increased Area Damage": dps['% generic'] if {'Area'}.issubset(selections) else 0,
@@ -209,23 +212,36 @@ def main():
 		"Gain #% of Physical Damage as Extra Lightning Damage": dps['extra lightning'],
 		"Minions deal #% increased Damage": dps['% generic'] if miniondamage else 0,
 		"Minions have #% increased Attack Speed": dps['attack speed'] if minionattackspeed else 0,
-		"Gain #% of Non-Chaos Damage as extra Chaos Damage": dps['extra chaos']
+		"Gain #% of Non-Chaos Damage as extra Chaos Damage": dps['extra chaos'],
+		'# to Maximum Power Charges': dps['+1 power charge'] if {'Power'}.issubset(selections) else 0,
+		'# to Maximum Frenzy Charges': dps['+1 frenzy charge'] if {'Frenzy'}.issubset(selections) else 0
 	}
 
+	# List of mods that will go in to a 'not' filter so that certain items will never appear
+	# These items have high values of damage mods with some downside that is not accounted for
+	ignoredmods = [
+		'#% less Critical Strike Chance',  # Marylene's Fallacy
+		'Lose all Power Charges on reaching Maximum Power Charges'  # Malachai's Loop
+	]
+
 	mlist = {}
+	notquery = []
+	notitem = '{{"id":"{}"}}'
 	for mod in mods:
 		if mods[mod] in modstr:
 			if modstr[mods[mod]]:
 				mlist[mod] = modstr[mods[mod]]
+		if mods[mod] in ignoredmods:
+			notquery.append(notitem.format(mod))
 
-	searchstring = 'https://www.pathofexile.com/api/trade/search/Delve?redirect&source={{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}}]}}}}'
+	searchstring = 'https://www.pathofexile.com/api/trade/search/Delve?redirect&source={{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
 	item = '{{"id":"{}","value":{{"weight":{}}}}}'
 	query = []
 	for i in mlist:
 		query.append(item.format(i, mlist[i]))
-	print(searchstring.format(','.join(query)))
+	print(searchstring.format(','.join(query), ','.join(notquery)))
 	with open('querystring.txt', 'w') as f:
-		f.write(searchstring.format(','.join(query)))
+		f.write(searchstring.format(','.join(query), ','.join(notquery)))
 
 
 if __name__ == "__main__":

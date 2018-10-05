@@ -198,3 +198,19 @@ Item Level: 1
 Implicits: 0
 Gain 1% of Elemental Damage as Extra Chaos Damage
 		</Item>
+		<Item>
+			Rarity: RARE
++1 to Maximum Power Charges
+Prismatic Jewel
+Item Level: 1
+Implicits: 0
++1 to Maximum Power Charges
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Maximum Frenzy Charges
+Prismatic Jewel
+Item Level: 1
+Implicits: 0
++1 to Maximum Frenzy Charges
+		</Item>
