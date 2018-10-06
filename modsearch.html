@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mod Search Generator</title>
+    <script src="brython/brython.js" type="text/javascript"></script>
+
+</head>
+<body onload="brython(1)">
+<script type="text/python" src="gensearchparams.py"></script>
+<section class="main">
+    <table>
+        <tr><th>Damage</th><th>Jewel Mod</th></tr>
+        <tr><td><input type="number" name="% physical" value="0"></td><td>1% increased Physical Damage</td></tr>
+        <tr><td><input type="number" name="% lightning" value="0"></td><td>1% increased Lightning Damage</td></tr>
+        <tr><td><input type="number" name="% cold" value="0"></td><td>1% increased Cold Damage</td></tr>
+        <tr><td><input type="number" name="% fire" value="0"></td><td>1% increased Fire Damage</td></tr>
+        <tr><td><input type="number" name="% elemental" value="0"></td><td>1% increased Elemental Damage</td></tr>
+        <tr><td><input type="number" name="% chaos" value="0"></td><td>1% increased Chaos Damage</td></tr>
+        <tr><td><input type="number" name="% generic" value="0"></td><td>1% increased Damage</td></tr>
+        <tr><td><input type="number" name="crit chance" value="0"></td><td>1% increased Global Critical Strike Chance</td></tr>
+        <tr><td><input type="number" name="crit multi" value="0"></td><td>+1% to Global Critical Strike Multiplier</td></tr>
+        <tr><td><input type="number" name="attack speed" value="0"></td><td>1% increased Attack Speed</td></tr>
+        <tr><td><input type="number" name="cast speed" value="0"></td><td>1% increased Cast Speed</td></tr>
+        <tr><td><input type="number" name="pen all" value="0"></td><td>Damage Penetrates 1% Elemental Resistances</td></tr>
+        <tr><td><input type="number" name="pen fire" value="0"></td><td>Damage Penetrates 1% Fire Resistance</td></tr>
+        <tr><td><input type="number" name="pen cold" value="0"></td><td>Damage Penetrates 1% Cold Resistance</td></tr>
+        <tr><td><input type="number" name="pen lightning" value="0"></td><td>Damage Penetrates 1% Lightning Resistance</td></tr>
+        <tr><td><input type="number" name="flat phys" value="0"></td><td>Adds 1 to 1 Physical Damage</td></tr>
+        <tr><td><input type="number" name="flat lightning" value="0"></td><td>Adds 1 to 1 Lightning Damage</td></tr>
+        <tr><td><input type="number" name="flat cold" value="0"></td><td>Adds 1 to 1 Cold Damage</td></tr>
+        <tr><td><input type="number" name="flat fire" value="0"></td><td>Adds 1 to 1 Fire Damage</td></tr>
+        <tr><td><input type="number" name="flat chaos" value="0"></td><td>Adds 1 to 1 Chaos Damage</td></tr>
+        <tr><td><input type="number" name="extra lightning" value="0"></td><td>1% of Physical Damage as Extra Lightning Damage</td></tr>
+        <tr><td><input type="number" name="extra cold" value="0"></td><td>1% of Physical Damage as Extra Cold Damage</td></tr>
+        <tr><td><input type="number" name="extra fire" value="0"></td><td>1% of Physical Damage as Extra Fire Damage</td></tr>
+        <tr><td><input type="number" name="extra chaos" value="0"></td><td>Gain 1% of Non-Chaos damage as Extra Chaos Damage</td></tr>
+        <tr><td><input type="number" name="ele as chaos" value="0"></td><td>Gain 1% of Elemental Damage as Extra Chaos Damage</td></tr>
+        <tr><td><input type="number" name="+1 power charge" value="0"></td><td>+1 to Maximum Power Charges</td></tr>
+        <tr><td><input type="number" name="+1 frenzy charge" value="0"></td><td>+1 to Maximum Frenzy Charges</td></tr>
+    </table> <br><br>
+
+    <strong>Minion Nodes?:</strong> Select if you have the nodes selected on your tree or are wearing the Scourge.<br>
+    <label><input type="checkbox" name="Minion Damage">Minion Damage</label>  <label><input type="checkbox" name="Minion Attack Speed">Minion Attack Speed</label> <br><br>
+
+    <strong>Type:</strong> Generally select 1 based on your type of attack<br>
+    <label><input type="checkbox" name="Attack">Attack</label>  <label><input type="checkbox" name="Spell">Spell</label> <br><br>
+
+    <strong>Class:</strong> If you are melee, select 1 or more(Varunastra) weapon types.  Trap/Mine/Totem if you are using those supports<br>
+    <label><input type="checkbox" name="Mace">Mace</label>  <label><input type="checkbox" name="Bow">Bow</label>  <label><input type="checkbox" name="Wand">Wand</label>  <label><input type="checkbox" name="Claw">Claw</label> <br>
+    <label><input type="checkbox" name="Staff">Staff</label>  <label><input type="checkbox" name="Sword">Sword</label>  <label><input type="checkbox" name="Axe">Axe</label>  <label><input type="checkbox" name="Dagger">Dagger</label> <br>
+    <label><input type="checkbox" name="Trap">Trap</label>  <label><input type="checkbox" name="Mine">Mine</label>  <label><input type="checkbox" name="Totem">Totem</label> <br><br>
+
+    <strong>Tags:</strong> Check all the tags that match your primary skill<br>
+    <label><input type="checkbox" name="Melee">Melee</label>  <label><input type="checkbox" name="Area">Area</label>  <label><input type="checkbox" name="Projectile">Projectile</label>  <label><input type="checkbox" name="Elemental">Elemental</label> <br>
+    <label><input type="checkbox" name="Fire">Fire</label>  <label><input type="checkbox" name="Cold">Cold</label>  <label><input type="checkbox" name="Lightning">Lightning</label> <br><br>
+
+    <strong>Hands:</strong> choose 1 based on wielded weapons<br>
+    <label><input type="checkbox" name="Shield">Shield</label>  <label><input type="checkbox" name="Duel Wielding">Duel Wielding</label>  <label><input type="checkbox" name="Two Handed Weapon">Two Handed Weapon</label> <br><br>
+
+    <strong>Charges:</strong> Do you sustain charges?<br>
+    <label><input type="checkbox" name="Frenzy">Frenzy</label>  <label><input type="checkbox" name="Power">Power</label> <br><br>
+    <div id="generate"></div><br>
+    <a href="" id="query" target="_blank">Search</a><br>
+    <textarea id="test"></textarea><br>
+    <script type="text/python">
+        from browser import document as doc
+        from browser import html
+        from gensearchparams import gensearchparams
+
+        def generate_query(ev):
+            dps = {}
+            for elt in doc.get(selector='input[type="number"]'):
+                dps[elt.name] = float(elt.value)
+            dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning']) / 3
+            selections = set()
+            for elt in doc.get(selector='input[type="checkbox"]'):
+                if elt.checked:
+                    selections.add(elt.name)
+
+            querystring = gensearchparams(dps, selections)
+            doc["query"].href = querystring
+            doc["query"].style.display = "inline"
+
+        doc["query"].style.display = "none"
+        b_generate = html.BUTTON("Generate Query")
+        b_generate.bind("click", generate_query)
+        doc["generate"] <= b_generate
+    </script>
+
+
+</section>
+</body>
+</html>
