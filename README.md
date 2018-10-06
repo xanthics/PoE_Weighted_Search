@@ -1,3 +1,5 @@
+The web based version of this is hosted at [http://gw2crafts.net/pobsearch/modsearch.html](http://gw2crafts.net/pobsearch/modsearch.html)
+
 A collection of files for generating pathofexile.com/trade queries for jewels and statsticks
 
 Usage
