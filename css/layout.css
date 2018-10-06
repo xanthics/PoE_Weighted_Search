@@ -42,8 +42,8 @@ tr:nth-child(odd) {
 	margin: 1px
 	line-height: 1em;}
 
-input[type=checkbox] + label {
+label + input[type=checkbox] {
 	opacity:0.5;}
 
-input[type=checkbox]:checked + label {
+label + input[type=checkbox]:checked {
 	opacity:1.0;}

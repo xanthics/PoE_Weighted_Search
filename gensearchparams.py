@@ -157,7 +157,8 @@ def gensearchparams(dps, selections):
 		"Minions have #% increased Attack Speed": dps['attack speed'] if {'Minion Attack Speed'}.issubset(selections) else 0,
 		"Gain #% of Non-Chaos Damage as extra Chaos Damage": dps['extra chaos'],
 		'# to Maximum Power Charges': dps['+1 power charge'] if {'Power'}.issubset(selections) else 0,
-		'# to Maximum Frenzy Charges': dps['+1 frenzy charge'] if {'Frenzy'}.issubset(selections) else 0
+		'# to Maximum Frenzy Charges': dps['+1 frenzy charge'] if {'Frenzy'}.issubset(selections) else 0,
+		'# to Maximum Endurance Charges': dps['+1 endurance charge'] if {'Endurance'}.issubset(selections) else 0
 	}
 
 	# List of mods that will go in to a 'not' filter so that certain items will never appear

@@ -214,3 +214,11 @@ Item Level: 1
 Implicits: 0
 +1 to Maximum Frenzy Charges
 		</Item>
+		<Item>
+			Rarity: RARE
++1 to Maximum Endurance Charges
+Prismatic Jewel
+Item Level: 1
+Implicits: 0
++1 to Maximum Endurance Charges
+		</Item>
