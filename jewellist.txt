@@ -1,11 +1,20 @@
 
 Rarity: Rare
-1% increased Fire Damage
+1% increased Physical Damage
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-1% increased Fire Damage
+1% increased Physical Damage
+	
+	
+Rarity: Rare
+1% increased Lightning Damage
+Prismatic Jewel
+--------
+Item Level: 1
+--------
+1% increased Lightning Damage
 	
 	
 Rarity: Rare
@@ -18,12 +27,12 @@ Item Level: 1
 	
 	
 Rarity: Rare
-1% increased Lightning Damage
+1% increased Fire Damage
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-1% increased Lightning Damage
+1% increased Fire Damage
 	
 	
 Rarity: Rare
@@ -42,15 +51,6 @@ Prismatic Jewel
 Item Level: 1
 --------
 1% increased Chaos Damage
-	
-	
-Rarity: Rare
-1% increased Physical Damage
-Prismatic Jewel
---------
-Item Level: 1
---------
-1% increased Physical Damage
 	
 	
 Rarity: Rare
@@ -108,12 +108,12 @@ Damage Penetrates 1% Elemental Resistances
 	
 	
 Rarity: Rare
-Damage Penetrates 1% Fire Resistance
+Damage Penetrates 1% Lightning Resistance
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-Damage Penetrates 1% Fire Resistance
+Damage Penetrates 1% Lightning Resistance
 	
 	
 Rarity: Rare
@@ -126,12 +126,12 @@ Damage Penetrates 1% Cold Resistance
 	
 	
 Rarity: Rare
-Damage Penetrates 1% Lightning Resistance
+Damage Penetrates 1% Fire Resistance
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-Damage Penetrates 1% Lightning Resistance
+Damage Penetrates 1% Fire Resistance
 	
 	
 Rarity: Rare
@@ -153,21 +153,21 @@ Adds 1 to 1 Lightning Damage
 	
 	
 Rarity: Rare
-Adds 1 to 1 Fire Damage
+Adds 1 to 1 Cold Damage
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-Adds 1 to 1 Fire Damage
+Adds 1 to 1 Cold Damage
 	
 	
 Rarity: Rare
-Adds 1 to 1 Cold Damage
+Adds 1 to 1 Fire Damage
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-Adds 1 to 1 Cold Damage
+Adds 1 to 1 Fire Damage
 	
 	
 Rarity: Rare
@@ -180,12 +180,12 @@ Adds 1 to 1 Chaos Damage
 	
 	
 Rarity: Rare
-1% of Physical Damage as Extra Fire Damage
+1% of Physical Damage as Extra Lightning Damage
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-1% of Physical Damage as Extra Fire Damage
+1% of Physical Damage as Extra Lightning Damage
 	
 	
 Rarity: Rare
@@ -198,12 +198,12 @@ Item Level: 1
 	
 	
 Rarity: Rare
-1% of Physical Damage as Extra Lightning Damage
+1% of Physical Damage as Extra Fire Damage
 Prismatic Jewel
 --------
 Item Level: 1
 --------
-1% of Physical Damage as Extra Lightning Damage
+1% of Physical Damage as Extra Fire Damage
 	
 	
 Rarity: Rare
