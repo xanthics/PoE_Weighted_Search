@@ -2,68 +2,11 @@
 # -*- coding: utf-8 -*-
 # Author: Jeremy Parks
 # Note: Requires Python 3.3.x or higher
-# Given dps values from Path of Building, generate a search for jewels and stat sticks
-# Usage
-# dps: dictionary of dps values, set to 0 for unused
-# miniondamage and minionattackspeet: set to true if you have specced the relevant nodes on the tree
-# selections: update with a type, 0 or more class, 1 or more tags, 1 type of hands
-# - This is how you control what mods are considered
-
+# Given dps values from Path of Building, generates a search url for jewels and stat sticks
 from modlist import mods
 
 
-def main():
-	dps = {
-		'% fire'          : 0,
-		'% cold'          : 67.4,
-		'% lightning'     : 2.0,
-		'% elemental'     : 69.3,
-		'% chaos'         : 0,
-		'% physical'      : 108.1,
-		'% generic'       : 110,
-		'crit chance'     : 69.4,
-		'crit multi'      : 141.4,
-		'attack speed'    : 0,
-		'cast speed'      : 0,
-		'pen all'         : 663.2,
-		'pen fire'        : 0,
-		'pen cold'        : 639.2,
-		'pen lightning'   : 24,
-		'flat phys'       : 70.4,
-		'flat lightning'  : 43,
-		'flat fire'       : 44.9,
-		'flat cold'       : 44.9,
-		'flat chaos'      : 43.9,
-		'extra fire'      : 463.8,
-		'extra cold'      : 466.7,
-		'extra lightning' : 449.1,
-		'extra chaos'     : 977.0,
-		'ele as chaos'    : 512.6,
-		'+1 power charge' : 5914.5,
-		'+1 frenzy charge': 0
-	}
-
-	dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning'])/3
-
-	# For normalizing weights, seems to be less laggy than searching with larger numbers
-#	t = dps['% generic']
-#	for val in dps:
-#		dps[val] /= t
-
-	# Do minion nodes affect your damage?
-	miniondamage = False
-	minionattackspeed = False
-
-	# Valid selection terms are:
-	# Type: Attack, Spell
-	# Class: Bow, Wand, Claw, Sword, Axe, Dagger, Mace, Staff, Trap, Mine, Totem
-	# Tags: Melee, Area, Projectile, Elemental, Fire, Cold, Lightning
-	# Hands: Shield, Duel Wielding, Two Handed Weapon
-	# Charges: Frenzy, Power
-	# Note that non-selected elements will be excluded
-
-	selections = {'Spell', 'Mine', 'Area', 'Elemental', 'Cold', 'Shield', 'Power'}
-
+def gensearchparams(dps, selections):
 	modstr = {
 		"#% increased Area Damage": dps['% generic'] if {'Area'}.issubset(selections) else 0,
 		"#% increased Attack Speed": dps['attack speed'] if {'Attack'}.issubset(selections) else 0,
@@ -210,8 +153,8 @@ def main():
 		"Gain #% of Physical Damage as Extra Fire Damage": dps['extra fire'],
 		"Gain #% of Physical Damage as Extra Fire Damage if you've dealt a Critical Strike Recently": dps['extra fire'],
 		"Gain #% of Physical Damage as Extra Lightning Damage": dps['extra lightning'],
-		"Minions deal #% increased Damage": dps['% generic'] if miniondamage else 0,
-		"Minions have #% increased Attack Speed": dps['attack speed'] if minionattackspeed else 0,
+		"Minions deal #% increased Damage": dps['% generic'] if {'Minion Damage'}.issubset(selections) else 0,
+		"Minions have #% increased Attack Speed": dps['attack speed'] if {'Minion Attack Speed'}.issubset(selections) else 0,
 		"Gain #% of Non-Chaos Damage as extra Chaos Damage": dps['extra chaos'],
 		'# to Maximum Power Charges': dps['+1 power charge'] if {'Power'}.issubset(selections) else 0,
 		'# to Maximum Frenzy Charges': dps['+1 frenzy charge'] if {'Frenzy'}.issubset(selections) else 0
@@ -239,10 +182,5 @@ def main():
 	query = []
 	for i in mlist:
 		query.append(item.format(i, mlist[i]))
-	print(searchstring.format(','.join(query), ','.join(notquery)))
-	with open('querystring.txt', 'w') as f:
-		f.write(searchstring.format(','.join(query), ','.join(notquery)))
+	return searchstring.format(','.join(query), ','.join(notquery))
 
-
-if __name__ == "__main__":
-	main()
