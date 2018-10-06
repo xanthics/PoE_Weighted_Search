@@ -1,0 +1,49 @@
+body {
+	background-color: rgb(100,100,100);
+	background-image: url('/img/sbg.gif');
+	background-attachment: fixed;
+	font-family: Arial, Helvetica, sans-serif;}
+
+section {
+	text-align: justify;
+	top: 3em;
+	background-color: rgb(200,200,200);
+	padding:10px;
+	margin-left: auto;
+	margin-right: auto;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border-style:solid;
+	border-width:1px;
+	border-color: rgb(75,75,75);}
+
+section.main {
+	z-index: 1;
+	max-width: 750px;
+	min-width: 750px;
+	width: 95%;
+	position: relative;}
+
+/* Alternating list background Styles */
+
+tr:nth-child(even) {
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: rgb(185,185,185);
+	padding:6px;
+	margin: 1px
+	line-height: 1em;}
+
+tr:nth-child(odd) {
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: rgb(220,220,220);
+	padding:6px;
+	margin: 1px
+	line-height: 1em;}
+
+input[type=checkbox] + label {
+	opacity:0.5;}
+
+input[type=checkbox]:checked + label {
+	opacity:1.0;}

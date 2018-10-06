@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <title>Mod Search Generator</title>
     <script src="brython/brython.js" type="text/javascript"></script>
+    <link href="css/layout.css" rel="stylesheet" type="text/css" />
 
 </head>
-<body onload="brython(1)">
+<body onload="brython()">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
+    <strong>Using this page.</strong> <br>
+    You need to add jewels to Path of Building, if you have not yet done so.<br><br>
+    <a href="">Text file to add jewels by hand</a><br><br>
+    <a href="">xml file to add jewels direction to Path of Building Settings at your own risk</a><br><br>
+    You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table.  After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br><br>
+    This page requires javascript in order to run.  You can test if the page will run for you by clicking "Generate Query" and see if a link is added to the end of the page.<br>
+    <br>
     <table>
         <tr><th>Damage</th><th>Jewel Mod</th></tr>
         <tr><td><input type="number" name="% physical" value="0"></td><td>1% increased Physical Damage</td></tr>
@@ -41,28 +49,41 @@
     </table> <br><br>
 
     <strong>Minion Nodes?:</strong> Select if you have the nodes selected on your tree or are wearing the Scourge.<br>
-    <label><input type="checkbox" name="Minion Damage">Minion Damage</label>  <label><input type="checkbox" name="Minion Attack Speed">Minion Attack Speed</label> <br><br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Minion Damage">Minion Damage</label></td><td><label><input type="checkbox" name="Minion Attack Speed">Minion Attack Speed</label></td></tr>
+    </table><br><br>
 
     <strong>Type:</strong> Generally select 1 based on your type of attack<br>
-    <label><input type="checkbox" name="Attack">Attack</label>  <label><input type="checkbox" name="Spell">Spell</label> <br><br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Attack">Attack</label></td><td><label><input type="checkbox" name="Spell">Spell</label></td>
+    </table><br><br>
 
     <strong>Class:</strong> If you are melee, select 1 or more(Varunastra) weapon types.  Trap/Mine/Totem if you are using those supports<br>
-    <label><input type="checkbox" name="Mace">Mace</label>  <label><input type="checkbox" name="Bow">Bow</label>  <label><input type="checkbox" name="Wand">Wand</label>  <label><input type="checkbox" name="Claw">Claw</label> <br>
-    <label><input type="checkbox" name="Staff">Staff</label>  <label><input type="checkbox" name="Sword">Sword</label>  <label><input type="checkbox" name="Axe">Axe</label>  <label><input type="checkbox" name="Dagger">Dagger</label> <br>
-    <label><input type="checkbox" name="Trap">Trap</label>  <label><input type="checkbox" name="Mine">Mine</label>  <label><input type="checkbox" name="Totem">Totem</label> <br><br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Mace">Mace</label></td><td><label><input type="checkbox" name="Bow">Bow</label></td><td><label><input type="checkbox" name="Wand">Wand</label></td><td><label><input type="checkbox" name="Claw">Claw</label></td></tr>
+    <tr><td><label><input type="checkbox" name="Staff">Staff</label></td><td><label><input type="checkbox" name="Sword">Sword</label></td><td><label><input type="checkbox" name="Axe">Axe</label></td><td><label><input type="checkbox" name="Dagger">Dagger</label></td></tr>
+    <tr><td><label><input type="checkbox" name="Trap">Trap</label></td><td><label><input type="checkbox" name="Mine">Mine</label></td><td><label><input type="checkbox" name="Totem">Totem</label></td></tr>
+    </table><br><br>
 
     <strong>Tags:</strong> Check all the tags that match your primary skill<br>
-    <label><input type="checkbox" name="Melee">Melee</label>  <label><input type="checkbox" name="Area">Area</label>  <label><input type="checkbox" name="Projectile">Projectile</label>  <label><input type="checkbox" name="Elemental">Elemental</label> <br>
-    <label><input type="checkbox" name="Fire">Fire</label>  <label><input type="checkbox" name="Cold">Cold</label>  <label><input type="checkbox" name="Lightning">Lightning</label> <br><br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Melee">Melee</label></td><td><label><input type="checkbox" name="Area">Area</label></td><td><label><input type="checkbox" name="Projectile">Projectile</label></td><td><label><input type="checkbox" name="Elemental">Elemental</label></td></tr>
+    <tr><td><label><input type="checkbox" name="Fire">Fire</label></td><td><label><input type="checkbox" name="Cold">Cold</label></td><td><label><input type="checkbox" name="Lightning">Lightning</label></td></tr>
+    </table><br><br>
 
     <strong>Hands:</strong> choose 1 based on wielded weapons<br>
-    <label><input type="checkbox" name="Shield">Shield</label>  <label><input type="checkbox" name="Duel Wielding">Duel Wielding</label>  <label><input type="checkbox" name="Two Handed Weapon">Two Handed Weapon</label> <br><br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Shield">Shield</label></td><td><label><input type="checkbox" name="Duel Wielding">Duel Wielding</label></td><td><label><input type="checkbox" name="Two Handed Weapon">Two Handed Weapon</label></td></tr>
+    </table><br><br>
 
     <strong>Charges:</strong> Do you sustain charges?<br>
-    <label><input type="checkbox" name="Frenzy">Frenzy</label>  <label><input type="checkbox" name="Power">Power</label> <br><br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Frenzy">Frenzy</label></td><td><label><input type="checkbox" name="Power">Power</label></td></tr>
+    </table><br><br>
+
     <div id="generate"></div><br>
     <a href="" id="query" target="_blank">Search</a><br>
-    <textarea id="test"></textarea><br>
+
     <script type="text/python">
         from browser import document as doc
         from browser import html
