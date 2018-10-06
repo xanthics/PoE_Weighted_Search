@@ -21,11 +21,19 @@ Creates modlist.py which is a list of all currently valid mod id: description pa
 
 **gensearchparams**
 
+Given a dictionary of stat weights and a set of tags, generates a search string for pathofexile.com/trade
+
+***
+
+**GenerateSearch**
+
 First update dps(with values from POB), the minion flags, and selections with valid flags.  Then run this file to generate a search string for pathofexile.com/trade with your various mod weights.  This sometimes fails to load but resubmitting has worked every time so far
 
 ***
 
 **HOWTO**
+
+Either go to the web based version [here](http://gw2crafts.net/pobsearch/modsearch.html), or complete the following steps for the offline version.
 
 1) Download the entire project and extract all files to the same location.
 
