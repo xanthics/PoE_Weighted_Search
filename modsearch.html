@@ -83,7 +83,8 @@
     </table><br><br>
 
     <div id="generate"></div><br>
-    <a href="" id="query" target="_blank">Search</a><br>
+    <a href="" id="query" target="_blank">Search</a><br><br>
+    <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.</div><br>
 
     <script type="text/python">
         from browser import document as doc
@@ -103,8 +104,10 @@
             querystring = gensearchparams(dps, selections)
             doc["query"].href = querystring
             doc["query"].style.display = "inline"
+            doc["notice"].style.display = "inline"
 
         doc["query"].style.display = "none"
+        doc["notice"].style.display = "none"
         b_generate = html.BUTTON("Generate Query")
         b_generate.bind("click", generate_query)
         doc["generate"] <= b_generate
