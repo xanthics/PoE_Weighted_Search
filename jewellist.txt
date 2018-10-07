@@ -1,7 +1,7 @@
 
 Rarity: Rare
 12% increased Physical Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -10,7 +10,7 @@ Item Level: 1
 	
 Rarity: Rare
 12% increased Lightning Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -19,7 +19,7 @@ Item Level: 1
 	
 Rarity: Rare
 12% increased Cold Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -28,7 +28,7 @@ Item Level: 1
 	
 Rarity: Rare
 12% increased Fire Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -37,7 +37,7 @@ Item Level: 1
 	
 Rarity: Rare
 12% increased Elemental Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -46,7 +46,7 @@ Item Level: 1
 	
 Rarity: Rare
 12% increased Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -55,7 +55,7 @@ Item Level: 1
 	
 Rarity: Rare
 12% increased Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -64,7 +64,7 @@ Item Level: 1
 	
 Rarity: Rare
 16% increased Global Critical Strike Chance
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -73,7 +73,7 @@ Item Level: 1
 	
 Rarity: Rare
 +16% to Global Critical Strike Multiplier
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -82,7 +82,7 @@ Item Level: 1
 	
 Rarity: Rare
 10% increased Attack Speed
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -91,7 +91,7 @@ Item Level: 1
 	
 Rarity: Rare
 10% increased Cast Speed
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -100,7 +100,7 @@ Item Level: 1
 	
 Rarity: Rare
 Damage Penetrates 8% Elemental Resistances
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -109,7 +109,7 @@ Damage Penetrates 8% Elemental Resistances
 	
 Rarity: Rare
 Damage Penetrates 8% Lightning Resistance
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -118,7 +118,7 @@ Damage Penetrates 8% Lightning Resistance
 	
 Rarity: Rare
 Damage Penetrates 8% Cold Resistance
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -127,7 +127,7 @@ Damage Penetrates 8% Cold Resistance
 	
 Rarity: Rare
 Damage Penetrates 8% Fire Resistance
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -136,7 +136,7 @@ Damage Penetrates 8% Fire Resistance
 	
 Rarity: Rare
 Adds 5 to 7 Physical Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -145,7 +145,7 @@ Adds 5 to 7 Physical Damage
 	
 Rarity: Rare
 Adds 6 to 68 Lightning Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -154,7 +154,7 @@ Adds 6 to 68 Lightning Damage
 	
 Rarity: Rare
 Adds 14 to 31 Cold Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -163,7 +163,7 @@ Adds 14 to 31 Cold Damage
 	
 Rarity: Rare
 Adds 21 to 34 Fire Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -172,7 +172,7 @@ Adds 21 to 34 Fire Damage
 	
 Rarity: Rare
 Adds 4 to 7 Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -181,7 +181,7 @@ Adds 4 to 7 Chaos Damage
 	
 Rarity: Rare
 15% of Physical Damage as Extra Lightning Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -190,7 +190,7 @@ Item Level: 1
 	
 Rarity: Rare
 15% of Physical Damage as Extra Cold Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -199,7 +199,7 @@ Item Level: 1
 	
 Rarity: Rare
 15% of Physical Damage as Extra Fire Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -208,7 +208,7 @@ Item Level: 1
 	
 Rarity: Rare
 Gain 15% of Non-Chaos damage as Extra Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -217,7 +217,7 @@ Gain 15% of Non-Chaos damage as Extra Chaos Damage
 	
 Rarity: Rare
 Gain 15% of Elemental Damage as Extra Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -226,7 +226,7 @@ Gain 15% of Elemental Damage as Extra Chaos Damage
 	
 Rarity: Rare
 +1 to Maximum Power Charges
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -235,7 +235,7 @@ Item Level: 1
 	
 Rarity: Rare
 +1 to Maximum Frenzy Charges
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -244,7 +244,7 @@ Item Level: 1
 	
 Rarity: Rare
 +1 to Maximum Endurance Charges
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------

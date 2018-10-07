@@ -1,7 +1,7 @@
 		<Item>
 			Rarity: RARE
 12% increased Physical Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Physical Damage
@@ -9,7 +9,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Lightning Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Lightning Damage
@@ -17,7 +17,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Cold Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Cold Damage
@@ -25,7 +25,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Fire Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Fire Damage
@@ -33,7 +33,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Elemental Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Elemental Damage
@@ -41,7 +41,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Chaos Damage
@@ -49,7 +49,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Damage
@@ -57,7 +57,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 16% increased Global Critical Strike Chance
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 16% increased Global Critical Strike Chance
@@ -65,7 +65,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +16% to Global Critical Strike Multiplier
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 +16% to Global Critical Strike Multiplier
@@ -73,7 +73,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Attack Speed
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 10% increased Attack Speed
@@ -81,7 +81,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Cast Speed
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 10% increased Cast Speed
@@ -89,7 +89,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Elemental Resistances
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Elemental Resistances
@@ -97,7 +97,7 @@ Damage Penetrates 8% Elemental Resistances
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Lightning Resistance
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Lightning Resistance
@@ -105,7 +105,7 @@ Damage Penetrates 8% Lightning Resistance
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Cold Resistance
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Cold Resistance
@@ -113,7 +113,7 @@ Damage Penetrates 8% Cold Resistance
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Fire Resistance
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Fire Resistance
@@ -121,7 +121,7 @@ Damage Penetrates 8% Fire Resistance
 		<Item>
 			Rarity: RARE
 Adds 5 to 7 Physical Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Adds 5 to 7 Physical Damage
@@ -129,7 +129,7 @@ Adds 5 to 7 Physical Damage
 		<Item>
 			Rarity: RARE
 Adds 6 to 68 Lightning Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Adds 6 to 68 Lightning Damage
@@ -137,7 +137,7 @@ Adds 6 to 68 Lightning Damage
 		<Item>
 			Rarity: RARE
 Adds 14 to 31 Cold Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Adds 14 to 31 Cold Damage
@@ -145,7 +145,7 @@ Adds 14 to 31 Cold Damage
 		<Item>
 			Rarity: RARE
 Adds 21 to 34 Fire Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Adds 21 to 34 Fire Damage
@@ -153,7 +153,7 @@ Adds 21 to 34 Fire Damage
 		<Item>
 			Rarity: RARE
 Adds 4 to 7 Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Adds 4 to 7 Chaos Damage
@@ -161,7 +161,7 @@ Adds 4 to 7 Chaos Damage
 		<Item>
 			Rarity: RARE
 15% of Physical Damage as Extra Lightning Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 15% of Physical Damage as Extra Lightning Damage
@@ -169,7 +169,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Physical Damage as Extra Cold Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 15% of Physical Damage as Extra Cold Damage
@@ -177,7 +177,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Physical Damage as Extra Fire Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 15% of Physical Damage as Extra Fire Damage
@@ -185,7 +185,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Gain 15% of Non-Chaos damage as Extra Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Gain 15% of Non-Chaos damage as Extra Chaos Damage
@@ -193,7 +193,7 @@ Gain 15% of Non-Chaos damage as Extra Chaos Damage
 		<Item>
 			Rarity: RARE
 Gain 15% of Elemental Damage as Extra Chaos Damage
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Gain 15% of Elemental Damage as Extra Chaos Damage
@@ -201,7 +201,7 @@ Gain 15% of Elemental Damage as Extra Chaos Damage
 		<Item>
 			Rarity: RARE
 +1 to Maximum Power Charges
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 +1 to Maximum Power Charges
@@ -209,7 +209,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Maximum Frenzy Charges
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 +1 to Maximum Frenzy Charges
@@ -217,7 +217,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Maximum Endurance Charges
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 +1 to Maximum Endurance Charges

@@ -9,7 +9,7 @@ def gentxt():
 	header = '''
 Rarity: Rare
 {0}
-Prismatic Jewel
+Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
@@ -29,7 +29,7 @@ def genxml():
 	header = '''		<Item>
 			Rarity: RARE
 {0}
-Prismatic Jewel
+Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 {0}
