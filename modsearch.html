@@ -7,7 +7,7 @@
     <link href="css/layout.css" rel="stylesheet" type="text/css" />
 
 </head>
-<body onload="brython()">
+<body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
     <strong>Using this page.</strong> <br>
@@ -19,34 +19,34 @@
     <br>
     <table>
         <tr><th>Damage</th><th>Jewel Mod</th></tr>
-        <tr><td><input type="number" name="% physical" value="0"></td><td>1% increased Physical Damage</td></tr>
-        <tr><td><input type="number" name="% lightning" value="0"></td><td>1% increased Lightning Damage</td></tr>
-        <tr><td><input type="number" name="% cold" value="0"></td><td>1% increased Cold Damage</td></tr>
-        <tr><td><input type="number" name="% fire" value="0"></td><td>1% increased Fire Damage</td></tr>
-        <tr><td><input type="number" name="% elemental" value="0"></td><td>1% increased Elemental Damage</td></tr>
-        <tr><td><input type="number" name="% chaos" value="0"></td><td>1% increased Chaos Damage</td></tr>
-        <tr><td><input type="number" name="% generic" value="0"></td><td>1% increased Damage</td></tr>
-        <tr><td><input type="number" name="crit chance" value="0"></td><td>1% increased Global Critical Strike Chance</td></tr>
-        <tr><td><input type="number" name="crit multi" value="0"></td><td>+1% to Global Critical Strike Multiplier</td></tr>
-        <tr><td><input type="number" name="attack speed" value="0"></td><td>1% increased Attack Speed</td></tr>
-        <tr><td><input type="number" name="cast speed" value="0"></td><td>1% increased Cast Speed</td></tr>
-        <tr><td><input type="number" name="pen all" value="0"></td><td>Damage Penetrates 1% Elemental Resistances</td></tr>
-        <tr><td><input type="number" name="pen fire" value="0"></td><td>Damage Penetrates 1% Fire Resistance</td></tr>
-        <tr><td><input type="number" name="pen cold" value="0"></td><td>Damage Penetrates 1% Cold Resistance</td></tr>
-        <tr><td><input type="number" name="pen lightning" value="0"></td><td>Damage Penetrates 1% Lightning Resistance</td></tr>
-        <tr><td><input type="number" name="flat phys" value="0"></td><td>Adds 1 to 1 Physical Damage</td></tr>
-        <tr><td><input type="number" name="flat lightning" value="0"></td><td>Adds 1 to 1 Lightning Damage</td></tr>
-        <tr><td><input type="number" name="flat cold" value="0"></td><td>Adds 1 to 1 Cold Damage</td></tr>
-        <tr><td><input type="number" name="flat fire" value="0"></td><td>Adds 1 to 1 Fire Damage</td></tr>
-        <tr><td><input type="number" name="flat chaos" value="0"></td><td>Adds 1 to 1 Chaos Damage</td></tr>
-        <tr><td><input type="number" name="extra lightning" value="0"></td><td>1% of Physical Damage as Extra Lightning Damage</td></tr>
-        <tr><td><input type="number" name="extra cold" value="0"></td><td>1% of Physical Damage as Extra Cold Damage</td></tr>
-        <tr><td><input type="number" name="extra fire" value="0"></td><td>1% of Physical Damage as Extra Fire Damage</td></tr>
-        <tr><td><input type="number" name="extra chaos" value="0"></td><td>Gain 1% of Non-Chaos damage as Extra Chaos Damage</td></tr>
-        <tr><td><input type="number" name="ele as chaos" value="0"></td><td>Gain 1% of Elemental Damage as Extra Chaos Damage</td></tr>
-        <tr><td><input type="number" name="+1 power charge" value="0"></td><td>+1 to Maximum Power Charges</td></tr>
-        <tr><td><input type="number" name="+1 frenzy charge" value="0"></td><td>+1 to Maximum Frenzy Charges</td></tr>
-        <tr><td><input type="number" name="+1 endurance charge" value="0"></td><td>+1 to Maximum Endurance Charges</td></tr>
+        <tr><td><input type="number" name="% physical" value="0" data-normal="12"></td><td>12% increased Physical Damage</td></tr>
+        <tr><td><input type="number" name="% lightning" value="0" data-normal="12"></td><td>12% increased Lightning Damage</td></tr>
+        <tr><td><input type="number" name="% cold" value="0" data-normal="12"></td><td>12% increased Cold Damage</td></tr>
+        <tr><td><input type="number" name="% fire" value="0" data-normal="12"></td><td>12% increased Fire Damage</td></tr>
+        <tr><td><input type="number" name="% elemental" value="0" data-normal="12"></td><td>12% increased Elemental Damage</td></tr>
+        <tr><td><input type="number" name="% chaos" value="0" data-normal="12"></td><td>12% increased Chaos Damage</td></tr>
+        <tr><td><input type="number" name="% generic" value="0" data-normal="12"></td><td>12% increased Damage</td></tr>
+        <tr><td><input type="number" name="crit chance" value="0" data-normal="16"></td><td>16% increased Global Critical Strike Chance</td></tr>
+        <tr><td><input type="number" name="crit multi" value="0" data-normal="16"></td><td>+16% to Global Critical Strike Multiplier</td></tr>
+        <tr><td><input type="number" name="attack speed" value="0" data-normal="10"></td><td>10% increased Attack Speed</td></tr>
+        <tr><td><input type="number" name="cast speed" value="0" data-normal="10"></td><td>10% increased Cast Speed</td></tr>
+        <tr><td><input type="number" name="pen all" value="0" data-normal="8"></td><td>Damage Penetrates 8% Elemental Resistances</td></tr>
+        <tr><td><input type="number" name="pen fire" value="0" data-normal="8"></td><td>Damage Penetrates 8% Fire Resistance</td></tr>
+        <tr><td><input type="number" name="pen cold" value="0" data-normal="8"></td><td>Damage Penetrates 8% Cold Resistance</td></tr>
+        <tr><td><input type="number" name="pen lightning" value="0" data-normal="8"></td><td>Damage Penetrates 8% Lightning Resistance</td></tr>
+        <tr><td><input type="number" name="flat phys" value="0" data-normal="6"></td><td>Adds 5 to 7 Physical Damage</td></tr>
+        <tr><td><input type="number" name="flat lightning" value="0" data-normal="37"></td><td>Adds 6 to 68 Lightning Damage</td></tr>
+        <tr><td><input type="number" name="flat cold" value="0" data-normal="22.5"></td><td>Adds 14 to 31 Cold Damage</td></tr>
+        <tr><td><input type="number" name="flat fire" value="0" data-normal="27.5"></td><td>Adds 21 to 34 Fire Damage</td></tr>
+        <tr><td><input type="number" name="flat chaos" value="0" data-normal="5.5"></td><td>Adds 4 to 7 Chaos Damage</td></tr>
+        <tr><td><input type="number" name="extra lightning" value="0" data-normal="15"></td><td>15% of Physical Damage as Extra Lightning Damage</td></tr>
+        <tr><td><input type="number" name="extra cold" value="0" data-normal="15"></td><td>15% of Physical Damage as Extra Cold Damage</td></tr>
+        <tr><td><input type="number" name="extra fire" value="0" data-normal="15"></td><td>15% of Physical Damage as Extra Fire Damage</td></tr>
+        <tr><td><input type="number" name="extra chaos" value="0" data-normal="15"></td><td>Gain 15% of Non-Chaos damage as Extra Chaos Damage</td></tr>
+        <tr><td><input type="number" name="ele as chaos" value="0" data-normal="15"></td><td>Gain 15% of Elemental Damage as Extra Chaos Damage</td></tr>
+        <tr><td><input type="number" name="+1 power charge" value="0" data-normal="1"></td><td>+1 to Maximum Power Charges</td></tr>
+        <tr><td><input type="number" name="+1 frenzy charge" value="0" data-normal="1"></td><td>+1 to Maximum Frenzy Charges</td></tr>
+        <tr><td><input type="number" name="+1 endurance charge" value="0" data-normal="1"></td><td>+1 to Maximum Endurance Charges</td></tr>
     </table> <br><br>
 
     <strong>Minion Nodes?:</strong> Select if you have the nodes selected on your tree or are wearing the Scourge.<br>
@@ -94,7 +94,7 @@
         def generate_query(ev):
             dps = {}
             for elt in doc.get(selector='input[type="number"]'):
-                dps[elt.name] = float(elt.value)
+                dps[elt.name] = float(elt.value)/float(elt.getAttribute("data-normal"))
             dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning']) / 3
             selections = set()
             for elt in doc.get(selector='input[type="checkbox"]'):

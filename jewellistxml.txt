@@ -1,202 +1,202 @@
 		<Item>
 			Rarity: RARE
-1% increased Physical Damage
+12% increased Physical Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Physical Damage
+12% increased Physical Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Lightning Damage
+12% increased Lightning Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Lightning Damage
+12% increased Lightning Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Cold Damage
+12% increased Cold Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Cold Damage
+12% increased Cold Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Fire Damage
+12% increased Fire Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Fire Damage
+12% increased Fire Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Elemental Damage
+12% increased Elemental Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Elemental Damage
+12% increased Elemental Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Chaos Damage
+12% increased Chaos Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Chaos Damage
+12% increased Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Damage
+12% increased Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Damage
+12% increased Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Global Critical Strike Chance
+16% increased Global Critical Strike Chance
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Global Critical Strike Chance
+16% increased Global Critical Strike Chance
 		</Item>
 		<Item>
 			Rarity: RARE
-+1% to Global Critical Strike Multiplier
++16% to Global Critical Strike Multiplier
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-+1% to Global Critical Strike Multiplier
++16% to Global Critical Strike Multiplier
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Attack Speed
+10% increased Attack Speed
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Attack Speed
+10% increased Attack Speed
 		</Item>
 		<Item>
 			Rarity: RARE
-1% increased Cast Speed
+10% increased Cast Speed
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% increased Cast Speed
+10% increased Cast Speed
 		</Item>
 		<Item>
 			Rarity: RARE
-Damage Penetrates 1% Elemental Resistances
+Damage Penetrates 8% Elemental Resistances
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Damage Penetrates 1% Elemental Resistances
+Damage Penetrates 8% Elemental Resistances
 		</Item>
 		<Item>
 			Rarity: RARE
-Damage Penetrates 1% Lightning Resistance
+Damage Penetrates 8% Lightning Resistance
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Damage Penetrates 1% Lightning Resistance
+Damage Penetrates 8% Lightning Resistance
 		</Item>
 		<Item>
 			Rarity: RARE
-Damage Penetrates 1% Cold Resistance
+Damage Penetrates 8% Cold Resistance
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Damage Penetrates 1% Cold Resistance
+Damage Penetrates 8% Cold Resistance
 		</Item>
 		<Item>
 			Rarity: RARE
-Damage Penetrates 1% Fire Resistance
+Damage Penetrates 8% Fire Resistance
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Damage Penetrates 1% Fire Resistance
+Damage Penetrates 8% Fire Resistance
 		</Item>
 		<Item>
 			Rarity: RARE
-Adds 1 to 1 Physical Damage
+Adds 5 to 7 Physical Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Adds 1 to 1 Physical Damage
+Adds 5 to 7 Physical Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-Adds 1 to 1 Lightning Damage
+Adds 6 to 68 Lightning Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Adds 1 to 1 Lightning Damage
+Adds 6 to 68 Lightning Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-Adds 1 to 1 Cold Damage
+Adds 14 to 31 Cold Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Adds 1 to 1 Cold Damage
+Adds 14 to 31 Cold Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-Adds 1 to 1 Fire Damage
+Adds 21 to 34 Fire Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Adds 1 to 1 Fire Damage
+Adds 21 to 34 Fire Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-Adds 1 to 1 Chaos Damage
+Adds 4 to 7 Chaos Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Adds 1 to 1 Chaos Damage
+Adds 4 to 7 Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% of Physical Damage as Extra Lightning Damage
+15% of Physical Damage as Extra Lightning Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% of Physical Damage as Extra Lightning Damage
+15% of Physical Damage as Extra Lightning Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% of Physical Damage as Extra Cold Damage
+15% of Physical Damage as Extra Cold Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% of Physical Damage as Extra Cold Damage
+15% of Physical Damage as Extra Cold Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-1% of Physical Damage as Extra Fire Damage
+15% of Physical Damage as Extra Fire Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-1% of Physical Damage as Extra Fire Damage
+15% of Physical Damage as Extra Fire Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-Gain 1% of Non-Chaos damage as Extra Chaos Damage
+Gain 15% of Non-Chaos damage as Extra Chaos Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Gain 1% of Non-Chaos damage as Extra Chaos Damage
+Gain 15% of Non-Chaos damage as Extra Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-Gain 1% of Elemental Damage as Extra Chaos Damage
+Gain 15% of Elemental Damage as Extra Chaos Damage
 Prismatic Jewel
 Item Level: 1
 Implicits: 0
-Gain 1% of Elemental Damage as Extra Chaos Damage
+Gain 15% of Elemental Damage as Extra Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
