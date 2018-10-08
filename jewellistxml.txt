@@ -1,5 +1,21 @@
 		<Item>
 			Rarity: RARE
++100 to Accuracy Rating
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++100 to Accuracy Rating
+		</Item>
+		<Item>
+			Rarity: RARE
+10% increased Global Accuracy Rating
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+10% increased Global Accuracy Rating
+		</Item>
+		<Item>
+			Rarity: RARE
 12% increased Physical Damage
 Hypnotic Eye Jewel
 Item Level: 1

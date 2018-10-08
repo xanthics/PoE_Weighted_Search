@@ -1,3 +1,5 @@
++100 to Accuracy Rating
+10% increased Global Accuracy Rating
 12% increased Physical Damage
 12% increased Lightning Damage
 12% increased Cold Damage
