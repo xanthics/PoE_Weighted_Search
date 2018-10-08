@@ -19,6 +19,8 @@
     <br>
     <table>
         <tr><th>Damage</th><th>Jewel Mod</th></tr>
+        <tr><td><input type="number" name="flat accuracy" value="0" data-normal="100"></td><td>+100 to Accuracy Rating</td></tr>
+        <tr><td><input type="number" name="% accuracy" value="0" data-normal="10"></td><td>10% increased Global Accuracy Rating</td></tr>
         <tr><td><input type="number" name="% physical" value="0" data-normal="12"></td><td>12% increased Physical Damage</td></tr>
         <tr><td><input type="number" name="% lightning" value="0" data-normal="12"></td><td>12% increased Lightning Damage</td></tr>
         <tr><td><input type="number" name="% cold" value="0" data-normal="12"></td><td>12% increased Cold Damage</td></tr>
@@ -82,9 +84,15 @@
     <tr><td><label><input type="checkbox" name="Frenzy">Frenzy</label></td><td><label><input type="checkbox" name="Power">Power</label></td><td><label><input type="checkbox" name="Endurance">Endurance</label></td></tr>
     </table><br><br>
 
+    <strong>Recently:</strong> Tic all the things your build can do 'recently'<br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Recent Crit">Crit</label></td><td><label><input type="checkbox" name="Recent Kill">Kill</label></td></tr>
+    <tr><td><label><input type="checkbox" name="No Recent Crit">Not Crit</label></td><td><label><input type="checkbox" name="No Recent Kill">Not Kill</label></td></tr>
+    </table><br><br>
+
     <div id="generate"></div><br>
     <a href="" id="query" target="_blank">Search</a><br><br>
-    <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.</div><br>
+    <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.  Note that the sum of the weights is an approximation as stats scale in relation to each other.  EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable.  Looking at each mod in isolation cannot perfectly recreate that.</div><br>
 
     <script type="text/python">
         from browser import document as doc
