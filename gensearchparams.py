@@ -18,7 +18,7 @@ def gensearchparams(dps, selections):
 		"#% increased Attack Speed with Claws": dps['attack speed'] if {'Attack', 'Claw'}.issubset(selections) else 0,
 		"#% increased Attack Speed with Daggers": dps['attack speed'] if {'Attack', 'Dagger'}.issubset(selections) else 0,
 		"#% increased Attack Speed with Maces": dps['attack speed'] if {'Attack', 'Mace'}.issubset(selections) else 0,
-		"#% increased Attack Speed with One Handed Melee Weapons": dps['attack speed'] if {'Attack', 'Melee'}.issubset(selections) else 0,
+		"#% increased Attack Speed with One Handed Melee Weapons": dps['attack speed'] if {'Attack', 'Melee'}.issubset(selections) and {'Two Handed Weapon'}.isdisjoint(selections) else 0,
 		"#% increased Attack Speed with Staves": dps['attack speed'] if {'Attack', 'Staff'}.issubset(selections) else 0,
 		"#% increased Attack Speed with Swords": dps['attack speed'] if {'Attack', 'Sword'}.issubset(selections) else 0,
 		"#% increased Attack Speed with Two Handed Melee Weapons": dps['attack speed'] if {'Attack', 'Two Handed Weapon'}.issubset(selections) else 0,
