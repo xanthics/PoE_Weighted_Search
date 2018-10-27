@@ -13,6 +13,8 @@ from gensearchparams import gensearchparams
 
 def main():
 	dps = {
+		'flat accuracy': 0,
+		'% accuracy': 0,
 		'% fire': 0,
 		'% cold': 62.2,
 		'% lightning': 2.2,
@@ -39,7 +41,17 @@ def main():
 		'extra chaos': 904.4,
 		'ele as chaos': 474.4,
 		'+1 power charge': 2304.8,
-		'+1 frenzy charge': 0
+		'+1 frenzy charge': 0,
+		'20 str': 0,
+		'20 int': 0,
+		'20 dex': 0,
+		'damage per int': 0,
+		'damage per str': 0,
+		'damage per dex': 0,
+		"% dex": 0,
+		"% int": 0,
+		"% str": 0,
+		"% lowest": 0
 	}
 
 	dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning']) / 3

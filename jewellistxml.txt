@@ -238,3 +238,83 @@ Item Level: 1
 Implicits: 0
 +1 to Maximum Endurance Charges
 		</Item>
+		<Item>
+			Rarity: RARE
+20 to Dexterity
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+20 to Dexterity
+		</Item>
+		<Item>
+			Rarity: RARE
+20 to Intelligence
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+20 to Intelligence
+		</Item>
+		<Item>
+			Rarity: RARE
+20 to Strength
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+20 to Strength
+		</Item>
+		<Item>
+			Rarity: RARE
+1% increased Damage per 15 Dexterity
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+1% increased Damage per 15 Dexterity
+		</Item>
+		<Item>
+			Rarity: RARE
+1% increased Damage per 15 Intelligence
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+1% increased Damage per 15 Intelligence
+		</Item>
+		<Item>
+			Rarity: RARE
+1% increased Damage per 15 Strength
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+1% increased Damage per 15 Strength
+		</Item>
+		<Item>
+			Rarity: RARE
+10% Dexterity
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+10% Dexterity
+		</Item>
+		<Item>
+			Rarity: RARE
+10% Intelligence
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+10% Intelligence
+		</Item>
+		<Item>
+			Rarity: RARE
+10% Strength
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+10% Strength
+		</Item>
+		<Item>
+			Rarity: RARE
+1% increased Damage per 5 of your lowest Attribute
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+1% increased Damage per 5 of your lowest Attribute
+		</Item>

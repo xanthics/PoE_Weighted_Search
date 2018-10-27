@@ -269,3 +269,93 @@ Item Level: 1
 +1 to Maximum Endurance Charges
 	
 	
+Rarity: Rare
+20 to Dexterity
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+20 to Dexterity
+	
+	
+Rarity: Rare
+20 to Intelligence
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+20 to Intelligence
+	
+	
+Rarity: Rare
+20 to Strength
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+20 to Strength
+	
+	
+Rarity: Rare
+1% increased Damage per 15 Dexterity
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+1% increased Damage per 15 Dexterity
+	
+	
+Rarity: Rare
+1% increased Damage per 15 Intelligence
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+1% increased Damage per 15 Intelligence
+	
+	
+Rarity: Rare
+1% increased Damage per 15 Strength
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+1% increased Damage per 15 Strength
+	
+	
+Rarity: Rare
+10% Dexterity
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+10% Dexterity
+	
+	
+Rarity: Rare
+10% Intelligence
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+10% Intelligence
+	
+	
+Rarity: Rare
+10% Strength
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+10% Strength
+	
+	
+Rarity: Rare
+1% increased Damage per 5 of your lowest Attribute
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+1% increased Damage per 5 of your lowest Attribute
+	
+	

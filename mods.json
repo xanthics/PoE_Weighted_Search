@@ -28,5 +28,15 @@
   {"name": "ele as chaos", "desc": "Gain 15% of Elemental Damage as Extra Chaos Damage", "count": 15},
   {"name": "+1 power charge", "desc": "+1 to Maximum Power Charges", "count": 1},
   {"name": "+1 frenzy charge", "desc": "+1 to Maximum Frenzy Charges", "count": 1},
-  {"name": "+1 endurance charge", "desc": "+1 to Maximum Endurance Charges", "count": 1}
+  {"name": "+1 endurance charge", "desc": "+1 to Maximum Endurance Charges", "count": 1},
+  {"name": "20 dex", "desc": "20 to Dexterity", "count": 20},
+  {"name": "20 int", "desc": "20 to Intelligence", "count": 20},
+  {"name": "20 str", "desc": "20 to Strength", "count": 20},
+  {"name": "damage per dex", "desc": "1% increased Damage per 15 Dexterity", "count": 1},
+  {"name": "damage per int", "desc": "1% increased Damage per 15 Intelligence", "count": 1},
+  {"name": "damage per str", "desc": "1% increased Damage per 15 Strength", "count": 1},
+  {"name": "% dex", "desc": "10% Dexterity", "count": 10},
+  {"name": "% int", "desc": "10% Intelligence", "count": 10},
+  {"name": "% str", "desc": "10% Strength", "count": 10},
+  {"name": "% lowest", "desc": "1% increased Damage per 5 of your lowest Attribute", "count": 1}
 ]
