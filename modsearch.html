@@ -120,7 +120,7 @@
                     if doc.query[elt.name] == "True":
                         elt.checked = True
                 except KeyError:
-                    elt.value = False
+                    elt.checked = False
 
         doc["query"].style.display = "none"
         doc["notice"].style.display = "none"
@@ -128,7 +128,6 @@
         b_generate.bind("click", generate_query)
         doc["generate"] <= b_generate
         create_table()
-        print(doc.query)
         process_querystring()
     </script>
 
