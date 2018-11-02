@@ -96,24 +96,40 @@
             doc["query"].style.display = "inline"
             doc["notice"].style.display = "inline"
 
+        def create_table():
+            f = open('mods.json', 'r')
+            mjson = json.loads(f.read())
+            f.close()
+            t = TABLE()
+            th = TR()
+            th <= TH("Damage")
+            th <= TH("Jewel Mod")
+            t <= th
+            for m in mjson:
+                t <= TR( TD( '<input type="number" name="{}" value="0" data-normal="{}">'.format(m['name'], m['count']) ) + TD( m['desc'] ) )
+            doc['mod weights'] <= t
+
+        def process_querystring():
+            for elt in doc.get(selector='input[type="number"]'):
+                try:
+                    elt.value = doc.query[elt.name]
+                except KeyError:
+                    elt.value = 0
+            for elt in doc.get(selector='input[type="checkbox"]'):
+                try:
+                    if doc.query[elt.name] == "True":
+                        elt.checked = True
+                except KeyError:
+                    elt.value = False
+
         doc["query"].style.display = "none"
         doc["notice"].style.display = "none"
         b_generate = html.BUTTON("Generate Query")
         b_generate.bind("click", generate_query)
         doc["generate"] <= b_generate
-
-        f = open('mods.json', 'r')
-        mjson = json.loads(f.read())
-        f.close()
-        t = TABLE()
-        th = TR()
-        th <= TH("Damage")
-        th <= TH("Jewel Mod")
-        t <= th
-        for m in mjson:
-            t <= TR( TD( '<input type="number" name="{}" value="0" data-normal="{}">'.format(m['name'], m['count']) ) + TD( m['desc'] ) )
-        doc['mod weights'] <= t
-
+        create_table()
+        print(doc.query)
+        process_querystring()
     </script>
 
 
