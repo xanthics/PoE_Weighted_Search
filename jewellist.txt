@@ -270,30 +270,30 @@ Item Level: 1
 	
 	
 Rarity: Rare
-20 to Dexterity
++20 to Dexterity
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-20 to Dexterity
++20 to Dexterity
 	
 	
 Rarity: Rare
-20 to Intelligence
++20 to Intelligence
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-20 to Intelligence
++20 to Intelligence
 	
 	
 Rarity: Rare
-20 to Strength
++20 to Strength
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-20 to Strength
++20 to Strength
 	
 	
 Rarity: Rare
@@ -324,30 +324,30 @@ Item Level: 1
 	
 	
 Rarity: Rare
-10% Dexterity
++10% Dexterity
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-10% Dexterity
++10% Dexterity
 	
 	
 Rarity: Rare
-10% Intelligence
++10% Intelligence
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-10% Intelligence
++10% Intelligence
 	
 	
 Rarity: Rare
-10% Strength
++10% Strength
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-10% Strength
++10% Strength
 	
 	
 Rarity: Rare
