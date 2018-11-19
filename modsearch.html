@@ -38,6 +38,9 @@
     This page requires javascript in order to run.  If you can see a table to enter your damage values then it is working.<br>
     <br>
 
+    <div id="Characterid">Build Name:<div id="Character"></div></div>
+    <div id="Skillid">Skill:<div id="Skill"></div></div>
+
     <table id="mod weights">
     </table> <br><br>
 
@@ -153,6 +156,13 @@
                         elt.checked = True
                 except KeyError:
                     elt.checked = False
+            for val in ['Skill', 'Character']:
+                try:
+                    if doc.query[val]:
+                        doc[val] = doc.query[val]
+                except KeyError:
+                    doc[val] = ''
+                    doc[val + "id"].style.display = "none"
 
         doc["query"].style.display = "none"
         doc["notice"].style.display = "none"
