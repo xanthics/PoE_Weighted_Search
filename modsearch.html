@@ -11,11 +11,28 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    <strong>Using this page.</strong> <br>
-    You need to add jewels to Path of Building, if you have not yet done so.<br><br>
-    <a href="https://raw.githubusercontent.com/xanthics/PoE_Weighted_Search/master/jewellist.txt">Text file to add jewels by hand</a><br><br>
-    <a href="https://raw.githubusercontent.com/xanthics/PoE_Weighted_Search/master/jewellistxml.txt">xml file to add jewels direction to Path of Building Settings at your own risk.</a>  As pointed out by github user coldino, you can edit your My Documents/Path of Building/Settings.xml directly. The lines from jewellistxml.txt should be added directly after the &lt;SharedItems&gt; tag. &lt;Shared Items&gt; should be right after &lt;/Accounts&gt;<br><br>
-    You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table.  After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br><br>
+    <div id="instruction"></div>
+    <div id="instructions">
+        <h1>Using this page.</h1>
+        There are 2 primary ways to use this page.  A script created by coldino, or manually adding the jewels with the necessary mods to PoB and copying the values over by hand.
+        <h3>Using coldino script</h3>
+        Go to <a href ='https://github.com/Openarl/PathOfBuilding/releases' target="_blank">PoB releases page</a> and download the PathOfBuilding-x.x.xxx.zip file.<br>
+        extract files to a directory <br>
+        Navigate to <a href="https://github.com/VolatilePulse/PoB-Item-Tester" target="_blank">Coldino's Github Repository</a> <br>
+        Clone or download, unzip, and enter directory <br>
+        Open testdps.bat in notepad++ (or equivalent) <br>
+        Modify POBPATH to be the directory you extracted the PoB zip to <br>
+        Modify CURRENT(last word in file) to be the full path to the xml file for your build. <br>
+        * If your file path has spaces, wrap in quotes. <br>
+        Run testdps.bat and it should automatically open this page with values filled out. <br>
+        Double check all of the flags at the end to make sure they match what you are trying to do.  EG if you are molten strike you probably don't care about the melee flag as the projectile part is much more important
+        <h3>Manually copy from PoB</h3>
+        You need to add jewels to Path of Building, if you have not yet done so.<br><br>
+        <a href="jewellist.txt" target="_blank">Text file to add jewels by hand</a><br><br>
+        <a href="jewellistxml.txt" target="_blank">xml file to add jewels direction to Path of Building Settings (at your own risk).</a>  As pointed out by github user coldino, you can edit your My Documents/Path of Building/Settings.xml directly. The lines from jewellistxml.txt should be added directly after the &lt;SharedItems&gt; tag. &lt;Shared Items&gt; should be right after &lt;/Accounts&gt;<br><br>
+        You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table.  After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br><br>
+    </div>
+    <br>
     This page requires javascript in order to run.  If you can see a table to enter your damage values then it is working.<br>
     <br>
 
@@ -103,6 +120,11 @@
             doc["query"].style.display = "inline"
             doc["notice"].style.display = "inline"
 
+        def toggle_instructions(ev):
+            if doc["instructions"].style.display == "none":
+                doc["instructions"].style.display = "inline"
+            else:
+                doc["instructions"].style.display = "none"
         def create_table():
             f = open('mods.json', 'r')
             mjson = json.loads(f.read())
@@ -131,9 +153,13 @@
 
         doc["query"].style.display = "none"
         doc["notice"].style.display = "none"
+        doc["instructions"].style.display = "none"
         b_generate = html.BUTTON("Generate Query")
         b_generate.bind("click", generate_query)
         doc["generate"] <= b_generate
+        b_generate = html.BUTTON("<strong>Toggle Instructions</strong>")
+        b_generate.bind("click", toggle_instructions)
+        doc["instruction"] <= b_generate
         create_table()
         process_querystring()
     </script>
