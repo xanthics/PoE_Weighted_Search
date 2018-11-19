@@ -200,6 +200,22 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
+Gain 15% of Non-Chaos damage as Extra Chaos Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Gain 15% of Non-Chaos damage as Extra Chaos Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+Gain 15% of Elemental Damage as Extra Chaos Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Gain 15% of Elemental Damage as Extra Chaos Damage
+		</Item>
+		<Item>
+			Rarity: RARE
 15% of Lightning Damage as Extra Chaos Damage
 Hypnotic Eye Jewel
 Item Level: 1
@@ -221,22 +237,6 @@ Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 15% of Fire Damage as Extra Chaos Damage
-		</Item>
-		<Item>
-			Rarity: RARE
-Gain 15% of Non-Chaos damage as Extra Chaos Damage
-Hypnotic Eye Jewel
-Item Level: 1
-Implicits: 0
-Gain 15% of Non-Chaos damage as Extra Chaos Damage
-		</Item>
-		<Item>
-			Rarity: RARE
-Gain 15% of Elemental Damage as Extra Chaos Damage
-Hypnotic Eye Jewel
-Item Level: 1
-Implicits: 0
-Gain 15% of Elemental Damage as Extra Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
