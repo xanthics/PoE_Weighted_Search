@@ -211,34 +211,53 @@ def gensearchparams(dps, selections):
 		"#% increased Spell Damage if your other Ring is an Elder Item": dps['% generic'] if {'Elder', 'Spell'}.issubset(selections) else 0,
 		"# to # Cold Damage per Frenzy Charge": dps['flat cold'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
 		"#% increased Accuracy Rating per Frenzy Charge": dps['% accuracy'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
-		"#% increased Attack Speed per Frenzy Charge": dps['attack speed'] * dps["Frenzy Count"] if {'Frenzy', 'Attack'}.issubset(selections) else 0,
-		"#% increased Attack and Cast Speed per Frenzy Charge": dps['attack speed'] * dps["Frenzy Count"] if {'Attack', 'Frenzy'}.issubset(selections) else (dps['cast speed'] * dps["Frenzy Count"] if {'Spell', 'Frenzy'}.issubset(selections) else 0),
-		"#% increased Cold Damage per Frenzy Charge": dps['% cold'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance per Frenzy Charge": dps['crit chance'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
 		"#% increased Damage per Frenzy Charge": dps['% generic'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
-		"#% increased Elemental Damage per Frenzy Charge": dps['% elemental'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
-		"#% increased Lightning Damage per Frenzy Charge": dps['% lightning'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
 		"Gain #% of Cold Damage as Extra Chaos Damage per Frenzy Charge": dps['cold as extra chaos'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
 		"# to # Fire Damage per Endurance Charge": dps['flat fire'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
 		"#% increased Attack and Cast Speed per Endurance Charge": dps['attack speed'] * dps["Endurance Count"] if {'Attack', 'Endurance'}.issubset(selections) else (dps['cast speed'] * dps["Endurance Count"] if {'Spell', 'Endurance'}.issubset(selections) else 0),
 		"#% increased Critical Strike Chance per Endurance Charge": dps['crit chance'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
 		"#% increased Damage per Endurance Charge": dps['% generic'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
-		"#% increased Melee Damage per Endurance Charge": dps['% generic'] * dps["Endurance Count"] if {'Endurance', 'Melee'}.issubset(selections) else 0,
-		"#% increased Physical Damage per Endurance Charge": dps['% physical'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
-		"Adds # to # Physical Damage per Endurance Charge": dps['flat phys'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
 		"Gain #% of Fire Damage as Extra Chaos Damage per Endurance Charge": dps['fire as extra chaos'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
 		"# to # Lightning Damage per Power Charge": dps['flat lightning'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
 		"#% increased Attack and Cast Speed per Power Charge": dps['attack speed'] * dps["Power Count"] if {'Attack', 'Power'}.issubset(selections) else (dps['cast speed'] * dps["Power Count"] if {'Spell', 'Power'}.issubset(selections) else 0),
-		"#% increased Cast Speed per Power Charge": dps['cast speed'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
-		"#% increased Critical Strike Chance per Power Charge": dps['crit chance'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
 		"#% increased Damage per Power Charge": dps['% generic'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
-		"#% increased Projectile Damage per Power Charge": dps['% generic'] * dps["Power Count"] if {'Power', 'Projectile'}.issubset(selections) else 0,
 		"#% increased Spell Damage per Power Charge": dps['% generic'] * dps["Power Count"] if {'Power', 'Spell'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier per Power Charge": dps['crit multi'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
-		"Adds # to # Lightning Damage to Spells per Power Charge": dps['flat lightning'] * dps["Power Count"] if {'Power', 'Spell'}.issubset(selections) else 0,
 		"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge": dps['lightning as extra chaos'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
+	}
 
-		# TODO: Determine if each mod is worth adding or specific to an unused unique
+	# mods that are explicitly skipped, comment with where they appear
+	disabled = {
+		# Veruso's Battering Rams
+		"#% increased Melee Damage per Endurance Charge": dps['% generic'] * dps["Endurance Count"] if {'Endurance', 'Melee'}.issubset(selections) else 0,
+		# Surgebinders
+		"#% increased Elemental Damage per Frenzy Charge": dps['% elemental'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
+		# Tidebreaker and Surgebinders
+		"#% increased Physical Damage per Endurance Charge": dps['% physical'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
+		# Snakebite
+		"#% increased Attack Speed per Frenzy Charge": dps['attack speed'] * dps["Frenzy Count"] if {'Frenzy', 'Attack'}.issubset(selections) else 0,
+		# The Blood Dance
+		"#% increased Attack and Cast Speed per Frenzy Charge": dps['attack speed'] * dps["Frenzy Count"] if {'Attack', 'Frenzy'}.issubset(selections) else (dps['cast speed'] * dps["Frenzy Count"] if {'Spell', 'Frenzy'}.issubset(selections) else 0),
+		# Tulfall
+		"#% increased Cold Damage per Frenzy Charge": dps['% cold'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
+		# Hyaon's Fury
+		"#% increased Lightning Damage per Frenzy Charge": dps['% lightning'] * dps["Frenzy Count"] if {'Frenzy'}.issubset(selections) else 0,
+		# Nebuloch
+		"Adds # to # Physical Damage per Endurance Charge": dps['flat phys'] * dps["Endurance Count"] if {'Endurance'}.issubset(selections) else 0,
+		# Cane of Unravelling
+		"#% increased Cast Speed per Power Charge": dps['cast speed'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
+		# The Aylardex
+		"#% increased Critical Strike Chance per Power Charge": dps['crit chance'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
+		# Victario's Acuity
+		"#% increased Projectile Damage per Power Charge": dps['% generic'] * dps["Power Count"] if {'Power', 'Projectile'}.issubset(selections) else 0,
+		# Shimmeron
+		"Adds # to # Lightning Damage to Spells per Power Charge": dps['flat lightning'] * dps["Power Count"] if {'Power', 'Spell'}.issubset(selections) else 0,
+	}
+
+	# mods that have not been processed yet
+	queued = {
+		# TODO: Determine if each mod is worth adding or specific to a niche unique
 		"#% Critical Strike Chance per Power Charge": 0,  # Note that this is base crit.
 		"# Accuracy Rating per 2 Intelligence": 0,
 		"# Life per 4 Dexterity": 0,
