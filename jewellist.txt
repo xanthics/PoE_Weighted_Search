@@ -225,6 +225,33 @@ Item Level: 1
 	
 	
 Rarity: Rare
+15% of Lightning Damage as Extra Chaos Damage
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+15% of Lightning Damage as Extra Chaos Damage
+	
+	
+Rarity: Rare
+15% of Cold Damage as Extra Chaos Damage
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+15% of Cold Damage as Extra Chaos Damage
+	
+	
+Rarity: Rare
+15% of Fire Damage as Extra Chaos Damage
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+15% of Fire Damage as Extra Chaos Damage
+	
+	
+Rarity: Rare
 Gain 15% of Non-Chaos damage as Extra Chaos Damage
 Hypnotic Eye Jewel
 --------
