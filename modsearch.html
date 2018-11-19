@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Mod Search Generator</title>
-    <script src="brython/brython.js" type="text/javascript"></script>
-    <script src="brython/brython_stdlib.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/brython-dev/brython/3.6.2/www/src/brython.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/brython-dev/brython/3.6.2/www/src/brython_stdlib.js" type="text/javascript"></script>
     <link href="css/layout.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -21,6 +21,18 @@
 
     <table id="mod weights">
     </table> <br><br>
+
+    <strong>Charges:</strong> Do you sustain charges?<br>
+    <table>
+    <tr><td><label><input type="checkbox" name="Frenzy">Frenzy</label></td><td><label><input type="checkbox" name="Power">Power</label></td><td><label><input type="checkbox" name="Endurance">Endurance</label></td></tr>
+    </table><br><br>
+
+    <strong>Charge count:</strong> The max number of each type of charge your build sustains<br>
+    <table>
+    <tr><td><input type="number" name="Power Count" value="0" data-normal="1" style="width: 3em"></td><td>Power</td></tr>
+    <tr><td><input type="number" name="Frenzy Count" value="0" data-normal="1" style="width: 3em"></td><td>Frenzy</td></tr>
+    <tr><td><input type="number" name="Endurance Count" value="0" data-normal="1" style="width: 3em"></td><td>Endurance</td></tr>
+    </table><br><br>
 
     <strong>Minion Nodes?:</strong> Select if you have the nodes selected on your tree or are wearing the Scourge.<br>
     <table>
@@ -48,11 +60,6 @@
     <strong>Hands:</strong> choose 1 based on wielded weapons<br>
     <table>
     <tr><td><label><input type="checkbox" name="Shield">Shield</label></td><td><label><input type="checkbox" name="Dual Wielding">Dual Wielding</label></td><td><label><input type="checkbox" name="Two Handed Weapon">Two Handed Weapon</label></td></tr>
-    </table><br><br>
-
-    <strong>Charges:</strong> Do you sustain charges?<br>
-    <table>
-    <tr><td><label><input type="checkbox" name="Frenzy">Frenzy</label></td><td><label><input type="checkbox" name="Power">Power</label></td><td><label><input type="checkbox" name="Endurance">Endurance</label></td></tr>
     </table><br><br>
 
     <strong>Recently:</strong> Tic all the things your build can do 'recently'<br>
