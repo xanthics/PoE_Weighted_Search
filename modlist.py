@@ -2157,6 +2157,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Innervate": ["explicit.stat_1106668565"],
 	"Socketed Gems are Supported by Level # Iron Grip": ["explicit.stat_251446805"],
 	"Socketed Gems are Supported by Level # Iron Will": ["explicit.stat_906997920"],
+	"Socketed Gems are Supported by Level # Item Quantity": ["explicit.stat_248646071"],
 	"Socketed Gems are Supported by Level # Item Rarity": ["explicit.stat_3587013273"],
 	"Socketed Gems are Supported by Level # Knockback": ["explicit.stat_4066711249"],
 	"Socketed Gems are Supported by Level # Less Duration": ["explicit.stat_2487643588"],
