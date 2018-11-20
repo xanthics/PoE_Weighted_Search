@@ -1,11 +1,38 @@
 
 Rarity: Rare
-+100 to Accuracy Rating
+12% increased Damage over Time
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-+100 to Accuracy Rating
+12% increased Damage over Time
+	
+	
+Rarity: Rare
+12% increased Damage with Bleeding
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+12% increased Damage with Bleeding
+	
+	
+Rarity: Rare
+12% increased Damage with Poison
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+12% increased Damage with Poison
+	
+	
+Rarity: Rare
+12% increased Burning Damage
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+12% increased Burning Damage
 	
 	
 Rarity: Rare
