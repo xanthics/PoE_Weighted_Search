@@ -7,8 +7,6 @@ from modlist import mods
 
 
 def gensearchparams(dps, selections):
-	print(dps)
-	print(selections)
 	modstr = {
 		"#% increased Area Damage": dps['% generic'] if {'Area'}.issubset(selections) else 0,
 		"#% increased Attack Speed": dps['attack speed'] if {'Attack'}.issubset(selections) else 0,
@@ -225,6 +223,23 @@ def gensearchparams(dps, selections):
 		"#% increased Spell Damage per Power Charge": dps['% generic'] * dps["Power Count"] if {'Power', 'Spell'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier per Power Charge": dps['crit multi'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
 		"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge": dps['lightning as extra chaos'] * dps["Power Count"] if {'Power'}.issubset(selections) else 0,
+		"#% increased Damage over Time": dps['% dot'],
+		"#% increased Damage over Time while Dual Wielding": dps['% dot'] if {'Dual Wielding'}.issubset(selections) else 0,
+		"#% increased Damage over Time while holding a Shield": dps['% dot'] if {'Shield'}.issubset(selections) else 0,
+		"#% increased Damage over Time while wielding a Two Handed Weapon": dps['% dot'] if {'Two Handed Weapon'}.issubset(selections) else 0,
+		"#% increased Damage with Ailments": dps['% dot'],
+		"#% increased Damage with Bleeding": dps['% bleed'],
+		"Adds # to # Physical Damage against Bleeding Enemies": dps['flat phys'] if {'Bleeding'}.issubset(selections) else 0,
+		"Adds # to # Physical Damage against Poisoned Enemies": dps['flat phys'] if {'Poisoned'}.issubset(selections) else 0,
+		"#% increased Damage with Poison": dps['% poison'],
+		"#% increased Critical Strike Chance against Poisoned Enemies": dps['crit chance'] if {'Poisoned'}.issubset(selections) else 0,
+		"Adds # to # Fire Damage against Ignited Enemies": dps['flat fire'] if {'Ignited'}.issubset(selections) else 0,
+		"# to # added Fire Damage against Burning Enemies": dps['flat fire'] if {'Burning'}.issubset(selections) else 0,
+		"#% increased Burning Damage": dps['% ignite'],
+		"#% increased Damage with Hits against Chilled Enemies": dps['% generic'] if {'Chilled'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
+		"Adds # to # Cold Damage against Chilled or Frozen Enemies": dps['flat cold'] if {'Chilled', 'Frozen'}.intersection(selections) else 0,
+		"#% increased Critical Strike Chance against Shocked Enemies": dps['crit chance'] if {'Shocked'}.issubset(selections) else 0,
+		"Adds # to # Lightning Damage against Shocked Enemies": dps['flat lightning'] if {'Shocked'}.issubset(selections) else 0,
 	}
 
 	# mods that are explicitly skipped, comment with where they appear
@@ -253,25 +268,68 @@ def gensearchparams(dps, selections):
 		"#% increased Projectile Damage per Power Charge": dps['% generic'] * dps["Power Count"] if {'Power', 'Projectile'}.issubset(selections) else 0,
 		# Shimmeron
 		"Adds # to # Lightning Damage to Spells per Power Charge": dps['flat lightning'] * dps["Power Count"] if {'Power', 'Spell'}.issubset(selections) else 0,
+		# Farrul's Pounce
+		"#% increased Damage with Hits and Ailments against Bleeding Enemies": 0,
+		"# to Accuracy against Bleeding Enemies": 0,
+		# Witchfire Brew
+		"#% increased Damage Over Time during Flask Effect": 0,
+		# Yoke of Suffering and Leper's Alms
+		"#% increased Duration of Ailments on Enemies": 0,
+		# Kondo's Pride
+		"#% increased Melee Damage against Bleeding Enemies": 0,
+		# Goredrill, Haemophellia, corrupted axe implicit
+		"#% increased Attack Damage against Bleeding Enemies": 0,
+		# Maligaro's Cruelty
+		"#% increased Damage with Poison per Frenzy Charge": 0,
+		"#% increased Poison Duration per Power Charge": 0,
+		# Fenumus' Toxins
+		"#% increased Damage with Poison per Power Charge": 0,
+		# Coralito's Signature
+		"#% increased Duration of Poisons you inflict during Flask effect": 0,
+		# Razor of the Seventh Sun
+		"#% increased Burning Damage if you've Ignited an Enemy Recently": 0,
+		"#% increased Melee Physical Damage against Ignited Enemies": 0,
+		# Gang's Momentum
+		"#% increased Damage against Ignited Enemies": 0,
+		# Dyadus
+		"#% increased Damage with Ignite inflicted on Chilled Enemies": 0,
+		# Brutus' Lead Sprinkler
+		"Adds # to # Fire Damage to Attacks against Ignited Enemies": 0,
+		# Stormfire
+		"Adds # to # Lightning Damage to Hits against Ignited Enemies": 0,
+		# Cospri's Malice
+		"#% increased Critical Strike Chance against Chilled Enemies": 0,
+		# Tasalio's Sign
+		"Adds # to # Cold Damage against Chilled Enemies": 0,
+		"Adds # to # Physical Damage to Attacks against Frozen Enemies": 0,
+		# Spine of the First Claimant
+		"#% increased Damage with Hits against Frozen Enemies": 0,
+		# The Halcyon
+		"#% increased Damage if you've Frozen an Enemy Recently": 0,
+		# Valako's Sign
+		"#% increased Damage with Hits against Shocked Enemies": 0,
+		# Inpulsa's Broken Heart
+		"#% increased Damage if you have Shocked an Enemy Recently": 0,
+		# Singularity
+		"#% increased Damage with Hits and Ailments against Hindered Enemies": 0,
 	}
 
+	# TODO: Determine if each mod is worth adding or specific to a niche unique
 	# mods that have not been processed yet
 	queued = {
-		# TODO: Determine if each mod is worth adding or specific to a niche unique
+		"#% increased Bleeding Duration": 0,
+		"#% increased Poison Duration": 0,
 		"#% Critical Strike Chance per Power Charge": 0,  # Note that this is base crit.
 		"# Accuracy Rating per 2 Intelligence": 0,
 		"# Life per 4 Dexterity": 0,
 		"# maximum Energy Shield per 5 Strength": 0,
-		"# to # added Fire Damage against Burning Enemies": 0,
 		"# to Accuracy Rating while at Maximum Frenzy Charges": 0,
-		"# to Accuracy against Bleeding Enemies": 0,
 		"# to Maximum Life per 10 Dexterity": 0,
 		"# to Maximum Life per 2 Intelligence": 0,
 		"# to maximum Energy Shield": 0,
 		"# to maximum Life": 0,
 		"#% Global Critical Strike Multiplier while you have no Frenzy Charges": 0,
 		"#% increased Attack Critical Strike Chance per 200 Accuracy Rating": 0,
-		"#% increased Attack Damage against Bleeding Enemies": 0,
 		"#% increased Attack Speed if you've Killed Recently": 0,
 		"#% increased Attack Speed per 10 Dexterity": 0,
 		"#% increased Attack Speed per 25 Dexterity": 0,
@@ -279,48 +337,21 @@ def gensearchparams(dps, selections):
 		"#% increased Attack Speed while Ignited": 0,
 		"#% increased Attack Speed with Movement Skills": 0,
 		"#% increased Attack and Cast Speed if you've used a Movement Skill Recently": 0,
-		"#% increased Bleeding Duration": 0,
 		"#% increased Bleeding Duration per 12 Intelligence": 0,
-		"#% increased Burning Damage": 0,
-		"#% increased Burning Damage if you've Ignited an Enemy Recently": 0,
 		"#% increased Cast Speed if you've Killed Recently": 0,
 		"#% increased Cast Speed while Ignited": 0,
 		"#% increased Cold Damage if you have used a Fire Skill Recently": 0,
 		"#% increased Cold Damage with Attack Skills": 0,
-		"#% increased Critical Strike Chance against Chilled Enemies": 0,
 		"#% increased Critical Strike Chance against Enemies on Full Life": 0,
-		"#% increased Critical Strike Chance against Poisoned Enemies": 0,
-		"#% increased Critical Strike Chance against Shocked Enemies": 0,
 		"#% increased Critical Strike Chance if you have Killed Recently": 0,
-		"#% increased Damage Over Time during Flask Effect": 0,
-		"#% increased Damage against Ignited Enemies": 0,
-		"#% increased Damage if you have Shocked an Enemy Recently": 0,
-		"#% increased Damage if you've Frozen an Enemy Recently": 0,
-		"#% increased Damage over Time": 0,
-		"#% increased Damage over Time while Dual Wielding": 0,
-		"#% increased Damage over Time while holding a Shield": 0,
-		"#% increased Damage over Time while wielding a Two Handed Weapon": 0,
 		"#% increased Damage while Ignited": 0,
 		"#% increased Damage while Leeching": 0,
 		"#% increased Damage while Shocked": 0,
 		"#% increased Damage while you have no Frenzy Charges": 0,
-		"#% increased Damage with Ailments": 0,
-		"#% increased Damage with Bleeding": 0,
 		"#% increased Damage with Channelling Skills": 0,
-		"#% increased Damage with Hits against Chilled Enemies": 0,
-		"#% increased Damage with Hits against Frozen Enemies": 0,
-		"#% increased Damage with Hits against Shocked Enemies": 0,
-		"#% increased Damage with Hits and Ailments against Bleeding Enemies": 0,
-		"#% increased Damage with Hits and Ailments against Hindered Enemies": 0,
-		"#% increased Damage with Ignite inflicted on Chilled Enemies": 0,
 		"#% increased Damage with Movement Skills": 0,
-		"#% increased Damage with Poison": 0,
-		"#% increased Damage with Poison per Frenzy Charge": 0,
-		"#% increased Damage with Poison per Power Charge": 0,
 		"#% increased Duration": 0,
-		"#% increased Duration of Ailments on Enemies": 0,
 		"#% increased Duration of Elemental Ailments on Enemies": 0,
-		"#% increased Duration of Poisons you inflict during Flask effect": 0,
 		"#% increased Elemental Damage if you've used a Warcry Recently": 0,
 		"#% increased Energy Shield": 0,
 		"#% increased Energy Shield per 10 Strength": 0,
@@ -331,9 +362,7 @@ def gensearchparams(dps, selections):
 		"#% increased Global Damage": 0,
 		"#% increased Lightning Damage per 10 Intelligence": 0,
 		"#% increased Lightning Damage with Attack Skills": 0,
-		"#% increased Melee Damage against Bleeding Enemies": 0,
 		"#% increased Melee Damage when on Full Life": 0,
-		"#% increased Melee Physical Damage against Ignited Enemies": 0,
 		"#% increased Melee Physical Damage per 10 Dexterity": 0,
 		"#% increased Mine Arming Speed": 0,
 		"#% increased Mine Laying Speed": 0,
@@ -343,8 +372,6 @@ def gensearchparams(dps, selections):
 		"#% increased Physical Damage over time per 10 Dexterity": 0,
 		"#% increased Physical Damage with Ranged Weapons": 0,
 		"#% increased Physical Weapon Damage per 10 Strength": 0,
-		"#% increased Poison Duration": 0,
-		"#% increased Poison Duration per Power Charge": 0,
 		"#% increased Projectile Attack Damage": 0,
 		"#% increased Projectile Attack Damage during any Flask Effect": 0,
 		"#% increased Projectile Attack Damage per 200 Accuracy Rating": 0,
@@ -371,19 +398,10 @@ def gensearchparams(dps, selections):
 		"#% of Physical Damage Converted to Lightning Damage": 0,
 		"#% of Physical Damage Converted to Lightning during Flask effect": 0,
 		"#% to Critical Strike Multiplier if you have Blocked Recently": 0,
-		"Adds # to # Cold Damage against Chilled Enemies": 0,
-		"Adds # to # Cold Damage against Chilled or Frozen Enemies": 0,
 		"Adds # to # Cold Damage to Attacks per 10 Dexterity": 0,
-		"Adds # to # Fire Damage against Ignited Enemies": 0,
 		"Adds # to # Fire Damage if you've Blocked Recently": 0,
-		"Adds # to # Fire Damage to Attacks against Ignited Enemies": 0,
 		"Adds # to # Fire Damage to Attacks per 10 Strength": 0,
-		"Adds # to # Lightning Damage against Shocked Enemies": 0,
 		"Adds # to # Lightning Damage to Attacks per 10 Intelligence": 0,
-		"Adds # to # Lightning Damage to Hits against Ignited Enemies": 0,
-		"Adds # to # Physical Damage against Bleeding Enemies": 0,
-		"Adds # to # Physical Damage against Poisoned Enemies": 0,
-		"Adds # to # Physical Damage to Attacks against Frozen Enemies": 0,
 		"Adds # to # Physical Damage to Attacks per 25 Dexterity": 0,
 		"Attacks have #% to Critical Strike Chance": 0,
 		"Chaos Skills have #% increased Skill Effect Duration": 0,
