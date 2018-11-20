@@ -104,6 +104,7 @@
 
     <div id="generate"></div><br>
     <a href="" id="query" target="_blank">Search</a><br><br>
+    <div id="414by"> If you get a '414 Request-URI Too Large' download <a href="bypass414.py" download>this python script</a>, run it, and paste this string <br><input type="text" id="414bypass" onClick="this.select();" readonly>. <br><br></div>
     <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.  Note that the sum of the weights is an approximation as stats scale in relation to each other.  EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable.  Looking at each mod in isolation cannot perfectly recreate that.</div><br>
 
     <script type="text/python">
@@ -112,6 +113,9 @@
         from browser.html import TABLE, TR, TH, TD
         from gensearchparams import gensearchparams
         import json
+
+        url = 'https://www.pathofexile.com/trade/search/Delve'
+        url_api = 'https://www.pathofexile.com/api/trade/search/Delve?redirect&source='
 
         def generate_query(ev):
             dps = {}
@@ -123,9 +127,11 @@
                 if elt.checked:
                     selections.add(elt.name)
             querystring = gensearchparams(dps, selections)
-            doc["query"].href = querystring
+            doc["query"].href = url_api + querystring
+            doc["414bypass"].value = querystring
             doc["query"].style.display = "inline"
             doc["notice"].style.display = "inline"
+            doc["414by"].style.display = "inline"
 
         def toggle_instructions(ev):
             if doc["instructions"].style.display == "none":
@@ -167,6 +173,7 @@
 
         doc["query"].style.display = "none"
         doc["notice"].style.display = "none"
+        doc["414by"].style.display = "none"
         doc["instructions"].style.display = "none"
         b_generate = html.BUTTON("Generate Query")
         b_generate.bind("click", generate_query)
