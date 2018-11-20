@@ -450,7 +450,7 @@ def gensearchparams(dps, selections):
 		for val in mods[notmod]:
 			notquery.append(notitem.format(val))
 
-	searchstring = 'https://www.pathofexile.com/api/trade/search/Delve?redirect&source={{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
+	searchstring = '{{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
 	item = '{{"id":"{}","value":{{"weight":{}}}}}'
 	query = []
 	for i in mlist:
