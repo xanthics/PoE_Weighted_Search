@@ -374,3 +374,35 @@ Item Level: 1
 Implicits: 0
 1% increased Damage per 5 of your lowest Attribute
 		</Item>
+		<Item>
+			Rarity: RARE
+7% increased maximum Life
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+7% increased maximum Life
+		</Item>
+		<Item>
+			Rarity: RARE
++40 to maximum Life
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++40 to maximum Life
+		</Item>
+		<Item>
+			Rarity: RARE
+7% increased maximum Energy Shield
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+7% increased maximum Energy Shield
+		</Item>
+		<Item>
+			Rarity: RARE
++40 to maximum Energy Shield
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++40 to maximum Energy Shield
+		</Item>

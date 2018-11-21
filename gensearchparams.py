@@ -240,6 +240,11 @@ def gensearchparams(dps, selections):
 		"Adds # to # Cold Damage against Chilled or Frozen Enemies": dps['flat cold'] if {'Chilled', 'Frozen'}.intersection(selections) else 0,
 		"#% increased Critical Strike Chance against Shocked Enemies": dps['crit chance'] if {'Shocked'}.issubset(selections) else 0,
 		"Adds # to # Lightning Damage against Shocked Enemies": dps['flat lightning'] if {'Shocked'}.issubset(selections) else 0,
+		"# to maximum Life": dps['flat life'],
+		"#% increased maximum Life": dps['% life'],
+		"# to maximum Energy Shield": dps['flat es'],
+		"#% increased maximum Energy Shield": dps['% es'],
+
 	}
 
 	# mods that are explicitly skipped, comment with where they appear
@@ -324,7 +329,6 @@ def gensearchparams(dps, selections):
 		"# to maximum Life": 0,
 		"#% increased maximum Life": 0,
 		"# to maximum Energy Shield": 0,
-		"#% increased Energy Shield": 0,
 		"#% increased maximum Energy Shield": 0,
 
 		"#% increased Bleeding Duration": 0,
