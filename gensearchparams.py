@@ -321,16 +321,19 @@ def gensearchparams(dps, selections):
 		"# Accuracy Rating per 2 Intelligence": 0,
 		"# Life per 4 Dexterity": 0,
 		"# maximum Energy Shield per 5 Strength": 0,
+		# The Green Dream/Nightmare
+		"Gain #% of Cold Damage as Extra Chaos Damage": 0,
+		# The Red Dream/Nightmare
+		"Gain #% of Fire Damage as Extra Chaos Damage": 0,
+		# The Blue Dream/Nightmare
+		"Gain #% of Lightning Damage as Extra Chaos Damage": 0,
+		# The Grey Spire, The Dark Seer, Fencoil, Mirebough
+		"#% increased Global Damage": 0,
 	}
 
 	# TODO: Determine if each mod is worth adding or specific to a static unique
 	# mods that have not been processed yet
 	queued = {
-		"# to maximum Life": 0,
-		"#% increased maximum Life": 0,
-		"# to maximum Energy Shield": 0,
-		"#% increased maximum Energy Shield": 0,
-
 		"#% increased Bleeding Duration": 0,
 		"#% increased Poison Duration": 0,
 		"#% Critical Strike Chance per Power Charge": 0,  # Note that this is base crit.
@@ -367,7 +370,6 @@ def gensearchparams(dps, selections):
 		"#% increased Fire Damage if you have been Hit Recently": 0,
 		"#% increased Fire Damage if you have used a Cold Skill Recently": 0,
 		"#% increased Fire Damage per 20 Strength": 0,
-		"#% increased Global Damage": 0,
 		"#% increased Lightning Damage per 10 Intelligence": 0,
 		"#% increased Lightning Damage with Attack Skills": 0,
 		"#% increased Melee Damage when on Full Life": 0,
@@ -412,9 +414,6 @@ def gensearchparams(dps, selections):
 		"Attacks have #% to Critical Strike Chance": 0,
 		"Chaos Skills have #% increased Skill Effect Duration": 0,
 		"Damage Penetrates #% of Fire Resistance if you have Blocked Recently": 0,
-		"Gain #% of Cold Damage as Extra Chaos Damage": 0,
-		"Gain #% of Fire Damage as Extra Chaos Damage": 0,
-		"Gain #% of Lightning Damage as Extra Chaos Damage": 0,
 		"Gain #% of Physical Attack Damage as Extra Fire Damage": 0,
 		"Gain #% of Physical Attack Damage as Extra Lightning Damage": 0,
 		"Gain #% of Physical Damage as Extra Chaos Damage": 0,
@@ -442,11 +441,16 @@ def gensearchparams(dps, selections):
 		'#% more Weapon Damage',  # Quill Rain
 	]
 
-	mlist = {}
-	notquery = []
+	searchstring = '{{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
+	item = '{{"id":"{}","value":{{"weight":{}}}}}'
 	notitem = '{{"id":"{}"}}'
 
+	mlist = {}
+	query = []
+	notquery = []
+
 	min_threshold = 0.1  # dps['% generic'] / 20
+
 	for mod in modstr:
 		if modstr[mod] >= min_threshold:
 			for val in mods[mod]:
@@ -456,10 +460,7 @@ def gensearchparams(dps, selections):
 		for val in mods[notmod]:
 			notquery.append(notitem.format(val))
 
-	searchstring = '{{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
-	item = '{{"id":"{}","value":{{"weight":{}}}}}'
-	query = []
-	for i in mlist:
+	for i in sorted(mlist, key=mlist.get, reverse=True):
 		query.append(item.format(i, mlist[i]))
 	return searchstring.format(','.join(query), ','.join(notquery))
 
