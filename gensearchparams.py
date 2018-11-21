@@ -312,22 +312,27 @@ def gensearchparams(dps, selections):
 		"#% increased Damage if you have Shocked an Enemy Recently": 0,
 		# Singularity
 		"#% increased Damage with Hits and Ailments against Hindered Enemies": 0,
-	}
-
-	# TODO: Determine if each mod is worth adding or specific to a niche unique
-	# mods that have not been processed yet
-	queued = {
-		"#% increased Bleeding Duration": 0,
-		"#% increased Poison Duration": 0,
-		"#% Critical Strike Chance per Power Charge": 0,  # Note that this is base crit.
+		# Shaper's Touch
 		"# Accuracy Rating per 2 Intelligence": 0,
 		"# Life per 4 Dexterity": 0,
 		"# maximum Energy Shield per 5 Strength": 0,
+	}
+
+	# TODO: Determine if each mod is worth adding or specific to a static unique
+	# mods that have not been processed yet
+	queued = {
+		"# to maximum Life": 0,
+		"#% increased maximum Life": 0,
+		"# to maximum Energy Shield": 0,
+		"#% increased Energy Shield": 0,
+		"#% increased maximum Energy Shield": 0,
+
+		"#% increased Bleeding Duration": 0,
+		"#% increased Poison Duration": 0,
+		"#% Critical Strike Chance per Power Charge": 0,  # Note that this is base crit.
 		"# to Accuracy Rating while at Maximum Frenzy Charges": 0,
 		"# to Maximum Life per 10 Dexterity": 0,
 		"# to Maximum Life per 2 Intelligence": 0,
-		"# to maximum Energy Shield": 0,
-		"# to maximum Life": 0,
 		"#% Global Critical Strike Multiplier while you have no Frenzy Charges": 0,
 		"#% increased Attack Critical Strike Chance per 200 Accuracy Rating": 0,
 		"#% increased Attack Speed if you've Killed Recently": 0,
@@ -353,7 +358,6 @@ def gensearchparams(dps, selections):
 		"#% increased Duration": 0,
 		"#% increased Duration of Elemental Ailments on Enemies": 0,
 		"#% increased Elemental Damage if you've used a Warcry Recently": 0,
-		"#% increased Energy Shield": 0,
 		"#% increased Energy Shield per 10 Strength": 0,
 		"#% increased Energy Shield per Power Charge": 0,
 		"#% increased Fire Damage if you have been Hit Recently": 0,
@@ -386,8 +390,6 @@ def gensearchparams(dps, selections):
 		"#% increased Vaal Skill Critical Strike Chance": 0,
 		"#% increased Vaal Skill Damage": 0,
 		"#% increased Vaal Skill Effect Duration": 0,
-		"#% increased maximum Energy Shield": 0,
-		"#% increased maximum Life": 0,
 		"#% of Cold Damage Converted to Fire Damage": 0,
 		"#% of Fire Damage Converted to Chaos Damage": 0,
 		"#% of Lightning Damage Converted to Chaos Damage": 0,
