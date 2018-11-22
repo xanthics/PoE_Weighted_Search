@@ -163,8 +163,6 @@ def gensearchparams(dps, selections):
 		"Gain #% of Physical Damage as Extra Fire Damage": dps['extra fire'],
 		"Gain #% of Physical Damage as Extra Fire Damage if you've dealt a Critical Strike Recently": dps['extra fire'] if {'Recent Crit'}.issubset(selections) else 0,
 		"Gain #% of Physical Damage as Extra Lightning Damage": dps['extra lightning'],
-		"Minions deal #% increased Damage": dps['% generic'] if {'Minion Damage'}.issubset(selections) else 0,
-		"Minions have #% increased Attack Speed": dps['attack speed'] if {'Minion Attack Speed'}.issubset(selections) else 0,
 		"Gain #% of Non-Chaos Damage as extra Chaos Damage": dps['extra chaos'],
 		'# to Maximum Power Charges': dps['+1 power charge'] if {'Power'}.issubset(selections) else 0,
 		'# to Maximum Frenzy Charges': dps['+1 frenzy charge'] if {'Frenzy'}.issubset(selections) else 0,
@@ -244,7 +242,16 @@ def gensearchparams(dps, selections):
 		"#% increased maximum Life": dps['% life'],
 		"# to maximum Energy Shield": dps['flat es'],
 		"#% increased maximum Energy Shield": dps['% es'],
-
+		"Minions deal #% increased Damage": dps['% minion'],
+		"Minions have #% increased Attack Speed": dps['minion attack speed'],
+		"Minions have #% increased Cast Speed": dps['minion cast speed'],
+		"Minions have #% increased Attack and Cast Speed if you or your Minions have Killed Recently": (dps['minion attack speed'] if dps['minion attack speed'] > dps['minion cast speed'] else dps['minion cast speed']) if {'Recent Kill'}.issubset(selections) else 0,
+		"#% increased Minion Damage if you've used a Minion Skill Recently": dps['% minion'] if {'Recent Minion Skill'}.issubset(selections) else 0,
+		"Minions deal # to # additional Physical Damage": dps['minion flat phys'],
+		"Minions deal # to # additional Lightning Damage": dps['minion flat lightning'],
+		"Minions deal # to # additional Cold Damage": dps['minion flat cold'],
+		"Minions deal # to # additional Fire Damage": dps['minion flat fire'],
+		"Minions deal # to # additional Chaos Damage": dps['minion flat chaos'],
 	}
 
 	# mods that are explicitly skipped, comment with where they appear
@@ -329,6 +336,16 @@ def gensearchparams(dps, selections):
 		"Gain #% of Lightning Damage as Extra Chaos Damage": 0,
 		# The Grey Spire, The Dark Seer, Fencoil, Mirebough
 		"#% increased Global Damage": 0,
+		# Speaker's Wreath
+		"#% increased Minion Attack Speed per 50 Dexterity": 0,
+		# The Scourge
+		"#% increased Minion Damage if you've used a Minion Skill Recently": 0,
+		# Null's Inclination
+		"Minions deal #% increased Damage per 10 Dexterity": 0,
+		# Grip of the Council
+		"Minions gain #% of Physical Damage as Extra Cold Damage": 0,
+		# Clayshaper
+		"Minions' Attacks deal # to # additional Physical Damage": 0,
 	}
 
 	# TODO: Determine if each mod is worth adding or specific to a static unique
@@ -376,9 +393,6 @@ def gensearchparams(dps, selections):
 		"#% increased Melee Physical Damage per 10 Dexterity": 0,
 		"#% increased Mine Arming Speed": 0,
 		"#% increased Mine Laying Speed": 0,
-		"#% increased Minion Attack Speed per 50 Dexterity": 0,
-		"#% increased Minion Damage if you have Hit Recently": 0,
-		"#% increased Minion Damage if you've used a Minion Skill Recently": 0,
 		"#% increased Physical Damage over time per 10 Dexterity": 0,
 		"#% increased Physical Damage with Ranged Weapons": 0,
 		"#% increased Physical Weapon Damage per 10 Strength": 0,
@@ -418,16 +432,6 @@ def gensearchparams(dps, selections):
 		"Gain #% of Physical Attack Damage as Extra Lightning Damage": 0,
 		"Gain #% of Physical Damage as Extra Chaos Damage": 0,
 		"Gain #% of Physical Damage as Extra Chaos Damage while at maximum Power Charges": 0,
-		"Minions deal # to # additional Chaos Damage": 0,
-		"Minions deal # to # additional Cold Damage": 0,
-		"Minions deal # to # additional Fire Damage": 0,
-		"Minions deal # to # additional Lightning Damage": 0,
-		"Minions deal # to # additional Physical Damage": 0,
-		"Minions deal #% increased Damage per 10 Dexterity": 0,
-		"Minions gain #% of Physical Damage as Extra Cold Damage": 0,
-		"Minions have #% increased Attack and Cast Speed if you or your Minions have Killed Recently": 0,
-		"Minions have #% increased Cast Speed": 0,
-		"Minions' Attacks deal # to # additional Physical Damage": 0,
 		"Projectile Attack Skills have #% increased Critical Strike Chance": 0,
 		"Traps and Mines deal # to # additional Physical Damage": 0
 	}

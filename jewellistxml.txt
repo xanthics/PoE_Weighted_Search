@@ -406,3 +406,67 @@ Item Level: 1
 Implicits: 0
 +40 to maximum Energy Shield
 		</Item>
+		<Item>
+			Rarity: RARE
+Minions deal 12% increased Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions deal 12% increased Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+Minions have 10% increased Attack Speed
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions have 10% increased Attack Speed
+		</Item>
+		<Item>
+			Rarity: RARE
+Minions have 10% increased Cast Speed
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions have 10% increased Cast Speed
+		</Item>
+		<Item>
+			Rarity: RARE
+Minions deal 5 to 7 additional Physical Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions deal 5 to 7 additional Physical Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+Minions deal 6 to 68 additional Lightning Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions deal 6 to 68 additional Lightning Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+Minions deal 14 to 31 additional Cold Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions deal 14 to 31 additional Cold Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+Minions deal 21 to 34 additional Fire Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions deal 21 to 34 additional Fire Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+Minions deal 4 to 7 additional Chaos Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Minions deal 4 to 7 additional Chaos Damage
+		</Item>

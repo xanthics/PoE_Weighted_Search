@@ -49,5 +49,13 @@
   {"name": "% life", "desc": "7% increased maximum Life", "count": 7},
   {"name": "flat life", "desc": "+40 to maximum Life", "count": 40},
   {"name": "% es", "desc": "7% increased maximum Energy Shield", "count": 7},
-  {"name": "flat es", "desc": "+40 to maximum Energy Shield", "count": 40}
+  {"name": "flat es", "desc": "+40 to maximum Energy Shield", "count": 40},
+  {"name": "% minion", "desc": "Minions deal 12% increased Damage", "count": 12},
+  {"name": "minion attack speed", "desc": "Minions have 10% increased Attack Speed", "count": 10},
+  {"name": "minion cast speed", "desc": "Minions have 10% increased Cast Speed", "count": 10},
+  {"name": "minion flat phys", "desc": "Minions deal 5 to 7 additional Physical Damage", "count": 6},
+  {"name": "minion flat lightning", "desc": "Minions deal 6 to 68 additional Lightning Damage", "count": 37},
+  {"name": "minion flat cold", "desc": "Minions deal 14 to 31 additional Cold Damage", "count": 22.5},
+  {"name": "minion flat fire", "desc": "Minions deal 21 to 34 additional Fire Damage", "count": 27.5},
+  {"name": "minion flat chaos", "desc": "Minions deal 4 to 7 additional Chaos Damage", "count": 5.5}
 ]
