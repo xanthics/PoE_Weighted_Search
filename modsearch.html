@@ -45,7 +45,7 @@
 
     <strong>Charges:</strong> Do you sustain charges?<br>
     <table>
-    <tr><td><label><input type="checkbox" name="useFrenzyCharges">Frenzy</label></td><td><label><input type="checkbox" name="usePowerCharges">Power</label></td><td><label><input type="checkbox" name="useEnduranceCharges">Endurance</label></td></tr>
+    <tr><td><label><input type="checkbox" id="useFrenzyCharges">Frenzy</label></td><td><label><input type="checkbox" id="usePowerCharges">Power</label></td><td><label><input type="checkbox" id="useEnduranceCharges">Endurance</label></td></tr>
     </table><br><br>
 
     <strong>Charge count:</strong> The max number of each type of charge your build sustains<br>
@@ -57,45 +57,45 @@
 
     <strong>Type:</strong> Generally select 1 based on your type of attack<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Attack">Attack</label></td><td><label><input type="checkbox" name="Spell">Spell</label></td>
+    <tr><td><label><input type="checkbox" id="Attack">Attack</label></td><td><label><input type="checkbox" id="Spell">Spell</label></td>
     </table><br><br>
 
     <strong>Class:</strong> If you are attack based, select 1 or more(Varunastra) weapon types.  Trap/Mine/Totem if you are using those supports<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Mace">Mace</label></td><td><label><input type="checkbox" name="Bow">Bow</label></td><td><label><input type="checkbox" name="Wand">Wand</label></td><td><label><input type="checkbox" name="Claw">Claw</label></td></tr>
-    <tr><td><label><input type="checkbox" name="Staff">Staff</label></td><td><label><input type="checkbox" name="Sword">Sword</label></td><td><label><input type="checkbox" name="Axe">Axe</label></td><td><label><input type="checkbox" name="Dagger">Dagger</label></td></tr>
-    <tr><td><label><input type="checkbox" name="Trap">Trap</label></td><td><label><input type="checkbox" name="Mine">Mine</label></td><td><label><input type="checkbox" name="Totem">Totem</label></td></tr>
+    <tr><td><label><input type="checkbox" id="Mace">Mace</label></td><td><label><input type="checkbox" id="Bow">Bow</label></td><td><label><input type="checkbox" id="Wand">Wand</label></td><td><label><input type="checkbox" id="Claw">Claw</label></td></tr>
+    <tr><td><label><input type="checkbox" id="Staff">Staff</label></td><td><label><input type="checkbox" id="Sword">Sword</label></td><td><label><input type="checkbox" id="Axe">Axe</label></td><td><label><input type="checkbox" id="Dagger">Dagger</label></td></tr>
+    <tr><td><label><input type="checkbox" id="Trap">Trap</label></td><td><label><input type="checkbox" id="Mine">Mine</label></td><td><label><input type="checkbox" id="Totem">Totem</label></td></tr>
     </table><br><br>
 
     <strong>Tags:</strong> Check all the tags that match your primary skill<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Melee">Melee</label></td><td><label><input type="checkbox" name="Area">Area</label></td><td><label><input type="checkbox" name="Projectile">Projectile</label></td><td><label><input type="checkbox" name="Elemental">Elemental</label></td></tr>
-    <tr><td><label><input type="checkbox" name="Fire">Fire</label></td><td><label><input type="checkbox" name="Cold">Cold</label></td><td><label><input type="checkbox" name="Lightning">Lightning</label></td></tr>
+    <tr><td><label><input type="checkbox" id="Melee">Melee</label></td><td><label><input type="checkbox" id="Area">Area</label></td><td><label><input type="checkbox" id="Projectile">Projectile</label></td><td><label><input type="checkbox" id="Elemental">Elemental</label></td></tr>
+    <tr><td><label><input type="checkbox" id="Fire">Fire</label></td><td><label><input type="checkbox" id="Cold">Cold</label></td><td><label><input type="checkbox" id="Lightning">Lightning</label></td></tr>
     </table><br><br>
 
     <strong>Hands:</strong> choose 1 based on wielded weapons<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Shield">Shield</label></td><td><label><input type="checkbox" name="DualWielding">Dual Wielding</label></td><td><label><input type="checkbox" name="TwoHandedWeapon">Two Handed Weapon</label></td></tr>
+    <tr><td><label><input type="checkbox" id="Shield">Shield</label></td><td><label><input type="checkbox" id="DualWielding">Dual Wielding</label></td><td><label><input type="checkbox" id="TwoHandedWeapon">Two Handed Weapon</label></td></tr>
     </table><br><br>
 
     <strong>Recently:</strong> Tic all the things your build can do 'recently'<br>
     <table>
-    <tr><td><label><input type="checkbox" name="conditionKilledRecently">You Kill</label></td><td><label><input type="checkbox" name="conditionCritRecently">Crit</label></td><td><label><input type="checkbox" name="conditionHitRecently">Hit</label></td></tr>
-    <tr><td><label><input type="checkbox" name="conditionMinionsKilledRecently">Minion Kill</label></td><td><label><input type="checkbox" name="No Recent Crit">Not Crit</label></td><td><label><input type="checkbox" name="conditionUsedMinionSkillRecently">Minion Skill</label></td></tr>
-    <tr><td><label><input type="checkbox" name="No Recent Kill">Not Kill</label></td></tr>
+    <tr><td><label><input type="checkbox" id="conditionKilledRecently">You Kill</label></td><td><label><input type="checkbox" id="conditionCritRecently">Crit</label></td><td><label><input type="checkbox" id="conditionHitRecently">Hit</label></td></tr>
+    <tr><td><label><input type="checkbox" id="conditionMinionsKilledRecently">Minion Kill</label></td><td><label><input type="checkbox" id="No Recent Crit">Not Crit</label></td><td><label><input type="checkbox" id="conditionUsedMinionSkillRecently">Minion Skill</label></td></tr>
+    <tr><td><label><input type="checkbox" id="No Recent Kill">Not Kill</label></td></tr>
     </table><br><br>
 
     <strong>You are/have:</strong> Tic all the things affecting you<br>
     <table>
-    <tr><td><label><input type="checkbox" name="conditionUsingFlask">Flasked</label></td><td><label><input type="checkbox" name="Elder">Other Ring is Elder</label></td><td><label><input type="checkbox" name="Shaper">Other Ring is Shaper</label></td></tr>
-    <tr><td><label><input type="checkbox" name="conditionFullLife">Full Life</label></td></tr>
+    <tr><td><label><input type="checkbox" id="conditionUsingFlask">Flasked</label></td><td><label><input type="checkbox" id="Elder">Other Ring is Elder</label></td><td><label><input type="checkbox" id="Shaper">Other Ring is Shaper</label></td></tr>
+    <tr><td><label><input type="checkbox" id="conditionFullLife">Full Life</label></td></tr>
     </table><br><br>
 
     <strong>Enemy is:</strong> status effects on your target<br>
     <table>
-	<tr><td><label><input type="checkbox" name="conditionEnemyBleeding">Bleeding</label></td><td><label><input type="checkbox" name="conditionEnemyPoisoned">Poisoned</label></td><td><label><input type="checkbox" name="conditionEnemyBlinded">Blinded</label></td></tr>
-	<tr><td><label><input type="checkbox" name="conditionEnemyIgnited">Ignited</label></td><td><label><input type="checkbox" name="conditionEnemyBurning">Burning</label></td><td><label><input type="checkbox" name="conditionEnemyShocked">Shocked</label></td></tr>
-    <tr><td><label><input type="checkbox" name="conditionEnemyChilled">Chilled</label></td><td><label><input type="checkbox" name="conditionEnemyFrozen">Frozen</label></td></tr>
+	<tr><td><label><input type="checkbox" id="conditionEnemyBleeding">Bleeding</label></td><td><label><input type="checkbox" id="conditionEnemyPoisoned">Poisoned</label></td><td><label><input type="checkbox" id="conditionEnemyBlinded">Blinded</label></td></tr>
+	<tr><td><label><input type="checkbox" id="conditionEnemyIgnited">Ignited</label></td><td><label><input type="checkbox" id="conditionEnemyBurning">Burning</label></td><td><label><input type="checkbox" id="conditionEnemyShocked">Shocked</label></td></tr>
+    <tr><td><label><input type="checkbox" id="conditionEnemyChilled">Chilled</label></td><td><label><input type="checkbox" id="conditionEnemyFrozen">Frozen</label></td></tr>
     </table><br><br>
 
     <div id="generate"></div><br>
@@ -121,7 +121,7 @@
             selections = set()
             for elt in doc.get(selector='input[type="checkbox"]'):
                 if elt.checked:
-                    selections.add(elt.name)
+                    selections.add(elt.id)
             querystring = gensearchparams(dps, selections)
             doc["query"].href = url_api + querystring
             doc["414bypass"].value = querystring
@@ -154,12 +154,26 @@
                     elt.value = doc.query[elt.name]
                 except KeyError:
                     elt.value = 0
-            for elt in doc.get(selector='input[type="checkbox"]'):
-                try:
-                    if doc.query[elt.name] == "True":
-                        elt.checked = True
-                except KeyError:
-                    elt.checked = False
+#            for elt in doc.get(selector='input[type="checkbox"]'):
+#                try:
+#                    if doc.query[elt.name] == "True":
+#                        elt.checked = True
+#                except KeyError:
+#                    elt.checked = False
+            try:
+                flags = doc.query["Flags"].strip(',').split(',')
+                for f in flags:
+                    try:
+                        doc[f].checked = True
+                    except KeyError:
+                        print("Flag '{}' recieved but not currently supported.".format(f))
+                if 'conditionCritRecently' not in flags:
+                    doc["No Recent Crit"].checked = True
+                if 'conditionKilledRecently' not in flags:
+                    doc["No Recent Kill"].checked = True
+            except KeyError:
+                print("No Flags parameter passed in query string")
+
             for val in ['Skill', 'Character']:
                 try:
                     if doc.query[val]:
