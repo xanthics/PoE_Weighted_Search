@@ -45,14 +45,14 @@
 
     <strong>Charges:</strong> Do you sustain charges?<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Frenzy">Frenzy</label></td><td><label><input type="checkbox" name="Power">Power</label></td><td><label><input type="checkbox" name="Endurance">Endurance</label></td></tr>
+    <tr><td><label><input type="checkbox" name="useFrenzyCharges">Frenzy</label></td><td><label><input type="checkbox" name="usePowerCharges">Power</label></td><td><label><input type="checkbox" name="useEnduranceCharges">Endurance</label></td></tr>
     </table><br><br>
 
     <strong>Charge count:</strong> The max number of each type of charge your build sustains<br>
     <table>
-    <tr><td><input type="number" name="Power Count" value="0" data-normal="1" style="width: 3em"></td><td>Power</td></tr>
-    <tr><td><input type="number" name="Frenzy Count" value="0" data-normal="1" style="width: 3em"></td><td>Frenzy</td></tr>
-    <tr><td><input type="number" name="Endurance Count" value="0" data-normal="1" style="width: 3em"></td><td>Endurance</td></tr>
+    <tr><td><input type="number" name="PowerCount" value="0" data-normal="1" style="width: 3em"></td><td>Power</td></tr>
+    <tr><td><input type="number" name="FrenzyCount" value="0" data-normal="1" style="width: 3em"></td><td>Frenzy</td></tr>
+    <tr><td><input type="number" name="EnduranceCount" value="0" data-normal="1" style="width: 3em"></td><td>Endurance</td></tr>
     </table><br><br>
 
     <strong>Type:</strong> Generally select 1 based on your type of attack<br>
@@ -75,26 +75,27 @@
 
     <strong>Hands:</strong> choose 1 based on wielded weapons<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Shield">Shield</label></td><td><label><input type="checkbox" name="Dual Wielding">Dual Wielding</label></td><td><label><input type="checkbox" name="Two Handed Weapon">Two Handed Weapon</label></td></tr>
+    <tr><td><label><input type="checkbox" name="Shield">Shield</label></td><td><label><input type="checkbox" name="DualWielding">Dual Wielding</label></td><td><label><input type="checkbox" name="TwoHandedWeapon">Two Handed Weapon</label></td></tr>
     </table><br><br>
 
     <strong>Recently:</strong> Tic all the things your build can do 'recently'<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Recent Crit">Crit</label></td><td><label><input type="checkbox" name="Recent Kill">Kill</label></td><td><label><input type="checkbox" name="Recent Hit">Hit</label></td></tr>
-    <tr><td><label><input type="checkbox" name="No Recent Crit">Not Crit</label></td><td><label><input type="checkbox" name="No Recent Kill">Not Kill</label></td><td><label><input type="checkbox" name="Recent Minion Skill">Minion Skill</label></td></tr>
+    <tr><td><label><input type="checkbox" name="conditionKilledRecently">You Kill</label></td><td><label><input type="checkbox" name="conditionCritRecently">Crit</label></td><td><label><input type="checkbox" name="conditionHitRecently">Hit</label></td></tr>
+    <tr><td><label><input type="checkbox" name="conditionMinionsKilledRecently">Minion Kill</label></td><td><label><input type="checkbox" name="No Recent Crit">Not Crit</label></td><td><label><input type="checkbox" name="conditionUsedMinionSkillRecently">Minion Skill</label></td></tr>
+    <tr><td><label><input type="checkbox" name="No Recent Kill">Not Kill</label></td></tr>
     </table><br><br>
 
     <strong>You are/have:</strong> Tic all the things affecting you<br>
     <table>
-    <tr><td><label><input type="checkbox" name="Flasked">Flasked</label></td><td><label><input type="checkbox" name="Elder">Other Ring is Elder</label></td><td><label><input type="checkbox" name="Shaper">Other Ring is Shaper</label></td></tr>
-    <tr><td><label><input type="checkbox" name="Full Life">Full Life</label></td></tr>
+    <tr><td><label><input type="checkbox" name="conditionUsingFlask">Flasked</label></td><td><label><input type="checkbox" name="Elder">Other Ring is Elder</label></td><td><label><input type="checkbox" name="Shaper">Other Ring is Shaper</label></td></tr>
+    <tr><td><label><input type="checkbox" name="conditionFullLife">Full Life</label></td></tr>
     </table><br><br>
 
     <strong>Enemy is:</strong> status effects on your target<br>
     <table>
-	<tr><td><label><input type="checkbox" name="Bleeding">Bleeding</label></td><td><label><input type="checkbox" name="Poisoned">Poisoned</label></td><td><label><input type="checkbox" name="Blinded">Blinded</label></td></tr>
-	<tr><td><label><input type="checkbox" name="Ignited">Ignited</label></td><td><label><input type="checkbox" name="Burning">Burning</label></td><td><label><input type="checkbox" name="Shocked">Shocked</label></td></tr>
-    <tr><td><label><input type="checkbox" name="Chilled">Chilled</label></td><td><label><input type="checkbox" name="Frozen">Frozen</label></td></tr>
+	<tr><td><label><input type="checkbox" name="conditionEnemyBleeding">Bleeding</label></td><td><label><input type="checkbox" name="conditionEnemyPoisoned">Poisoned</label></td><td><label><input type="checkbox" name="conditionEnemyBlinded">Blinded</label></td></tr>
+	<tr><td><label><input type="checkbox" name="conditionEnemyIgnited">Ignited</label></td><td><label><input type="checkbox" name="conditionEnemyBurning">Burning</label></td><td><label><input type="checkbox" name="conditionEnemyShocked">Shocked</label></td></tr>
+    <tr><td><label><input type="checkbox" name="conditionEnemyChilled">Chilled</label></td><td><label><input type="checkbox" name="conditionEnemyFrozen">Frozen</label></td></tr>
     </table><br><br>
 
     <div id="generate"></div><br>
