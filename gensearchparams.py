@@ -441,8 +441,7 @@ def gensearchparams(dps, selections):
 		'#% less Critical Strike Chance',  # Marylene's Fallacy
 		'Lose all Power Charges on reaching Maximum Power Charges',  # Malachai's Loop
 		'# Lightning Damage taken per second per Power Charge if your Skills have dealt a Critical Strike Recently',  # Shimmeron
-		'#% more Mine Damage',  # Tremor Rod
-		'#% more Weapon Damage',  # Quill Rain
+		'#% less Mine Damage',  # Tremor Rod
 	]
 
 	searchstring = '{{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
