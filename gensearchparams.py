@@ -351,6 +351,14 @@ def gensearchparams(dps, selections):
 	# TODO: Determine if each mod is worth adding or specific to a static unique
 	# mods that have not been processed yet
 	queued = {
+		"#% Critical Strike Multiplier while there is a Rare or Unique Enemy Nearby": 0,
+		"#% increased Attack Speed while a Rare or Unique Enemy is Nearby": 0,
+		"#% increased Damage with Hits and Ailments against Chilled Enemies": 0,
+		"#% increased Elemental Damage if you've dealt a Critical Strike Recently": 0,
+		"#% to Cold Damage over Time Multiplier": 0,
+		"#% to Non-Ailment Chaos Damage over Time Multiplier": 0,
+		"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently": 0,
+
 		"#% increased Bleeding Duration": 0,
 		"#% increased Poison Duration": 0,
 		"#% Critical Strike Chance per Power Charge": 0,  # Note that this is base crit.
