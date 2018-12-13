@@ -466,7 +466,7 @@ def gensearchparams(dps, selections):
 	min_threshold = 0.0  # dps['% generic'] / 20
 
 	for mod in modstr:
-		if modstr[mod] >= min_threshold:
+		if modstr[mod] > min_threshold:
 			for val in mods[mod]:
 				mlist[val] = round(modstr[mod], 2)
 
