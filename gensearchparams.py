@@ -460,7 +460,7 @@ def gensearchparams(dps, selections):
 	query = []
 	notquery = []
 
-	min_threshold = 0.1  # dps['% generic'] / 20
+	min_threshold = 0.0  # dps['% generic'] / 20
 
 	for mod in modstr:
 		if modstr[mod] >= min_threshold:
