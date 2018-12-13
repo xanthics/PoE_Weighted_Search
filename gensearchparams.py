@@ -32,6 +32,7 @@ def gensearchparams(dps, selections):
 		"#% increased Cast Speed with Cold Skills": dps['cast speed'] if {'Cold'}.issubset(selections) else 0,
 		"#% increased Cast Speed with Fire Skills": dps['cast speed'] if {'Fire'}.issubset(selections) else 0,
 		"#% increased Cast Speed with Lightning Skills": dps['cast speed'] if {'Lightning'}.issubset(selections) else 0,
+		"#% increased Elemental Damage if you've dealt a Critical Strike Recently": dps['% elemental'] if {'conditionCritRecently'}.issubset(selections) else 0,
 		"#% increased Chaos Damage": dps['% chaos'],
 		"#% increased Cold Damage": dps['% cold'],
 		"#% increased Critical Strike Chance": dps['crit chance'],
@@ -92,6 +93,7 @@ def gensearchparams(dps, selections):
 		"Adds # to # Chaos Damage to Spells while holding a Shield": dps['flat chaos'] if {'Spell', 'Shield'}.issubset(selections) else 0,
 		"Adds # to # Chaos Damage to Spells while wielding a Two Handed Weapon": dps['flat chaos'] if {'Spell', 'TwoHandedWeapon'}.issubset(selections) else 0,
 		"Adds # to # Chaos Damage": dps['flat chaos'],
+		"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently": dps['flat chaos'] if {'conditionCritRecently'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage to Attacks": dps['flat cold'] if {'Attack'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage to Axe Attacks": dps['flat cold'] if {'Attack', 'Axe'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage to Bow Attacks": dps['flat cold'] if {'Attack', 'Bow'}.issubset(selections) else 0,
@@ -252,6 +254,8 @@ def gensearchparams(dps, selections):
 		"Minions deal # to # additional Cold Damage": dps['minion flat cold'],
 		"Minions deal # to # additional Fire Damage": dps['minion flat fire'],
 		"Minions deal # to # additional Chaos Damage": dps['minion flat chaos'],
+		"#% to Cold Damage over Time Multiplier": dps['% colddotmulti'],
+		"#% to Non-Ailment Chaos Damage over Time Multiplier": dps['% chaosdotmulti'],
 	}
 
 	# mods that are explicitly skipped, comment with where they appear
@@ -346,6 +350,10 @@ def gensearchparams(dps, selections):
 		"Minions gain #% of Physical Damage as Extra Cold Damage": 0,
 		# Clayshaper
 		"Minions' Attacks deal # to # additional Physical Damage": 0,
+		# Hyperboreus
+		"#% increased Damage with Hits and Ailments against Chilled Enemies": 0,
+		# Only appears on flasks
+		"#% increased Critical Strike Chance during Flask Effect": 0,
 	}
 
 	# TODO: Determine if each mod is worth adding or specific to a static unique
@@ -353,11 +361,6 @@ def gensearchparams(dps, selections):
 	queued = {
 		"#% Critical Strike Multiplier while there is a Rare or Unique Enemy Nearby": 0,
 		"#% increased Attack Speed while a Rare or Unique Enemy is Nearby": 0,
-		"#% increased Damage with Hits and Ailments against Chilled Enemies": 0,
-		"#% increased Elemental Damage if you've dealt a Critical Strike Recently": 0,
-		"#% to Cold Damage over Time Multiplier": 0,
-		"#% to Non-Ailment Chaos Damage over Time Multiplier": 0,
-		"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently": 0,
 
 		"#% increased Bleeding Duration": 0,
 		"#% increased Poison Duration": 0,

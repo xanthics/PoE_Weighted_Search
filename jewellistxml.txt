@@ -32,6 +32,22 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
++12% to Cold Damage over Time Multiplier
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++12% to Cold Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
++12% to Non-Ailment Chaos Damage over Time Multiplier
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++12% to Non-Ailment Chaos Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
 +100 to Accuracy Rating
 Hypnotic Eye Jewel
 Item Level: 1
