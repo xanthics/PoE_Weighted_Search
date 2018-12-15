@@ -12,5 +12,5 @@ req = request.Request(url, data.encode(), header)
 
 resp = request.urlopen(req)
 
-webbrowser.open_new_tab('https://www.pathofexile.com/trade/search/Delve/{}'.format(json.load(resp)['id']))
+webbrowser.open_new_tab('https://www.pathofexile.com/trade/search/Betrayal/{}'.format(json.load(resp)['id']))
 
