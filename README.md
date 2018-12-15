@@ -23,8 +23,4 @@ Creates modlist.py which is a list of all currently valid mod id: description pa
 
 Given a dictionary of stat weights and a set of tags, generates a search string for pathofexile.com/trade
 
-***
-
-I am in the (slow) process of expanding the mod lists to support dps searchs for all the gear slots.  If you want something added, please open an issue so it can be tracked.
-
 Feedback appreciated on [Reddit](https://www.reddit.com/r/pathofexiledev/comments/9jkwru/python_tool_to_generate_search_strings_for_dps/)
