@@ -464,10 +464,12 @@ def gensearchparams(dps, selections):
 	notquery = []
 
 	min_threshold = 0.0  # dps['% generic'] / 20
-
+	craftmods = not {'NoCraftedMods'}.issubset(selections)
 	for mod in modstr:
 		if modstr[mod] > min_threshold:
 			for val in mods[mod]:
+				if (not craftmods) and 'crafted' in val:
+					continue
 				mlist[val] = round(modstr[mod], 2)
 
 	for notmod in ignoredmods:
