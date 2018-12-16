@@ -153,6 +153,15 @@ Item Level: 1
 	
 	
 Rarity: Rare
++1% Critical Strike Chance
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
++1% Critical Strike Chance
+	
+	
+Rarity: Rare
 10% increased Attack Speed
 Hypnotic Eye Jewel
 --------

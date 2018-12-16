@@ -87,8 +87,8 @@
 
     <strong>You are/have:</strong> Tic all the things affecting you<br>
     <table>
-    <tr><td><label><input type="checkbox" id="conditionUsingFlask">Flasked</label></td><td><label><input type="checkbox" id="Elder">Other Ring is Elder</label></td><td><label><input type="checkbox" id="Shaper">Other Ring is Shaper</label></td></tr>
-    <tr><td><label><input type="checkbox" id="conditionFullLife">Full Life</label></td></tr>
+    <tr><td><label><input type="checkbox" id="conditionUsingFlask">Flasked</label></td><td><label><input type="checkbox" id="Elder">Other Ring is Elder</label></td></tr>
+    <tr><td><label><input type="checkbox" id="conditionFullLife">Full Life</label></td><td><label><input type="checkbox" id="Shaper">Other Ring is Shaper</label></td></tr>
     </table><br><br>
 
     <strong>Enemy is:</strong> status effects on your target<br>
@@ -101,6 +101,7 @@
     <strong>Other options:</strong> choices that don't neatly fit a section<br>
     <table>
 	<tr><td><label><input type="checkbox" id="NoCraftedMods">Ignore Crafted Mods</label></td></tr>
+    <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
     </table><br><br>
 
     <div id="generate"></div><br>
@@ -159,12 +160,6 @@
                     elt.value = doc.query[elt.name]
                 except KeyError:
                     elt.value = 0
-#            for elt in doc.get(selector='input[type="checkbox"]'):
-#                try:
-#                    if doc.query[elt.name] == "True":
-#                        elt.checked = True
-#                except KeyError:
-#                    elt.checked = False
             try:
                 flags = doc.query["Flags"].strip(',').split(',')
                 for f in flags:

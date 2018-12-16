@@ -136,6 +136,14 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
++1% Critical Strike Chance
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1% Critical Strike Chance
+		</Item>
+		<Item>
+			Rarity: RARE
 10% increased Attack Speed
 Hypnotic Eye Jewel
 Item Level: 1
