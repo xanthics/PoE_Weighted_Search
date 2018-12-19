@@ -35,6 +35,7 @@ def main():
 # Note: Requires Python 3.3.x or higher\n''')
 		f.write('mods = {\n')
 		for label in sorted(mlist):
+			mlist[label].sort()
 			f.write('\t"{}": ["{}"],\n'.format(label, '", "'.join(mlist[label])))
 		f.write('}\n')
 
