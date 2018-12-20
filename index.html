@@ -151,7 +151,7 @@
             th <= TH("Jewel Mod")
             t <= th
             for m in mjson:
-                t <= TR( TD( '<input type="number" name="{}" value="0" data-normal="{}">'.format(m['name'], m['count']) ) + TD( m['desc'] ) )
+                t <= TR( TD( '<input type="number" name="{}" value="0" data-normal="{}" step="0.1">'.format(m['name'], m['count']) ) + TD( m['desc'] ) )
             doc['mod weights'] <= t
 
         def process_querystring():
