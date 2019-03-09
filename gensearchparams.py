@@ -260,6 +260,10 @@ def gensearchparams(dps, selections):
 		"#% increased Attack Speed while a Rare or Unique Enemy is Nearby": dps['attack speed'] if {'NearbyRareUnique'}.issubset(selections) else 0,
 		"Spells have #% to Critical Strike Chance ": dps['base crit'] if {'Spell'}.issubset(selections) else 0,
 		"Attacks have #% to Critical Strike Chance": dps['base crit'] if {'Attack'}.issubset(selections) else 0,
+		"Gain #% of Cold Damage as Extra Chaos Damage": 0,
+		"Gain #% of Fire Damage as Extra Chaos Damage": 0,
+		"Gain #% of Lightning Damage as Extra Chaos Damage": 0,
+		"Gain #% of Physical Damage as Extra Chaos Damage": 0
 	}
 
 	# mods that are explicitly skipped, comment with where they appear
