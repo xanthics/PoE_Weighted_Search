@@ -11,6 +11,7 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
+    Updated for 3.6.0
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
@@ -34,7 +35,7 @@
         You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table.  After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br><br>
     </div>
     <br>
-    This page requires javascript in order to run.  If you can see a table to enter your damage values then it is working.<br>
+    <div id="loading">This page requires javascript in order to run.</div><br>
     <br>
 
     <div id="Character"><strong>Build Name:</strong> </div>
@@ -193,6 +194,7 @@
         doc["instruction"] <= b_generate
         create_table()
         process_querystring()
+        doc["loading"].style.display = "none"
     </script>
 
 
