@@ -8,14 +8,14 @@ import urllib.request
 
 
 def main():
-	results = {'Explicit': {}, 'Implicit': {}, 'Crafted': {}}
+	results = {'Explicit': {}, 'Implicit': {}, 'Crafted': {}, 'Fractured': {}}
 	modurl="https://www.pathofexile.com/api/trade/data/stats"
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'}
 	req = urllib.request.Request(modurl, headers=headers)
 	data = urllib.request.urlopen(req)
 	vals = json.load(data)
 	for i in vals['result']:
-		if i['label'] in ['Explicit', 'Implicit', 'Crafted']:
+		if i['label'] in ['Explicit', 'Implicit', 'Crafted', 'Fractured']:
 			for ii in i['entries']:
 				results[i['label']][ii['id']] = ii['text']
 
