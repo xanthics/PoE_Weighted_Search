@@ -261,6 +261,15 @@ Adds 4 to 7 Chaos Damage
 	
 	
 Rarity: Rare
+1% chance to deal Double Damage
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+1% chance to deal Double Damage
+	
+	
+Rarity: Rare
 15% of Physical Damage as Extra Lightning Damage
 Hypnotic Eye Jewel
 --------
@@ -303,6 +312,15 @@ Hypnotic Eye Jewel
 Item Level: 1
 --------
 Gain 15% of Elemental Damage as Extra Chaos Damage
+	
+	
+Rarity: Rare
+15% of Physical Damage as Extra Chaos Damage
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+15% of Physical Damage as Extra Chaos Damage
 	
 	
 Rarity: Rare
