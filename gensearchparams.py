@@ -501,7 +501,7 @@ def gensearchparams(dps, selections):
 		'#% less Mine Damage',  # Tremor Rod
 	]
 
-	searchstring = '{{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":7500}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
+	searchstring = '{{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":{}}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
 	item = '{{"id":"{}","value":{{"weight":{}}}}}'
 	notitem = '{{"id":"{}"}}'
 
@@ -524,5 +524,5 @@ def gensearchparams(dps, selections):
 
 	for i in sorted(mlist, key=mlist.get, reverse=True):
 		query.append(item.format(i, mlist[i]))
-	return searchstring.format(','.join(query), ','.join(notquery))
+	return searchstring.format(dps['% generic'] * 16, ','.join(query), ','.join(notquery))
 
