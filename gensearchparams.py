@@ -258,12 +258,16 @@ def gensearchparams(dps, selections):
 		"#% to Non-Ailment Chaos Damage over Time Multiplier": dps['% chaosdotmulti'],
 		"#% Critical Strike Multiplier while there is a Rare or Unique Enemy Nearby": dps['crit multi'] if {'NearbyRareUnique'}.issubset(selections) else 0,
 		"#% increased Attack Speed while a Rare or Unique Enemy is Nearby": dps['attack speed'] if {'NearbyRareUnique'}.issubset(selections) else 0,
-		"Spells have #% to Critical Strike Chance ": dps['base crit'] if {'Spell'}.issubset(selections) else 0,
-		"Attacks have #% to Critical Strike Chance": dps['base crit'] if {'Attack'}.issubset(selections) else 0,
-		"Gain #% of Cold Damage as Extra Chaos Damage": 0,
-		"Gain #% of Fire Damage as Extra Chaos Damage": 0,
-		"Gain #% of Lightning Damage as Extra Chaos Damage": 0,
-		"Gain #% of Physical Damage as Extra Chaos Damage": 0
+		"Spells have #% to Critical Strike Chance ": dps['base crit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.
+		"Attacks have #% to Critical Strike Chance": dps['base crit'] if {'Attack'}.issubset(selections) else 0,  # Note that this is base crit.
+		"#% Critical Strike Chance per Power Charge": dps['base crit'] * dps["PowerCount"],  # Note that this is base crit.
+		"Gain #% of Cold Damage as Extra Chaos Damage": dps['cold as extra chaos'],
+		"Gain #% of Fire Damage as Extra Chaos Damage": dps['fire as extra chaos'],
+		"Gain #% of Lightning Damage as Extra Chaos Damage": dps['lightning as extra chaos'],
+		"Gain #% of Physical Damage as Extra Chaos Damage": dps['physical as extra chaos'],
+		"Spells have a #% chance to deal Double Damage": dps['chance double damage'] if {'Spell'}.issubset(selections) else 0,
+		"#% chance to deal Double Damage": dps['chance double damage'],
+
 	}
 
 	# mods that are explicitly skipped, comment with where they appear
@@ -367,10 +371,47 @@ def gensearchparams(dps, selections):
 	# TODO: Determine if each mod is worth adding or specific to a static unique
 	# mods that have not been processed yet
 	queued = {
+		# This sectioned delayed until next league(if nexus goes core)
+		"#% increased Attack Damage per 500 Maximum Mana": 0,
+		"#% increased Spell Damage per 500 Maximum Mana": 0,
+		"#% increased Attack and Cast Speed during Onslaught": 0,
+		"#% increased Accuracy Rating with Axes": ["implicit.stat_2538120572"],
+		"#% increased Accuracy Rating with Bows": ["implicit.stat_169946467"],
+		"#% increased Accuracy Rating with Claws": ["implicit.stat_1297965523"],
+		"#% increased Accuracy Rating with Daggers": ["implicit.stat_2054715690"],
+		"#% increased Accuracy Rating with Maces": ["implicit.stat_3208450870"],
+		"#% increased Accuracy Rating with Staves": ["implicit.stat_1617235962"],
+		"#% increased Accuracy Rating with Swords": ["implicit.stat_2090868905"],
+		"#% increased Accuracy Rating with Wands": ["implicit.stat_2150183156"],
+		"#% increased Cold Damage with Spell Skills": ["implicit.stat_2186994986"],
+		"#% increased Critical Strike Chance for Spells while Dual Wielding": ["implicit.stat_1218939541"],
+		"#% increased Critical Strike Chance for Spells while holding a Shield": ["implicit.stat_952509814"],
+		"#% increased Critical Strike Chance for Spells while wielding a Staff": ["implicit.stat_140429540"],
+		"#% to Critical Strike Multiplier for Spells while Dual Wielding": ["implicit.stat_2349237916"],
+		"#% to Critical Strike Multiplier for Spells while holding a Shield": ["implicit.stat_2311200892"],
+		"#% to Critical Strike Multiplier for Spells while wielding a Staff": ["implicit.stat_3629080637"],
+		"#% increased Damage if Corrupted": ["implicit.stat_767196662"],
+		"#% increased Fire Damage with Attack Skills": ["implicit.stat_2468413380"],
+		"#% increased Fire Damage with Spell Skills": ["implicit.stat_361162316"],
+		"#% increased Lightning Damage with Attack Skills": ["explicit.stat_4208907162", "implicit.stat_4208907162"],
+		"#% increased Lightning Damage with Spell Skills": ["implicit.stat_3935031607"],
+		"#% increased Minion Accuracy Rating": ["implicit.stat_1718147982"],
+		"#% increased Physical Damage with Attack Skills": ["implicit.stat_2266750692"],
+		"#% increased Physical Damage with Spell Skills": ["implicit.stat_1430255627"],
+		"#% increased Spell Damage if Corrupted": ["implicit.stat_374116820"],
+		"#% increased maximum Life if Corrupted": ["implicit.stat_3887484120"],
+		"#% to Critical Strike Multiplier with Axes": ["implicit.stat_4219746989"],
+		"#% to Critical Strike Multiplier with Bows": ["implicit.stat_1712221299"],
+		"#% to Critical Strike Multiplier with Claws": ["implicit.stat_2811834828"],
+		"#% to Critical Strike Multiplier with Daggers": ["implicit.stat_3998601568"],
+		"#% to Critical Strike Multiplier with Maces": ["implicit.stat_458899422"],
+		"#% to Critical Strike Multiplier with Staves": ["implicit.stat_1474913037"],
+		"#% to Critical Strike Multiplier with Swords": ["implicit.stat_3114492047"],
+		"#% to Critical Strike Multiplier with Wands": ["implicit.stat_1241396104"],
+		"#% increased Attack and Cast Speed if Corrupted": ["implicit.stat_26867112"],
 
 		"#% increased Bleeding Duration": 0,
 		"#% increased Poison Duration": 0,
-		"#% Critical Strike Chance per Power Charge": 0,  # Note that this is base crit.
 		"# to Accuracy Rating while at Maximum Frenzy Charges": 0,
 		"# to Maximum Life per 10 Dexterity": 0,
 		"# to Maximum Life per 2 Intelligence": 0,
@@ -405,7 +446,6 @@ def gensearchparams(dps, selections):
 		"#% increased Fire Damage if you have used a Cold Skill Recently": 0,
 		"#% increased Fire Damage per 20 Strength": 0,
 		"#% increased Lightning Damage per 10 Intelligence": 0,
-		"#% increased Lightning Damage with Attack Skills": 0,
 		"#% increased Melee Damage when on Full Life": 0,
 		"#% increased Melee Physical Damage per 10 Dexterity": 0,
 		"#% increased Mine Arming Speed": 0,
