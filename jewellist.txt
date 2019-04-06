@@ -9,6 +9,15 @@ Item Level: 1
 	
 	
 Rarity: Rare
+12% increased Damage with Ailments
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+12% increased Damage with Ailments
+	
+	
+Rarity: Rare
 12% increased Damage with Bleeding
 Hypnotic Eye Jewel
 --------

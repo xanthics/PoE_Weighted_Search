@@ -8,6 +8,14 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
+12% increased Damage with Ailments
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+12% increased Damage with Ailments
+		</Item>
+		<Item>
+			Rarity: RARE
 12% increased Damage with Bleeding
 Hypnotic Eye Jewel
 Item Level: 1

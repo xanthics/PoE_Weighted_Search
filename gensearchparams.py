@@ -196,8 +196,6 @@ def gensearchparams(dps, selections):
 		"#% increased Spell Damage during any Flask Effect": dps['% generic'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
 		"#% increased Elemental Damage with Attack Skills during any Flask Effect": dps['% elemental'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
 		"Damage Penetrates #% Fire Resistance against Blinded Enemies": dps['pen fire'] if {'Blinded'}.issubset(selections) else 0,
-		"#% increased Damage with Hits and Ailments against Blinded Enemies": dps['% generic'] if {'Blinded'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
-		"#% increased Fire Damage with Hits and Ailments against Blinded Enemies": dps['% fire'] if {'Blinded'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
 		"#% increased Critical Strike Chance against Blinded Enemies": dps['crit chance'] if {'Blinded'}.issubset(selections) else 0,
 		"#% increased Attack and Cast Speed if you've Hit an Enemy Recently": dps['attack speed'] + dps['cast speed'] if {'conditionHitRecently'}.issubset(selections) else 0,
 		"#% increased Damage per 5 of your lowest Attribute": dps['% lowest'],
@@ -227,7 +225,7 @@ def gensearchparams(dps, selections):
 		"#% increased Damage over Time while Dual Wielding": dps['% dot'] if {'DualWielding'}.issubset(selections) else 0,
 		"#% increased Damage over Time while holding a Shield": dps['% dot'] if {'Shield'}.issubset(selections) else 0,
 		"#% increased Damage over Time while wielding a Two Handed Weapon": dps['% dot'] if {'TwoHandedWeapon'}.issubset(selections) else 0,
-		"#% increased Damage with Ailments": dps['% dot'],
+		"#% increased Damage with Ailments": dps['% dot ailment'],
 		"#% increased Damage with Bleeding": dps['% bleed'],
 		"Adds # to # Physical Damage against Bleeding Enemies": dps['flat phys'] if {'conditionEnemyBleeding'}.issubset(selections) else 0,
 		"Adds # to # Physical Damage against Poisoned Enemies": dps['flat phys'] if {'conditionEnemyPoisoned'}.issubset(selections) else 0,
@@ -366,6 +364,9 @@ def gensearchparams(dps, selections):
 		"#% increased Damage with Hits and Ailments against Chilled Enemies": 0,
 		# Only appears on flasks
 		"#% increased Critical Strike Chance during Flask Effect": 0,
+		# Only appears on uniques
+		"#% increased Damage with Hits and Ailments against Blinded Enemies": dps['% generic'] if {'Blinded'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
+		"#% increased Fire Damage with Hits and Ailments against Blinded Enemies": dps['% fire'] if {'Blinded'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
 	}
 
 	# TODO: Determine if each mod is worth adding or specific to a static unique

@@ -1,5 +1,6 @@
 [
   {"name": "% dot", "desc": "12% increased Damage over Time", "count": 12},
+  {"name": "% dot ailment", "desc": "12% increased Damage with Ailments", "count": 12},
   {"name": "% bleed", "desc": "12% increased Damage with Bleeding", "count": 12},
   {"name": "% poison", "desc": "12% increased Damage with Poison", "count": 12},
   {"name": "% ignite", "desc": "12% increased Burning Damage", "count": 12},
