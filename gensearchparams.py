@@ -247,11 +247,11 @@ def gensearchparams(dps, selections):
 		"Minions have #% increased Cast Speed": dps['minioncastspeed'],
 		"Minions have #% increased Attack and Cast Speed if you or your Minions have Killed Recently": dps['minionattackspeed'] + dps['minioncastspeed'] if {'conditionKilledRecently', 'conditionMinionsKilledRecently'}.intersection(selections) else 0,
 		"#% increased Minion Damage if you've used a Minion Skill Recently": dps['pminion'] if {'conditionUsedMinionSkillRecently'}.issubset(selections) else 0,
-		"Minions deal # to # additional Physical Damage":dps['minionflatphys'],
-		"Minions deal # to # additional Lightning Damage":dps['minionflatlightning'],
-		"Minions deal # to # additional Cold Damage":dps['minionflatcold'],
-		"Minions deal # to # additional Fire Damage":dps['minionflatfire'],
-		"Minions deal # to # additional Chaos Damage":dps['minionflatchaos'],
+		"Minions deal # to # additional Physical Damage": dps['minionflatphys'],
+		"Minions deal # to # additional Lightning Damage": dps['minionflatlightning'],
+		"Minions deal # to # additional Cold Damage": dps['minionflatcold'],
+		"Minions deal # to # additional Fire Damage": dps['minionflatfire'],
+		"Minions deal # to # additional Chaos Damage": dps['minionflatchaos'],
 		"#% to Cold Damage over Time Multiplier": dps['pcolddotmulti'],
 		"#% to Non-Ailment Chaos Damage over Time Multiplier": dps['pchaosdotmulti'],
 		"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby": dps['critmulti'] if {'NearbyRareUnique'}.issubset(selections) else 0,
@@ -526,18 +526,3 @@ def gensearchparams(dps, selections):
 	for i in sorted(mlist, key=mlist.get, reverse=True):
 		query.append(item.format(i, mlist[i]))
 	return searchstring.format(int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query), ','.join(notquery))
-
-
-# Test function to pass all possible flags and dps values to see if anything breaks
-def testfunct():
-	selections = {'useFrenzyCharges', 'usePowerCharges', 'useEnduranceCharges', 'Attack', 'Spell', 'Mace', 'Bow', 'Wand', 'Claw', 'Staff', 'Sword', 'Axe', 'Dagger', 'Trap', 'Mine', 'Totem', 'Melee', 'Area', 'Projectile', 'Elemental', 'Fire', 'Cold', 'Lightning',
-				   'Shield', 'DualWielding', 'TwoHandedWeapon', 'conditionKilledRecently', 'conditionCritRecently', 'conditionHitRecently', 'conditionMinionsKilledRecently', 'No Recent Crit', 'conditionUsedMinionSkillRecently', 'No Recent Kill',
-				   'conditionUsingFlask', 'Elder', 'conditionFullLife', 'Shaper', 'conditionEnemyBleeding', 'conditionEnemyPoisoned', 'conditionEnemyBlinded', 'conditionEnemyIgnited', 'conditionEnemyBurning', 'conditionEnemyShocked', 'conditionEnemyChilled',
-				   'conditionEnemyFrozen', 'NoCraftedMods', 'NearbyRareUnique'}
-	import json
-	vals = json.load(open("mods.json", 'r'))
-	dps = {}
-	for val in vals + [{'name': 'PowerCount'}, {'name': 'FrenzyCount'}, {'name': 'EnduranceCount'}, {'name': 'extrarandom'}]:
-		dps[val['name']] = 10
-	gensearchparams(dps, selections)
-#testfunct()
