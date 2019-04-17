@@ -124,7 +124,7 @@
             dps = {}
             for elt in doc.get(selector='input[type="number"]'):
                 dps[elt.name] = float(elt.value)/float(elt.getAttribute("data-normal"))
-            dps['extra random'] = (dps['extra fire'] + dps['extra cold'] + dps['extra lightning']) / 3
+            dps['extrarandom'] = (dps['extrafire'] + dps['extracold'] + dps['extralightning']) / 3
             selections = set()
             for elt in doc.get(selector='input[type="checkbox"]'):
                 if elt.checked:
