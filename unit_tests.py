@@ -1,3 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# Author: Jeremy Parks
+# Note: Requires Python 3.6.x or higher
 import unittest
 import json
 from gensearchparams import gensearchparams
