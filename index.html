@@ -105,6 +105,9 @@
     <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
     </table><br><br>
 
+    <strong>League:</strong> <span id="leaguelist"></span>.  Will attempt to remember with local storage.<br><br><br>
+
+
     <div id="generate"></div><br>
     <a href="" id="query" target="_blank">Search</a><br><br>
     <div id="414by"> If you get a '414 Request-URI Too Large' download <a href="bypass414.py" download>this python script</a>, run it, and paste this string <br><input type="text" id="414bypass" onClick="this.select();" readonly>. <br><br></div>
@@ -114,13 +117,15 @@
         from browser import document as doc
         from browser import html
         from browser.html import TABLE, TR, TH, TD
+        from browser.local_storage import storage
         from gensearchparams import gensearchparams
+        from leaguelist import leagues
         import json
 
-        url = 'https://www.pathofexile.com/trade/search/Synthesis'
-        url_api = 'https://www.pathofexile.com/api/trade/search/Synthesis?redirect&source='
-
         def generate_query(ev):
+            league = leagues[doc['league'].selectedIndex]
+            storage['league'] = league
+            url_api = f'https://www.pathofexile.com/api/trade/search/{league}?redirect&source='
             dps = {}
             for elt in doc.get(selector='input[type="number"]'):
                 dps[elt.name] = float(elt.value)/float(elt.getAttribute("data-normal"))
@@ -182,6 +187,14 @@
                 except KeyError:
                     doc[val].style.display = "none"
 
+        def create_league_list():
+            sel = html.SELECT(size=1, multiple=False, id="league")
+            for league in leagues:
+                sel <= html.OPTION(league)
+            doc['leaguelist'] <= sel
+            if 'league' in storage and storage['league'] in leagues:
+                doc['league'].value = storage['league']
+
         doc["query"].style.display = "none"
         doc["notice"].style.display = "none"
         doc["414by"].style.display = "none"
@@ -195,6 +208,8 @@
         create_table()
         process_querystring()
         doc["loading"].style.display = "none"
+        create_league_list()
+
     </script>
 
 
