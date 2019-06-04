@@ -53,5 +53,5 @@ def updateleagues():
 
 
 if __name__ == "__main__":
-	#updatemods()
+	updatemods()
 	updateleagues()

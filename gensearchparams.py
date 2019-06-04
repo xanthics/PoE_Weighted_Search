@@ -372,6 +372,7 @@ def gensearchparams(dps, selections):
 	# mods that have not been processed yet
 	queued = {
 		# This sectioned delayed until next league(if nexus goes core)
+		# Update :: Nexus is not going core, will wait for rework
 		"#% increased Attack Damage per 500 Maximum Mana": 0,
 		"#% increased Spell Damage per 500 Maximum Mana": 0,
 		"#% increased Attack and Cast Speed during Onslaught": 0,
@@ -409,6 +410,7 @@ def gensearchparams(dps, selections):
 		"#% to Critical Strike Multiplier with Swords": ["implicit.stat_3114492047"],
 		"#% to Critical Strike Multiplier with Wands": ["implicit.stat_1241396104"],
 		"#% increased Attack and Cast Speed if Corrupted": ["implicit.stat_26867112"],
+		"#% increased Global Critical Strike Chance if Corrupted"
 
 		"#% increased Bleeding Duration": 0,
 		"#% increased Poison Duration": 0,
