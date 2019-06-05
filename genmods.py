@@ -16,7 +16,12 @@ def updatemods():
 	data = urllib.request.urlopen(req)
 	vals = json.load(data)
 	for i in vals['result']:
-		if i['label'] in ['Explicit', 'Implicit', 'Crafted', 'Fractured']:
+		if i['label'] in [
+			'Explicit',
+		#	'Implicit',
+			'Crafted',
+		#	'Fractured'
+		]:
 			for ii in i['entries']:
 				results[i['label']][ii['id']] = ii['text']
 

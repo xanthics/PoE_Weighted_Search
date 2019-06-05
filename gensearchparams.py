@@ -263,7 +263,7 @@ def gensearchparams(dps, selections):
 		"Gain #% of Fire Damage as Extra Chaos Damage": dps['fireasextrachaos'],
 		"Gain #% of Lightning Damage as Extra Chaos Damage": dps['lightningasextrachaos'],
 		"Gain #% of Physical Damage as Extra Chaos Damage": dps['physicalasextrachaos'],
-		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
+#		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
 		"#% chance to deal Double Damage": dps['chancedoubledamage'],
 	}
 
