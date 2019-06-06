@@ -18,9 +18,9 @@ def updatemods():
 	for i in vals['result']:
 		if i['label'] in [
 			'Explicit',
-		#	'Implicit',
+			'Implicit',
 			'Crafted',
-		#	'Fractured'
+			'Fractured'
 		]:
 			for ii in i['entries']:
 				results[i['label']][ii['id']] = ii['text']
