@@ -20,7 +20,7 @@ def updatemods():
 			'Explicit',
 			'Implicit',
 			'Crafted',
-			'Fractured'
+		#	'Fractured'
 		]:
 			for ii in i['entries']:
 				results[i['label']][ii['id']] = ii['text']
