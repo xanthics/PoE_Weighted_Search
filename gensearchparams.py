@@ -59,17 +59,17 @@ def gensearchparams(dps, selections):
 		"#% increased Melee Physical Damage while holding a Shield": dps['pgeneric'] if {'Attack', 'Melee', 'Shield'}.issubset(selections) else 0,
 		"#% increased Mine Damage": dps['pgeneric'] if {'Mine'}.issubset(selections) else 0,
 		"#% increased Global Physical Damage": dps['pphysical'],
-		"#% increased Physical Damage with Axes": dps['pphysical'] if {'Attack', 'Axe'}.issubset(selections) else 0,
-		"#% increased Physical Damage with Bows": dps['pphysical'] if {'Attack', 'Bow'}.issubset(selections) else 0,
-		"#% increased Physical Damage with Claws": dps['pphysical'] if {'Attack', 'Claw'}.issubset(selections) else 0,
-		"#% increased Physical Damage with Daggers": dps['pphysical'] if {'Attack', 'Dagger'}.issubset(selections) else 0,
-		"#% increased Physical Damage with Maces": dps['pphysical'] if {'Attack', 'Mace'}.issubset(selections) else 0,
-		"#% increased Physical Damage with One Handed Melee Weapons": dps['pphysical'] if {'Attack', 'Melee'}.issubset(selections) and {'TwoHandedWeapon'}.isdisjoint(selections) else 0,
-		"#% increased Physical Damage with Staves": dps['pphysical'] if {'Attack', 'Staff'}.issubset(selections) else 0,
-		"#% increased Physical Damage with Swords": dps['pphysical'] if {'Attack', 'Sword'}.issubset(selections) else 0,
-		"#% increased Physical Damage with Two Handed Melee Weapons": dps['pphysical'] if {'Attack', 'TwoHandedWeapon', 'Melee'}.issubset(selections) else 0,
-		"#% increased Physical Damage with Wands": dps['pphysical'] if {'Attack', 'Wand'}.issubset(selections) else 0,
-		"#% increased Physical Weapon Damage while Dual Wielding": dps['pphysical'] if {'Attack', 'DualWielding'}.issubset(selections) else 0,
+		"#% increased Damage with Axes": dps['pgeneric'] if {'Attack', 'Axe'}.issubset(selections) else 0,
+		"#% increased Damage with Bows": dps['pgeneric'] if {'Attack', 'Bow'}.issubset(selections) else 0,
+		"#% increased Damage with Claws": dps['pgeneric'] if {'Attack', 'Claw'}.issubset(selections) else 0,
+		"#% increased Damage with Daggers": dps['pgeneric'] if {'Attack', 'Dagger'}.issubset(selections) else 0,
+		"#% increased Damage with Maces": dps['pgeneric'] if {'Attack', 'Mace'}.issubset(selections) else 0,
+		"#% increased Damage with One Handed Melee Weapons": dps['pgeneric'] if {'Attack', 'Melee'}.issubset(selections) and {'TwoHandedWeapon'}.isdisjoint(selections) else 0,
+		"#% increased Damage with Staves": dps['pgeneric'] if {'Attack', 'Staff'}.issubset(selections) else 0,
+		"#% increased Damage with Swords": dps['pgeneric'] if {'Attack', 'Sword'}.issubset(selections) else 0,
+		"#% increased Damage with Two Handed Weapons": dps['pgeneric'] if {'Attack', 'TwoHandedWeapon', 'Melee'}.issubset(selections) else 0,
+		"#% increased Damage with Wands": dps['pgeneric'] if {'Attack', 'Wand'}.issubset(selections) else 0,
+		"#% increased Weapon Damage while Dual Wielding": dps['pgeneric'] if {'Attack', 'DualWielding'}.issubset(selections) else 0,
 		"#% increased Projectile Damage": dps['pgeneric'] if {'Projectile'}.issubset(selections) else 0,
 		"#% increased Spell Damage": dps['pgeneric'] if {'Spell'}.issubset(selections) else 0,
 		"#% increased Spell Damage while holding a Shield": dps['pgeneric'] if {'Spell', 'Shield'}.issubset(selections) else 0,
@@ -263,7 +263,7 @@ def gensearchparams(dps, selections):
 		"Gain #% of Fire Damage as Extra Chaos Damage": dps['fireasextrachaos'],
 		"Gain #% of Lightning Damage as Extra Chaos Damage": dps['lightningasextrachaos'],
 		"Gain #% of Physical Damage as Extra Chaos Damage": dps['physicalasextrachaos'],
-#		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
+		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
 		"#% chance to deal Double Damage": dps['chancedoubledamage'],
 	}
 
@@ -371,6 +371,7 @@ def gensearchparams(dps, selections):
 	# TODO: Determine if each mod is worth adding or specific to a static unique
 	# mods that have not been processed yet
 	queued = {
+		"#% increased Weapon Damage while Dual Wielding": 0,
 		# This sectioned delayed until next league(if nexus goes core)
 		# Update :: Nexus is not going core, will wait for rework
 		"#% increased Attack Damage per 500 Maximum Mana": 0,
