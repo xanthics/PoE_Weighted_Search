@@ -102,10 +102,12 @@
     <strong>Other options:</strong> choices that don't neatly fit a section<br>
     <table>
 	<tr><td><label><input type="checkbox" id="NoCraftedMods">Ignore Crafted Mods</label></td></tr>
+	<tr><td><label><input type="checkbox" id="NoFracturedMods">Ignore Fractured Mods</label></td></tr>
+	<tr><td><label><input type="checkbox" id="NoImplicitMods">Ignore Implicit Mods</label></td></tr>
     <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
     </table><br><br>
 
-    <strong>League:</strong> <span id="leaguelist"></span>.  Will attempt to remember with local storage.<br><br><br>
+    <strong>League:</strong> <span id="leaguelist"></span>.<br><br><br>
 
 
     <div id="generate"></div><br>
@@ -125,6 +127,11 @@
         def generate_query(ev):
             league = leagues[doc['league'].selectedIndex]
             storage['league'] = league
+            for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
+                if doc[_f].checked:
+                    storage[_f] = "T"
+                else:
+                    storage[_f] = ""
             url_api = f'https://www.pathofexile.com/api/trade/search/{league}?redirect&source='
             dps = {}
             for elt in doc.get(selector='input[type="number"]'):
@@ -186,6 +193,12 @@
                         doc[val] <= doc.query[val]
                 except KeyError:
                     doc[val].style.display = "none"
+            print([f"{x} {storage[x]}" for x in storage])
+            for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
+                if _f in storage:
+                    print(f"Processing {_f}")
+                    doc[_f].checked = bool(storage[_f])
+
 
         def create_league_list():
             sel = html.SELECT(size=1, multiple=False, id="league")

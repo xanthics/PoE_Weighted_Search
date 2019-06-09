@@ -514,11 +514,12 @@ def gensearchparams(dps, selections):
 	notquery = []
 
 	minthreshold = 0.0  # dps['pgeneric'] / 20
-	craftmods = not {'NoCraftedMods'}.issubset(selections)
 	for mod in modstr:
 		if modstr[mod] > minthreshold:
 			for val in mods[mod]:
-				if (not craftmods) and 'crafted' in val:
+				if ({'NoCraftedMods'}.issubset(selections) and 'crafted' in val) or \
+				   ({'NoFracturedMods'}.issubset(selections) and 'fractured' in val) or \
+				   ({'NoImplicitMods'}.issubset(selections) and 'implicit' in val):
 					continue
 				mlist[val] = round(modstr[mod], 2)
 
