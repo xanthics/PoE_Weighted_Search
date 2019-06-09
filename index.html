@@ -11,7 +11,7 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    Updated for 3.6.0 <br />2019/06/05: Several mods that exist in the stats API endpoint are not currently supported by the trade site. This is a known issue and the cause of empty searches(that should return som results).  I've been told that this discrepancy is being worked on.<br />
+    Updated for 3.6.0 <br />2019/06/09: Searches should be working normally now.  Have added toggles for Fractured/Implicit that are saved in local storage to hopefully alleviate any future issues.<br />
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
@@ -193,7 +193,7 @@
                         doc[val] <= doc.query[val]
                 except KeyError:
                     doc[val].style.display = "none"
-            print([f"{x} {storage[x]}" for x in storage])
+            print([f"{x} '{storage[x]}'" for x in storage])
             for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
                 if _f in storage:
                     print(f"Processing {_f}")
