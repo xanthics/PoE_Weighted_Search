@@ -505,7 +505,7 @@ def gensearchparams(dps, selections):
 		'#% less Mine Damage',  # Tremor Rod
 	]
 
-	searchstring = '{{"query":{{"filters":{{"type_filters": {{"filters": {{"category": {{"option": "jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":{}}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
+	searchstring = '{{"query":{{"filters":{{"type_filters":{{"filters":{{"category":{{"option":"jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":{}}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
 	item = '{{"id":"{}","value":{{"weight":{}}}}}'
 	notitem = '{{"id":"{}"}}'
 
