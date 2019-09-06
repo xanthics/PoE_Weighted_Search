@@ -11,110 +11,110 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    Updated for 3.7.0 <br />2019/06/09: Searches should be working normally now.  Have added toggles for Fractured/Implicit that are saved in local storage to hopefully alleviate any future issues.<br />
+    Updated for 3.7.0 <br />2019/09/05: This will be updated to support global gem level items next week.<br />
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
         There are 2 primary ways to use this page.  A script created by VolatilePulse and coldino, or manually adding the jewels with the necessary mods to PoB and copying the values over by hand.
         <h3>Using VolatilePulse and coldino's script</h3>
-        Go to <a href ='https://github.com/Openarl/PathOfBuilding/releases' target="_blank">PoB releases page</a> and download Path Of Building.<br>
-        install or extract files <br>
-        Create and save a build.  Leave PoB running <br>
-        Navigate to <a href="https://github.com/VolatilePulse/PoB-Item-Tester" target="_blank">VolatilePulse's Github Repository</a> <br>
-        Clone or download, unzip, and enter directory <br>
-        Run TestItem.ahk, select the build you want from the list.<br>
-        Ctrl+Windows+d and it should automatically open this page with values filled out. <br>
-        Ctrl+Alt+Windows+d will prompt you to choose build and then automatically open this page. <br><br>
-        Double check all of the flags at the end to make sure they match what you are trying to do.  EG if you are molten strike you probably don't care about the melee flag as the projectile part is more important <br><br><br>
-        <strong>Troubleshooting:</strong> <br>
-        After the first time you run TestItem.ahk it will generate TestItem.ini.  You may need to modify "PathToPoB" <br>
+        Go to <a href ='https://github.com/Openarl/PathOfBuilding/releases' target="_blank">PoB releases page</a> and download Path Of Building.<br />
+        install or extract files <br />
+        Create and save a build.  Leave PoB running <br />
+        Navigate to <a href="https://github.com/VolatilePulse/PoB-Item-Tester" target="_blank">VolatilePulse's Github Repository</a> <br />
+        Clone or download, unzip, and enter directory <br />
+        Run TestItem.ahk, select the build you want from the list.<br />
+        Ctrl+Windows+d and it should automatically open this page with values filled out. <br />
+        Ctrl+Alt+Windows+d will prompt you to choose build and then automatically open this page. <br /><br />
+        Double check all of the flags at the end to make sure they match what you are trying to do.  EG if you are molten strike you probably don't care about the melee flag as the projectile part is more important <br /><br /><br />
+        <strong>Troubleshooting:</strong> <br />
+        After the first time you run TestItem.ahk it will generate TestItem.ini.  You may need to modify "PathToPoB" <br />
         <h3>Manually copy from PoB</h3>
-        You need to add jewels to Path of Building, if you have not yet done so.<br><br>
-        <a href="jewellist.txt" target="_blank">Text file to add jewels by hand</a><br><br>
-        <a href="jewellistxml.txt" target="_blank">xml file to add jewels direction to Path of Building Settings (at your own risk).</a>  As pointed out by github user coldino, you can edit your My Documents/Path of Building/Settings.xml directly. The lines from jewellistxml.txt should be added directly after the &lt;SharedItems&gt; tag. &lt;Shared Items&gt; should be right after &lt;/Accounts&gt;.  If you only have &lt;SharedItems/&gt; in that file, you will need to replace it with &lt;SharedItems&gt;&lt;/SharedItems&gt;<br><br>
-        You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table.  After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br><br>
+        You need to add jewels to Path of Building, if you have not yet done so.<br /><br />
+        <a href="jewellist.txt" target="_blank">Text file to add jewels by hand</a><br /><br />
+        <a href="jewellistxml.txt" target="_blank">xml file to add jewels direction to Path of Building Settings (at your own risk).</a>  As pointed out by github user coldino, you can edit your My Documents/Path of Building/Settings.xml directly. The lines from jewellistxml.txt should be added directly after the &lt;SharedItems&gt; tag. &lt;Shared Items&gt; should be right after &lt;/Accounts&gt;.  If you only have &lt;SharedItems/&gt; in that file, you will need to replace it with &lt;SharedItems&gt;&lt;/SharedItems&gt;<br /><br />
+        You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table.  After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br /><br />
     </div>
-    <br>
-    <div id="loading">This page requires javascript in order to run.</div><br>
-    <br>
+    <br />
+    <div id="loading">This page requires javascript in order to run.</div><br />
+    <br />
 
     <div id="Character"><strong>Build Name:</strong> </div>
     <div id="Skill"><strong>Skill:</strong> </div></div>
 
     <table id="mod weights">
-    </table> <br><br>
+    </table> <br /><br />
 
-    <strong>Charges:</strong> Do you sustain charges?<br>
+    <strong>Charges:</strong> Do you sustain charges?<br />
     <table>
     <tr><td><label><input type="checkbox" id="useFrenzyCharges">Frenzy</label></td><td><label><input type="checkbox" id="usePowerCharges">Power</label></td><td><label><input type="checkbox" id="useEnduranceCharges">Endurance</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Charge count:</strong> The max number of each type of charge your build sustains<br>
+    <strong>Charge count:</strong> The max number of each type of charge your build sustains<br />
     <table>
     <tr><td><input type="number" name="PowerCount" value="0" data-normal="1" style="width: 3em"></td><td>Power</td></tr>
     <tr><td><input type="number" name="FrenzyCount" value="0" data-normal="1" style="width: 3em"></td><td>Frenzy</td></tr>
     <tr><td><input type="number" name="EnduranceCount" value="0" data-normal="1" style="width: 3em"></td><td>Endurance</td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Type:</strong> Generally select 1 based on your type of attack<br>
+    <strong>Type:</strong> Generally select 1 based on your type of attack<br />
     <table>
     <tr><td><label><input type="checkbox" id="Attack">Attack</label></td><td><label><input type="checkbox" id="Spell">Spell</label></td>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Class:</strong> If you are attack based, select 1 or more(Varunastra) weapon types.  Trap/Mine/Totem if you are using those supports<br>
+    <strong>Class:</strong> If you are attack based, select 1 or more(Varunastra) weapon types.  Trap/Mine/Totem if you are using those supports<br />
     <table>
     <tr><td><label><input type="checkbox" id="Mace">Mace</label></td><td><label><input type="checkbox" id="Bow">Bow</label></td><td><label><input type="checkbox" id="Wand">Wand</label></td><td><label><input type="checkbox" id="Claw">Claw</label></td></tr>
     <tr><td><label><input type="checkbox" id="Staff">Staff</label></td><td><label><input type="checkbox" id="Sword">Sword</label></td><td><label><input type="checkbox" id="Axe">Axe</label></td><td><label><input type="checkbox" id="Dagger">Dagger</label></td></tr>
     <tr><td><label><input type="checkbox" id="Trap">Trap</label></td><td><label><input type="checkbox" id="Mine">Mine</label></td><td><label><input type="checkbox" id="Totem">Totem</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Tags:</strong> Check all the tags that match your primary skill<br>
+    <strong>Tags:</strong> Check all the tags that match your primary skill<br />
     <table>
     <tr><td><label><input type="checkbox" id="Melee">Melee</label></td><td><label><input type="checkbox" id="Area">Area</label></td><td><label><input type="checkbox" id="Projectile">Projectile</label></td><td><label><input type="checkbox" id="Elemental">Elemental</label></td></tr>
     <tr><td><label><input type="checkbox" id="Fire">Fire</label></td><td><label><input type="checkbox" id="Cold">Cold</label></td><td><label><input type="checkbox" id="Lightning">Lightning</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Hands:</strong> choose 1 based on wielded weapons<br>
+    <strong>Hands:</strong> choose 1 based on wielded weapons<br />
     <table>
     <tr><td><label><input type="checkbox" id="Shield">Shield</label></td><td><label><input type="checkbox" id="DualWielding">Dual Wielding</label></td><td><label><input type="checkbox" id="TwoHandedWeapon">Two Handed Weapon</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Recently:</strong> Tic all the things your build can do 'recently'<br>
+    <strong>Recently:</strong> Tic all the things your build can do 'recently'<br />
     <table>
     <tr><td><label><input type="checkbox" id="conditionKilledRecently">You Kill</label></td><td><label><input type="checkbox" id="conditionCritRecently">Crit</label></td><td><label><input type="checkbox" id="conditionHitRecently">Hit</label></td></tr>
     <tr><td><label><input type="checkbox" id="conditionMinionsKilledRecently">Minion Kill</label></td><td><label><input type="checkbox" id="No Recent Crit">Not Crit</label></td><td><label><input type="checkbox" id="conditionUsedMinionSkillRecently">Minion Skill</label></td></tr>
     <tr><td><label><input type="checkbox" id="No Recent Kill">Not Kill</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>You are/have:</strong> Tic all the things affecting you<br>
+    <strong>You are/have:</strong> Tic all the things affecting you<br />
     <table>
     <tr><td><label><input type="checkbox" id="conditionUsingFlask">Flasked</label></td><td><label><input type="checkbox" id="Elder">Other Ring is Elder</label></td></tr>
     <tr><td><label><input type="checkbox" id="conditionFullLife">Full Life</label></td><td><label><input type="checkbox" id="Shaper">Other Ring is Shaper</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Enemy is:</strong> status effects on your target<br>
+    <strong>Enemy is:</strong> status effects on your target<br />
     <table>
 	<tr><td><label><input type="checkbox" id="conditionEnemyBleeding">Bleeding</label></td><td><label><input type="checkbox" id="conditionEnemyPoisoned">Poisoned</label></td><td><label><input type="checkbox" id="conditionEnemyBlinded">Blinded</label></td></tr>
 	<tr><td><label><input type="checkbox" id="conditionEnemyIgnited">Ignited</label></td><td><label><input type="checkbox" id="conditionEnemyBurning">Burning</label></td><td><label><input type="checkbox" id="conditionEnemyShocked">Shocked</label></td></tr>
     <tr><td><label><input type="checkbox" id="conditionEnemyChilled">Chilled</label></td><td><label><input type="checkbox" id="conditionEnemyFrozen">Frozen</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>Other options:</strong> choices that don't neatly fit a section<br>
+    <strong>Other options:</strong> choices that don't neatly fit a section<br />
     <table>
 	<tr><td><label><input type="checkbox" id="NoCraftedMods">Ignore Crafted Mods</label></td></tr>
 	<tr><td><label><input type="checkbox" id="NoFracturedMods">Ignore Fractured Mods</label></td></tr>
 	<tr><td><label><input type="checkbox" id="NoImplicitMods">Ignore Implicit Mods</label></td></tr>
     <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
-    </table><br><br>
+    </table><br /><br />
 
-    <strong>League:</strong> <span id="leaguelist"></span>.<br><br><br>
+    <strong>League:</strong> <span id="leaguelist"></span>.<br /><br /><br />
 
 
-    <div id="generate"></div><br>
-    <a href="" id="query" target="_blank">Search</a><br><br>
-    <div id="414by"> If you get a '414 Request-URI Too Large' download <a href="bypass414.py" download>this python script</a>, run it, and paste this string <br><input type="text" id="414bypass" onClick="this.select();" readonly>. <br><br></div>
-    <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.  Note that the sum of the weights is an approximation as stats scale in relation to each other.  EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable.  Looking at each mod in isolation cannot perfectly recreate that.</div><br>
-
+    <div id="generate"></div><br />
+    <a href="" id="query" target="_blank">Search</a><br /><br />
+    <div id="414by"> If you get a '414 Request-URI Too Large' download <a href="bypass414.py" download>this python script</a>, run it, and paste this string <br /><input type="text" id="414bypass" onClick="this.select();" readonly>. <br /><br /></div>
+    <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.  Note that the sum of the weights is an approximation as stats scale in relation to each other.  EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable.  Looking at each mod in isolation cannot perfectly recreate that.</div><br /><br />
+    
     <script type="text/python">
         from browser import document as doc
         from browser import html
