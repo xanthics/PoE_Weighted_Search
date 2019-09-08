@@ -265,6 +265,16 @@ def gensearchparams(dps, selections):
 		"Gain #% of Physical Damage as Extra Chaos Damage": dps['physicalasextrachaos'],
 		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
 		"#% chance to deal Double Damage": dps['chancedoubledamage'],
+		"# to Level of all Chaos Spell Skill Gems": dps['achaosssg'],
+		"# to Level of all Cold Spell Skill Gems": dps['acoldssg'],
+		"# to Level of all Fire Spell Skill Gems": dps['afiressg'],
+		"# to Level of all Lightning Spell Skill Gems": dps['alightningssg'],
+		"# to Level of all Minion Skill Gems": dps['aminionsg'],
+		"# to Level of all Physical Spell Skill Gems": dps['aphysicalssg'],
+		"# to Level of all Raise Spectre Gems": dps['aminionsg'] if {'Spectre'}.issubset(selections) else 0,
+		"# to Level of all Raise Zombie Gems": dps['aminionsg'] if {'Zombie'}.issubset(selections) else 0,
+		"# to Level of all Spell Skill Gems": dps['aspellsg'],
+
 	}
 
 	# mods that are explicitly skipped, comment with where they appear

@@ -11,7 +11,9 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    Updated for 3.8.0 <br />2019/09/07: Added support for global gem levels.  Not currently supported by PoB so you will have to enter values manually.<br />
+    Updated for 3.8.0 <br />
+    2019/09/08: Added backend support for gem levels.  PoB now supports listed ones.  Spectre/Zombie needs to be set in tags, and will use "Minion gems" value.<br />
+    2019/09/07: Added support for global gem levels.  Not currently supported by PoB so you will have to enter values manually.<br />
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
@@ -72,6 +74,7 @@
     <table>
     <tr><td><label><input type="checkbox" id="Melee">Melee</label></td><td><label><input type="checkbox" id="Area">Area</label></td><td><label><input type="checkbox" id="Projectile">Projectile</label></td><td><label><input type="checkbox" id="Elemental">Elemental</label></td></tr>
     <tr><td><label><input type="checkbox" id="Fire">Fire</label></td><td><label><input type="checkbox" id="Cold">Cold</label></td><td><label><input type="checkbox" id="Lightning">Lightning</label></td></tr>
+    <tr><td><label><input type="checkbox" id="Spectre">Spectre</label></td><td><label><input type="checkbox" id="Zombie">Zombie</label></td>
     </table><br /><br />
 
     <strong>Hands:</strong> choose 1 based on wielded weapons<br />
