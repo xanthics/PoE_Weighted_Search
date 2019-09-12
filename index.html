@@ -104,10 +104,11 @@
 
     <strong>Other options:</strong> choices that don't neatly fit a section<br />
     <table>
-	<tr><td><label><input type="checkbox" id="NoCraftedMods">Ignore Crafted Mods</label></td></tr>
-	<tr><td><label><input type="checkbox" id="NoFracturedMods">Ignore Fractured Mods</label></td></tr>
-	<tr><td><label><input type="checkbox" id="NoImplicitMods">Ignore Implicit Mods</label></td></tr>
-    <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
+        <tr><td><label><input type="checkbox" id="NoCraftedMods">Ignore Crafted Mods</label></td></tr>
+        <tr><td><label><input type="checkbox" id="NoFracturedMods">Ignore Fractured Mods</label></td></tr>
+        <tr><td><label><input type="checkbox" id="NoImplicitMods">Ignore Implicit Mods</label></td></tr>
+        <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
+        <tr><td><label><input type="number" name="emptycount" required value="1" data-normal="1" style="width: 3em">Number of empty AND sections before weighted mods</label></td></tr>
     </table><br /><br />
 
     <strong>League:</strong> <span id="leaguelist"></span>.<br /><br /><br />
@@ -144,6 +145,7 @@
             for elt in doc.get(selector='input[type="checkbox"]'):
                 if elt.checked:
                     selections.add(elt.id)
+            print(dps)
             querystring = gensearchparams(dps, selections)
             doc["query"].href = url_api + querystring
             doc["414bypass"].value = querystring

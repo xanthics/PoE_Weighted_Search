@@ -514,9 +514,10 @@ def gensearchparams(dps, selections):
 		'# Lightning Damage taken per second per Power Charge if your Skills have dealt a Critical Strike Recently',  # Shimmeron
 	]
 
-	searchstring = '{{"query":{{"filters":{{"type_filters":{{"filters":{{"category":{{"option":"jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{{"type":"weight","value":{{"min":{}}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
+	searchstring = '{{"query":{{"filters":{{"type_filters":{{"filters":{{"category":{{"option":"jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{}{{"type":"weight","value":{{"min":{}}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
 	item = '{{"id":"{}","value":{{"weight":{}}}}}'
 	notitem = '{{"id":"{}"}}'
+	emptygroup = '{"type":"and","filters":[]}, '
 
 	mlist = {}
 	query = []
@@ -538,4 +539,4 @@ def gensearchparams(dps, selections):
 
 	for i in sorted(mlist, key=mlist.get, reverse=True):
 		query.append(item.format(i, mlist[i]))
-	return searchstring.format(int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query), ','.join(notquery))
+	return searchstring.format(emptygroup * int(dps['emptycount']), int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query), ','.join(notquery))
