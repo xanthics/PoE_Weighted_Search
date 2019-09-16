@@ -518,3 +518,59 @@ Item Level: 1
 Implicits: 0
 Minions deal 4 to 7 additional Chaos Damage
 		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Chaos Spell Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Chaos Spell Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Cold Spell Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Cold Spell Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Fire Spell Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Fire Spell Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Lightning Spell Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Lightning Spell Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Minion Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Minion Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Physical Spell Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Physical Spell Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Spell Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Spell Skill Gems
+		</Item>

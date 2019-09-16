@@ -145,7 +145,6 @@
             for elt in doc.get(selector='input[type="checkbox"]'):
                 if elt.checked:
                     selections.add(elt.id)
-            print(dps)
             querystring = gensearchparams(dps, selections)
             doc["query"].href = url_api + querystring
             doc["414bypass"].value = querystring
