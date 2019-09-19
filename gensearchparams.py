@@ -253,7 +253,7 @@ def gensearchparams(dps, selections):
 		"Minions deal # to # additional Fire Damage": dps['minionflatfire'],
 		"Minions deal # to # additional Chaos Damage": dps['minionflatchaos'],
 		"#% to Cold Damage over Time Multiplier": dps['pcolddotmulti'],
-		"#% to Non-Ailment Chaos Damage over Time Multiplier": dps['pchaosdotmulti'],
+		"#% to Chaos Damage over Time Multiplier": dps['pchaosdotmulti'],
 		"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby": dps['critmulti'] if {'NearbyRareUnique'}.issubset(selections) else 0,
 		"#% increased Attack Speed while a Rare or Unique Enemy is Nearby": dps['attackspeed'] if {'NearbyRareUnique'}.issubset(selections) else 0,
 		"Spells have #% to Critical Strike Chance ": dps['basecrit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.
