@@ -11,7 +11,7 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    Updated for 3.8.1 <br />
+    Updated for 3.9.0d <br />
     2019/12/14: Query complexity rules are live.  I don't think any legit searches from this site can hit the current limit.  If you get a "query too complex" error, please send me your search via discord (I am on the main poe reddit discord)<br /><br />
     <div id="instruction"></div>
     <div id="instructions">
@@ -36,9 +36,7 @@
         You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table.  After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br /><br />
     </div>
     <br />
-    <div id="loading">This page requires javascript in order to run.</div><br />
-    <br />
-
+    <div id="error"><b>This page requires javascript in order to run.</b></div>
     <div id="Character"><strong>Build Name:</strong> </div>
     <div id="Skill"><strong>Skill:</strong> </div></div>
 
@@ -121,20 +119,34 @@
     <script type="text/python">
         from browser import document as doc
         from browser import html
-        from browser.html import TABLE, TR, TH, TD
+        from browser.html import TABLE, TR, TH, TD, B, BR
         from browser.local_storage import storage
         from gensearchparams import gensearchparams
         from leaguelist import leagues
         import json
 
+        storage_key = "poe_weighted_search"
+
+        # Setter storage so that we can differentiate values on this site from others at the same domain
+        def set_storage(key, val):
+            storage["{}-{}".format(storage_key, key)] = val
+
+        # Getting for storage so that we can differentiate values on this site from others at the same domain
+        def get_storage(key):
+            return storage["{}-{}".format(storage_key, key)]
+
+        # Check if a value exists in storage
+        def check_storage(key):
+            return "{}-{}".format(storage_key, key) in storage
+
         def generate_query(ev):
             league = leagues[doc['league'].selectedIndex]
-            storage['league'] = league
+            set_storage('league', league)
             for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
                 if doc[_f].checked:
-                    storage[_f] = "T"
+                    set_storage(_f, "T")
                 else:
-                    storage[_f] = ""
+                    set_storage(_f, "")
             url_api = f'https://www.pathofexile.com/api/trade/search/{league}?redirect&source='
             dps = {}
             for elt in doc.get(selector='input[type="number"]'):
@@ -171,36 +183,50 @@
             doc['mod weights'] <= t
 
         def process_querystring():
-            for elt in doc.get(selector='input[type="number"]'):
-                try:
-                    elt.value = doc.query[elt.name]
-                except KeyError:
-                    elt.value = 0
-            try:
-                flags = doc.query["Flags"].strip(',').split(',')
-                for f in flags:
+            errorstring = ''
+            if len(doc.query.keys()) > 1:
+                for elt in doc.get(selector='input[type="number"]'):
                     try:
-                        doc[f].checked = True
+                        elt.value = doc.query[elt.name]
                     except KeyError:
-                        print("Flag '{}' recieved but not currently supported.".format(f))
-                if 'conditionCritRecently' not in flags:
-                    doc["No Recent Crit"].checked = True
-                if 'conditionKilledRecently' not in flags:
-                    doc["No Recent Kill"].checked = True
-            except KeyError:
-                print("No Flags parameter passed in query string")
-
-            for val in ['Skill', 'Character']:
+                        elt.value = 0
                 try:
-                    if doc.query[val]:
-                        doc[val] <= doc.query[val]
+                    flags = doc.query["Flags"].strip(',').split(',')
+                    for f in flags:
+                        try:
+                            doc[f].checked = True
+                        except KeyError:
+                            print("Flag '{}' recieved but not currently supported.".format(f))
+                    if 'conditionCritRecently' not in flags:
+                        doc["No Recent Crit"].checked = True
+                    if 'conditionKilledRecently' not in flags:
+                        doc["No Recent Kill"].checked = True
                 except KeyError:
-                    doc[val].style.display = "none"
-            print([f"{x} '{storage[x]}'" for x in storage])
+                    print("No Flags parameter passed in query string")
+                    errorstring = "There was an error in the Query string"
+
+                for val in ['Skill', 'Character']:
+                    try:
+                        if doc.query[val]:
+                            doc[val] <= doc.query[val]
+                    except KeyError:
+                        if errorstring:
+                            errorstring += BR()
+                        errorstring += f'Missing {val}.  Query string is incomplete.  Please check your browser.'
+                        doc[val].style.display = "none"
+                print('\n'.join([f"{x} '{storage[x]}'" for x in storage]))
+            else:
+                doc["Character"].style.display = "none"
+                doc["Skill"].style.display = "none"
+            if errorstring:
+                doc['error'].text = ''
+                doc['error'] <= B(errorstring)
+            else:
+                doc["error"].style.display = "none"
             for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
-                if _f in storage:
+                if check_storage(_f):
                     print(f"Processing {_f}")
-                    doc[_f].checked = bool(storage[_f])
+                    doc[_f].checked = bool(get_storage(_f))
 
 
         def create_league_list():
@@ -208,8 +234,8 @@
             for league in leagues:
                 sel <= html.OPTION(league)
             doc['leaguelist'] <= sel
-            if 'league' in storage and storage['league'] in leagues:
-                doc['league'].value = storage['league']
+            if check_storage('league') and get_storage('league') in leagues:
+                doc['league'].value = get_storage('league')
 
         doc["query"].style.display = "none"
         doc["notice"].style.display = "none"
@@ -223,7 +249,6 @@
         doc["instruction"] <= b_generate
         create_table()
         process_querystring()
-        doc["loading"].style.display = "none"
         create_league_list()
 
     </script>
