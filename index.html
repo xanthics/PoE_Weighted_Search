@@ -12,7 +12,7 @@
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
     Updated for 3.9.0d <br />
-    2019/12/14: Query complexity rules are live.  I don't think any legit searches from this site can hit the current limit.  If you get a "query too complex" error, please send me your search via discord (I am on the main poe reddit discord)<br /><br />
+    2019/12/18: Added new 3.9 mods<br /><br />
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
@@ -214,7 +214,7 @@
                             errorstring += BR()
                         errorstring += f'Missing {val}.  Query string is incomplete.  Please check your browser.'
                         doc[val].style.display = "none"
-                print('\n'.join([f"{x} '{storage[x]}'" for x in storage]))
+#                print('\n'.join([f"{x} '{storage[x]}'" for x in storage]))
             else:
                 doc["Character"].style.display = "none"
                 doc["Skill"].style.display = "none"
@@ -225,7 +225,6 @@
                 doc["error"].style.display = "none"
             for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
                 if check_storage(_f):
-                    print(f"Processing {_f}")
                     doc[_f].checked = bool(get_storage(_f))
 
 
