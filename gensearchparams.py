@@ -276,7 +276,6 @@ def gensearchparams(dps, selections):
 		"#% to Cold Damage over Time Multiplier": dps['pcolddotmulti'],
 		"#% to Chaos Damage over Time Multiplier": dps['pchaosdotmulti'],
 		'#% to Damage over Time Multiplier': dps['pdotmulti'],
-		'Poisons you inflict deal Damage #% faster': dps['ppoisonfaster'],
 		# Life & ES
 		"# to maximum Life": dps['flatlife'],
 		"#% increased maximum Life": dps['plife'],
