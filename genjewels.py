@@ -22,6 +22,7 @@ Item Level: 1
 		for name in names:
 			fout.write(header.format(name))
 
+
 # as pointed out by github user coldino, you can edit your My Documents/Path of Building/Settings.xml directly
 # These should be added directly after the <SharedItems> tag
 # <Shared Items> should be right after </Accounts>
@@ -44,6 +45,6 @@ Implicits: 0
 if __name__ == '__main__':
 	with open('mods.json') as fin:
 		data = json.load(fin)
-		names = [x['desc'] for x in data]
-	gentxt(names)
-	genxml(names)
+		g_names = [x['desc'] for x in data]
+	gentxt(g_names)
+	genxml(g_names)
