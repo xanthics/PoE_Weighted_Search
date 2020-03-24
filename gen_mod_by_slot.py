@@ -218,12 +218,17 @@ def main():
 			else:
 				print(attr)
 	table['Caster Weapon'] = {'implicit': [], 'crafted': [], 'explicit': []}
+	table['All Jewel'] = {'implicit': [], 'crafted': [], 'explicit': []}
+
 	for val in ['Rune Dagger', 'Sceptre', 'Wand', 'Staff']:
 		for modgroup in table[val]:
-			print(modgroup)
 			table['Caster Weapon'][modgroup].extend(table[val][modgroup])
 			table['Caster Weapon'][modgroup] = list(set(table['Caster Weapon'][modgroup]))
 		del table[val]
+	for val in ['Jewel', 'AbyssJewel']:
+		for modgroup in table[val]:
+			table['All Jewel'][modgroup].extend(table[val][modgroup])
+			table['All Jewel'][modgroup] = list(set(table['All Jewel'][modgroup]))
 
 	buf = 'mods = {\n'
 	for base in table:
