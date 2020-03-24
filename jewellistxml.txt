@@ -40,6 +40,14 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
++12% to Damage over Time Multiplier
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++12% to Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
 +12% to Cold Damage over Time Multiplier
 Hypnotic Eye Jewel
 Item Level: 1
@@ -48,11 +56,11 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
-+12% to Non-Ailment Chaos Damage over Time Multiplier
++12% to Chaos Damage over Time Multiplier
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+12% to Non-Ailment Chaos Damage over Time Multiplier
++12% to Chaos Damage over Time Multiplier
 		</Item>
 		<Item>
 			Rarity: RARE
@@ -125,6 +133,30 @@ Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 12% increased Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+12% increased Spell Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+12% increased Spell Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+12% increased Attack Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+12% increased Attack Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+12% increased Melee Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+12% increased Melee Damage
 		</Item>
 		<Item>
 			Rarity: RARE
@@ -520,35 +552,67 @@ Minions deal 4 to 7 additional Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Chaos Spell Skill Gems
++1 to Level of all Chaos Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Chaos Spell Skill Gems
++1 to Level of all Chaos Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Cold Spell Skill Gems
++1 to Level of all Cold Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Cold Spell Skill Gems
++1 to Level of all Cold Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Fire Spell Skill Gems
++1 to Level of all Fire Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Fire Spell Skill Gems
++1 to Level of all Fire Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Lightning Spell Skill Gems
++1 to Level of all Lightning Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Lightning Spell Skill Gems
++1 to Level of all Lightning Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Physical Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Physical Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Dexterity Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Dexterity Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Strength Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Strength Skill Gems
+		</Item>
+		<Item>
+			Rarity: RARE
++1 to Level of all Intelligence Skill Gems
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++1 to Level of all Intelligence Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
@@ -557,14 +621,6 @@ Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Minion Skill Gems
-		</Item>
-		<Item>
-			Rarity: RARE
-+1 to Level of all Physical Spell Skill Gems
-Hypnotic Eye Jewel
-Item Level: 1
-Implicits: 0
-+1 to Level of all Physical Spell Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
