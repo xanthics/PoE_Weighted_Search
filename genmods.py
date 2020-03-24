@@ -34,7 +34,7 @@ def updatemods():
 			else:
 				mlist[cur].append(val)
 
-	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'mods = {\n']
+	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'mods = {']
 
 	for label in sorted(mlist):
 		mlist[label].sort()
