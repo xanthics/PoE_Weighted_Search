@@ -8,6 +8,7 @@ from modlist import mods
 
 def gensearchparams(dps, selections):
 	modstr = {
+		# (start) Automatic tool for generating mod/base pairs starts here
 		# Attack Speed
 		"#% increased Attack Speed": dps['attackspeed'],
 		"#% increased Attack Speed if you've dealt a Critical Strike Recently": dps['attackspeed'] if {'conditionCritRecently'}.issubset(selections) else 0,
@@ -80,7 +81,6 @@ def gensearchparams(dps, selections):
 		"Attacks have #% to Critical Strike Chance": dps['basecrit'] if {'Attack'}.issubset(selections) else 0,  # Note that this is base crit.
 		"#% Critical Strike Chance per Power Charge": dps['basecrit'] * dps["PowerCount"],  # Note that this is base crit.
 		# Critical Strike Chance
-		"#% increased Critical Strike Chance": dps['critchance'],
 		"#% increased Critical Strike Chance for Spells": dps['critchance'] if {'Spell'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance if you haven't dealt a Critical Strike Recently": dps['critchance'] if {'No Recent Crit'}.issubset(selections) else 0,
 		"#% increased Weapon Critical Strike Chance while Dual Wielding": dps['critchance'] if {'Attack', 'DualWielding'}.issubset(selections) else 0,
@@ -207,23 +207,6 @@ def gensearchparams(dps, selections):
 		'# to Maximum Power Charges': dps['1powercharge'] if {'Power'}.issubset(selections) else 0,
 		'# to Maximum Frenzy Charges': dps['1frenzycharge'] if {'Frenzy'}.issubset(selections) else 0,
 		'# to Maximum Endurance Charges': dps['1endurancecharge'] if {'Endurance'}.issubset(selections) else 0,
-		# Precursor Emblem
-		"# to # Cold Damage per Frenzy Charge": dps['flatcold'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
-		"#% increased Accuracy Rating per Frenzy Charge": dps['paccuracy'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
-		"#% increased Critical Strike Chance per Frenzy Charge": dps['critchance'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
-		"#% increased Damage per Frenzy Charge": dps['pgeneric'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
-		"Gain #% of Cold Damage as Extra Chaos Damage per Frenzy Charge": dps['coldasextrachaos'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
-		"# to # Fire Damage per Endurance Charge": dps['flatfire'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
-		"#% increased Attack and Cast Speed per Endurance Charge": (dps['attackspeed'] + dps['castspeed']) * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
-		"#% increased Critical Strike Chance per Endurance Charge": dps['critchance'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
-		"#% increased Damage per Endurance Charge": dps['pgeneric'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
-		"Gain #% of Fire Damage as Extra Chaos Damage per Endurance Charge": dps['fireasextrachaos'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
-		"# to # Lightning Damage per Power Charge": dps['flatlightning'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
-		"#% increased Attack and Cast Speed per Power Charge": (dps['attackspeed'] + dps['castspeed']) * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
-		"#% increased Damage per Power Charge": dps['pgeneric'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
-		"#% increased Spell Damage per Power Charge": dps['pgeneric'] * dps["PowerCount"] if {'usePowerCharges', 'Spell'}.issubset(selections) else 0,
-		"#% to Critical Strike Multiplier per Power Charge": dps['critmulti'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
-		"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge": dps['lightningasextrachaos'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
 		# Accuracy
 		'# to Accuracy Rating': dps['flataccuracy'],
 		'#% increased Global Accuracy Rating': dps['paccuracy'],
@@ -244,25 +227,6 @@ def gensearchparams(dps, selections):
 		"#% increased Strength": dps['pstr'],
 		"#% increased Intelligence": dps['pint'],
 		"#% increased Dexterity": dps['pdex'],
-		# Flasks
-		"#% increased Critical Strike Chance during any Flask Effect": dps['critchance'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"#% to Critical Strike Multiplier during any Flask Effect": dps['critmulti'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"Damage Penetrates #% Elemental Resistances during any Flask Effect": dps['penall'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"#% increased Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"Damage Penetrates #% Lightning Resistance during Flask effect": dps['penlightning'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"Adds # to # Lightning Damage to Spells during Flask effect": dps['flatlightning'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
-		"Adds # to # Lightning Damage to Attacks during Flask effect": dps['flatlightning'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
-		"#% increased Attack Speed during any Flask Effect": dps['attackspeed'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"#% increased Cast Speed during any Flask Effect": dps['castspeed'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"#% increased Melee Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Attack', 'Melee'}.issubset(selections) else 0,
-		"Adds # to # Chaos Damage to Spells and Attacks during any Flask Effect": dps['flatchaos'] if {'conditionUsingFlask'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
-		"#% increased Spell Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
-		"#% increased Elemental Damage with Attack Skills during any Flask Effect": dps['pelemental'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
-		"Damage Penetrates #% Fire Resistance against Blinded Enemies": dps['penfire'] if {'Blinded'}.issubset(selections) else 0,
-		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'Blinded'}.issubset(selections) else 0,
-		# Shaper & Elder unique rings
-		"#% increased Attack Damage if your other Ring is a Shaper Item": dps['pgeneric'] if {'Shaper', 'Attack'}.issubset(selections) else 0,
-		"#% increased Spell Damage if your other Ring is an Elder Item": dps['pgeneric'] if {'Elder', 'Spell'}.issubset(selections) else 0,
 		# Damage Over Time
 		"#% increased Damage over Time": dps['pdot'],
 		"#% increased Damage over Time while Dual Wielding": dps['pdot'] if {'DualWielding'}.issubset(selections) else 0,
@@ -312,6 +276,43 @@ def gensearchparams(dps, selections):
 		"# to Level of all Lightning Spell Skill Gems": dps['alightningsg'] if {'Spell'}.issubset(selections) else 0,
 		"# to Level of all Physical Spell Skill Gems": dps['aphysicalsg'] if {'Spell'}.issubset(selections) else 0,
 		"# to Level of all Spell Skill Gems": dps['aspellsg'] if {'Spell'}.issubset(selections) else 0,
+		# (stop) Automatic tool for generating mod/base pairs stops here
+		# Flasks
+		"#% increased Critical Strike Chance during any Flask Effect": dps['critchance'] if {'conditionUsingFlask'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier during any Flask Effect": dps['critmulti'] if {'conditionUsingFlask'}.issubset(selections) else 0,
+		"Damage Penetrates #% Elemental Resistances during any Flask Effect": dps['penall'] if {'conditionUsingFlask'}.issubset(selections) else 0,
+		"#% increased Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask'}.issubset(selections) else 0,
+		"Damage Penetrates #% Lightning Resistance during Flask effect": dps['penlightning'] if {'conditionUsingFlask'}.issubset(selections) else 0,
+		"Adds # to # Lightning Damage to Spells during Flask effect": dps['flatlightning'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
+		"Adds # to # Lightning Damage to Attacks during Flask effect": dps['flatlightning'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
+		"#% increased Attack Speed during any Flask Effect": dps['attackspeed'] if {'conditionUsingFlask'}.issubset(selections) else 0,
+		"#% increased Cast Speed during any Flask Effect": dps['castspeed'] if {'conditionUsingFlask'}.issubset(selections) else 0,
+		"#% increased Melee Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Attack', 'Melee'}.issubset(selections) else 0,
+		"Adds # to # Chaos Damage to Spells and Attacks during any Flask Effect": dps['flatchaos'] if {'conditionUsingFlask'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
+		"#% increased Spell Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
+		"#% increased Elemental Damage with Attack Skills during any Flask Effect": dps['pelemental'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
+		"Damage Penetrates #% Fire Resistance against Blinded Enemies": dps['penfire'] if {'Blinded'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'Blinded'}.issubset(selections) else 0,
+		# Shaper & Elder unique rings
+		"#% increased Attack Damage if your other Ring is a Shaper Item": dps['pgeneric'] if {'Shaper', 'Attack'}.issubset(selections) else 0,
+		"#% increased Spell Damage if your other Ring is an Elder Item": dps['pgeneric'] if {'Elder', 'Spell'}.issubset(selections) else 0,
+		# Precursor Emblem
+		"# to # Cold Damage per Frenzy Charge": dps['flatcold'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating per Frenzy Charge": dps['paccuracy'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance per Frenzy Charge": dps['critchance'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
+		"#% increased Damage per Frenzy Charge": dps['pgeneric'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
+		"Gain #% of Cold Damage as Extra Chaos Damage per Frenzy Charge": dps['coldasextrachaos'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
+		"# to # Fire Damage per Endurance Charge": dps['flatfire'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
+		"#% increased Attack and Cast Speed per Endurance Charge": (dps['attackspeed'] + dps['castspeed']) * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance per Endurance Charge": dps['critchance'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
+		"#% increased Damage per Endurance Charge": dps['pgeneric'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
+		"Gain #% of Fire Damage as Extra Chaos Damage per Endurance Charge": dps['fireasextrachaos'] * dps["EnduranceCount"] if {'useEnduranceCharges'}.issubset(selections) else 0,
+		"# to # Lightning Damage per Power Charge": dps['flatlightning'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
+		"#% increased Attack and Cast Speed per Power Charge": (dps['attackspeed'] + dps['castspeed']) * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
+		"#% increased Damage per Power Charge": dps['pgeneric'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
+		"#% increased Spell Damage per Power Charge": dps['pgeneric'] * dps["PowerCount"] if {'usePowerCharges', 'Spell'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier per Power Charge": dps['critmulti'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
+		"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge": dps['lightningasextrachaos'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
 	}
 
 	# mods that are explicitly skipped, comment with where they appear
@@ -413,6 +414,9 @@ def gensearchparams(dps, selections):
 		# Only appears on uniques
 		"#% increased Damage with Hits and Ailments against Blinded Enemies": dps['pgeneric'] if {'Blinded'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
 		"#% increased Fire Damage with Hits and Ailments against Blinded Enemies": dps['pfire'] if {'Blinded'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
+		# Local mod
+		"#% increased Critical Strike Chance": dps['critchance'],
+
 	}
 
 	# TODO: Determine if each mod is worth adding or specific to a static unique
@@ -543,22 +547,12 @@ def gensearchparams(dps, selections):
 		"Traps and Mines deal # to # additional Physical Damage": 0
 	}
 
-	# List of mods that will go in to a 'not' filter so that certain items will never appear
-	# These items have high values of damage mods with some downside that is not accounted for
-	ignoredmods = [
-		'#% less Critical Strike Chance',  # Marylene's Fallacy
-		'Lose all Power Charges on reaching Maximum Power Charges',  # Malachai's Loop
-		'# Lightning Damage taken per second per Power Charge if your Skills have dealt a Critical Strike Recently',  # Shimmeron
-	]
-
-	searchstring = '{{"query":{{"filters":{{"type_filters":{{"filters":{{"category":{{"option":"jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{}{{"type":"weight","value":{{"min":{}}},"filters":[{}]}},{{"type":"not","filters":[{}]}}]}}}}'
+	searchstring = '{{"query":{{"filters":{{"type_filters":{{"filters":{{"category":{{"option":"jewel"}}}}}}}},"status":{{"option":"online"}},"stats":[{}{{"type":"weight","value":{{"min":{}}},"filters":[{}]}}]}}}}'
 	item = '{{"id":"{}","value":{{"weight":{}}}}}'
-	notitem = '{{"id":"{}"}}'
 	emptygroup = '{"type":"and","filters":[]}, '
 
 	mlist = {}
 	query = []
-	notquery = []
 
 	minthreshold = 0.0  # dps['pgeneric'] / 20
 	for mod in modstr:
@@ -570,10 +564,6 @@ def gensearchparams(dps, selections):
 					continue
 				mlist[val] = round(modstr[mod], 2)
 
-	for notmod in ignoredmods:
-		for val in mods[notmod]:
-			notquery.append(notitem.format(val))
-
 	for i in sorted(mlist, key=mlist.get, reverse=True):
 		query.append(item.format(i, mlist[i]))
-	return searchstring.format(emptygroup * int(dps['emptycount']), int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query), ','.join(notquery))
+	return searchstring.format(emptygroup * int(dps['emptycount']), int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query))
