@@ -1,5 +1,5 @@
 import json
-
+from datetime import datetime
 
 # Load all used mods gensearchparam
 def load_mods():
@@ -216,6 +216,7 @@ def main():
 									if mod not in table[base]['explicit']:
 										table[base]['explicit'].append(mod)
 			else:
+				# TODO: Temple mods
 				print(attr)
 	table['Caster Weapon'] = {'implicit': [], 'crafted': [], 'explicit': []}
 	table['All Jewel'] = {'implicit': [], 'crafted': [], 'explicit': []}
@@ -230,16 +231,16 @@ def main():
 			table['All Jewel'][modgroup].extend(table[val][modgroup])
 			table['All Jewel'][modgroup] = list(set(table['All Jewel'][modgroup]))
 
-	buf = 'mods = {\n'
-	for base in table:
-		buf += f'\t"{base}": {{\n'
+	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'r_mods = {']
+	for base in sorted(table):
+		buf.append(f'\t"{base}": {{')
 		for section in table[base]:
 			table[base][section].sort()
-			buf += f'\t\t"{section}": {table[base][section]},\n'
-		buf += '\t},\n'
-	buf += '}'
+			buf.append(f'\t\t"{section}": {table[base][section]},')
+		buf.append('\t},')
+	buf.append('}')
 	with open("restrict_mods.py", 'w') as f:
-		f.write(buf)
+		f.write('\n'.join(buf))
 	print(missing)
 
 
