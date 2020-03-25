@@ -183,13 +183,6 @@ def main():
 					if mod not in table[base]['implicit']:
 						table[base]['implicit'].append(mod)
 			elif any([m['weight'] for m in mods[attr]['spawn_weights']]):
-				'''
-					gen_type = {
-						'suffix': 'explicit', 
-						'corrupted': 'implicit', 
-						'prefix': 'explicit'
-					}
-				'''
 				bases = {key: -1 for key in domains[mods[attr]['domain']]}
 				for spawn in mods[attr]['spawn_weights'][:-1]:
 					if spawn['tag'] in taglookups:
@@ -203,11 +196,15 @@ def main():
 					if mod not in table[base][gen_type[mods[attr]['generation_type']]]:
 						table[base][gen_type[mods[attr]['generation_type']]].append(mod)
 			else:
-				# TODO: Temple mods
 				missing.append(attr)
-#				print(attr)
+
 	table['Caster Weapon'] = {'implicit': [], 'crafted': [], 'explicit': []}
 	table['All Jewel'] = {'implicit': [], 'crafted': [], 'explicit': []}
+
+	# Add special mods that are worth considering but don't reveal spawn rules, such as temple mods or specific uniques:
+	# TODO: Temple mods
+	table['Caster Weapon']['explicit'].append('#% reduced Mana Cost of Skills')  # Apep's Rage
+	table['Gloves']['explicit'].append('#% reduced Mana Cost of Skills')  # Voidbringer
 
 	for val in ['Rune Dagger', 'Sceptre', 'Wand', 'Staff']:
 		for modgroup in table[val]:
