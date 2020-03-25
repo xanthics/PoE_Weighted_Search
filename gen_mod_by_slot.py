@@ -231,6 +231,9 @@ def main():
 			table['All Jewel'][modgroup].extend(table[val][modgroup])
 			table['All Jewel'][modgroup] = list(set(table['All Jewel'][modgroup]))
 
+	table["Base Jewel"] = table.pop("Jewel")
+	table["Abyss Jewel"] = table.pop("AbyssJewel")
+
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'r_mods = {']
 	for base in sorted(table):
 		buf.append(f'\t"{base}": {{')

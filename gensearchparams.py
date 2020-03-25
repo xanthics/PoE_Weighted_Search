@@ -555,8 +555,8 @@ def gensearchparams(dps, selections, base):
 	# table to get the correct trade site json name
 	lookup_bases = {
 		"All Jewel": 'jewel',
-		"Jewel": 'jewel',
-		"AbyssJewel": 'jewel.abyss',
+		"Base Jewel": 'jewel.base',
+		"Abyss Jewel": 'jewel.abyss',
 		"Caster Weapon": 'weapon',
 		"Amulet": 'accessory.amulet',
 		"Ring": 'accessory.ring',
