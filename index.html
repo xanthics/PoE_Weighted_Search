@@ -252,7 +252,7 @@
             for base in bases:
                 sel <= html.OPTION(base)
             doc['baselist'] <= sel
-            if check_storage('base') and get_storage('base') in leagues:
+            if check_storage('base') and get_storage('base') in bases:
                 doc['base'].value = get_storage('base')
 
         doc["query"].style.display = "none"
