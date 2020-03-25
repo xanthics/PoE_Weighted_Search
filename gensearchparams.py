@@ -576,9 +576,9 @@ def gensearchparams(dps, selections, base):
 	mlist = {}
 	query = []
 
-	minthreshold = 0.0  # dps['pgeneric'] / 20
+	minthreshold = max(dps['pgeneric'], dps['pminion']) / 20
 	for mod in modstr:
-		if modstr[mod] > minthreshold:
+		if abs(modstr[mod]) > minthreshold:
 			for val in mods[mod]:
 				if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
 				   ('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or mod not in r_mods[base]['implicit'])) or \
