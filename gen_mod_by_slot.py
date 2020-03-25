@@ -57,10 +57,9 @@ def parsebases(allowed_bases):
 						implicits[temp] = []
 					implicits[temp].append(itemclass)
 			for tag in bases[base]['tags']:
-				if tag != 'default':
-					if tag not in taglookups:
-						taglookups[tag] = []
-					taglookups[tag].append(itemclass)
+				if tag not in taglookups:
+					taglookups[tag] = []
+				taglookups[tag].append(itemclass)
 	return implicits, taglookups
 
 
@@ -145,33 +144,21 @@ def main():
 	crafted = craftingmods(allowed_bases)
 	ibr = item_classes_reverse(allowed_bases)
 	essence = essence_reverse(allowed_bases)
-	taglookup = {
-		'amulet': ['Amulet'],
-		'body_armour': ['Body Armour'],
-		'boots': ['Boots'],
-		'gloves': ['Gloves'],
-		'helmet': ['Helmet'],
-		'shield': ['Shield'],
-		'belt': ['Belt'],
-		'abyss_jewel': ['AbyssJewel'],
-		"abyss_jewel_melee": ['AbyssJewel'],
-		"abyss_jewel_ranged": ['AbyssJewel'],
-		"abyss_jewel_summoner": ['AbyssJewel'],
-		"abyss_jewel_caster": ['AbyssJewel'],
-		'jewel': ['Jewel'],
-		'quiver': ['Quiver'],
-		'ring': ['Ring'],
-		'dagger': ['Rune Dagger'],
-		'sceptre': ['Sceptre'],
-		'wand': ['Wand'],
-		'staff': ['Staff'],
-		'armour': ['Body Armour', 'Boots', 'Gloves', 'Helmet', 'Shield']
-	}
-	taglookup.update(ibr)
-	taglookup.update(taglookups)
+	taglookups.update(ibr)
 	missing = []
-	for m in taglookup:
-		taglookup[m] = list(set(taglookup[m]))
+	domains = {
+		'abyss_jewel': ['AbyssJewel'],
+		'item': ['Amulet', 'Body Armour', 'Boots', 'Gloves', 'Helmet', 'Shield', 'Belt', 'Quiver', 'Ring', 'Rune Dagger', 'Sceptre', 'Wand', 'Staff'],
+		'misc': ['Jewel'],
+		'delve': ['Amulet', 'Body Armour', 'Boots', 'Gloves', 'Helmet', 'Shield', 'Belt', 'AbyssJewel', 'Jewel', 'Quiver', 'Ring', 'Rune Dagger', 'Sceptre', 'Wand', 'Staff']
+	}
+	gen_type = {
+		'suffix': 'explicit',
+		'corrupted': 'implicit',
+		'prefix': 'explicit'
+	}
+	for m in sorted(taglookups):
+		taglookups[m] = list(set(taglookups[m]))
 	table = {key: {'implicit': [], 'crafted': [], 'explicit': []} for key in allowed_bases}
 	for mod in modlist:
 		for attr in modlist[mod]:
@@ -181,18 +168,9 @@ def main():
 					(attr not in implicits and
 					 attr not in crafted and
 					 attr not in essence and
-					 ((not any([m['weight'] for m in mods[attr]['spawn_weights']])) and len(mods[attr]['spawn_weights']) < 2)):
+					 (not any([m['weight'] for m in mods[attr]['spawn_weights']]))):
 				continue
-			if mods[attr]['generation_type'] == 'corrupted':
-				for m in mods[attr]['spawn_weights']:
-					if m['weight'] and m['tag'] in taglookup:
-						for base in taglookup[m['tag']]:
-							if mod not in table[base]['implicit']:
-								table[base]['implicit'].append(mod)
-							if base == 'Jewel':
-								if mod not in table['AbyssJewel']['implicit']:
-									table['AbyssJewel']['implicit'].append(mod)
-			elif mods[attr]['is_essence_only']:
+			if mods[attr]['is_essence_only']:
 				for base in essence[attr]:
 					if mod not in table[base]['explicit']:
 						table[base]['explicit'].append(mod)
@@ -205,19 +183,29 @@ def main():
 					if mod not in table[base]['implicit']:
 						table[base]['implicit'].append(mod)
 			elif any([m['weight'] for m in mods[attr]['spawn_weights']]):
-				if len(mods[attr]['spawn_weights']) > 1:
-					for spawn in mods[attr]['spawn_weights']:
-						if spawn["weight"]:
-							if spawn['tag'] not in taglookup:
-								if spawn['tag'] not in missing:
-									missing.append(spawn['tag'])
-							else:
-								for base in taglookup[spawn['tag']]:
-									if mod not in table[base]['explicit']:
-										table[base]['explicit'].append(mod)
+				'''
+					gen_type = {
+						'suffix': 'explicit', 
+						'corrupted': 'implicit', 
+						'prefix': 'explicit'
+					}
+				'''
+				bases = {key: -1 for key in domains[mods[attr]['domain']]}
+				for spawn in mods[attr]['spawn_weights'][:-1]:
+					if spawn['tag'] in taglookups:
+						for base in taglookups[spawn['tag']]:
+							if base in bases and bases[base] < 1:
+								bases[base] = spawn['weight']
+				for base in taglookups['default']:
+					if base in bases and bases[base] == -1:
+						bases[base] = mods[attr]['spawn_weights'][-1]['weight']
+				for base in [x for x in bases if bases[x]]:
+					if mod not in table[base][gen_type[mods[attr]['generation_type']]]:
+						table[base][gen_type[mods[attr]['generation_type']]].append(mod)
 			else:
 				# TODO: Temple mods
-				print(attr)
+				missing.append(attr)
+#				print(attr)
 	table['Caster Weapon'] = {'implicit': [], 'crafted': [], 'explicit': []}
 	table['All Jewel'] = {'implicit': [], 'crafted': [], 'explicit': []}
 
@@ -244,7 +232,8 @@ def main():
 	buf.append('}')
 	with open("restrict_mods.py", 'w') as f:
 		f.write('\n'.join(buf))
-	print(missing)
+	for miss in missing:
+		print(miss)
 
 
 if __name__ == '__main__':
