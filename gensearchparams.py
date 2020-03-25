@@ -238,11 +238,13 @@ def gensearchparams(dps, selections, base):
 		"#% to Cold Damage over Time Multiplier": dps['pcolddotmulti'],
 		"#% to Chaos Damage over Time Multiplier": dps['pchaosdotmulti'],
 		'#% to Damage over Time Multiplier': dps['pdotmulti'],
-		# Life & ES
+		# Life, ES, and Mana
 		"# to maximum Life": dps['flatlife'],
 		"#% increased maximum Life": dps['plife'],
 		"# to maximum Energy Shield": dps['flates'],
 		"#% increased maximum Energy Shield": dps['pes'],
+		"# to maximum Mana": dps['flatmana'],
+		"#% increased maximum Mana": dps['pmana'],
 		# Minion % damage
 		"Minions deal #% increased Damage": dps['pminion'],
 		"Minions have #% increased Attack Speed": dps['minionattackspeed'],
