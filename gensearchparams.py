@@ -575,8 +575,10 @@ def gensearchparams(dps, selections, base):
 
 	mlist = {}
 	query = []
+	reverse = {}
+	trimmed = []
 
-	minthreshold = max(dps['pgeneric'], dps['pminion']) / 20
+	minthreshold = 0.01  # max(dps['pgeneric'], dps['pminion']) / 100
 	for mod in modstr:
 		if abs(modstr[mod]) > minthreshold:
 			for val in mods[mod]:
@@ -586,7 +588,13 @@ def gensearchparams(dps, selections, base):
 				   ('explicit' in val and mod not in r_mods[base]['explicit']):
 					continue
 				mlist[val] = round(modstr[mod], 2)
+				reverse[val] = mod
 
-	for i in sorted(mlist, key=mlist.get, reverse=True):
-		query.append(item.format(i, mlist[i]))
-	return searchstring.format(lookup_bases[base], int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query[:29])), len(query)
+	# from https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
+	for c, i in enumerate({k: v for k, v in sorted(mlist.items(), key=lambda value: abs(value[1]))}):
+		if c < 29:
+			query.append(item.format(i, mlist[i]))
+		else:
+			trimmed.append(f'({i.split(".")[0]}) {reverse[i]} - {mlist[i]}')
+
+	return searchstring.format(lookup_bases[base], int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query)), c, trimmed

@@ -12,10 +12,9 @@
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
     Updated for 3.10.x <br /><br />
+    2020/03/25: Added "% reduced mana cost of skills" as dps options.  Fixed several issues with mod screening. <br /><br />
     2020/03/24: Added flat and % mana as dps options.  Jewels have 3 choices, all, base, or abyss.  Try something other than all if you get timeouts. <br /><br />
     2020/03/24: Implements per base mods.  You must select the correct base for its mods to appear in results. Query will now trim to the highest weight 29 mods.  If you notice a mod missing that absolutely should be included please leave a note <a href="https://github.com/xanthics/PoE_Weighted_Search/issues">Here</a>, <br /><br />
-    2020/03/23: Per Novynn::the formula for search complexity has changed.  Result is weighted search can only have 29 mods.  Removed "not" mods to reduce complexity. <br /><br />
-    2020/03/17: Per Novynn::there is a 10s timeout on the front-end, and the backend isn't returning results fast enough because of load, aim for much less entries in the weighted sum <br /><br />
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
@@ -115,7 +114,7 @@
 
 
     <div id="generate"></div><br />
-    <a href="" id="query" target="_blank">Search</a> Generated <span id="modcount"></span> mods and was trimmed to 29 if necessary<br /><br />
+    <a href="" id="query" target="_blank">Search</a> Generated <span id="modcount"></span> mods<br /><div id="culled"></div><br />
     <div id="414by"> If you get a '414 Request-URI Too Large' download <a href="bypass414.py" download>this python script</a>, run it, and paste this string <br /><input type="text" id="414bypass" onClick="this.select();" readonly>. <br /><br /></div>
     <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.  Note that the sum of the weights is an approximation as stats scale in relation to each other.  EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable.  Looking at each mod in isolation cannot perfectly recreate that.</div><br /><br />
     
@@ -162,7 +161,13 @@
             for elt in doc.get(selector='input[type="checkbox"]'):
                 if elt.checked:
                     selections.add(elt.id)
-            querystring, count = gensearchparams(dps, selections, base)
+            querystring, count, culled = gensearchparams(dps, selections, base)
+            doc['culled'].text = ''
+            if culled:
+                mystr = ''
+                for _x in [BR() + x for x in culled]:
+                    mystr += _x
+                doc['culled'] <= BR() + f'{len(culled)} mods were culled from query.' + BR() + mystr
             doc["query"].href = url_api + querystring
             doc["modcount"].text = count
             doc["414bypass"].value = querystring
