@@ -229,9 +229,13 @@
                 doc['error'] <= B(errorstring)
             else:
                 doc["error"].style.display = "none"
-            for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
+            for _f in ["NoCraftedMods", "NoImplicitMods", "NearbyRareUnique"]:
                 if check_storage(_f):
                     doc[_f].checked = bool(get_storage(_f))
+            if check_storage("NoFracturedMods"):
+                doc["NoFracturedMods"].checked = bool(get_storage("NoFracturedMods"))
+            else:
+                doc["NoFracturedMods"].checked = True
 
 
         def create_league_list():
