@@ -56,10 +56,9 @@ def parsebases(allowed_bases):
 					if temp not in implicits:
 						implicits[temp] = []
 					implicits[temp].append(itemclass)
-			for tag in bases[base]['tags']:
-				if tag not in taglookups:
-					taglookups[tag] = []
-				taglookups[tag].append(itemclass)
+			if itemclass not in taglookups:
+				taglookups[itemclass] = []
+			taglookups[itemclass].append(bases[base]['tags'])
 	return implicits, taglookups
 
 
@@ -87,9 +86,7 @@ def item_classes_reverse(allowed_bases):
 	for base in allowed_bases:
 		for mod in ic[base]:
 			if ic[base][mod] and mod != 'name':
-				if ic[base][mod] not in ibr:
-					ibr[ic[base][mod]] = []
-				ibr[ic[base][mod]].append(base)
+				ibr[ic[base][mod]] = base
 	return ibr
 
 
@@ -144,7 +141,6 @@ def main():
 	crafted = craftingmods(allowed_bases)
 	ibr = item_classes_reverse(allowed_bases)
 	essence = essence_reverse(allowed_bases)
-	taglookups.update(ibr)
 	missing = []
 	domains = {
 		'abyss_jewel': ['AbyssJewel'],
@@ -157,8 +153,6 @@ def main():
 		'corrupted': 'implicit',
 		'prefix': 'explicit'
 	}
-	for m in sorted(taglookups):
-		taglookups[m] = list(set(taglookups[m]))
 	table = {key: {'implicit': [], 'crafted': [], 'explicit': []} for key in allowed_bases}
 	for mod in modlist:
 		for attr in modlist[mod]:
@@ -183,21 +177,36 @@ def main():
 					if mod not in table[base]['implicit']:
 						table[base]['implicit'].append(mod)
 			elif any([m['weight'] for m in mods[attr]['spawn_weights']]):
-				bases = {key: -1 for key in domains[mods[attr]['domain']]}
-				for spawn in mods[attr]['spawn_weights'][:-1]:
-					if spawn['tag'] in taglookups:
-						for base in taglookups[spawn['tag']]:
-							if base in bases and bases[base] < 1:
-								bases[base] = spawn['weight']
-				for base in taglookups['default']:
-					if base in bases and bases[base] == -1:
-						bases[base] = mods[attr]['spawn_weights'][-1]['weight']
-				for base in [x for x in bases if bases[x]]:
+				goodbases = []
+				if len(domains[mods[attr]['domain']]) == 1:
+					goodbases = domains[mods[attr]['domain']]
+				else:
+					bases_temp = {key: taglookups[key][:] for key in domains[mods[attr]['domain']]}
+					for spawn in mods[attr]['spawn_weights']:
+						if spawn['weight'] and spawn['tag'] in ibr:
+							goodbases.append(ibr[spawn['tag']])
+							del bases_temp[ibr[spawn['tag']]]
+							continue
+						for base in list(bases_temp):
+							idx = 0
+							while idx < len(bases_temp[base]):
+								if spawn['weight'] and spawn['tag'] in bases_temp[base][idx]:
+									goodbases.append(base)
+									del bases_temp[base]
+									break
+								elif spawn['tag'] in bases_temp[base][idx]:
+									del bases_temp[base][idx]
+									if not bases_temp[base]:
+										del bases_temp[base]
+										break
+								else:
+									idx += 1
+
+				for base in goodbases:
 					if mod not in table[base][gen_type[mods[attr]['generation_type']]]:
 						table[base][gen_type[mods[attr]['generation_type']]].append(mod)
 			else:
 				missing.append(attr)
-
 	table['Caster Weapon'] = {'implicit': [], 'crafted': [], 'explicit': []}
 	table['All Jewel'] = {'implicit': [], 'crafted': [], 'explicit': []}
 
