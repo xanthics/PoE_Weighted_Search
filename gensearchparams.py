@@ -322,7 +322,7 @@ def gensearchparams(dps, selections, base):
 		# dead explicit, only on standard
 		"#% increased Melee Physical Damage while holding a Shield": dps['pphysical'] if {'Attack', 'Melee', 'Shield'}.issubset(selections) else 0,
 		# Cyclopean Coil
-		"#% increased Damage per 5 of your lowest Attribute": dps['plowest'],
+		"#% increased Damage per 5 of your lowest Attribute": 0,
 		# Pandemonius
 		"Damage Penetrates #% Cold Resistance against Chilled Enemies": dps['pencold'] if {'conditionEnemyChilled'}.issubset(selections) else 0,
 		# Veruso's Battering Rams
