@@ -21,24 +21,19 @@ def load_mods():
 def parse_stats(mymods):
 	with open(r'C:\git\RePoE\RePoE\data\stat_translations.json', 'r') as f:
 		translation = json.load(f)
-	mm = {}
+	lookups = {}
 
 	for mod in translation:
 		for entry in mod["English"]:
 			line = entry["string"].format(*entry['format'])
-			if line in mymods:
-				if line not in mm:
-					mm[line] = []
-				if 'local' not in mod['ids'][0]:
-					mm[line].extend(mod['ids'])
-			elif "+#" in line:
+			if "+#" in line and line not in mymods:
 				line = line.replace('+#', '#')
-				if line in mymods:
-					if line not in mm:
-						mm[line] = []
-					if 'local' not in mod['ids'][0]:
-						mm[line].extend(mod['ids'])
-	return mm
+			if line in mymods:
+				if line not in lookups:
+					lookups[line] = []
+				if 'local' not in mod['ids'][0]:
+					lookups[line].extend(mod['ids'])
+	return lookups
 
 
 # get all of the base/implicit combos.  return a trimmed dictionary of only bases we care about
@@ -163,6 +158,9 @@ def main():
 					 attr not in crafted and
 					 attr not in essence and
 					 (not any([m['weight'] for m in mods[attr]['spawn_weights']]))):
+				# Capture non-crafted/corrupted mods that are missing spawn rules
+				if mods[attr]['domain'] != 'crafted' and mods[attr]['generation_type'] != 'corrupted':
+					missing.append(attr)
 				continue
 			if mods[attr]['is_essence_only']:
 				for base in essence[attr]:
@@ -211,9 +209,38 @@ def main():
 	table['All Jewel'] = {'implicit': [], 'crafted': [], 'explicit': []}
 
 	# Add special mods that are worth considering but don't reveal spawn rules, such as temple mods or specific uniques:
-	# TODO: Temple mods
-	table['Caster Weapon']['explicit'].append('#% reduced Mana Cost of Skills')  # Apep's Rage
-	table['Gloves']['explicit'].append('#% reduced Mana Cost of Skills')  # Voidbringer
+	missing_mods = {
+		'Caster Weapon': {
+			'explicit': [
+				'#% reduced Mana Cost of Skills',  # Apep's Rage
+				'Minions have #% chance to deal Double Damage',  # 'Citaqualotl's'
+				'Minions have #% increased Attack Speed',  # 'of Citaqualotl'
+				'Minions have #% increased Cast Speed',  # 'of Citaqualotl'
+				'Minions have #% increased Cast Speed',  # 'of Citaqualotl'
+				'Gain #% of Non-Chaos Damage as extra Chaos Damage',  # 'Tacati's'
+				'#% increased Trap Damage',  # 'Matatl's'
+				'#% increased Mine Damage',  # 'Matatl's'
+			]
+		},
+		'Gloves': {
+			'explicit': [
+				'#% reduced Mana Cost of Skills',  # Voidbringer
+				'# to # added Fire Damage against Burning Enemies',  # 'of Puhuarte'
+				'#% increased Damage with Hits against Chilled Enemies',  # 'of Puhuarte'
+				'#% increased Critical Strike Chance against Shocked Enemies',  # 'of Puhuarte'
+			]
+		},
+		'Ring': {
+			'explicit': [
+				'#% increased Attack Damage if your other Ring is a Shaper Item',  # Mark of the Elder
+				'#% increased Spell Damage if your other Ring is an Elder Item',  # Mark of the Shaper
+			]
+		},
+	}
+
+	for slot in missing_mods:
+		for gen_type in missing_mods[slot]:
+			table[slot][gen_type].extend(missing_mods[slot][gen_type])
 
 	for val in ['Rune Dagger', 'Sceptre', 'Wand', 'Staff']:
 		for modgroup in table[val]:

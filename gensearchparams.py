@@ -247,6 +247,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased maximum Mana": dps['pmana'],
 		'#% reduced Mana Cost of Skills': dps['pmanaskillreduce'],
 		# Minion % damage
+		"Minions have #% chance to deal Double Damage": dps['pminion'],
 		"Minions deal #% increased Damage": dps['pminion'],
 		"Minions have #% increased Attack Speed": dps['minionattackspeed'],
 		"Minions have #% increased Cast Speed": dps['minioncastspeed'],
