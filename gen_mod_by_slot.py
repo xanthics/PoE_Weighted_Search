@@ -260,7 +260,8 @@ def main():
 		buf.append(f'\t"{base}": {{')
 		for section in table[base]:
 			table[base][section].sort()
-			buf.append(f'\t\t"{section}": {table[base][section]},')
+			tblstr = '",\n\t\t\t"'.join(table[base][section])
+			buf.append(f'\t\t"{section}": [\n\t\t\t"{tblstr}"\n\t\t],')
 		buf.append('\t},')
 	buf.append('}')
 	with open("restrict_mods.py", 'w') as f:
