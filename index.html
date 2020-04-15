@@ -11,10 +11,8 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    Updated for 3.10.x <br /><br />
-    2020/03/25: Added "% reduced mana cost of skills" as dps options.  Fixed several issues with mod screening. <br /><br />
-    2020/03/24: Added flat and % mana as dps options.  Jewels have 3 choices, all, base, or abyss.  Try something other than all if you get timeouts. <br /><br />
-    2020/03/24: Implements per base mods.  You must select the correct base for its mods to appear in results. Query will now trim to the highest weight 29 mods.  If you notice a mod missing that absolutely should be included please leave a note <a href="https://github.com/xanthics/PoE_Weighted_Search/issues">Here</a>, <br /><br />
+    Updated for 3.10.1d <br /><br />
+    2020/04/14: Updated generated url to work with changes to trade site. <br /><br />
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
@@ -152,7 +150,7 @@
                     set_storage(_f, "T")
                 else:
                     set_storage(_f, "")
-            url_api = f'https://www.pathofexile.com/api/trade/search/{league}?redirect&source='
+            url_api = f'https://www.pathofexile.com/trade/search/{league}?q='
             dps = {}
             for elt in doc.get(selector='input[type="number"]'):
                 dps[elt.name] = float(elt.value)/float(elt.getAttribute("data-normal"))
