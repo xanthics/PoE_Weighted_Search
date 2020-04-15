@@ -591,11 +591,12 @@ def gensearchparams(dps, selections, base):
 				mlist[val] = round(modstr[mod], 2)
 				reverse[val] = mod
 
+	maxmods = 29
 	# from https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
 	for c, i in enumerate({k: v for k, v in sorted(mlist.items(), key=lambda value: abs(value[1]))}):
-		if c < 29:
+		if c < maxmods:
 			query.append(item.format(i, mlist[i]))
 		else:
 			trimmed.append(f'({i.split(".")[0]}) {reverse[i]} - {mlist[i]}')
 
-	return searchstring.format(lookup_bases[base], int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query)), c, trimmed
+	return searchstring.format(lookup_bases[base], int(max(dps['pgeneric'], dps['pminion']) * 16), ','.join(query)), len(query) + len(trimmed), trimmed
