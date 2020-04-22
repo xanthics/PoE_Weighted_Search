@@ -295,6 +295,11 @@ def gensearchparams(dps, selections, base):
 		"Damage Penetrates #% Fire Resistance against Blinded Enemies": dps['penfire'] if {'Blinded'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'Blinded'}.issubset(selections) else 0,
 		# (stop) Automatic tool for generating mod/base pairs stops here
+		# local flat damage mods for Spellslinger
+		"Adds # to # Chaos Damage (Local)": dps['flatchaos'] if base == 'Spellslinger MH' else dps['flatchaos']*0.5 if base == "Spellslinger DW" else 0,
+		"Adds # to # Cold Damage (Local)": dps['flatcold'] if base == 'Spellslinger MH' else dps['flatcold']*0.5 if base == "Spellslinger DW" else 0,
+		"Adds # to # Fire Damage (Local)": dps['flatfire'] if base == 'Spellslinger MH' else dps['flatfire']*0.5 if base == "Spellslinger DW" else 0,
+		"Adds # to # Lightning Damage (Local)": dps['flatlightning'] if base == 'Spellslinger MH' else dps['flatlightning']*0.5 if base == "Spellslinger DW" else 0,
 		# Shaper & Elder unique rings
 		"#% increased Attack Damage if your other Ring is a Shaper Item": dps['pgeneric'] if {'Shaper', 'Attack'}.issubset(selections) else 0,
 		"#% increased Spell Damage if your other Ring is an Elder Item": dps['pgeneric'] if {'Elder', 'Spell'}.issubset(selections) else 0,
@@ -560,6 +565,8 @@ def gensearchparams(dps, selections, base):
 		"Base Jewel": 'jewel.base',
 		"Abyss Jewel": 'jewel.abyss',
 		"Caster Weapon": 'weapon',
+		"Spellslinger MH": 'weapon.wand',
+		"Spellslinger DW": 'weapon.wand',
 		"Amulet": 'accessory.amulet',
 		"Ring": 'accessory.ring',
 		"Belt": 'accessory.belt',

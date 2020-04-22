@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 
+
 # Load all used mods gensearchparam
 def load_mods():
 	with open("gensearchparams.py", "r") as f:
@@ -206,10 +207,30 @@ def main():
 			else:
 				missing.append(attr)
 	table['Caster Weapon'] = {'implicit': [], 'crafted': [], 'explicit': []}
+	table['Spellslinger MH'] = {'implicit': [], 'crafted': [], 'explicit': []}
 	table['All Jewel'] = {'implicit': [], 'crafted': [], 'explicit': []}
 
 	# Add special mods that are worth considering but don't reveal spawn rules, such as temple mods or specific uniques:
 	missing_mods = {
+		'Spellslinger MH': {
+			'implicit': [
+				"Adds # to # Chaos Damage (Local)",
+				"Adds # to # Cold Damage (Local)",
+				"Adds # to # Fire Damage (Local)",
+				"Adds # to # Lightning Damage (Local)"
+			],
+			'explicit': [
+				"Adds # to # Chaos Damage (Local)",
+				"Adds # to # Cold Damage (Local)",
+				"Adds # to # Fire Damage (Local)",
+				"Adds # to # Lightning Damage (Local)"
+			],
+			'crafted': [
+				"Adds # to # Cold Damage (Local)",
+				"Adds # to # Fire Damage (Local)",
+				"Adds # to # Lightning Damage (Local)"
+			]
+		},
 		'Caster Weapon': {
 			'explicit': [
 				'#% reduced Mana Cost of Skills',  # Apep's Rage
@@ -244,14 +265,15 @@ def main():
 
 	for val in ['Rune Dagger', 'Sceptre', 'Wand', 'Staff']:
 		for modgroup in table[val]:
-			table['Caster Weapon'][modgroup].extend(table[val][modgroup])
-			table['Caster Weapon'][modgroup] = list(set(table['Caster Weapon'][modgroup]))
+			for newbase in ['Caster Weapon', 'Spellslinger MH']:
+				table[newbase][modgroup].extend(table[val][modgroup])
+				table[newbase][modgroup] = list(set(table[newbase][modgroup]))
 		del table[val]
 	for val in ['Jewel', 'AbyssJewel']:
 		for modgroup in table[val]:
 			table['All Jewel'][modgroup].extend(table[val][modgroup])
 			table['All Jewel'][modgroup] = list(set(table['All Jewel'][modgroup]))
-
+	table['Spellslinger DW'] = table['Spellslinger MH']  # Shallow copy is okay as we want both lists to be the same.
 	table["Base Jewel"] = table.pop("Jewel")
 	table["Abyss Jewel"] = table.pop("AbyssJewel")
 

@@ -4,6 +4,8 @@ bases = [
 	"Base Jewel",
 	"Abyss Jewel",
 	"Caster Weapon",
+	"Spellslinger MH",
+	"Spellslinger DW",
 	"Amulet",
 	"Ring",
 	"Belt",

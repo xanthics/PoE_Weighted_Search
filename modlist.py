@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 04/15/2020(m/d/y) 05:38:25 utc
+# Generated: 04/22/2020(m/d/y) 00:00:04 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -2974,11 +2974,14 @@ mods = {
 	"Socketed Gems are Supported by Level # Ancestral Call": ["explicit.stat_696805682"],
 	"Socketed Gems are Supported by Level # Arcane Surge": ["explicit.stat_2287264161"],
 	"Socketed Gems are Supported by Level # Arrow Nova": ["explicit.stat_1331336999"],
+	"Socketed Gems are Supported by Level # Awakened Brutality": ["explicit.stat_3610200044"],
 	"Socketed Gems are Supported by Level # Awakened Chain": ["explicit.stat_2249251344"],
 	"Socketed Gems are Supported by Level # Awakened Elemental Damage With Attacks": ["explicit.stat_1786672841"],
 	"Socketed Gems are Supported by Level # Awakened Fork": ["explicit.stat_1803865171"],
 	"Socketed Gems are Supported by Level # Awakened Greater Multiple Projectiles": ["explicit.stat_1980028507"],
 	"Socketed Gems are Supported by Level # Awakened Melee Physical Damage": ["explicit.stat_2173069393"],
+	"Socketed Gems are Supported by Level # Awakened Minion Damage": ["explicit.stat_2100048639"],
+	"Socketed Gems are Supported by Level # Awakened Swift Affliction": ["explicit.stat_4089933397"],
 	"Socketed Gems are Supported by Level # Ballista Totem": ["explicit.stat_3030692053"],
 	"Socketed Gems are Supported by Level # Barrage": ["explicit.stat_3827538724"],
 	"Socketed Gems are Supported by Level # Blasphemy": ["explicit.stat_539747809"],

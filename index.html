@@ -11,7 +11,9 @@
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    <p>Updated for 3.10.1d</p><br />
+    <p>Updated for 3.10.1d</p>
+    <p>2020/4/21: Support for Fire/Cold/Lightning/Chaos local wand damage on spellslinger weapons.  </p>
+    <br />
     <div id="instruction"></div>
     <div id="instructions">
         <h1>Using this page.</h1>
@@ -106,7 +108,9 @@
         <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
     </table><br /><br />
 
-    <strong>Base:</strong> <span id="baselist"></span>. Only mods from selected base will be allowed in results.<br /><br />
+    <strong>Base:</strong> <span id="baselist"></span>. Only mods from selected base will be allowed in results.
+    <p><strong>Spellslinger Notes</strong>: assumes 100%(MH)/50%(DW) values.  Physical damage is not included as it depends on base item, quality, %ipd.  Existing search mods don't allow for a meaningful weight to be generated.</p>
+    <br /><br />
     <strong>League:</strong> <span id="leaguelist"></span>.<br /><br /><br />
 
 
