@@ -3,8 +3,8 @@
 # Author: Jeremy Parks
 # Note: Requires Python 3.6.x or higher
 # Given dps values from Path of Building, generates a search url
-from web_files.modlist import mods
-from web_files.restrict_mods import r_mods
+from modlist import mods
+from restrict_mods import r_mods
 
 
 def gensearchparams(dps, selections, base):
