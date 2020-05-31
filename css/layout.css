@@ -46,3 +46,14 @@ label + input[type=checkbox] {
 
 label + input[type=checkbox]:checked {
 	opacity:1.0;}
+
+#patreon {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    width: 10em;}
+
+#patreon_image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;}

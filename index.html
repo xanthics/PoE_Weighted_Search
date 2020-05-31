@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Mod Search Generator</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.0/brython.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.0/brython_stdlib.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.8/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.8/brython_stdlib.js"></script>
     <link href="css/layout.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body onload="brython(1)">
 <script type="text/python" src="gensearchparams.py"></script>
 <section class="main">
-    <p>Updated for 3.10.1d</p>
+    <p>Updated for 3.10.2b</p>
     <p>2020/4/21: Support for Fire/Cold/Lightning/Chaos local wand damage on spellslinger weapons.  </p>
     <br />
     <div id="instruction"></div>
@@ -119,7 +119,8 @@
     <div id="414by"> If you get a '414 Request-URI Too Large' download <a href="bypass414.py" download>this python script</a>, run it, and paste this string <br /><input type="text" id="414bypass" onClick="this.select();" readonly>. <br /><br /></div>
     <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.  Note that the sum of the weights is an approximation as stats scale in relation to each other.  EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable.  Looking at each mod in isolation cannot perfectly recreate that.</div><br /><br />
 
-    <div id="'patreon" style="display: flex; justify-content: flex-end"><a href="https://www.patreon.com/bePatron?u=33775051" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script></div>
+    <!--<div id="'patreon" style="display: flex; justify-content: flex-end"><a href="https://www.patreon.com/bePatron?u=33775051" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script></div>-->
+    <div id="patreon"><a href="https://www.patreon.com/xanthics"><img alt="Become a Patron!" src="img/become_a_patron_button@2x.png" id="patreon_image"></a></div>
 
     <script type="text/python">
         from browser import document as doc
@@ -199,45 +200,34 @@
 
         def process_querystring():
             errorstring = ''
-            if len(doc.query.keys()) > 1:
-                for elt in doc.get(selector='input[type="number"]'):
-                    try:
-                        elt.value = doc.query[elt.name]
-                    except KeyError:
-                        elt.value = 0
+            print(doc.query.getlist())
+            for elt in doc.get(selector='input[type="number"]'):
                 try:
-                    flags = doc.query["Flags"].strip(',').split(',')
-                    for f in flags:
-                        try:
-                            doc[f].checked = True
-                        except KeyError:
-                            print("Flag '{}' recieved but not currently supported.".format(f))
-                    if 'conditionCritRecently' not in flags:
-                        doc["No Recent Crit"].checked = True
-                    if 'conditionKilledRecently' not in flags:
-                        doc["No Recent Kill"].checked = True
+                    elt.value = doc.query[elt.name]
                 except KeyError:
-                    print("No Flags parameter passed in query string")
-                    errorstring = "There was an error in the Query string"
-
-                for val in ['Skill', 'Character']:
+                    elt.value = 0
+            try:
+                flags = doc.query["Flags"].strip(',').split(',')
+                for f in flags:
                     try:
-                        if doc.query[val]:
-                            doc[val] <= doc.query[val]
+                        doc[f].checked = True
                     except KeyError:
-                        if errorstring:
-                            errorstring += BR()
-                        errorstring += f'Missing {val}.  Query string is incomplete.  Please check your browser.'
-                        doc[val].style.display = "none"
+                        print("Flag '{}' recieved but not currently supported.".format(f))
+                if 'conditionCritRecently' not in flags:
+                    doc["No Recent Crit"].checked = True
+                if 'conditionKilledRecently' not in flags:
+                    doc["No Recent Kill"].checked = True
+            except KeyError:
+                print("No Flags parameter passed in query string")
+
+            for val in ['Skill', 'Character']:
+                try:
+                    if doc.query[val]:
+                        doc[val] <= doc.query[val]
+                except KeyError:
+                    doc[val].style.display = "none"
 #                print('\n'.join([f"{x} '{storage[x]}'" for x in storage]))
-            else:
-                doc["Character"].style.display = "none"
-                doc["Skill"].style.display = "none"
-            if errorstring:
-                doc['error'].text = ''
-                doc['error'] <= B(errorstring)
-            else:
-                doc["error"].style.display = "none"
+
             for _f in ["NoCraftedMods", "NoImplicitMods", "NearbyRareUnique"]:
                 if check_storage(_f):
                     doc[_f].checked = bool(get_storage(_f))
@@ -277,6 +267,7 @@
         process_querystring()
         create_league_list()
         create_base_list()
+        doc["error"].style.display = "none"
 
     </script>
 
