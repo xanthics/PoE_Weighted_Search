@@ -4,9 +4,10 @@
 # Note: Requires Python 3.3.x or higher
 # This program generates all the jewels that need to be added to Path of Building
 import json
+import os
 
 
-def gentxt(names):
+def gentxt(names, root_dir):
 	header = '''
 Rarity: Rare
 {0}
@@ -18,7 +19,7 @@ Item Level: 1
 	
 	'''
 
-	with open('jewellist.txt', 'w') as fout:
+	with open(f'{root_dir}/jewellist.txt', 'w') as fout:
 		for name in names:
 			fout.write(header.format(name))
 
@@ -26,7 +27,7 @@ Item Level: 1
 # as pointed out by github user coldino, you can edit your My Documents/Path of Building/Settings.xml directly
 # These should be added directly after the <SharedItems> tag
 # <Shared Items> should be right after </Accounts>
-def genxml(names):
+def genxml(names, root_dir):
 	header = '''		<Item>
 			Rarity: RARE
 {0}
@@ -37,14 +38,15 @@ Implicits: 0
 		</Item>
 '''
 
-	with open('jewellistxml.txt', 'w') as fout:
+	with open(f'{root_dir}/jewellistxml.txt', 'w') as fout:
 		for name in names:
 			fout.write(header.format(name))
 
 
 if __name__ == '__main__':
-	with open('mods.json') as fin:
+	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	with open(f'{root_dir}/mods.json') as fin:
 		data = json.load(fin)
 		g_names = [x['desc'] for x in data]
-	gentxt(g_names)
-	genxml(g_names)
+	gentxt(g_names, root_dir)
+	genxml(g_names, root_dir)

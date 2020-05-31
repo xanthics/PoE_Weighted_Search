@@ -504,15 +504,6 @@ Item Level: 1
 	
 	
 Rarity: Rare
-1% increased Damage per 5 of your lowest Attribute
-Hypnotic Eye Jewel
---------
-Item Level: 1
---------
-1% increased Damage per 5 of your lowest Attribute
-	
-	
-Rarity: Rare
 7% increased maximum Life
 Hypnotic Eye Jewel
 --------
@@ -546,6 +537,42 @@ Hypnotic Eye Jewel
 Item Level: 1
 --------
 +40 to maximum Energy Shield
+	
+	
+Rarity: Rare
+7% increased maximum Mana
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+7% increased maximum Mana
+	
+	
+Rarity: Rare
++40 to maximum Mana
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
++40 to maximum Mana
+	
+	
+Rarity: Rare
+7% reduced Mana Cost of Skills
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+7% reduced Mana Cost of Skills
+	
+	
+Rarity: Rare
+Minions have 1% chance to deal Double Damage
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+Minions have 1% chance to deal Double Damage
 	
 	
 Rarity: Rare

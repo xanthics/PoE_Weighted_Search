@@ -1,10 +1,11 @@
 import json
+import os
 from datetime import datetime
 
 
 # Load all used mods gensearchparam
-def load_mods():
-	with open("gensearchparams.py", "r") as f:
+def load_mods(root_dir):
+	with open(f"{root_dir}/web_files/gensearchparams.py", "r") as f:
 		mymods = {}
 		start = False
 		for line in f:
@@ -129,6 +130,7 @@ def findmods(lookups, implicits):
 
 
 def main():
+	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 	allowed_bases = ['Amulet', 'Body Armour', 'Boots', 'Gloves', 'Helmet', 'Shield', 'Belt', 'AbyssJewel', 'Jewel', 'Quiver', 'Ring', 'Rune Dagger', 'Sceptre', 'Wand', 'Staff']
 	implicits, taglookups = parsebases(allowed_bases)
 	mymods = load_mods()
@@ -286,7 +288,7 @@ def main():
 			buf.append(f'\t\t"{section}": [\n\t\t\t"{tblstr}"\n\t\t],')
 		buf.append('\t},')
 	buf.append('}')
-	with open("restrict_mods.py", 'w') as f:
+	with open(f"{root_dir}/web_files/restrict_mods.py", 'w') as f:
 		f.write('\n'.join(buf))
 	for miss in missing:
 		print(miss)
