@@ -360,7 +360,7 @@ def gensearchparams(dps, selections, base):
 				mlist[val] = round(modstr[mod], 2)
 				reverse[val] = mod
 
-	maxmods = 29
+	maxmods = int((dps['MaxWeight'] - dps['BaseWeight']) / dps['WeightedMod'])
 	# from https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
 	for c, i in enumerate({k: v for k, v in sorted(mlist.items(), key=lambda value: abs(value[1]), reverse=True)}):
 		if c < maxmods:

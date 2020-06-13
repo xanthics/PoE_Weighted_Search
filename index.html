@@ -11,7 +11,7 @@
 <body onload="brython(1)">
 <section class="main">
     <p>Updated for 3.10.2b</p>
-    <p>2020/4/21: Support for Fire/Cold/Lightning/Chaos local wand damage on spellslinger weapons.  </p>
+    <p>2020/6/13: You can now edit max query wieght, base query weight, and per weighted mod cost.  Defaults match current costs and should not need to be editted.</p>
     <br />
     <div id="instruction"></div>
     <div id="instructions">
@@ -110,12 +110,18 @@
     <strong>Base:</strong> <span id="baselist"></span>. Only mods from selected base will be allowed in results.
     <p><strong>Spellslinger Notes</strong>: assumes 100%(MH)/50%(DW) values.  Physical damage is not included as it depends on base item, quality, %ipd.  Existing search mods don't allow for a meaningful weight to be generated.</p>
     <br /><br />
-    <strong>League:</strong> <span id="leaguelist"></span>.<br /><br /><br />
+    <strong>League:</strong> <span id="leaguelist"></span>.<br /><br />
+    <strong>Weights:</strong> Defaults should be fine.  Trade site occassionally changes how expensive searches are.  If you get "Query too complex" on the trade site, first try logging in to pathofexile.com and clicking the link again.<br />
+    <table>
+    <tr><td><input type="number" name="MaxWeight" value="200" data-normal="1" style="width: 3em"></td><td>Maximum Allowed Query Weight</td></tr>
+    <tr><td><input type="number" name="BaseWeight" value="55" data-normal="1" style="width: 3em"></td><td>Base Query Weight</td></tr>
+    <tr><td><input type="number" name="WeightedMod" value="4" data-normal="1" style="width: 3em"></td><td>Per Weighted Mod Cost</td></tr>
+    </table><br /><br />
 
 
     <div id="generate"></div><br />
     <a href="" id="query" target="_blank">Search</a> Generated <span id="modcount"></span> mods<br /><div id="culled"></div><br />
-    <div id="414by"> If you get a '414 Request-URI Too Large' download <a href="bypass414.py" download>this python script</a>, run it, and paste this string <br /><input type="text" id="414bypass" onClick="this.select();" readonly>. <br /><br /></div>
+    <div id="414by"> If you get "Query too complex" on the trade site, log in to pathofexile.com and try the link again. <br />Raw query string:<input type="text" id="414bypass" onClick="this.select();" readonly>. <br /><br /></div>
     <div id="notice">This url may take more than 1 try to load.  I do not know why the official site fails some times.  Note that the sum of the weights is an approximation as stats scale in relation to each other.  EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable.  Looking at each mod in isolation cannot perfectly recreate that.</div><br /><br />
 
     <div id="patreon"><a href="https://www.patreon.com/xanthics"><img alt="Become a Patron!" src="img/become_a_patron_button@2x.png" id="patreon_image"></a></div>
@@ -199,10 +205,11 @@
         def process_querystring():
             errorstring = ''
             for elt in doc.get(selector='input[type="number"]'):
-                try:
-                    elt.value = doc.query[elt.name]
-                except KeyError:
-                    elt.value = 0
+                if elt.name not in ["MaxWeight", "BaseWeight", "WeightedMod"]:
+                    try:
+                        elt.value = doc.query[elt.name]
+                    except KeyError:
+                        elt.value = 0
             try:
                 flags = doc.query["Flags"].strip(',').split(',')
                 for f in flags:
