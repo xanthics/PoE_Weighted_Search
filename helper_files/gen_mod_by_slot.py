@@ -65,12 +65,15 @@ def craftingmods(allowed_bases):
 		bench = json.load(f)
 	crafted = {}
 	for mod in bench:
+		if mod['master'] in ['Niko'] or 'add_mod' not in mod['actions']:
+			continue
 		for base in mod['item_classes']:
 			if base in allowed_bases:
-				if mod['mod_id'] not in crafted:
-					crafted[mod['mod_id']] = []
-				if base not in crafted[mod['mod_id']]:
-					crafted[mod['mod_id']].append(base)
+				mod_id = mod['actions']['add_mod']
+				if mod_id not in crafted:
+					crafted[mod_id] = []
+				if base not in crafted[mod_id]:
+					crafted[mod_id].append(base)
 	return crafted
 
 
@@ -133,7 +136,7 @@ def main():
 	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 	allowed_bases = ['Amulet', 'Body Armour', 'Boots', 'Gloves', 'Helmet', 'Shield', 'Belt', 'AbyssJewel', 'Jewel', 'Quiver', 'Ring', 'Rune Dagger', 'Sceptre', 'Wand', 'Staff']
 	implicits, taglookups = parsebases(allowed_bases)
-	mymods = load_mods()
+	mymods = load_mods(root_dir)
 	lookups = parse_stats(mymods)
 	modlist, mods = findmods(lookups, implicits)
 	crafted = craftingmods(allowed_bases)
