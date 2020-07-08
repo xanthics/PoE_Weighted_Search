@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 05/31/2020(m/d/y) 20:43:37 utc
+# Generated: 07/08/2020(m/d/y) 20:56:59 utc
 mjson = [
 	{"name": "pdot", "desc": "12% increased Damage over Time", "count": 12},
 	{"name": "pdotailment", "desc": "12% increased Damage with Ailments", "count": 12},

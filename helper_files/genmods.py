@@ -42,7 +42,7 @@ def updatemods(root_dir):
 		buf.append('\t"{}": ["{}"],'.format(label, '", "'.join(mlist[label])))
 	buf.append('}')
 
-	with open(f'{root_dir}/web_files/modlist.py', 'w') as f:
+	with open(f'{root_dir}/modlist.py', 'w') as f:
 		f.write('\n'.join(buf))
 
 
@@ -54,7 +54,7 @@ def updateleagues(root_dir):
 	vals = json.load(data)
 
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", f"leagues = {[x['id'] for x in vals if not x['id'].startswith('SSF')]}"]
-	with open(f'{root_dir}/web_files/leaguelist.py', 'w') as f:
+	with open(f'{root_dir}/leaguelist.py', 'w') as f:
 		f.write('\n'.join(buf))
 
 
@@ -68,7 +68,7 @@ def updatejsonmods(root_dir):
 		buf.append(f'\t{{"name": "{mod["name"]}", "desc": "{mod["desc"]}", "count": {mod["count"]}}},')
 	buf.append(']')
 
-	with open(f'{root_dir}/web_files/modsjson.py', 'w') as f:
+	with open(f'{root_dir}/modsjson.py', 'w') as f:
 		f.write('\n'.join(buf))
 
 
