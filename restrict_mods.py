@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 04/22/2020(m/d/y) 02:47:38 utc
+# Generated: 07/14/2020(m/d/y) 21:16:01 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -230,6 +230,7 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Two Handed Melee Weapons",
 			"#% to Global Critical Strike Multiplier",
 			"#% to Melee Critical Strike Multiplier",
+			"#% to Physical Damage over Time Multiplier",
 			"Adds # to # Chaos Damage to Attacks",
 			"Adds # to # Chaos Damage to Spells",
 			"Adds # to # Chaos Damage to Spells while Dual Wielding",
@@ -406,6 +407,7 @@ r_mods = {
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
+			"#% to Physical Damage over Time Multiplier",
 			"Adds # to # Cold Damage to Attacks",
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage to Attacks",
@@ -520,6 +522,7 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Two Handed Melee Weapons",
 			"#% to Global Critical Strike Multiplier",
 			"#% to Melee Critical Strike Multiplier",
+			"#% to Physical Damage over Time Multiplier",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
@@ -825,6 +828,7 @@ r_mods = {
 			"#% reduced Mana Cost of Skills",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
+			"#% to Physical Damage over Time Multiplier",
 			"Adds # to # Chaos Damage",
 			"Adds # to # Cold Damage",
 			"Adds # to # Cold Damage if you've dealt a Critical Strike Recently",
@@ -946,6 +950,7 @@ r_mods = {
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
+			"#% to Physical Damage over Time Multiplier",
 			"Adds # to # Cold Damage to Attacks",
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage to Attacks",

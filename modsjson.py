@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/08/2020(m/d/y) 20:56:59 utc
+# Generated: 07/14/2020(m/d/y) 21:19:31 utc
 mjson = [
 	{"name": "pdot", "desc": "12% increased Damage over Time", "count": 12},
 	{"name": "pdotailment", "desc": "12% increased Damage with Ailments", "count": 12},
@@ -8,6 +8,7 @@ mjson = [
 	{"name": "ppoison", "desc": "12% increased Damage with Poison", "count": 12},
 	{"name": "pignite", "desc": "12% increased Burning Damage", "count": 12},
 	{"name": "pdotmulti", "desc": "+12% to Damage over Time Multiplier", "count": 12},
+	{"name": "physdotmulti", "desc": "+12% to Physical Damage over Time Multiplier", "count": 12},
 	{"name": "pcolddotmulti", "desc": "+12% to Cold Damage over Time Multiplier", "count": 12},
 	{"name": "pchaosdotmulti", "desc": "+12% to Chaos Damage over Time Multiplier", "count": 12},
 	{"name": "flataccuracy", "desc": "+100 to Accuracy Rating", "count": 100},

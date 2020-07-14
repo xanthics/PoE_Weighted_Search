@@ -237,8 +237,8 @@ def gensearchparams(dps, selections, base):
 		# Damage Over Time Multiplier
 		"#% to Cold Damage over Time Multiplier": dps['pcolddotmulti'],
 		"#% to Chaos Damage over Time Multiplier": dps['pchaosdotmulti'],
+		'#% to Physical Damage over Time Multiplier': dps['physdotmulti'],
 		'#% to Damage over Time Multiplier': dps['pdotmulti'],
-		'#% to Damage over Time Multiplier for Bleeding': 0, # TODO: only appears as a weapon implicit currently
 		# Life, ES, and Mana
 		"# to maximum Life": dps['flatlife'],
 		"#% increased maximum Life": dps['plife'],
