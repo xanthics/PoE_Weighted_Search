@@ -52,6 +52,8 @@ def handle_pseudos(pseudos, mlist, root_dir):
 		"#% increased Lightning Damage with Attack Skills": ['#%', 'increased', 'Lightning', 'Damage'],
 		"#% increased Cold Damage with Attack Skills": ['#%', 'increased', 'Cold', 'Damage'],
 		"#% increased Fire Damage with Attack Skills": ['#%', 'increased', 'Fire', 'Damage'],
+		'#% increased Elemental Damage': ['#%', 'increased', 'Elemental', 'Damage'],
+		'#% increased Burning Damage': ['#%', 'increased', 'Burning', 'Damage'],
 	}
 	# Matches that are known to be bad that occur with mod_matches
 	bad_matches_mismatch = {
@@ -90,49 +92,59 @@ def handle_pseudos(pseudos, mlist, root_dir):
 	bad_words = [
 		'Recently', 'Shield', 'Dual Wielding', 'Axe', 'Bow', 'Claw', 'Dagger', 'Mace', 'One Handed', 'Stave', 'Staff', 'Sword', 'Two Handed', 'Wand', 'Nearby', 'during', 'Minions', 'Skills', 'Charge', 'Bleeding', 'Poisoned', 'Ignited', 'Chilled', "Blinded", "Shocked"
 	]
-	# list of mods that are good matchs
+	# list of mods that are good matches.  Tiers are used so checks are sorted in a good order
 	good_matches = {
-		'#% increased Spell Damage': ['#% increased Spell Damage'],
-		'+#% Global Critical Strike Chance': ['#% increased Global Critical Strike Chance'],
-		'+#% Global Critical Strike Multiplier': ['#% to Global Critical Strike Multiplier'],
-		'+#% total Cast Speed': ['#% increased Cast Speed'],
-		'+#% total Critical Strike Chance for Spells': ['#% increased Critical Strike Chance for Spells'],
+		1: {
+			'#% increased Spell Damage': ['#% increased Spell Damage'],
+			'+#% Global Critical Strike Chance': ['#% increased Global Critical Strike Chance'],
+			'+#% Global Critical Strike Multiplier': ['#% to Global Critical Strike Multiplier'],
+			'+#% total Cast Speed': ['#% increased Cast Speed'],
+			'+#% total Critical Strike Chance for Spells': ['#% increased Critical Strike Chance for Spells'],
 
-		'Adds # to # Chaos Damage to Attacks': ['Adds # to # Chaos Damage to Attacks', 'Adds # to # Chaos Damage'],
-		'Adds # to # Lightning Damage to Attacks': ['Adds # to # Lightning Damage to Attacks', 'Adds # to # Lightning Damage', 'Adds # to # Lightning Damage to Spells and Attacks'],
-		'Adds # to # Fire Damage to Attacks': ['Adds # to # Fire Damage to Attacks', 'Adds # to # Fire Damage', 'Adds # to # Fire Damage to Spells and Attacks'],
-		'Adds # to # Cold Damage to Attacks': ['Adds # to # Cold Damage to Attacks', 'Adds # to # Cold Damage', 'Adds # to # Cold Damage to Spells and Attacks'],
-		'Adds # to # Physical Damage to Attacks': ['Adds # to # Physical Damage to Attacks', "Adds # to # Physical Damage"],
+			'Adds # to # Chaos Damage to Attacks': ['Adds # to # Chaos Damage to Attacks', 'Adds # to # Chaos Damage'],
+			'Adds # to # Lightning Damage to Attacks': ['Adds # to # Lightning Damage to Attacks', 'Adds # to # Lightning Damage', 'Adds # to # Lightning Damage to Spells and Attacks'],
+			'Adds # to # Fire Damage to Attacks': ['Adds # to # Fire Damage to Attacks', 'Adds # to # Fire Damage', 'Adds # to # Fire Damage to Spells and Attacks'],
+			'Adds # to # Cold Damage to Attacks': ['Adds # to # Cold Damage to Attacks', 'Adds # to # Cold Damage', 'Adds # to # Cold Damage to Spells and Attacks'],
+			'Adds # to # Physical Damage to Attacks': ['Adds # to # Physical Damage to Attacks', "Adds # to # Physical Damage"],
 
-		'Adds # to # Chaos Damage to Spells': ['Adds # to # Chaos Damage to Spells', 'Adds # to # Chaos Damage'],
-		'Adds # to # Lightning Damage to Spells': ['Adds # to # Lightning Damage to Spells', 'Adds # to # Lightning Damage', 'Adds # to # Lightning Damage to Spells and Attacks'],
-		'Adds # to # Fire Damage to Spells': ['Adds # to # Fire Damage to Spells', 'Adds # to # Fire Damage', 'Adds # to # Fire Damage to Spells and Attacks'],
-		'Adds # to # Cold Damage to Spells': ['Adds # to # Cold Damage to Spells', 'Adds # to # Cold Damage', 'Adds # to # Cold Damage to Spells and Attacks'],
-		'Adds # to # Physical Damage to Spells': ['Adds # to # Physical Damage to Spells', 'Adds # to # Physical Damage'],
+			'Adds # to # Chaos Damage to Spells': ['Adds # to # Chaos Damage to Spells', 'Adds # to # Chaos Damage'],
+			'Adds # to # Lightning Damage to Spells': ['Adds # to # Lightning Damage to Spells', 'Adds # to # Lightning Damage', 'Adds # to # Lightning Damage to Spells and Attacks'],
+			'Adds # to # Fire Damage to Spells': ['Adds # to # Fire Damage to Spells', 'Adds # to # Fire Damage', 'Adds # to # Fire Damage to Spells and Attacks'],
+			'Adds # to # Cold Damage to Spells': ['Adds # to # Cold Damage to Spells', 'Adds # to # Cold Damage', 'Adds # to # Cold Damage to Spells and Attacks'],
+			'Adds # to # Physical Damage to Spells': ['Adds # to # Physical Damage to Spells', 'Adds # to # Physical Damage'],
 
-		"+# total to Dexterity": ["# to Dexterity", "# to Strength and Dexterity", "# to Dexterity and Intelligence", "# to all Attributes"],
-		"+# total to Intelligence": ["# to Intelligence", "# to Strength and Intelligence", "# to Dexterity and Intelligence", "# to all Attributes"],
-		"+# total to Strength": ["# to Strength", "# to Strength and Intelligence", "# to Strength and Dexterity", "# to all Attributes"],
+			"+# total to Dexterity": ["# to Dexterity", "# to Strength and Dexterity", "# to Dexterity and Intelligence", "# to all Attributes"],
+			"+# total to Intelligence": ["# to Intelligence", "# to Strength and Intelligence", "# to Dexterity and Intelligence", "# to all Attributes"],
+			"+# total to Strength": ["# to Strength", "# to Strength and Intelligence", "# to Strength and Dexterity", "# to all Attributes"],
 
-		"#% increased Cold Damage with Attack Skills": ["#% increased Cold Damage", '#% increased Elemental Damage', "#% increased Elemental Damage with Attack Skills"],
-		"#% increased Fire Damage with Attack Skills": ["#% increased Fire Damage", '#% increased Elemental Damage', "#% increased Elemental Damage with Attack Skills"],
-		"#% increased Lightning Damage with Attack Skills": ["#% increased Lightning Damage", '#% increased Elemental Damage', "#% increased Elemental Damage with Attack Skills"],
+			"#% increased Cold Damage with Attack Skills": ["#% increased Cold Damage", '#% increased Elemental Damage', "#% increased Elemental Damage with Attack Skills"],
+			"#% increased Fire Damage with Attack Skills": ["#% increased Fire Damage", '#% increased Elemental Damage', "#% increased Elemental Damage with Attack Skills"],
+			"#% increased Lightning Damage with Attack Skills": ["#% increased Lightning Damage", '#% increased Elemental Damage', "#% increased Elemental Damage with Attack Skills"],
 
-		"#% increased Cold Spell Damage": ["#% increased Cold Damage", '#% increased Elemental Damage'],
-		"#% increased Fire Spell Damage": ["#% increased Fire Damage", '#% increased Elemental Damage'],
-		"#% increased Lightning Spell Damage": ["#% increased Lightning Damage", '#% increased Elemental Damage'],
+			"#% increased Cold Spell Damage": ["#% increased Cold Damage", '#% increased Elemental Damage'],
+			"#% increased Fire Spell Damage": ["#% increased Fire Damage", '#% increased Elemental Damage'],
+			"#% increased Lightning Spell Damage": ["#% increased Lightning Damage", '#% increased Elemental Damage'],
 
-		"#% increased Burning Damage": ["#% increased Burning Damage", "#% increased Fire Damage", '#% increased Elemental Damage'],
+			"#% increased Burning Damage": ["#% increased Burning Damage", "#% increased Fire Damage", '#% increased Elemental Damage'],
 
-		# Do not match on weapons, will include local damage
-		'#% total increased Physical Damage': ['#% increased Global Physical Damage'],
-		'+#% total Attack Speed': ['#% increased Attack Speed'],
-	}
-	# List of mods that are good, but generic.  Need to be handled after the mods that are more specific
-	good_matches_generic = {
-		"#% increased Cold Damage": ['#% increased Cold Damage', '#% increased Elemental Damage'],
-		"#% increased Fire Damage": ["#% increased Fire Damage", '#% increased Elemental Damage'],
-		"#% increased Lightning Damage": ["#% increased Lightning Damage", '#% increased Elemental Damage'],
+			# Do not match on weapons, will include local damage
+			'#% total increased Physical Damage': ['#% increased Global Physical Damage'],
+			'+#% total Attack Speed': ['#% increased Attack Speed'],
+		},
+		2: {
+			"#% increased Cold Damage": ['#% increased Cold Damage', '#% increased Elemental Damage'],
+			"#% increased Fire Damage": ["#% increased Fire Damage", '#% increased Elemental Damage'],
+			"#% increased Lightning Damage": ["#% increased Lightning Damage", '#% increased Elemental Damage'],
+
+			"Adds # to # Chaos Damage": ["Adds # to # Chaos Damage"],
+			"Adds # to # Cold Damage": ["Adds # to # Cold Damage"],
+			"Adds # to # Lightning Damage": ["Adds # to # Lightning Damage"],
+			"Adds # to # Fire Damage": ["Adds # to # Fire Damage"],
+			"Adds # to # Physical Damage": ["Adds # to # Physical Damage"],
+		},
+		3: {
+			"#% increased Elemental Damage": ['#% increased Elemental Damage'],
+		}
 	}
 	# First delete the pseudo values we don't care about
 	for val in [
@@ -148,10 +160,10 @@ def handle_pseudos(pseudos, mlist, root_dir):
 		"# Incubator Kills (Celestial Blacksmith's)", "# Incubator Kills (Celestial Jeweller's)", '# Incubator Kills (Eldritch)', '# Incubator Kills (Obscured)', '# Incubator Kills (Foreboding)', "# Incubator Kills (Thaumaturge's)", '# Incubator Kills (Mysterious)', "# Incubator Kills (Gemcutter's)", '# Incubator Kills (Feral)',
 		'# Fractured Modifiers', '# Notable Passive Skills', '+#% Quality to Elemental Damage Modifiers', '+#% Quality to Caster Modifiers', '+#% Quality to Attack Modifiers', '+#% Quality to Defence Modifiers', '+#% Quality to Life and Mana Modifiers', '+#% Quality to Resistance Modifiers', '+#% Quality to Attribute Modifiers',
 		# These mods are too specific and would provide no/minimal benefit to use
-		"Adds # to # Chaos Damage", "Adds # to # Lightning Damage", "Adds # to # Fire Damage", "Adds # to # Cold Damage", "Adds # to # Physical Damage",
+#		"Adds # to # Chaos Damage", "Adds # to # Lightning Damage", "Adds # to # Fire Damage", "Adds # to # Cold Damage", "Adds # to # Physical Damage",
 		# These mods are too generic for my purposes
 		"Adds # to # Elemental Damage to Spells", "Adds # to # Elemental Damage", "Adds # to # Elemental Damage to Attacks", "Adds # to # Damage to Attacks", "Adds # to # Damage to Spells", "Adds # to # Damage", "+# total to all Attributes", "#% increased Elemental Damage with Attack Skills",
-		"+# total maximum Life", "+# total maximum Mana", '#% increased Elemental Damage'
+		"+# total maximum Life", "+# total maximum Mana"
 	]:
 		if val in pseudos:
 			del pseudos[val]
@@ -163,7 +175,7 @@ def handle_pseudos(pseudos, mlist, root_dir):
 			c = 0
 			for val in load_mods(root_dir):
 				# check if mod has BEEN_SEEN
-				if not(p in good_matches and val in good_matches[p]) and \
+				if not(any([p in good_matches[i] and val in good_matches[i][p] for i in good_matches])) and \
 						not(p in bad_matches_mismatch and val in bad_matches_mismatch[p]) and \
 						not(p in bad_matches_no_match and val in bad_matches_no_match[p]) and \
 						not(any(x in val for x in bad_words)) and \
@@ -186,24 +198,24 @@ def handle_pseudos(pseudos, mlist, root_dir):
 		f.write('\n'.join(buf))
 
 	buf2 = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", '\n\n# Autogenerated function to implement pseudomods\ndef pseudo_lookup(modstr, base, reverse, selections):', '\tret = {}']
-	for mods in [good_matches, good_matches_generic]:
-		for mod in sorted(mods):
+	for tier in sorted(good_matches):
+		for mod in sorted(good_matches[tier]):
 			multivalcheck = ''
 			# Check that we are using pseudo mods that are specific to attacks or spells on the right mods
 			if any([x in mod for x in ['Spell', 'Cast']]):
 				multivalcheck = ' and {"Spell"}.issubset(selections)'
 			if any([x in mod for x in ['Attack']]):
 				multivalcheck = ' and {"Attack"}.issubset(selections)'
-			ifstr = '"] == modstr["'.join(mods[mod])
-			multivalcheck += f' and (modstr["{ifstr}"])' if len(mods[mod]) > 1 else ''
+			ifstr = '"] == modstr["'.join(good_matches[tier][mod])
+			multivalcheck += f' and (modstr["{ifstr}"])' if len(good_matches[tier][mod]) > 1 else ''
 			# Do not use these pseudo mods on weapons
 			if mod in ['#% total increased Physical Damage', '+#% total Attack Speed']:
 				multivalcheck += ' and base not in ["Caster Weapon", "Spellslinger MH", "Spellslinger DW"]'
 			buf2.append('\t# Check that the value is non-zero and if necessary that it isn\'t a bad base for that mod and that all values are equal')
-			buf2.append(f'\tif modstr["{mods[mod][0]}"]{multivalcheck}:')
+			buf2.append(f'\tif modstr["{good_matches[tier][mod][0]}"]{multivalcheck}:')
 			buf2.append('\t\t# Assign the value to our pseudomod')
-			buf2.append(f'\t\tret["{pseudos[mod]}"] = round(modstr["{mods[mod][0]}"], 2)')
-			ifstr = '"] = modstr["'.join(mods[mod])
+			buf2.append(f'\t\tret["{pseudos[mod]}"] = round(modstr["{good_matches[tier][mod][0]}"], 2)')
+			ifstr = '"] = modstr["'.join(good_matches[tier][mod])
 			buf2.append('\t\t# zero out the mods being used by pseudomod.  Don\'t delete from list so that we don\'t crash if checked later')
 			buf2.append(f'\t\tmodstr["{ifstr}"] = 0')
 			buf2.append('\t\t# Add mod to reverse lookup in case mod gets trimmed')
