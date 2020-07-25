@@ -5,6 +5,7 @@
 # Given dps values from Path of Building, generates a search url
 from modlist import mods
 from restrict_mods import r_mods
+from pseudo_lookup import pseudo_lookup
 
 
 def gensearchparams(dps, selections, base):
@@ -77,7 +78,7 @@ def gensearchparams(dps, selections, base):
 		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
 		"#% chance to deal Double Damage": dps['chancedoubledamage'],
 		# Base Critical Strike chance
-		"Spells have #% to Critical Strike Chance ": dps['basecrit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.
+		"Spells have #% to Critical Strike Chance ": dps['basecrit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.  Yes the space is in the main trade site
 		"Attacks have #% to Critical Strike Chance": dps['basecrit'] if {'Attack'}.issubset(selections) else 0,  # Note that this is base crit.
 		"#% Critical Strike Chance per Power Charge": dps['basecrit'] * dps["PowerCount"],  # Note that this is base crit.
 		# Critical Strike Chance
@@ -349,6 +350,10 @@ def gensearchparams(dps, selections, base):
 	reverse = {}
 	trimmed = []
 
+	pseudos = {}
+	if {'PseudoMods'}.issubset(selections):
+		pseudos = pseudo_lookup(modstr, base)
+
 	minthreshold = 0.01  # max(dps['pgeneric'], dps['pminion']) / 100
 	for mod in modstr:
 		if abs(modstr[mod]) > minthreshold:
@@ -360,7 +365,8 @@ def gensearchparams(dps, selections, base):
 					continue
 				mlist[val] = round(modstr[mod], 2)
 				reverse[val] = mod
-
+	mlist.update(pseudos)
+	print(mlist)
 	maxmods = int((dps['MaxWeight'] - dps['BaseWeight']) / dps['WeightedMod'])
 	# from https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
 	for c, i in enumerate({k: v for k, v in sorted(mlist.items(), key=lambda value: abs(value[1]), reverse=True)}):

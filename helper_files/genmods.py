@@ -5,12 +5,184 @@
 
 import json
 import os
-import urllib.request
+import urllib.request, urllib.parse
 from datetime import datetime
+from helper_files.gen_mod_by_slot import load_mods
+
+
+# helper function to build a quick/dirty html table to manually check if various explicit values are included in pseudo values
+# This list is manually updated, and values are manually checked.
+def handle_pseudos(pseudos, mlist, root_dir):
+	# Keyword for each pseudo.  This is also so we can spot new pseudo mods
+	# Manually curated
+	mod_matches = {
+		"+# total maximum Energy Shield": ['maximum', 'Energy', 'Shield'],
+		"#% total increased maximum Energy Shield": ['#%', 'increased', 'maximum', 'Energy', 'Shield'],
+		"+#% total Attack Speed": ['#%', 'Attack', 'Speed'],
+		"+#% total Cast Speed": ['#%', 'Cast', 'Speed'],
+		"#% total increased Physical Damage": ['#%', 'increased', 'Physical', 'Damage'],
+		"+#% Global Critical Strike Chance": ['Critical', 'Strike', 'Chance'],
+		"+#% total Critical Strike Chance for Spells": ['Critical', 'Strike', 'Chance', 'Spells'],
+		"+#% Global Critical Strike Multiplier": ['Critical', 'Strike', 'Multiplier'],
+		"Adds # to # Physical Damage": ['Adds', 'Physical', 'Damage'],
+		"Adds # to # Lightning Damage": ['Adds', 'Lightning', 'Damage'],
+		"Adds # to # Cold Damage": ['Adds', 'Cold', 'Damage'],
+		"Adds # to # Fire Damage": ['Adds', 'Fire', 'Damage'],
+		"Adds # to # Chaos Damage": ['Adds', 'Chaos', 'Damage'],
+		"Adds # to # Physical Damage to Attacks": ['Adds', 'Physical', 'Damage'],
+		"Adds # to # Lightning Damage to Attacks": ['Adds', 'Lightning', 'Damage'],
+		"Adds # to # Cold Damage to Attacks": ['Adds', 'Cold', 'Damage'],
+		"Adds # to # Fire Damage to Attacks": ['Adds', 'Fire', 'Damage'],
+		"Adds # to # Chaos Damage to Attacks": ['Adds', 'Chaos', 'Damage'],
+		"Adds # to # Physical Damage to Spells": ['Adds', 'Physical', 'Damage'],
+		"Adds # to # Lightning Damage to Spells": ['Adds', 'Lightning', 'Damage'],
+		"Adds # to # Cold Damage to Spells": ['Adds', 'Cold', 'Damage'],
+		"Adds # to # Fire Damage to Spells": ['Adds', 'Fire', 'Damage'],
+		"Adds # to # Chaos Damage to Spells": ['Adds', 'Chaos', 'Damage'],
+		"#% increased Elemental Damage": ['#%', 'increased', 'Elemental', 'Damage'],
+		"#% increased Lightning Damage": ['#%', 'increased', 'Lightning', 'Damage'],
+		"#% increased Fire Damage": ['#%', 'increased', 'Fire', 'Damage'],
+		"#% increased Spell Damage": ['#%', 'increased', 'Spell', 'Damage'],
+		"#% increased Lightning Spell Damage": ['#%', 'increased', 'Lightning', 'Damage'],
+		"#% increased Cold Spell Damage": ['#%', 'increased', 'Cold', 'Damage'],
+		"#% increased Fire Spell Damage": ['#%', 'increased', 'Fire', 'Damage'],
+		"#% increased Lightning Damage with Attack Skills": ['#%', 'increased', 'Lightning', 'Damage'],
+		"#% increased Cold Damage with Attack Skills": ['#%', 'increased', 'Cold', 'Damage'],
+		"#% increased Fire Damage with Attack Skills": ['#%', 'increased', 'Fire', 'Damage'],
+	}
+	# Matches that are known to be bad that occur with mod_matches
+	bad_matches_mismatch = {
+		'+# total maximum Life': ['#% increased Damage when on Full Life', '#% increased maximum Life'],
+		'+# total maximum Mana': ['#% increased maximum Mana', '#% reduced Mana Cost of Skills'],
+		'+#% Global Critical Strike Chance': ['Spells have #% to Critical Strike Chance ', 'Attacks have #% to Critical Strike Chance', '#% increased Critical Strike Chance for Spells', '#% increased Melee Critical Strike Chance'],
+		'+#% Global Critical Strike Multiplier': ['#% to Melee Critical Strike Multiplier', '#% to Critical Strike Multiplier for Spells'],
+		'+#% total Critical Strike Chance for Spells': ["Spells have #% to Critical Strike Chance "],
+	}
+	# mods that don't match with a pseudomod
+	# This needs to be updated occasionally
+	# check for updates by removing relevant block in BEEN_SEEN section
+	bad_matches_no_match = {
+		'+#% total Attack Speed': ['#% increased Attack and Cast Speed'],
+		'+#% total Cast Speed': ['#% increased Attack and Cast Speed'],
+		'Adds # to # Chaos Damage': ['Adds # to # Chaos Damage to Attacks', 'Adds # to # Chaos Damage to Spells'],
+		'Adds # to # Lightning Damage': ['Adds # to # Lightning Damage to Attacks', 'Adds # to # Lightning Damage to Spells', "Adds # to # Lightning Damage to Spells and Attacks"],
+		'Adds # to # Fire Damage': ['Adds # to # Fire Damage to Attacks', 'Adds # to # Fire Damage to Spells', "Adds # to # Fire Damage to Spells and Attacks"],
+		'Adds # to # Cold Damage': ['Adds # to # Cold Damage to Attacks', 'Adds # to # Cold Damage to Spells', "Adds # to # Cold Damage to Spells and Attacks"],
+		'Adds # to # Physical Damage': ['Adds # to # Physical Damage to Attacks', 'Adds # to # Physical Damage to Spells'],
+		'Adds # to # Chaos Damage to Attacks': ['Adds # to # Chaos Damage to Spells'],
+		'Adds # to # Chaos Damage to Spells': ['Adds # to # Chaos Damage to Attacks'],
+		'Adds # to # Lightning Damage to Attacks': ['Adds # to # Lightning Damage to Spells'],
+		'Adds # to # Lightning Damage to Spells': ['Adds # to # Lightning Damage to Attacks'],
+		'Adds # to # Fire Damage to Attacks': ['Adds # to # Fire Damage to Spells'],
+		'Adds # to # Fire Damage to Spells': ['Adds # to # Fire Damage to Attacks'],
+		'Adds # to # Cold Damage to Attacks': ['Adds # to # Cold Damage to Spells'],
+		'Adds # to # Cold Damage to Spells': ['Adds # to # Cold Damage to Attacks'],
+		'Adds # to # Physical Damage to Attacks': ['Adds # to # Physical Damage to Spells'],
+		'Adds # to # Physical Damage to Spells': ['Adds # to # Physical Damage to Attacks'],
+	}
+	# qualifiers in mods that remove them from matching
+	bad_words = [
+		'Recently', 'Shield', 'Dual Wielding', 'Axe', 'Bow', 'Claw', 'Dagger', 'Mace', 'One Handed', 'Stave', 'Staff', 'Sword', 'Two Handed', 'Wand', 'Nearby', 'during', 'Minions', 'Skills', 'Charge', 'Bleeding', 'Poisoned', 'Ignited', 'Chilled', "Blinded", "Shocked"
+	]
+	# list of mods that are good matchs
+	good_matches = {
+		'#% increased Elemental Damage': ['#% increased Elemental Damage'],
+		'#% increased Spell Damage': ['#% increased Spell Damage'],
+		'+#% Global Critical Strike Chance': ['#% increased Global Critical Strike Chance'],
+		'+#% Global Critical Strike Multiplier': ['#% to Global Critical Strike Multiplier'],
+		'+#% total Cast Speed': ['#% increased Cast Speed'],
+		'+#% total Critical Strike Chance for Spells': ['#% increased Critical Strike Chance for Spells'],
+
+		'Adds # to # Chaos Damage to Attacks': ['Adds # to # Chaos Damage to Attacks', 'Adds # to # Chaos Damage'],
+		'Adds # to # Lightning Damage to Attacks': ['Adds # to # Lightning Damage to Attacks', 'Adds # to # Lightning Damage', 'Adds # to # Lightning Damage to Spells and Attacks'],
+		'Adds # to # Fire Damage to Attacks': ['Adds # to # Fire Damage to Attacks', 'Adds # to # Fire Damage', 'Adds # to # Fire Damage to Spells and Attacks'],
+		'Adds # to # Cold Damage to Attacks': ['Adds # to # Cold Damage to Attacks', 'Adds # to # Cold Damage', 'Adds # to # Cold Damage to Spells and Attacks'],
+		'Adds # to # Physical Damage to Attacks': ['Adds # to # Physical Damage to Attacks', "Adds # to # Physical Damage"],
+
+		'Adds # to # Chaos Damage to Spells': ['Adds # to # Chaos Damage to Spells', 'Adds # to # Chaos Damage'],
+		'Adds # to # Lightning Damage to Spells': ['Adds # to # Lightning Damage to Spells', 'Adds # to # Lightning Damage', 'Adds # to # Lightning Damage to Spells and Attacks'],
+		'Adds # to # Fire Damage to Spells': ['Adds # to # Fire Damage to Spells', 'Adds # to # Fire Damage', 'Adds # to # Fire Damage to Spells and Attacks'],
+		'Adds # to # Cold Damage to Spells': ['Adds # to # Cold Damage to Spells', 'Adds # to # Cold Damage', 'Adds # to # Cold Damage to Spells and Attacks'],
+		'Adds # to # Physical Damage to Spells': ['Adds # to # Physical Damage to Spells', 'Adds # to # Physical Damage'],
+
+		# Do not match on weapons, will include local damage
+		'#% total increased Physical Damage': ['#% increased Global Physical Damage'],
+		'+#% total Attack Speed': ['#% increased Attack Speed'],
+	}
+	# First delete the pseudo values we don't care about
+	for val in [
+		# Mods we don't currently care about
+		'+#% total to Cold Resistance', '+#% total to Fire Resistance', '+#% total to Lightning Resistance', '+#% total Elemental Resistance', '+#% total to Chaos Resistance', '+#% total Resistance', '# total Resistances', '# total Elemental Resistances', '+#% total to all Elemental Resistances',
+		'#% increased Movement Speed', '#% increased Rarity of Items found', '# Life Regenerated per Second', '#% of Life Regenerated per Second', '#% of Physical Attack Damage Leeched as Life', '#% of Physical Attack Damage Leeched as Mana', '#% increased Mana Regeneration Rate',
+		'+# total to Level of Socketed Gems', '+# total to Level of Socketed Elemental Gems', '+# total to Level of Socketed Fire Gems', '+# total to Level of Socketed Cold Gems', '+# total to Level of Socketed Lightning Gems', '+# total to Level of Socketed Chaos Gems', '+# total to Level of Socketed Spell Gems',
+		'+# total to Level of Socketed Projectile Gems', '+# total to Level of Socketed Bow Gems', '+# total to Level of Socketed Melee Gems', '+# total to Level of Socketed Minion Gems', '+# total to Level of Socketed Strength Gems', '+# total to Level of Socketed Dexterity Gems', '+# total to Level of Socketed Intelligence Gems',
+		'+# total to Level of Socketed Aura Gems', '+# total to Level of Socketed Movement Gems', '+# total to Level of Socketed Curse Gems', '+# total to Level of Socketed Vaal Gems', '+# total to Level of Socketed Support Gems', '+# total to Level of Socketed Skill Gems', '+# total to Level of Socketed Warcry Gems',
+		'+# total to Level of Socketed Golem Gems', '# Implicit Modifiers', '# Prefix Modifiers', '# Suffix Modifiers', '# Modifiers', '# Crafted Prefix Modifiers', '# Crafted Suffix Modifiers', '# Crafted Modifiers', '# Empty Prefix Modifiers', '# Empty Suffix Modifiers', '# Empty Modifiers',
+		'# Incubator Kills (Whispering)', '# Incubator Kills (Fine)', '# Incubator Kills (Singular)', "# Incubator Kills (Cartographer's)", '# Incubator Kills (Otherwordly)', '# Incubator Kills (Abyssal)', '# Incubator Kills (Fragmented)', '# Incubator Kills (Skittering)', '# Incubator Kills (Infused)',
+		'# Incubator Kills (Fossilised)', '# Incubator Kills (Decadent)', "# Incubator Kills (Diviner's)", '# Incubator Kills (Primal)', '# Incubator Kills (Enchanted)', "# Incubator Kills (Geomancer's)", '# Incubator Kills (Ornate)', '# Incubator Kills (Time-Lost)', "# Incubator Kills (Celestial Armoursmith's)",
+		"# Incubator Kills (Celestial Blacksmith's)", "# Incubator Kills (Celestial Jeweller's)", '# Incubator Kills (Eldritch)', '# Incubator Kills (Obscured)', '# Incubator Kills (Foreboding)', "# Incubator Kills (Thaumaturge's)", '# Incubator Kills (Mysterious)', "# Incubator Kills (Gemcutter's)", '# Incubator Kills (Feral)',
+		'# Fractured Modifiers', '# Notable Passive Skills', '+#% Quality to Elemental Damage Modifiers', '+#% Quality to Caster Modifiers', '+#% Quality to Attack Modifiers', '+#% Quality to Defence Modifiers', '+#% Quality to Life and Mana Modifiers', '+#% Quality to Resistance Modifiers', '+#% Quality to Attribute Modifiers',
+		# These mods are too specific and would provide no/minimal benefit to use
+		"Adds # to # Chaos Damage", "Adds # to # Lightning Damage", "Adds # to # Fire Damage", "Adds # to # Cold Damage", "Adds # to # Physical Damage",
+		# These mods are too generic for my purposes
+		"Adds # to # Elemental Damage to Spells", "Adds # to # Elemental Damage", "Adds # to # Elemental Damage to Attacks", "Adds # to # Damage to Attacks", "Adds # to # Damage to Spells", "Adds # to # Damage", "+# total to all Attributes", "#% increased Elemental Damage with Attack Skills",
+		"+# total to Strength", "+# total to Dexterity", "+# total to Intelligence", "+# total maximum Life", "+# total maximum Mana",
+		"#% increased Burning Damage", "#% increased Cold Damage", "#% increased Fire Damage", "#% increased Lightning Damage",
+		'#% increased Cold Damage with Attack Skills', '#% increased Fire Damage with Attack Skills', '#% increased Lightning Damage with Attack Skills',
+		'#% increased Cold Spell Damage', '#% increased Fire Spell Damage', '#% increased Lightning Spell Damage',
+	]:
+		if val in pseudos:
+			del pseudos[val]
+	matches = {}
+	for p in pseudos:
+		if p not in mod_matches:
+			print(f"New pseudo mod found: {p}")
+		else:
+			c = 0
+			for val in load_mods(root_dir):
+				# check if mod has BEEN_SEEN
+				if not(p in good_matches and val in good_matches[p]) and \
+						not(p in bad_matches_mismatch and val in bad_matches_mismatch[p]) and \
+						not(p in bad_matches_no_match and val in bad_matches_no_match[p]) and \
+						not(any(x in val for x in bad_words)) and \
+						all([x in val for x in mod_matches[p]]):
+					c += 1
+					matches[f"{p}§{c}"] = {'pseudo_id': pseudos[p], 'mod_name': val, 'mod_ids': mlist[val]}
+
+	buf = ['<!DOCTYPE html><html lang="en"><head><link href="../css/layout.css" rel="stylesheet" type="text/css" /><meta charset="UTF-8"><title>mods</title></head><body>']
+	link = '{{"query":{{"status":{{"option":"online"}},"stats":[{{"type":"weight","filters":[{{"id":"{}","disabled":false,"value":{{"weight":1}}}}],"disabled":false,"value":{{"min":1}}}},{{"type":"and","filters":[{{"id":"{}","disabled":false}}],"disabled":false}}]}},"sort":{{"statgroup.0":"desc"}}}}'
+
+	for mod in sorted(matches):
+		buf.append('<table><tr><th>Link</th><th>Pseudo</th><th>Mod</th><th>pseudo_id</th><th>mod_id</th></tr>')
+		for submod in matches[mod]['mod_ids']:
+			f_link = urllib.parse.quote(link.format(matches[mod]["pseudo_id"], submod))
+			buf.append(f'<tr><td><a href="https://www.pathofexile.com/trade/search/Standard?q={f_link}" target="_blank">link</a></td><td class="select_text">"{mod.split("§")[0]}"</td><td class="select_text">"{matches[mod]["mod_name"]}"</td><td>{matches[mod]["pseudo_id"]}</td><td>{submod}</td></tr>')
+		buf.append('</table><br /><br />')
+
+	buf.append('</body></html>')
+	with open('manual_table.html', 'w') as f:
+		f.write('\n'.join(buf))
+
+	buf2 = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", '\n\ndef pseudo_lookup(modstr, base):', '\tret = {}']
+	for mod in sorted(good_matches):
+		ifstr = '"] == modstr["'.join(good_matches[mod])
+		multivalcheck = f' and (modstr["{ifstr}"])' if len(good_matches[mod]) > 1 else ''
+		# Do not use these pseudo mods on weapons
+		if mod in ['#% total increased Physical Damage', '+#% total Attack Speed']:
+			multivalcheck += ' and base not in ["Caster Weapon", "Spellslinger MH", "Spellslinger DW"]'
+		buf2.append(f'\tif modstr["{good_matches[mod][0]}"]{multivalcheck}:')
+		buf2.append(f'\t\tret["{pseudos[mod]}"] = round(modstr["{good_matches[mod][0]}"], 2)')
+		for submod in good_matches[mod]:
+			buf2.append(f'\t\tdel modstr["{submod}"]')
+	buf2.append('\treturn ret\n')
+
+	with open(f'{root_dir}/pseudo_lookup.py', 'w') as f:
+		f.write('\n'.join(buf2))
 
 
 def updatemods(root_dir):
 	results = {'Explicit': {}, 'Implicit': {}, 'Crafted': {}, 'Fractured': {}}
+	pseudos = {}
 	modurl = "https://www.pathofexile.com/api/trade/data/stats"
 	headers = {'User-Agent': '(poe discord: xanthics) poe weighted search mod gen'}
 	req = urllib.request.Request(modurl, headers=headers)
@@ -23,8 +195,9 @@ def updatemods(root_dir):
 			'Crafted',
 			'Fractured'
 		]:
-			for ii in i['entries']:
-				results[i['label']][ii['id']] = ii['text']
+			results[i['label']] = {k['id']: k['text'] for k in i['entries']}
+		elif i['label'] == 'Pseudo':
+			pseudos = {k['text']: k['id'] for k in i['entries']}
 
 	mlist = {}
 	for label in results:
@@ -44,6 +217,8 @@ def updatemods(root_dir):
 
 	with open(f'{root_dir}/modlist.py', 'w') as f:
 		f.write('\n'.join(buf))
+
+	handle_pseudos(pseudos, mlist, root_dir)
 
 
 def updateleagues(root_dir):
@@ -73,7 +248,7 @@ def updatejsonmods(root_dir):
 
 
 if __name__ == "__main__":
-	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	updatemods(root_dir)
-	updateleagues(root_dir)
-	updatejsonmods(root_dir)
+	root_dir_g = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	updatemods(root_dir_g)
+	updateleagues(root_dir_g)
+	updatejsonmods(root_dir_g)

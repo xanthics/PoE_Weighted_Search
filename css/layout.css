@@ -57,3 +57,10 @@ label + input[type=checkbox]:checked {
     height: 100%;
     width: 100%;
     object-fit: contain;}
+
+.select_text {
+    -webkit-user-select: all; /* Safari */
+    -ms-user-select: all; /* IE 10+ and Edge */
+    -moz-user-select: all; /* Firefox */
+    user-select: all; /* Standard syntax */
+    cursor: pointer;}

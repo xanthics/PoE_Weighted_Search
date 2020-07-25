@@ -12,8 +12,7 @@
 <section class="main">
     <p>Note from PoB-Item_tester: <span style="color: red; background:yellow;">! Warning: Supports the Community Fork of PoB but only the PORTABLE version until we find a workaround!</span> This affects the win+ctrl(+alt)+d option.</p>
     <p>Updated for 3.11.1</p>
-    <p>2020/7/14: Added #% to Physical Damage over Time Multiplier.</p>
-    <p>2020/7/8: All new fractured mods that have been seen on the main trade site are now supported.</p>
+    <p>2020/7/24: Added manual support for pseudo mods.  Please report any issues <a href="https://github.com/xanthics/PoE_Weighted_Search/issues">here</a></p>
     <br />
     <div id="instruction"></div>
     <div id="instructions">
@@ -102,11 +101,13 @@
     </table><br /><br />
 
     <strong>Other options:</strong> choices that don't neatly fit a section<br />
+    PseudoMods is experimental.  Please report any issues.
     <table>
         <tr><td><label><input type="checkbox" id="NoCraftedMods">Ignore Crafted Mods</label></td></tr>
         <tr><td><label><input type="checkbox" id="NoFracturedMods">Ignore Fractured Mods</label></td></tr>
         <tr><td><label><input type="checkbox" id="NoImplicitMods">Ignore Implicit Mods</label></td></tr>
         <tr><td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td></tr>
+        <tr><td><label><input type="checkbox" id="PseudoMods">Use PseudoMods in Search</label></td></tr>
     </table><br /><br />
 
     <strong>Base:</strong> <span id="baselist"></span>. Only mods from selected base will be allowed in results.
@@ -141,6 +142,8 @@
         from baselist import bases
         from modsjson import mjson
 
+        saved_states = ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique", "PseudoMods"]
+
         storage_key = "poe_weighted_search"
 
         # Setter storage so that we can differentiate values on this site from others at the same domain
@@ -160,7 +163,7 @@
             set_storage('league', league)
             base = bases[doc['base'].selectedIndex]
             set_storage('base', base)
-            for _f in ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique"]:
+            for _f in saved_states:
                 if doc[_f].checked:
                     set_storage(_f, "T")
                 else:
@@ -233,13 +236,12 @@
                 except KeyError:
                     doc[val].style.display = "none"
 
-            for _f in ["NoCraftedMods", "NoImplicitMods", "NearbyRareUnique"]:
+            # Set default states
+            doc["NoFracturedMods"].checked = True
+            doc["PseudoMods"].checked = True
+            for _f in saved_states:
                 if check_storage(_f):
                     doc[_f].checked = bool(get_storage(_f))
-            if check_storage("NoFracturedMods"):
-                doc["NoFracturedMods"].checked = bool(get_storage("NoFracturedMods"))
-            else:
-                doc["NoFracturedMods"].checked = True
 
 
         def create_league_list():
