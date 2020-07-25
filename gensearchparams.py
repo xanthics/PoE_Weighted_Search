@@ -352,7 +352,7 @@ def gensearchparams(dps, selections, base):
 
 	pseudos = {}
 	if {'PseudoMods'}.issubset(selections):
-		pseudos = pseudo_lookup(modstr, base)
+		pseudos = pseudo_lookup(modstr, base, reverse)
 
 	minthreshold = 0.01  # max(dps['pgeneric'], dps['pminion']) / 100
 	for mod in modstr:
@@ -366,7 +366,6 @@ def gensearchparams(dps, selections, base):
 				mlist[val] = round(modstr[mod], 2)
 				reverse[val] = mod
 	mlist.update(pseudos)
-	print(mlist)
 	maxmods = int((dps['MaxWeight'] - dps['BaseWeight']) / dps['WeightedMod'])
 	# from https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
 	for c, i in enumerate({k: v for k, v in sorted(mlist.items(), key=lambda value: abs(value[1]), reverse=True)}):
