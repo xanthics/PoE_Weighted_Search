@@ -48,6 +48,14 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
++12% to Physical Damage over Time Multiplier
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++12% to Physical Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
 +12% to Cold Damage over Time Multiplier
 Hypnotic Eye Jewel
 Item Level: 1
@@ -424,27 +432,27 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
-+10% Dexterity
+10% increased Dexterity
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+10% Dexterity
+10% increased Dexterity
 		</Item>
 		<Item>
 			Rarity: RARE
-+10% Intelligence
+10% increased Intelligence
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+10% Intelligence
+10% increased Intelligence
 		</Item>
 		<Item>
 			Rarity: RARE
-+10% Strength
+10% increased Strength
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+10% Strength
+10% increased Strength
 		</Item>
 		<Item>
 			Rarity: RARE

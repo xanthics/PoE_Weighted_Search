@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/25/2020(m/d/y) 02:10:05 utc
+# Generated: 07/28/2020(m/d/y) 08:34:51 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -228,7 +228,7 @@ mods = {
 	"#% Chance to cause Bleeding Enemies to Flee on hit": ["explicit.stat_2072206041"],
 	"#% Chaos Resistance against Damage Over Time": ["explicit.stat_2266636761"],
 	"#% Critical Strike Chance per Power Charge": ["explicit.stat_1818900806"],
-	"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby": ["crafted.stat_3992439283", "fractured.stat_3992439283"],
+	"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby": ["crafted.stat_3992439283", "explicit.stat_3992439283", "fractured.stat_3992439283"],
 	"#% Global Critical Strike Multiplier while you have no Frenzy Charges": ["explicit.stat_3062763405"],
 	"#% Global chance to Blind Enemies on hit": ["explicit.stat_2221570601", "implicit.stat_2221570601"],
 	"#% Monster Mana Leech Resistance": ["explicit.stat_918170065", "fractured.stat_918170065"],
@@ -291,7 +291,7 @@ mods = {
 	"#% chance to Blind Enemies which Hit you while affected by Grace": ["explicit.stat_2548097895"],
 	"#% chance to Blind nearby Enemies when gaining Her Blessing": ["explicit.stat_2327728343"],
 	"#% chance to Block Spell Damage if you have Blocked Attack Damage Recently": ["explicit.stat_1214153650"],
-	"#% chance to Cast Level 20 Fire Burst on Hit": ["explicit.stat_1621470436"],
+	"#% chance to Cast Level 20 Fire Burst on Hit": ["explicit.stat_1621470436", "fractured.stat_1621470436"],
 	"#% chance to Cause Bleeding on Critical Strike": ["explicit.stat_513681673"],
 	"#% chance to Cause Monsters to Flee": ["explicit.stat_3181974858", "implicit.stat_3181974858"],
 	"#% chance to Cause Poison on Critical Strike": ["explicit.stat_374737750"],
@@ -1077,7 +1077,7 @@ mods = {
 	"#% increased maximum Life if Corrupted": ["implicit.stat_3887484120"],
 	"#% increased maximum Life, Mana and Global Energy Shield": ["explicit.stat_3899352861"],
 	"#% increased maximum Mana": ["crafted.stat_2748665614", "explicit.stat_2748665614", "fractured.stat_2748665614", "implicit.stat_2748665614"],
-	"#% increased total Recovery per second from Life Leech": ["explicit.stat_2633745731", "implicit.stat_2633745731"],
+	"#% increased total Recovery per second from Life Leech": ["explicit.stat_2633745731", "fractured.stat_2633745731", "implicit.stat_2633745731"],
 	"#% increased total Recovery per second from Life Leech for each Corrupted Item Equipped": ["implicit.stat_3815042054"],
 	"#% increased total Recovery per second from Life, Mana, or Energy Shield Leech": ["explicit.stat_2314393054"],
 	"#% increased total Recovery per second from Mana Leech": ["explicit.stat_690135178", "implicit.stat_690135178"],
@@ -2100,7 +2100,7 @@ mods = {
 	"Cannot inflict Shock": ["explicit.stat_990377349"],
 	"Cannot lose Crab Barriers if you have lost Crab Barriers Recently": ["explicit.stat_241251790"],
 	"Cannot roll Attack Modifiers": ["crafted.stat_4122424929", "explicit.stat_4122424929", "fractured.stat_4122424929"],
-	"Cannot roll Caster Modifiers": ["crafted.stat_1149326139", "fractured.stat_1149326139"],
+	"Cannot roll Caster Modifiers": ["crafted.stat_1149326139", "explicit.stat_1149326139", "fractured.stat_1149326139"],
 	"Cannot roll Modifiers with Required Level above #": ["crafted.stat_238314698"],
 	"Carved to glorify # new faithful converted by High Templar Avarius": ["explicit.pseudo_timeless_jewel_avarius"],
 	"Carved to glorify # new faithful converted by High Templar Dominus": ["explicit.pseudo_timeless_jewel_dominus"],
@@ -3069,6 +3069,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Awakened Added Cold Damage": ["explicit.stat_2509486489"],
 	"Socketed Gems are Supported by Level # Awakened Added Fire Damage": ["explicit.stat_339131601"],
 	"Socketed Gems are Supported by Level # Awakened Added Lightning Damage": ["explicit.stat_3429304534"],
+	"Socketed Gems are Supported by Level # Awakened Blasphemy": ["explicit.stat_1046449631"],
 	"Socketed Gems are Supported by Level # Awakened Brutality": ["explicit.stat_3610200044"],
 	"Socketed Gems are Supported by Level # Awakened Chain": ["explicit.stat_2249251344"],
 	"Socketed Gems are Supported by Level # Awakened Elemental Damage With Attacks": ["explicit.stat_1786672841"],

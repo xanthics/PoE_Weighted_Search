@@ -54,6 +54,15 @@ Item Level: 1
 	
 	
 Rarity: Rare
++12% to Physical Damage over Time Multiplier
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
++12% to Physical Damage over Time Multiplier
+	
+	
+Rarity: Rare
 +12% to Cold Damage over Time Multiplier
 Hypnotic Eye Jewel
 --------
@@ -477,30 +486,30 @@ Item Level: 1
 	
 	
 Rarity: Rare
-+10% Dexterity
+10% increased Dexterity
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-+10% Dexterity
+10% increased Dexterity
 	
 	
 Rarity: Rare
-+10% Intelligence
+10% increased Intelligence
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-+10% Intelligence
+10% increased Intelligence
 	
 	
 Rarity: Rare
-+10% Strength
+10% increased Strength
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-+10% Strength
+10% increased Strength
 	
 	
 Rarity: Rare

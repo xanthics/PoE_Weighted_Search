@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/14/2020(m/d/y) 21:19:31 utc
+# Generated: 07/28/2020(m/d/y) 08:34:51 utc
 mjson = [
 	{"name": "pdot", "desc": "12% increased Damage over Time", "count": 12},
 	{"name": "pdotailment", "desc": "12% increased Damage with Ailments", "count": 12},
@@ -56,9 +56,9 @@ mjson = [
 	{"name": "damageperdex", "desc": "1% increased Damage per 15 Dexterity", "count": 1},
 	{"name": "damageperint", "desc": "1% increased Damage per 15 Intelligence", "count": 1},
 	{"name": "damageperstr", "desc": "1% increased Damage per 15 Strength", "count": 1},
-	{"name": "pdex", "desc": "+10% Dexterity", "count": 10},
-	{"name": "pint", "desc": "+10% Intelligence", "count": 10},
-	{"name": "pstr", "desc": "+10% Strength", "count": 10},
+	{"name": "pdex", "desc": "10% increased Dexterity", "count": 10},
+	{"name": "pint", "desc": "10% increased Intelligence", "count": 10},
+	{"name": "pstr", "desc": "10% increased Strength", "count": 10},
 	{"name": "plife", "desc": "7% increased maximum Life", "count": 7},
 	{"name": "flatlife", "desc": "+40 to maximum Life", "count": 40},
 	{"name": "pes", "desc": "7% increased maximum Energy Shield", "count": 7},
