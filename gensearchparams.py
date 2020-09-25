@@ -236,6 +236,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Damage with Poison": dps['ppoison'],
 		"#% increased Burning Damage": dps['pignite'],
 		# Damage Over Time Multiplier
+		"#% to Fire Damage over Time Multiplier": dps['pfiredotmulti'],
 		"#% to Cold Damage over Time Multiplier": dps['pcolddotmulti'],
 		"#% to Chaos Damage over Time Multiplier": dps['pchaosdotmulti'],
 		'#% to Physical Damage over Time Multiplier': dps['physdotmulti'],

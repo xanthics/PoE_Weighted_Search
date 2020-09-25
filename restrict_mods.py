@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/14/2020(m/d/y) 21:16:01 utc
+# Generated: 09/25/2020(m/d/y) 23:18:40 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -228,6 +228,7 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Lightning Skills",
 			"#% to Critical Strike Multiplier with One Handed Melee Weapons",
 			"#% to Critical Strike Multiplier with Two Handed Melee Weapons",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"#% to Melee Critical Strike Multiplier",
 			"#% to Physical Damage over Time Multiplier",
@@ -406,6 +407,7 @@ r_mods = {
 			"#% increased maximum Energy Shield",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"#% to Physical Damage over Time Multiplier",
 			"Adds # to # Cold Damage to Attacks",
@@ -520,6 +522,7 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Lightning Skills",
 			"#% to Critical Strike Multiplier with One Handed Melee Weapons",
 			"#% to Critical Strike Multiplier with Two Handed Melee Weapons",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"#% to Melee Critical Strike Multiplier",
 			"#% to Physical Damage over Time Multiplier",
@@ -690,6 +693,7 @@ r_mods = {
 			"#% increased Trap Damage",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Cold Damage to Spells",
 			"Adds # to # Fire Damage to Spells",
@@ -740,6 +744,7 @@ r_mods = {
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Critical Strike Multiplier if you've Killed Recently",
 			"#% to Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Chaos Damage to Spells",
 			"Adds # to # Cold Damage to Spells",
@@ -828,6 +833,7 @@ r_mods = {
 			"#% reduced Mana Cost of Skills",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Physical Damage over Time Multiplier",
 			"Adds # to # Chaos Damage",
 			"Adds # to # Cold Damage",
@@ -949,6 +955,7 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"#% to Physical Damage over Time Multiplier",
 			"Adds # to # Cold Damage to Attacks",
@@ -1152,6 +1159,7 @@ r_mods = {
 			"#% increased Trap Damage",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Cold Damage (Local)",
 			"Adds # to # Cold Damage to Spells",
@@ -1202,6 +1210,7 @@ r_mods = {
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Critical Strike Multiplier if you've Killed Recently",
 			"#% to Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Chaos Damage (Local)",
 			"Adds # to # Chaos Damage to Spells",
@@ -1265,6 +1274,7 @@ r_mods = {
 			"#% increased Trap Damage",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Cold Damage (Local)",
 			"Adds # to # Cold Damage to Spells",
@@ -1315,6 +1325,7 @@ r_mods = {
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Critical Strike Multiplier if you've Killed Recently",
 			"#% to Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Chaos Damage (Local)",
 			"Adds # to # Chaos Damage to Spells",
