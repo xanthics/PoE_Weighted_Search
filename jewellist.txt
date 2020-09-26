@@ -63,6 +63,15 @@ Item Level: 1
 	
 	
 Rarity: Rare
++12% to Fire Damage over Time Multiplier
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
++12% to Fire Damage over Time Multiplier
+	
+	
+Rarity: Rare
 +12% to Cold Damage over Time Multiplier
 Hypnotic Eye Jewel
 --------

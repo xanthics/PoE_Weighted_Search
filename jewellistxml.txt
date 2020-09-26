@@ -56,6 +56,14 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
++12% to Fire Damage over Time Multiplier
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++12% to Fire Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
 +12% to Cold Damage over Time Multiplier
 Hypnotic Eye Jewel
 Item Level: 1
