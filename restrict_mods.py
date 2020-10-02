@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 09/25/2020(m/d/y) 23:18:40 utc
+# Generated: 10/02/2020(m/d/y) 21:01:42 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -714,6 +714,7 @@ r_mods = {
 			"# to Level of all Cold Spell Skill Gems",
 			"# to Level of all Fire Spell Skill Gems",
 			"# to Level of all Lightning Spell Skill Gems",
+			"# to Level of all Minion Skill Gems",
 			"# to Level of all Physical Spell Skill Gems",
 			"# to Level of all Spell Skill Gems",
 			"# to Maximum Endurance Charges",

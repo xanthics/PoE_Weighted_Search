@@ -246,6 +246,7 @@ def main():
 				'Gain #% of Non-Chaos Damage as extra Chaos Damage',  # 'Tacati's'
 				'#% increased Trap Damage',  # 'Matatl's'
 				'#% increased Mine Damage',  # 'Matatl's'
+				'# to Level of all Minion Skill Gems',  # Convoking Wand
 			]
 		},
 		'Gloves': {
