@@ -2,11 +2,14 @@ body {
 	background-color: rgb(100,100,100);
 	background-image: url('../img/sbg.gif');
 	background-attachment: fixed;
-	font-family: Arial, Helvetica, sans-serif;}
+	font-family: Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+}
 
 section {
 	text-align: justify;
-	background-color: rgb(200,200,200);
+	color: rgb(200, 200, 200);
+	background-color: rgba(40,40,40, .8);
 	padding:10px;
 	margin-left: auto;
 	margin-right: auto;
@@ -14,38 +17,36 @@ section {
 	border-radius: 3px;
 	border-style:solid;
 	border-width:1px;
-	border-color: rgb(75,75,75);}
+	border-color: rgb(75,75,75);
+}
 
 section.main {
 	z-index: 1;
 	max-width: 750px;
 	min-width: 750px;
 	width: 95%;
-	position: relative;}
+	position: relative;
+}
 
 /* Alternating list background Styles */
 
-tr:nth-child(even) {
+tr {
+    text-align: left;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	background-color: rgb(185,185,185);
 	padding:6px;
 	margin: 1px
-	line-height: 1em;}
+	line-height: 1em;
+	vertical-align: middle;
+}
+
+tr:nth-child(even)  {
+	background-color: rgb(35,35,35);
+}
 
 tr:nth-child(odd) {
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background-color: rgb(220,220,220);
-	padding:6px;
-	margin: 1px
-	line-height: 1em;}
-
-label + input[type=checkbox] {
-	opacity:0.5;}
-
-label + input[type=checkbox]:checked {
-	opacity:1.0;}
+	background-color: rgb(45,45,45);
+}
 
 #patreon {
     display: flex;
@@ -63,4 +64,79 @@ label + input[type=checkbox]:checked {
     -ms-user-select: all; /* IE 10+ and Edge */
     -moz-user-select: all; /* Firefox */
     user-select: all; /* Standard syntax */
-    cursor: pointer;}
+    cursor: pointer;
+}
+
+input[type=number] {
+    max-width: 7em;
+    width: 7em;
+}
+
+input[type=checkbox] {
+	vertical-align: middle;
+	-webkit-appearance: none;
+	background-color: rgb(200, 200, 200);
+	border: 1px solid rgb(60, 60, 60);
+	padding: 8px;
+	border-radius: 2px;
+	display: inline-block;
+	position: relative;
+}
+
+input[type=checkbox]:checked {
+	background-color: rgb(150, 150, 150);
+	border: 1px solid rgb(60, 60, 60);
+	color: rgb(0, 0, 0);
+}
+
+input[type=checkbox]:checked:after {
+	content: '\2718';
+	font-size: 11px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgb(0, 0, 0);
+}
+
+input[type=number],
+select {
+    text-align: right;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom: 1px solid rgb(0,0,0);
+    color: rgb(200, 200, 200);
+    background: rgba(0, 0, 0, .1);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: .25em .5em;
+}
+
+option {
+    background-color: rgb(20, 20, 20);
+}
+
+button {
+    padding: .25em .5em;
+    white-space: nowrap;
+    width: fit-content;
+    border: 1px solid rgb(0,0,0);
+    background: rgba(0, 0, 0, .5);
+    color: rgb(200,200,200);
+}
+
+button:hover {
+    background: rgb(100,100,100);
+    color: rgb(255, 255, 255);
+}
+
+/* link legibility tweak */
+a:link {
+    color: rgb(98, 110, 250);
+}
+
+a:visited {
+    color: rgb(137, 117, 162);
+}
