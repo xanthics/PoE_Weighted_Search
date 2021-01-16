@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 10/02/2020(m/d/y) 21:01:42 utc
+# Generated: 01/16/2021(m/d/y) 15:25:51 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -624,8 +624,8 @@ r_mods = {
 			"#% increased Strength",
 			"#% increased maximum Life",
 			"#% increased maximum Mana",
-			"Attacks have #% to Critical Strike Chance",
-			"Spells have #% to Critical Strike Chance "
+			"#% to Spell Critical Strike Chance",
+			"Attacks have #% to Critical Strike Chance"
 		],
 	},
 	"Boots": {
@@ -663,6 +663,7 @@ r_mods = {
 	},
 	"Caster Weapon": {
 		"implicit": [
+			"# to maximum Energy Shield",
 			"#% increased Cast Speed",
 			"#% increased Damage over Time",
 			"#% increased Elemental Damage",
@@ -783,8 +784,8 @@ r_mods = {
 			"#% increased Spell Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
-			"Attacks have #% to Critical Strike Chance",
-			"Spells have #% to Critical Strike Chance "
+			"#% to Spell Critical Strike Chance",
+			"Attacks have #% to Critical Strike Chance"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1126,6 +1127,7 @@ r_mods = {
 	},
 	"Spellslinger DW": {
 		"implicit": [
+			"# to maximum Energy Shield",
 			"#% increased Cast Speed",
 			"#% increased Damage over Time",
 			"#% increased Elemental Damage",
@@ -1241,6 +1243,7 @@ r_mods = {
 	},
 	"Spellslinger MH": {
 		"implicit": [
+			"# to maximum Energy Shield",
 			"#% increased Cast Speed",
 			"#% increased Damage over Time",
 			"#% increased Elemental Damage",

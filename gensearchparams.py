@@ -78,7 +78,7 @@ def gensearchparams(dps, selections, base):
 		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
 		"#% chance to deal Double Damage": dps['chancedoubledamage'],
 		# Base Critical Strike chance
-		"Spells have #% to Critical Strike Chance ": dps['basecrit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.  Yes the space is in the main trade site
+		"#% to Spell Critical Strike Chance": dps['basecrit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.  Yes the space is in the main trade site
 		"Attacks have #% to Critical Strike Chance": dps['basecrit'] if {'Attack'}.issubset(selections) else 0,  # Note that this is base crit.
 		"#% Critical Strike Chance per Power Charge": dps['basecrit'] * dps["PowerCount"],  # Note that this is base crit.
 		# Critical Strike Chance
