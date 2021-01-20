@@ -361,9 +361,9 @@ def gensearchparams(dps, selections, base):
 			for val in mods[mod]:
 				if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
 				   ('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or mod not in r_mods[base]['implicit'])) or \
-				   ('fractured' in val and ({'NoFracturedMods'}.issubset(selections) or mod not in r_mods[base]['explicit'])) or \
 				   ('explicit' in val and mod not in r_mods[base]['explicit']):
 					continue
+#				   ('fractured' in val and ({'NoFracturedMods'}.issubset(selections) or mod not in r_mods[base]['explicit'])) or \
 				mlist[val] = round(modstr[mod], 2)
 				reverse[val] = mod
 	mlist.update(pseudos)

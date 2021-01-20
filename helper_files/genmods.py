@@ -261,7 +261,7 @@ def updatemods(root_dir):
 			'Explicit',
 			'Implicit',
 			'Crafted',
-			'Fractured'
+#			'Fractured'
 		]:
 			results[i['label']] = {k['id']: k['text'] for k in i['entries']}
 		elif i['label'] == 'Pseudo':
