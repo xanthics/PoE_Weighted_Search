@@ -144,7 +144,7 @@
         from baselist import bases
         from modsjson import mjson
 
-        saved_states = ["NoCraftedMods", "NoFracturedMods", "NoImplicitMods", "NearbyRareUnique", "PseudoMods"]
+        saved_states = ["NoCraftedMods", "NoImplicitMods", "NearbyRareUnique", "PseudoMods"]  # , "NoFracturedMods"
 
         storage_key = "poe_weighted_search"
 
@@ -239,7 +239,7 @@
                     doc[val].style.display = "none"
 
             # Set default states
-            doc["NoFracturedMods"].checked = True
+#            doc["NoFracturedMods"].checked = True
             doc["PseudoMods"].checked = True
             for _f in saved_states:
                 if check_storage(_f):
