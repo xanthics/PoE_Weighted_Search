@@ -64,6 +64,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Damage with Wands": dps['pattack'] if {'Attack', 'Wand'}.issubset(selections) else 0,
 		"#% increased Attack Damage while Dual Wielding": dps['pattack'] if {'Attack', 'DualWielding'}.issubset(selections) else 0,
 		"#% increased Projectile Damage": dps['pgeneric'] if {'Projectile'}.issubset(selections) else 0,
+		"#% increased Projectile Attack Damage": dps['pgeneric'] if {'Projectile', "Attack"}.issubset(selections) else 0,
 		"#% increased Spell Damage": dps['pspell'] if {'Spell'}.issubset(selections) else 0,
 		"#% increased Spell Damage while holding a Shield": dps['pspell'] if {'Spell', 'Shield'}.issubset(selections) else 0,
 		"#% increased Spell Damage while wielding a Staff": dps['pspell'] if {'Spell', 'Staff'}.issubset(selections) else 0,
@@ -258,7 +259,7 @@ def gensearchparams(dps, selections, base):
 		"Minions deal #% increased Damage if you've used a Minion Skill Recently": dps['pminion'] if {'conditionUsedMinionSkillRecently'}.issubset(selections) else 0,
 		# Minion Flat Damage
 		"Minions deal # to # additional Physical Damage": dps['minionflatphys'],
-		"Minions deal # to # additional Lightning Damage": dps['minionflatlightning'],
+		"Minions deal # to # Added Lightning Damage": dps['minionflatlightning'],
 		"Minions deal # to # additional Cold Damage": dps['minionflatcold'],
 		"Minions deal # to # additional Fire Damage": dps['minionflatfire'],
 		"Minions deal # to # additional Chaos Damage": dps['minionflatchaos'],

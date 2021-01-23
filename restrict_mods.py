@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 01/16/2021(m/d/y) 15:25:51 utc
+# Generated: 01/23/2021(m/d/y) 20:22:57 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -105,10 +105,10 @@ r_mods = {
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
 			"Gain #% of Physical Damage as Extra Fire Damage if you've dealt a Critical Strike Recently",
+			"Minions deal # to # Added Lightning Damage",
 			"Minions deal # to # additional Chaos Damage",
 			"Minions deal # to # additional Cold Damage",
 			"Minions deal # to # additional Fire Damage",
-			"Minions deal # to # additional Lightning Damage",
 			"Minions deal # to # additional Physical Damage",
 			"Minions deal #% increased Damage",
 			"Minions deal #% increased Damage if you've used a Minion Skill Recently",
@@ -295,10 +295,10 @@ r_mods = {
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
 			"Gain #% of Physical Damage as Extra Fire Damage if you've dealt a Critical Strike Recently",
+			"Minions deal # to # Added Lightning Damage",
 			"Minions deal # to # additional Chaos Damage",
 			"Minions deal # to # additional Cold Damage",
 			"Minions deal # to # additional Fire Damage",
-			"Minions deal # to # additional Lightning Damage",
 			"Minions deal # to # additional Physical Damage",
 			"Minions deal #% increased Damage",
 			"Minions deal #% increased Damage if you've used a Minion Skill Recently",
@@ -781,6 +781,7 @@ r_mods = {
 			"#% increased Attack Speed",
 			"#% increased Cast Speed",
 			"#% increased Melee Damage",
+			"#% increased Projectile Attack Damage",
 			"#% increased Spell Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
@@ -829,6 +830,7 @@ r_mods = {
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
 			"#% increased Melee Damage",
+			"#% increased Projectile Attack Damage",
 			"#% increased Projectile Damage",
 			"#% increased Spell Damage",
 			"#% increased Trap Damage",
@@ -1046,6 +1048,7 @@ r_mods = {
 			"#% increased Global Critical Strike Chance",
 			"#% increased Lightning Damage",
 			"#% increased Melee Damage",
+			"#% increased Projectile Attack Damage",
 			"#% increased Spell Damage",
 			"#% increased Spell Damage if your other Ring is an Elder Item",
 			"#% increased maximum Energy Shield",
