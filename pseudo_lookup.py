@@ -285,6 +285,15 @@ def pseudo_lookup(modstr, base, reverse, selections):
 		reverse["pseudo.pseudo_increased_lightning_damage"] = "#% increased Lightning Damage"
 
 	# Check that the value is non-zero and if necessary that it isn't a bad base for that mod and that all values are equal
+	if modstr["#% increased Elemental Damage"]:
+		# Assign the value to our pseudomod
+		ret["pseudo.pseudo_increased_elemental_damage"] = round(modstr["#% increased Elemental Damage"], 2)
+		# zero out the mods being used by pseudomod.  Don't delete from list so that we don't crash if checked later
+		modstr["#% increased Elemental Damage"] = 0
+		# Add mod to reverse lookup in case mod gets trimmed
+		reverse["pseudo.pseudo_increased_elemental_damage"] = "#% increased Elemental Damage"
+
+	# Check that the value is non-zero and if necessary that it isn't a bad base for that mod and that all values are equal
 	if modstr["#% increased Global Physical Damage"] and base not in ["Caster Weapon", "Spellslinger MH", "Spellslinger DW"]:
 		# Assign the value to our pseudomod
 		ret["pseudo.pseudo_increased_physical_damage"] = round(modstr["#% increased Global Physical Damage"], 2)
