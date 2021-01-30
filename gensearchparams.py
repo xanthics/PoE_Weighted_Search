@@ -353,8 +353,8 @@ def gensearchparams(dps, selections, base):
 	trimmed = []
 
 	pseudos = {}
-	if {'PseudoMods'}.issubset(selections):
-		pseudos = pseudo_lookup(modstr, base, reverse, selections)
+#	if {'PseudoMods'}.issubset(selections):
+#		pseudos = pseudo_lookup(modstr, base, reverse, selections)
 
 	minthreshold = 0.01  # max(dps['pgeneric'], dps['pminion']) / 100
 	for mod in modstr:
