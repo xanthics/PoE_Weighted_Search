@@ -37,7 +37,6 @@ def gensearchparams(dps, selections, base):
 		"#% increased Cast Speed with Lightning Skills": dps['castspeed'] if {'Lightning'}.issubset(selections) else 0,
 		# Attack and Cast Speed
 		"#% increased Attack and Cast Speed": dps['attackspeed'] + dps['castspeed'],
-		"#% increased Attack and Cast Speed if you've Hit an Enemy Recently": dps['attackspeed'] + dps['castspeed'] if {'conditionHitRecently'}.issubset(selections) else 0,
 		# Damage - Any
 		"#% increased Area Damage": max(dps['pspell'], dps['pattack'], dps['pmelee']) if {'Area'}.issubset(selections) else 0,
 		"#% increased Chaos Damage": dps['pchaos'],
@@ -72,7 +71,6 @@ def gensearchparams(dps, selections, base):
 		# Damage - Conditional
 		"#% increased Elemental Damage if you've dealt a Critical Strike Recently": dps['pelemental'] if {'conditionCritRecently'}.issubset(selections) else 0,
 		"#% increased Damage if you've Killed Recently": dps['pgeneric'] if {'conditionKilledRecently'}.issubset(selections) else 0,
-		"#% increased Damage when on Full Life": dps['pgeneric'] if {'conditionFullLife'}.issubset(selections) else 0,
 		"#% increased Damage with Hits against Chilled Enemies": dps['pgeneric'] if {'conditionEnemyChilled'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
 		# Double Damage
 		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
@@ -80,7 +78,6 @@ def gensearchparams(dps, selections, base):
 		# Base Critical Strike chance
 		"#% to Spell Critical Strike Chance": dps['basecrit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.  Yes the space is in the main trade site
 		"Attacks have #% to Critical Strike Chance": dps['basecrit'] if {'Attack'}.issubset(selections) else 0,  # Note that this is base crit.
-		"#% Critical Strike Chance per Power Charge": dps['basecrit'] * dps["PowerCount"],  # Note that this is base crit.
 		# Critical Strike Chance
 		"#% increased Critical Strike Chance for Spells": dps['critchance'] if {'Spell'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance if you haven't dealt a Critical Strike Recently": dps['critchance'] if {'No Recent Crit'}.issubset(selections) else 0,
@@ -174,9 +171,6 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Physical Damage to Staff Attacks": dps['flatphys'] if {'Attack', 'Staff'}.issubset(selections) else 0,
 		"Adds # to # Physical Damage to Sword Attacks": dps['flatphys'] if {'Attack', 'Sword'}.issubset(selections) else 0,
 		"Adds # to # Physical Damage to Wand Attacks": dps['flatphys'] if {'Attack', 'Wand'}.issubset(selections) else 0,
-		"Adds # to # Physical Damage": dps['flatphys'],
-		"Adds # to # Physical Damage against Bleeding Enemies": dps['flatphys'] if {'conditionEnemyBleeding'}.issubset(selections) else 0,
-		"Adds # to # Physical Damage against Poisoned Enemies": dps['flatphys'] if {'conditionEnemyPoisoned'}.issubset(selections) else 0,
 		"# to # added Fire Damage against Burning Enemies": dps['flatfire'] if {'conditionEnemyBurning'}.issubset(selections) else 0,
 		"Adds # to # Fire Damage against Ignited Enemies": dps['flatfire'] if {'conditionEnemyIgnited'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage against Chilled or Frozen Enemies": dps['flatcold'] if {'conditionEnemyChilled', 'conditionEnemyFrozen'}.intersection(selections) else 0,
@@ -273,7 +267,6 @@ def gensearchparams(dps, selections, base):
 		"# to Level of all Strength Skill Gems": dps['astrsg'],
 		"# to Level of all Minion Skill Gems": dps['aminionsg'],
 		"# to Level of all Raise Spectre Gems": dps['aminionsg'] if {'Spectre'}.issubset(selections) else 0,
-		"# to Level of all Raise Zombie Gems": dps['aminionsg'] if {'Zombie'}.issubset(selections) else 0,
 		# Spell Gem Levels
 		"# to Level of all Chaos Spell Skill Gems": dps['achaossg'] if {'Spell'}.issubset(selections) else 0,
 		"# to Level of all Cold Spell Skill Gems": dps['acoldsg'] if {'Spell'}.issubset(selections) else 0,
@@ -286,25 +279,16 @@ def gensearchparams(dps, selections, base):
 		"#% to Critical Strike Multiplier during any Flask Effect": dps['critmulti'] if {'conditionUsingFlask'}.issubset(selections) else 0,
 		"Damage Penetrates #% Elemental Resistances during any Flask Effect": dps['penall'] if {'conditionUsingFlask'}.issubset(selections) else 0,
 		"#% increased Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"Damage Penetrates #% Lightning Resistance during Flask effect": dps['penlightning'] if {'conditionUsingFlask'}.issubset(selections) else 0,
-		"Adds # to # Lightning Damage to Spells during Flask effect": dps['flatlightning'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
-		"Adds # to # Lightning Damage to Attacks during Flask effect": dps['flatlightning'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
 		"#% increased Attack Speed during any Flask Effect": dps['attackspeed'] if {'conditionUsingFlask'}.issubset(selections) else 0,
 		"#% increased Cast Speed during any Flask Effect": dps['castspeed'] if {'conditionUsingFlask'}.issubset(selections) else 0,
 		"#% increased Melee Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Attack', 'Melee'}.issubset(selections) else 0,
-		"Adds # to # Chaos Damage to Spells and Attacks during any Flask Effect": dps['flatchaos'] if {'conditionUsingFlask'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
 		"#% increased Spell Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
-		"#% increased Elemental Damage with Attack Skills during any Flask Effect": dps['pelemental'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
-		"Damage Penetrates #% Fire Resistance against Blinded Enemies": dps['penfire'] if {'Blinded'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'Blinded'}.issubset(selections) else 0,
 		# local flat damage mods for Spellslinger and BattleMage
 		"Adds # to # Chaos Damage (Local)": dps['flatchaos'] if base == 'Spellslinger MH' else dps['flatchaos']*0.5 if base == "Spellslinger DW" else 0,
 		"Adds # to # Cold Damage (Local)": dps['flatcold'] if base == 'Spellslinger MH' else dps['flatcold']*0.5 if base == "Spellslinger DW" else 0,
 		"Adds # to # Fire Damage (Local)": dps['flatfire'] if base == 'Spellslinger MH' else dps['flatfire']*0.5 if base == "Spellslinger DW" else 0,
 		"Adds # to # Lightning Damage (Local)": dps['flatlightning'] if base == 'Spellslinger MH' else dps['flatlightning']*0.5 if base == "Spellslinger DW" else 0,
-		# Shaper & Elder unique rings
-		"#% increased Attack Damage if your other Ring is a Shaper Item": dps['pgeneric'] if {'Shaper', 'Attack'}.issubset(selections) else 0,
-		"#% increased Spell Damage if your other Ring is an Elder Item": dps['pgeneric'] if {'Elder', 'Spell'}.issubset(selections) else 0,
 		# Precursor Emblem
 		"# to # Cold Damage per Frenzy Charge": dps['flatcold'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
 		"#% increased Accuracy Rating per Frenzy Charge": dps['paccuracy'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
