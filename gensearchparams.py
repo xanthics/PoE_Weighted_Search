@@ -10,7 +10,6 @@ from pseudo_lookup import pseudo_lookup
 
 def gensearchparams(dps, selections, base):
 	modstr = {
-		# (start) Automatic tool for generating mod/base pairs starts here
 		# Attack Speed
 		"#% increased Attack Speed": dps['attackspeed'],
 		"#% increased Attack Speed if you've dealt a Critical Strike Recently": dps['attackspeed'] if {'conditionCritRecently'}.issubset(selections) else 0,
@@ -298,8 +297,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Elemental Damage with Attack Skills during any Flask Effect": dps['pelemental'] if {'conditionUsingFlask', 'Attack'}.issubset(selections) else 0,
 		"Damage Penetrates #% Fire Resistance against Blinded Enemies": dps['penfire'] if {'Blinded'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'Blinded'}.issubset(selections) else 0,
-		# (stop) Automatic tool for generating mod/base pairs stops here
-		# local flat damage mods for Spellslinger
+		# local flat damage mods for Spellslinger and BattleMage
 		"Adds # to # Chaos Damage (Local)": dps['flatchaos'] if base == 'Spellslinger MH' else dps['flatchaos']*0.5 if base == "Spellslinger DW" else 0,
 		"Adds # to # Cold Damage (Local)": dps['flatcold'] if base == 'Spellslinger MH' else dps['flatcold']*0.5 if base == "Spellslinger DW" else 0,
 		"Adds # to # Fire Damage (Local)": dps['flatfire'] if base == 'Spellslinger MH' else dps['flatfire']*0.5 if base == "Spellslinger DW" else 0,
@@ -353,8 +351,8 @@ def gensearchparams(dps, selections, base):
 	trimmed = []
 
 	pseudos = {}
-#	if {'PseudoMods'}.issubset(selections):
-#		pseudos = pseudo_lookup(modstr, base, reverse, selections)
+	if {'PseudoMods'}.issubset(selections):
+		pseudos = pseudo_lookup(modstr, base, reverse, selections)
 
 	minthreshold = 0.01  # max(dps['pgeneric'], dps['pminion']) / 100
 	for mod in modstr:

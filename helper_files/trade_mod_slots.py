@@ -97,7 +97,7 @@ def gen_restrict_mods(goodmods, root_dir):
 		'jewel.base': "Base Jewel",
 		'jewel.abyss': "Abyss Jewel",
 		'weapon': "Caster Weapon",
-		'weapon.wand': "Spellslinger",
+		'weapon.wand': "Wand (Spellslinger)",
 		'accessory.amulet': "Amulet",
 		'accessory.ring': "Ring",
 		'accessory.belt': "Belt",
@@ -108,21 +108,55 @@ def gen_restrict_mods(goodmods, root_dir):
 		'armour.chest': "Body Armour",
 		'armour.boots': "Boots",
 	}
+	# reverse lookup to map mod hashes to human readable
 	rlookup = {mods[x][idx]: x for x in mods for idx in range(len(mods[x]))}
-
 	results = {}
 	for base in goodmods:
 		results[lookup_bases[base]] = {'implicit': [], 'crafted': [], 'explicit': []}
 		for m in goodmods[base]:
 			name = rlookup[m]
 			results[lookup_bases[base]][m.split('.')[0]].append(name)
+	# Add mods for specific uniques that are being considered.
+	missing_mods = {
+		'Ring': {
+			'explicit': [
+				# Precursor Emblem
+				"# to # Cold Damage per Frenzy Charge",
+				"#% increased Critical Strike Chance per Frenzy Charge",
+				"#% increased Damage per Frenzy Charge",
+				"Gain #% of Cold Damage as Extra Chaos Damage per Frenzy Charge",
+				"# to # Fire Damage per Endurance Charge",
+				"#% increased Attack and Cast Speed per Endurance Charge",
+				"#% increased Critical Strike Chance per Endurance Charge",
+				"#% increased Damage per Endurance Charge",
+				"Gain #% of Fire Damage as Extra Chaos Damage per Endurance Charge",
+				"# to # Lightning Damage per Power Charge",
+				"#% increased Attack and Cast Speed per Power Charge",
+				"#% increased Damage per Power Charge",
+				"#% increased Spell Damage per Power Charge",
+				"#% to Critical Strike Multiplier per Power Charge",
+				"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge"
+			]
+		},
+	}
+	for slot in missing_mods:
+		for gen_type in missing_mods[slot]:
+			results[slot][gen_type].extend(missing_mods[slot][gen_type])
+
+	# Add a special section for all jewel mods
+	results['All Jewel'] = {'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
+							'crafted': list(set(results['Base Jewel']['crafted'] + results['Abyss Jewel']['crafted'])),
+							'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))}
 
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'r_mods = {']
 	for base in sorted(results):
 		buf.append(f'\t"{base}": {{')
 		for section in results[base]:
 			results[base][section].sort()
-			tblstr = '",\n\t\t\t"'.join(results[base][section])
+			if results[base][section]:
+				tblstr = '",\n\t\t\t"'.join(results[base][section])
+			else:
+				tblstr = ''
 			buf.append(f'\t\t"{section}": [\n\t\t\t"{tblstr}"\n\t\t],')
 		buf.append('\t},')
 	buf.append('}\n')
