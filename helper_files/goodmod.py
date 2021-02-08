@@ -106,6 +106,7 @@ goodmod = [
 	"#% increased Critical Strike Chance with Lightning Skills",
 	"#% increased Critical Strike Chance with One Handed Melee Weapons",
 	"#% increased Critical Strike Chance with Two Handed Melee Weapons",
+	"#% increased Critical Strike Chance if you've been Shocked Recently",
 	"#% increased Damage",
 	"#% increased Damage during any Flask Effect",
 	"#% increased Damage if you've Killed Recently",
