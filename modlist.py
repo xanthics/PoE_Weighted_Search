@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/02/2021(m/d/y) 00:36:29 utc
+# Generated: 02/08/2021(m/d/y) 08:49:09 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -776,6 +776,7 @@ mods = {
 	"#% increased Critical Strike Chance if you have Killed Recently": ["explicit.stat_3914638685"],
 	"#% increased Critical Strike Chance if you haven't dealt a Critical Strike Recently": ["explicit.stat_2856328513"],
 	"#% increased Critical Strike Chance if you haven't gained a Power Charge Recently": ["explicit.stat_151106430"],
+	"#% increased Critical Strike Chance if you've been Shocked Recently": ["explicit.stat_1434381067"],
 	"#% increased Critical Strike Chance per 10 Strength": ["explicit.stat_2511370818"],
 	"#% increased Critical Strike Chance per Brand": ["explicit.stat_2409504914"],
 	"#% increased Critical Strike Chance per Endurance Charge": ["explicit.stat_2547511866"],
@@ -829,6 +830,7 @@ mods = {
 	"#% increased Damage taken": ["explicit.stat_3691641145"],
 	"#% increased Damage taken from Ghosts": ["explicit.stat_2156764291"],
 	"#% increased Damage taken from Skeletons": ["explicit.stat_705686721"],
+	"#% increased Damage taken if you've been Frozen Recently": ["explicit.stat_3616645755"],
 	"#% increased Damage taken per 250 Dexterity": ["implicit.stat_2477636501"],
 	"#% increased Damage taken per 250 Intelligence": ["implicit.stat_3522931817"],
 	"#% increased Damage taken per 250 Strength": ["implicit.stat_1443108510"],
@@ -1995,7 +1997,7 @@ mods = {
 	"Adds # to # Chaos Damage": ["explicit.stat_3531280422", "implicit.stat_3531280422"],
 	"Adds # to # Chaos Damage (Local)": ["explicit.stat_2223678961", "implicit.stat_2223678961"],
 	"Adds # to # Chaos Damage for each Spider's Web on the Enemy": ["explicit.stat_982177653"],
-	"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently": ["crafted.stat_2523334466"],
+	"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently": ["crafted.stat_2523334466", "explicit.stat_2523334466"],
 	"Adds # to # Chaos Damage in Off Hand": ["explicit.stat_3758293500"],
 	"Adds # to # Chaos Damage to Attacks": ["crafted.stat_674553446", "explicit.stat_674553446", "implicit.stat_674553446"],
 	"Adds # to # Chaos Damage to Attacks per 80 Strength": ["explicit.stat_117885424"],
