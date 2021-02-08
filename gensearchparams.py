@@ -8,6 +8,8 @@ from restrict_mods import r_mods
 from pseudo_lookup import pseudo_lookup
 
 
+# TODO: Flag to round ele/spell % if they are close to an element
+# https://docs.python.org/3/library/ast.html
 def gensearchparams(dps, selections, base):
 	localmulti = 0.5 if 'SpellslingerDW' in selections else 0
 	localmulti += sum(1 if x in selections else 0 for x in ['Spellslinger', 'BattleMage'])
@@ -101,7 +103,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Trap Damage": dps['pgeneric'] if {'Trap'}.issubset(selections) else 0,
 		# Damage - Conditional
 		"Vaal Skills deal #% increased Damage": dps['pgeneric'] if {'Vaal'}.issubset(selections) else 0,
-		"Triggered Spells deal #% increased Spell Damage": dps['pgeneric'] if {'Triggered'}.issubset(selections) else 0,
+		"Triggered Spells deal #% increased Spell Damage": dps['pgeneric'] if {'Trigger'}.issubset(selections) else 0,
 		"Exerted Attacks deal #% increased Damage": dps['pgeneric'] if {'Exerted'}.issubset(selections) else 0,
 		"#% increased Projectile Attack Damage during any Flask Effect": dps['pgeneric'] if {'Projectile', "Attack", 'conditionUsingFlask'}.issubset(selections) else 0,
 		"#% increased Damage while Leeching": dps['pgeneric'] if {'leechLife'}.issubset(selections) or {'leechMana'}.issubset(selections) else 0,
@@ -130,7 +132,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Global Critical Strike Chance": dps['critchance'],
 		"#% increased Melee Critical Strike Chance": dps['critchance'] if {'Attack', 'Melee'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance with Elemental Skills": dps['critchance'] if {'Elemental'}.issubset(selections) else 0,
-		"#% increased Critical Strike Chance against Poisoned Enemies": dps['critchance'] if {'Poisoned'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance against Poisoned Enemies": dps['critchance'] if {'conditionEnemyPoisoned'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance against Shocked Enemies": dps['critchance'] if {'conditionEnemyShocked'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance for Spells while Dual Wielding": dps['critchance'] if {'Spell', 'DualWielding'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance for Spells while holding a Shield": dps['critchance'] if {'Spell', 'Shield'}.issubset(selections) else 0,
@@ -265,9 +267,9 @@ def gensearchparams(dps, selections, base):
 		"Gain #% of Lightning Damage as Extra Chaos Damage": dps['lightningasextrachaos'],
 		"Gain #% of Physical Damage as Extra Chaos Damage": dps['physicalasextrachaos'],
 		# Related to Endurance/Frenzy/Power charges
-		'# to Maximum Power Charges': dps['1powercharge'] if {'Power'}.issubset(selections) else 0,
-		'# to Maximum Frenzy Charges': dps['1frenzycharge'] if {'Frenzy'}.issubset(selections) else 0,
-		'# to Maximum Endurance Charges': dps['1endurancecharge'] if {'Endurance'}.issubset(selections) else 0,
+		'# to Maximum Power Charges': dps['1powercharge'] if {'usePowerCharges'}.issubset(selections) else 0,
+		'# to Maximum Frenzy Charges': dps['1frenzycharge'] if {'useFrenzyCharges'}.issubset(selections) else 0,
+		'# to Maximum Endurance Charges': dps['1endurancecharge'] if {'useEnduranceCharges'}.issubset(selections) else 0,
 		# Accuracy
 		'# to Accuracy Rating': dps['flataccuracy'],
 		"#% increased Accuracy Rating with Axes": dps['paccuracy'] if {'Axe'}.issubset(selections) else 0,
@@ -319,7 +321,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased maximum Mana": dps['pmana'],
 		'#% reduced Mana Cost of Skills': dps['pmanaskillreduce'],
 		# Minion % damage
-		"Minions have #% chance to deal Double Damage": dps['pminion'],
+		"Minions have #% chance to deal Double Damage": dps['minionchancedoubledamage'],
 		"Minions deal #% increased Damage": dps['pminion'],
 		"Minions have #% increased Attack Speed": dps['minionattackspeed'],
 		"Minions have #% increased Cast Speed": dps['minioncastspeed'],
@@ -358,7 +360,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Cast Speed during any Flask Effect": dps['castspeed'] if {'conditionUsingFlask'}.issubset(selections) else 0,
 		"#% increased Melee Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Attack', 'Melee'}.issubset(selections) else 0,
 		"#% increased Spell Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
-		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'Blinded'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'conditionEnemyBlinded'}.issubset(selections) else 0,
 		# local flat damage mods for Spellslinger and BattleMage
 		"Adds # to # Chaos Damage (Local)": dps['flatchaos'] * localmulti,
 		"Adds # to # Cold Damage (Local)": dps['flatcold'] * localmulti,
@@ -434,7 +436,6 @@ def gensearchparams(dps, selections, base):
 				   ('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or mod not in r_mods[base]['implicit'])) or \
 				   ('explicit' in val and mod not in r_mods[base]['explicit']):
 					continue
-#				   ('fractured' in val and ({'NoFracturedMods'}.issubset(selections) or mod not in r_mods[base]['explicit'])) or \
 				mlist[val] = round(modstr[mod], 2)
 				reverse[val] = mod
 	mlist.update(pseudos)
