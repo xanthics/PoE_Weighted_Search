@@ -9,7 +9,7 @@ from pseudo_lookup import pseudo_lookup
 
 
 # TODO: Flag to round ele/spell % if they are close to an element
-# https://docs.python.org/3/library/ast.html
+# TODO: Implement unsupported crafting mods (end of modstr)
 def gensearchparams(dps, selections, base):
 	localmulti = 0.5 if 'SpellslingerDW' in selections else 0
 	localmulti += sum(1 if x in selections else 0 for x in ['Spellslinger', 'BattleMage'])
