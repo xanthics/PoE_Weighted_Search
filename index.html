@@ -138,11 +138,11 @@
 		<tr>
 			<td><label><input type="checkbox" id="conditionKilledRecently">You Kill</label></td>
 			<td><label><input type="checkbox" id="conditionMinionsKilledRecently">Minion Kill</label></td>
-			<td><label><input type="checkbox" id="No Recent Kill">Not Kill</label></td>
+			<td><label><input type="checkbox" id="NoRecentKill">Not Kill</label></td>
 		</tr>
 		<tr>
 			<td><label><input type="checkbox" id="conditionCritRecently">Crit</label></td>
-			<td><label><input type="checkbox" id="No Recent Crit">Not Crit</label></td>
+			<td><label><input type="checkbox" id="NoRecentCrit">Not Crit</label></td>
 			<td><label><input type="checkbox" id="conditionUsedMinionSkillRecently">Minion Skill</label></td>
 		</tr>
 		<tr>
@@ -338,9 +338,9 @@
 					except KeyError:
 						print("Flag '{}' recieved but not currently supported.".format(f))
 				if 'conditionCritRecently' not in flags:
-					doc["No Recent Crit"].checked = True
+					doc["NoRecentCrit"].checked = True
 				if 'conditionKilledRecently' not in flags:
-					doc["No Recent Kill"].checked = True
+					doc["NoRecentKill"].checked = True
 			except KeyError:
 				print("No Flags parameter passed in query string")
 

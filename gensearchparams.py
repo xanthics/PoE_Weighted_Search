@@ -122,7 +122,7 @@ def gensearchparams(dps, selections, base):
 		# Critical Strike Chance
 		"#% increased Vaal Skill Critical Strike Chance": dps['critchance'] if {'Vaal'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance for Spells": dps['critchance'] if {'Spell'}.issubset(selections) else 0,
-		"#% increased Critical Strike Chance if you haven't dealt a Critical Strike Recently": dps['critchance'] if {'No Recent Crit'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance if you haven't dealt a Critical Strike Recently": dps['critchance'] if {'NoRecentCrit'}.issubset(selections) else 0,
 		"#% increased Attack Critical Strike Chance while Dual Wielding": dps['critchance'] if {'Attack', 'DualWielding'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance with Cold Skills": dps['critchance'] if {'Cold'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance with Fire Skills": dps['critchance'] if {'Fire'}.issubset(selections) else 0,
@@ -152,11 +152,10 @@ def gensearchparams(dps, selections, base):
 		"#% to Critical Strike Multiplier with One Handed Melee Weapons": dps['critmulti'] if {'Melee', 'Attack'}.issubset(selections) and {'TwoHandedWeapon'}.isdisjoint(selections) else 0,
 		"#% to Critical Strike Multiplier with Two Handed Melee Weapons": dps['critmulti'] if {'Melee', 'Attack', 'TwoHandedWeapon'}.issubset(selections) else 0,
 		"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby": dps['critmulti'] if {'NearbyRareUnique'}.issubset(selections) else 0,
-		
 		"#% to Critical Strike Multiplier for Spells while Dual Wielding": dps['critmulti'] if {'Spell', 'DualWielding'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier for Spells while holding a Shield": dps['critmulti'] if {'Spell', 'Shield'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier for Spells while wielding a Staff": dps['critmulti'] if {'Spell', 'Staff'}.issubset(selections) else 0,
-		"#% to Critical Strike Multiplier if you haven't dealt a Critical Strike Recently": dps['critmulti'] if {'No Recent Crit'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier if you haven't dealt a Critical Strike Recently": dps['critmulti'] if {'NoRecentCrit'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier if you've Shattered an Enemy Recently": dps['critmulti'] if {'Shatter'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier with Axes": dps['critmulti'] if {'Attack', 'Axe'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier with Bows": dps['critmulti'] if {'Attack', 'Bow'}.issubset(selections) else 0,
@@ -247,7 +246,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Physical Damage if you've dealt a Critical Strike Recently": dps['flatphys'] if {'conditionCritRecently'}.issubset(selections) else 0,
 		# Damage Penetration
 		"Damage Penetrates #% Cold Resistance": dps['pencold'],
-		"Damage Penetrates #% Elemental Resistance if you haven't Killed Recently": dps['penall'] if {'No Recent Kill'}.issubset(selections) else 0,
+		"Damage Penetrates #% Elemental Resistance if you haven't Killed Recently": dps['penall'] if {'NoRecentKill'}.issubset(selections) else 0,
 		"Damage Penetrates #% Elemental Resistances": dps['penall'],
 		"Damage Penetrates #% Fire Resistance": dps['penfire'],
 		"Damage Penetrates #% Lightning Resistance": dps['penlightning'],
@@ -281,7 +280,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Accuracy Rating with Swords": dps['paccuracy'] if {'Sword'}.issubset(selections) else 0,
 		"#% increased Accuracy Rating with Wands": dps['paccuracy'] if {'Wand'}.issubset(selections) else 0,
 		'#% increased Global Accuracy Rating': dps['paccuracy'],
-		"#% increased Accuracy Rating if you haven't Killed Recently": dps['paccuracy'] if {'No Recent Kill'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating if you haven't Killed Recently": dps['paccuracy'] if {'NoRecentKill'}.issubset(selections) else 0,
 		# Attributes
 		'# to Strength': dps['20str'],
 		'# to Intelligence': dps['20int'],
@@ -385,6 +384,7 @@ def gensearchparams(dps, selections, base):
 		"#% to Critical Strike Multiplier per Power Charge": dps['critmulti'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
 		"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge": dps['lightningasextrachaos'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
 
+		# Not yet implemented
 		"#% increased Duration of Ailments on Enemies": 0,
 		"#% increased Energy Shield from Body Armour": 0,
 		"#% increased Minion Accuracy Rating": 0,
