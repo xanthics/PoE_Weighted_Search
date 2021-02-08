@@ -9,6 +9,8 @@ from pseudo_lookup import pseudo_lookup
 
 
 def gensearchparams(dps, selections, base):
+	localmulti = 0.5 if 'SpellslingerDW' in selections else 0
+	localmulti += sum(1 if x in selections else 0 for x in ['Spellslinger', 'BattleMage'])
 	modstr = {
 		# Attack Speed
 		"#% increased Attack Speed": dps['attackspeed'],
@@ -35,21 +37,43 @@ def gensearchparams(dps, selections, base):
 		"#% increased Cast Speed with Cold Skills": dps['castspeed'] if {'Cold'}.issubset(selections) else 0,
 		"#% increased Cast Speed with Fire Skills": dps['castspeed'] if {'Fire'}.issubset(selections) else 0,
 		"#% increased Cast Speed with Lightning Skills": dps['castspeed'] if {'Lightning'}.issubset(selections) else 0,
+		"#% increased Cast Speed if you've Killed Recently": dps['castspeed'] if {'conditionKilledRecently'}.issubset(selections) else 0,
 		# Attack and Cast Speed
 		"#% increased Attack and Cast Speed": dps['attackspeed'] + dps['castspeed'],
-		# Damage - Any
-		"#% increased Area Damage": max(dps['pspell'], dps['pattack'], dps['pmelee']) if {'Area'}.issubset(selections) else 0,
-		"#% increased Chaos Damage": dps['pchaos'],
-		"#% increased Cold Damage": dps['pcold'],
-		"#% increased Damage": dps['pgeneric'],
-		'#% increased Attack Damage': dps['pattack'] if {'Attack'}.issubset(selections) else 0,
+		# Damage - Physical
+		"#% increased Global Physical Damage": dps['pphysical'],
+		"#% increased Physical Damage with Attack Skills": dps['pphysical'] if {'Attack'}.issubset(selections) else 0,
+		"#% increased Physical Damage with Spell Skills": dps['pphysical'] if {'Spell'}.issubset(selections) else 0,
+		"#% increased Physical Damage with Axes": dps['pphysical'] if {'Attack', 'Axe'}.issubset(selections) else 0,
+		"#% increased Physical Damage with Bows": dps['pphysical'] if {'Attack', 'Bow'}.issubset(selections) else 00,
+		"#% increased Physical Damage with Claws": dps['pphysical'] if {'Attack', 'Claw'}.issubset(selections) else 00,
+		"#% increased Physical Damage with Daggers": dps['pphysical'] if {'Attack', 'Dagger'}.issubset(selections) else 00,
+		"#% increased Physical Damage with Maces or Sceptres": dps['pphysical'] if {'Attack', 'Mace'}.issubset(selections) else 00,
+		"#% increased Physical Damage with Staves": dps['pphysical'] if {'Attack', 'Staff'}.issubset(selections) else 00,
+		"#% increased Physical Damage with Swords": dps['pphysical'] if {'Attack', 'Sword'}.issubset(selections) else 00,
+		"#% increased Physical Damage with Wands": dps['pphysical'] if {'Attack', 'Wand'}.issubset(selections) else 00,
+		# Damage - Elemental
 		"#% increased Elemental Damage": dps['pelemental'],
 		"#% increased Elemental Damage with Attack Skills": dps['pelemental'] if {'Attack'}.issubset(selections) else 0,
-		"#% increased Fire Damage": dps['pfire'],
+		# Damage - Cold
+		"#% increased Cold Damage": dps['pcold'],
+		"#% increased Cold Damage with Attack Skills": dps['pcold'] if {'Attack'}.issubset(selections) else 0,
+		"#% increased Cold Damage with Spell Skills": dps['pcold'] if {'Spell'}.issubset(selections) else 0,
+		# Damage - Lightning
 		"#% increased Lightning Damage": dps['plightning'],
+		"#% increased Lightning Damage with Attack Skills": dps['plightning'] if {'Attack'}.issubset(selections) else 0,
+		"#% increased Lightning Damage with Spell Skills": dps['plightning'] if {'Spell'}.issubset(selections) else 0,
+		# Damage - Fire
+		"#% increased Fire Damage": dps['pfire'],
+		"#% increased Fire Damage with Attack Skills": dps['pfire'] if {'Attack'}.issubset(selections) else 0,
+		"#% increased Fire Damage with Spell Skills": dps['pfire'] if {'Spell'}.issubset(selections) else 0,
+		# Damage - Chaos
+		"#% increased Chaos Damage": dps['pchaos'],
+		"#% increased Chaos Damage with Attack Skills": dps['pchaos'] if {'Attack'}.issubset(selections) else 0,
+		"#% increased Chaos Damage with Spell Skills": dps['pchaos'] if {'Spell'}.issubset(selections) else 0,
+		# Damage - Any Attack
+		'#% increased Attack Damage': dps['pattack'] if {'Attack'}.issubset(selections) else 0,
 		"#% increased Melee Damage": dps['pmelee'] if {'Attack', 'Melee'}.issubset(selections) else 0,
-		"#% increased Mine Damage": dps['pgeneric'] if {'Mine'}.issubset(selections) else 0,
-		"#% increased Global Physical Damage": dps['pphysical'],
 		"#% increased Damage with Axes": dps['pattack'] if {'Attack', 'Axe'}.issubset(selections) else 0,
 		"#% increased Damage with Bows": dps['pattack'] if {'Attack', 'Bow'}.issubset(selections) else 0,
 		"#% increased Damage with Claws": dps['pattack'] if {'Attack', 'Claw'}.issubset(selections) else 0,
@@ -61,24 +85,40 @@ def gensearchparams(dps, selections, base):
 		"#% increased Damage with Two Handed Weapons": dps['pattack'] if {'Attack', 'TwoHandedWeapon'}.issubset(selections) else 0,
 		"#% increased Damage with Wands": dps['pattack'] if {'Attack', 'Wand'}.issubset(selections) else 0,
 		"#% increased Attack Damage while Dual Wielding": dps['pattack'] if {'Attack', 'DualWielding'}.issubset(selections) else 0,
-		"#% increased Projectile Damage": dps['pgeneric'] if {'Projectile'}.issubset(selections) else 0,
+		"#% increased Attack Damage while holding a Shield": dps['pattack'] if {'Attack', 'Shield'}.issubset(selections) else 0,
 		"#% increased Projectile Attack Damage": dps['pgeneric'] if {'Projectile', "Attack"}.issubset(selections) else 0,
+		# Damage - Any Spell
 		"#% increased Spell Damage": dps['pspell'] if {'Spell'}.issubset(selections) else 0,
+		"#% increased Spell Damage while Dual Wielding": dps['pspell'] if {'Spell', 'DualWielding'}.issubset(selections) else 0,
 		"#% increased Spell Damage while holding a Shield": dps['pspell'] if {'Spell', 'Shield'}.issubset(selections) else 0,
 		"#% increased Spell Damage while wielding a Staff": dps['pspell'] if {'Spell', 'Staff'}.issubset(selections) else 0,
+		# Damage - Any
+		"#% increased Area Damage": max(dps['pspell'], dps['pattack'], dps['pmelee']) if {'Area'}.issubset(selections) else 0,
+		"#% increased Damage": dps['pgeneric'],
+		"#% increased Mine Damage": dps['pgeneric'] if {'Mine'}.issubset(selections) else 0,
+		"#% increased Projectile Damage": dps['pgeneric'] if {'Projectile'}.issubset(selections) else 0,
 		"#% increased Totem Damage": dps['pgeneric'] if {'Totem'}.issubset(selections) else 0,
 		"#% increased Trap Damage": dps['pgeneric'] if {'Trap'}.issubset(selections) else 0,
 		# Damage - Conditional
+		"Vaal Skills deal #% increased Damage": dps['pgeneric'] if {'Vaal'}.issubset(selections) else 0,
+		"Triggered Spells deal #% increased Spell Damage": dps['pgeneric'] if {'Triggered'}.issubset(selections) else 0,
+		"Exerted Attacks deal #% increased Damage": dps['pgeneric'] if {'Exerted'}.issubset(selections) else 0,
+		"#% increased Projectile Attack Damage during any Flask Effect": dps['pgeneric'] if {'Projectile', "Attack", 'conditionUsingFlask'}.issubset(selections) else 0,
+		"#% increased Damage while Leeching": dps['pgeneric'] if {'leechLife'}.issubset(selections) or {'leechMana'}.issubset(selections) else 0,
+		"#% increased Damage while Leeching Life": dps['pgeneric'] if {'leechLife'}.issubset(selections) else 0,
+		"#% increased Damage while Leeching Mana": dps['pgeneric'] if {'leechMana'}.issubset(selections) else 0,
 		"#% increased Elemental Damage if you've dealt a Critical Strike Recently": dps['pelemental'] if {'conditionCritRecently'}.issubset(selections) else 0,
 		"#% increased Damage if you've Killed Recently": dps['pgeneric'] if {'conditionKilledRecently'}.issubset(selections) else 0,
 		"#% increased Damage with Hits against Chilled Enemies": dps['pgeneric'] if {'conditionEnemyChilled'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0,
 		# Double Damage
 		"Spells have a #% chance to deal Double Damage": dps['chancedoubledamage'] if {'Spell'}.issubset(selections) else 0,
 		"#% chance to deal Double Damage": dps['chancedoubledamage'],
+		"#% chance to deal Double Damage if you have Stunned an Enemy Recently": dps['chancedoubledamage'] if {'Stun'}.issubset(selections) else 0,
 		# Base Critical Strike chance
 		"#% to Spell Critical Strike Chance": dps['basecrit'] if {'Spell'}.issubset(selections) else 0,  # Note that this is base crit.  Yes the space is in the main trade site
 		"Attacks have #% to Critical Strike Chance": dps['basecrit'] if {'Attack'}.issubset(selections) else 0,  # Note that this is base crit.
 		# Critical Strike Chance
+		"#% increased Vaal Skill Critical Strike Chance": dps['critchance'] if {'Vaal'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance for Spells": dps['critchance'] if {'Spell'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance if you haven't dealt a Critical Strike Recently": dps['critchance'] if {'No Recent Crit'}.issubset(selections) else 0,
 		"#% increased Attack Critical Strike Chance while Dual Wielding": dps['critchance'] if {'Attack', 'DualWielding'}.issubset(selections) else 0,
@@ -92,6 +132,11 @@ def gensearchparams(dps, selections, base):
 		"#% increased Critical Strike Chance with Elemental Skills": dps['critchance'] if {'Elemental'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance against Poisoned Enemies": dps['critchance'] if {'Poisoned'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance against Shocked Enemies": dps['critchance'] if {'conditionEnemyShocked'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance for Spells while Dual Wielding": dps['critchance'] if {'Spell', 'DualWielding'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance for Spells while holding a Shield": dps['critchance'] if {'Spell', 'Shield'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance for Spells while wielding a Staff": dps['critchance'] if {'Spell', 'Staff'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance if you have Killed Recently": dps['critchance'] if {'conditionKilledRecently'}.issubset(selections) else 0,
+		"#% increased Critical Strike Chance if you've been Shocked Recently": dps['critchance'] if {'beShocked'}.issubset(selections) else 0,
 		# Critical Strike Multiplier
 		"#% to Melee Critical Strike Multiplier": dps['critmulti'] if {'Attack', 'Melee'}.issubset(selections) else 0,
 		"#% to Global Critical Strike Multiplier": dps['critmulti'],
@@ -105,7 +150,21 @@ def gensearchparams(dps, selections, base):
 		"#% to Critical Strike Multiplier with One Handed Melee Weapons": dps['critmulti'] if {'Melee', 'Attack'}.issubset(selections) and {'TwoHandedWeapon'}.isdisjoint(selections) else 0,
 		"#% to Critical Strike Multiplier with Two Handed Melee Weapons": dps['critmulti'] if {'Melee', 'Attack', 'TwoHandedWeapon'}.issubset(selections) else 0,
 		"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby": dps['critmulti'] if {'NearbyRareUnique'}.issubset(selections) else 0,
-		# Flat Damage
+		
+		"#% to Critical Strike Multiplier for Spells while Dual Wielding": dps['critmulti'] if {'Spell', 'DualWielding'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier for Spells while holding a Shield": dps['critmulti'] if {'Spell', 'Shield'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier for Spells while wielding a Staff": dps['critmulti'] if {'Spell', 'Staff'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier if you haven't dealt a Critical Strike Recently": dps['critmulti'] if {'No Recent Crit'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier if you've Shattered an Enemy Recently": dps['critmulti'] if {'Shatter'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Axes": dps['critmulti'] if {'Attack', 'Axe'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Bows": dps['critmulti'] if {'Attack', 'Bow'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Claws": dps['critmulti'] if {'Attack', 'Claw'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Daggers": dps['critmulti'] if {'Attack', 'Dagger'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Maces or Sceptres": dps['critmulti'] if {'Attack', 'Mace'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Staves": dps['critmulti'] if {'Attack', 'Staff'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Swords": dps['critmulti'] if {'Attack', 'Sword'}.issubset(selections) else 0,
+		"#% to Critical Strike Multiplier with Wands": dps['critmulti'] if {'Attack', 'Wand'}.issubset(selections) else 0,
+		# Flat Damage - Chaos
 		"Adds # to # Chaos Damage to Attacks": dps['flatchaos'] if {'Attack'}.issubset(selections) else 0,
 		"Adds # to # Chaos Damage to Spells": dps['flatchaos'] if {'Spell'}.issubset(selections) else 0,
 		"Adds # to # Chaos Damage to Spells while Dual Wielding": dps['flatchaos'] if {'Spell', 'DualWielding'}.issubset(selections) else 0,
@@ -113,6 +172,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Chaos Damage to Spells while wielding a Two Handed Weapon": dps['flatchaos'] if {'Spell', 'TwoHandedWeapon'}.issubset(selections) else 0,
 		"Adds # to # Chaos Damage": dps['flatchaos'],
 		"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently": dps['flatchaos'] if {'conditionCritRecently'}.issubset(selections) else 0,
+		# Flat Damage - Cold
 		"Adds # to # Cold Damage to Attacks": dps['flatcold'] if {'Attack'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage to Axe Attacks": dps['flatcold'] if {'Attack', 'Axe'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage to Bow Attacks": dps['flatcold'] if {'Attack', 'Bow'}.issubset(selections) else 0,
@@ -128,6 +188,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Cold Damage to Wand Attacks": dps['flatcold'] if {'Attack', 'Wand'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage": dps['flatcold'],
 		"Adds # to # Cold Damage to Spells and Attacks": dps['flatcold'] if {'Attack', 'Spell'}.intersection(selections) else 0,
+		# Flat Damage - Fire
 		"Adds # to # Fire Damage to Attacks": dps['flatfire'] if {'Attack'}.issubset(selections) else 0,
 		"Adds # to # Fire Damage to Axe Attacks": dps['flatfire'] if {'Attack', 'Axe'}.issubset(selections) else 0,
 		"Adds # to # Fire Damage to Bow Attacks": dps['flatfire'] if {'Attack', 'Bow'}.issubset(selections) else 0,
@@ -143,6 +204,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Fire Damage to Wand Attacks": dps['flatfire'] if {'Attack', 'Wand'}.issubset(selections) else 0,
 		"Adds # to # Fire Damage": dps['flatfire'],
 		"Adds # to # Fire Damage to Spells and Attacks": dps['flatfire'] if {'Attack', 'Spell'}.intersection(selections) else 0,
+		# Flat Damage - Lightning
 		"Adds # to # Lightning Damage to Attacks": dps['flatlightning'] if {'Attack'}.issubset(selections) else 0,
 		"Adds # to # Lightning Damage to Axe Attacks": dps['flatlightning'] if {'Attack', 'Axe'}.issubset(selections) else 0,
 		"Adds # to # Lightning Damage to Bow Attacks": dps['flatlightning'] if {'Attack', 'Bow'}.issubset(selections) else 0,
@@ -158,6 +220,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Lightning Damage to Wand Attacks": dps['flatlightning'] if {'Attack', 'Wand'}.issubset(selections) else 0,
 		"Adds # to # Lightning Damage": dps['flatlightning'],
 		"Adds # to # Lightning Damage to Spells and Attacks": dps['flatlightning'] if {'Attack', 'Spell'}.intersection(selections) else 0,
+		# Flat Damage - Physical
 		"Adds # to # Physical Damage to Attacks": dps['flatphys'] if {'Attack'}.issubset(selections) else 0,
 		"Adds # to # Physical Damage to Axe Attacks": dps['flatphys'] if {'Attack', 'Axe'}.issubset(selections) else 0,
 		"Adds # to # Physical Damage to Bow Attacks": dps['flatphys'] if {'Attack', 'Bow'}.issubset(selections) else 0,
@@ -171,6 +234,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Physical Damage to Staff Attacks": dps['flatphys'] if {'Attack', 'Staff'}.issubset(selections) else 0,
 		"Adds # to # Physical Damage to Sword Attacks": dps['flatphys'] if {'Attack', 'Sword'}.issubset(selections) else 0,
 		"Adds # to # Physical Damage to Wand Attacks": dps['flatphys'] if {'Attack', 'Wand'}.issubset(selections) else 0,
+		# Flat Damage - Conditional
 		"# to # added Fire Damage against Burning Enemies": dps['flatfire'] if {'conditionEnemyBurning'}.issubset(selections) else 0,
 		"Adds # to # Fire Damage against Ignited Enemies": dps['flatfire'] if {'conditionEnemyIgnited'}.issubset(selections) else 0,
 		"Adds # to # Cold Damage against Chilled or Frozen Enemies": dps['flatcold'] if {'conditionEnemyChilled', 'conditionEnemyFrozen'}.intersection(selections) else 0,
@@ -185,6 +249,9 @@ def gensearchparams(dps, selections, base):
 		"Damage Penetrates #% Elemental Resistances": dps['penall'],
 		"Damage Penetrates #% Fire Resistance": dps['penfire'],
 		"Damage Penetrates #% Lightning Resistance": dps['penlightning'],
+		"Damage with Weapons Penetrates #% Cold Resistance": dps['pencold'] if {'Attack'}.issubset(selections) else 0,
+		"Damage with Weapons Penetrates #% Fire Resistance": dps['penfire'] if {'Attack'}.issubset(selections) else 0,
+		"Damage with Weapons Penetrates #% Lightning Resistance": dps['penlightning'] if {'Attack'}.issubset(selections) else 0,
 		# Gain % of ### as extra ###
 		"Gain #% of Elemental Damage as Extra Chaos Damage": dps['eleaschaos'],
 		"Gain #% of Physical Damage as Extra Cold Damage": dps['extracold'],
@@ -203,6 +270,14 @@ def gensearchparams(dps, selections, base):
 		'# to Maximum Endurance Charges': dps['1endurancecharge'] if {'Endurance'}.issubset(selections) else 0,
 		# Accuracy
 		'# to Accuracy Rating': dps['flataccuracy'],
+		"#% increased Accuracy Rating with Axes": dps['paccuracy'] if {'Axe'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating with Bows": dps['paccuracy'] if {'Bow'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating with Claws": dps['paccuracy'] if {'Claw'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating with Daggers": dps['paccuracy'] if {'Dagger'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating with Maces or Sceptres": dps['paccuracy'] if {'Mace'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating with Staves": dps['paccuracy'] if {'Staff'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating with Swords": dps['paccuracy'] if {'Sword'}.issubset(selections) else 0,
+		"#% increased Accuracy Rating with Wands": dps['paccuracy'] if {'Wand'}.issubset(selections) else 0,
 		'#% increased Global Accuracy Rating': dps['paccuracy'],
 		"#% increased Accuracy Rating if you haven't Killed Recently": dps['paccuracy'] if {'No Recent Kill'}.issubset(selections) else 0,
 		# Attributes
@@ -285,10 +360,11 @@ def gensearchparams(dps, selections, base):
 		"#% increased Spell Damage during any Flask Effect": dps['pgeneric'] if {'conditionUsingFlask', 'Spell'}.issubset(selections) else 0,
 		"#% increased Critical Strike Chance against Blinded Enemies": dps['critchance'] if {'Blinded'}.issubset(selections) else 0,
 		# local flat damage mods for Spellslinger and BattleMage
-		"Adds # to # Chaos Damage (Local)": dps['flatchaos'] if base == 'Spellslinger MH' else dps['flatchaos']*0.5 if base == "Spellslinger DW" else 0,
-		"Adds # to # Cold Damage (Local)": dps['flatcold'] if base == 'Spellslinger MH' else dps['flatcold']*0.5 if base == "Spellslinger DW" else 0,
-		"Adds # to # Fire Damage (Local)": dps['flatfire'] if base == 'Spellslinger MH' else dps['flatfire']*0.5 if base == "Spellslinger DW" else 0,
-		"Adds # to # Lightning Damage (Local)": dps['flatlightning'] if base == 'Spellslinger MH' else dps['flatlightning']*0.5 if base == "Spellslinger DW" else 0,
+		"Adds # to # Chaos Damage (Local)": dps['flatchaos'] * localmulti,
+		"Adds # to # Cold Damage (Local)": dps['flatcold'] * localmulti,
+		"Adds # to # Fire Damage (Local)": dps['flatfire'] * localmulti,
+		"Adds # to # Lightning Damage (Local)": dps['flatlightning'] * localmulti,
+		"Adds # to # Physical Damage (Local)": dps['flatphys'] * localmulti,
 		# Precursor Emblem
 		"# to # Cold Damage per Frenzy Charge": dps['flatcold'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
 		"#% increased Accuracy Rating per Frenzy Charge": dps['paccuracy'] * dps["FrenzyCount"] if {'useFrenzyCharges'}.issubset(selections) else 0,
@@ -306,6 +382,19 @@ def gensearchparams(dps, selections, base):
 		"#% increased Spell Damage per Power Charge": dps['pgeneric'] * dps["PowerCount"] if {'usePowerCharges', 'Spell'}.issubset(selections) else 0,
 		"#% to Critical Strike Multiplier per Power Charge": dps['critmulti'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
 		"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge": dps['lightningasextrachaos'] * dps["PowerCount"] if {'usePowerCharges'}.issubset(selections) else 0,
+
+		"#% increased Duration of Ailments on Enemies": 0,
+		"#% increased Energy Shield from Body Armour": 0,
+		"#% increased Minion Accuracy Rating": 0,
+		"#% increased effect of Non-Curse Auras from your Skills": 0,
+		"Adds # to # Physical Damage for each Impale on Enemy": 0,
+		"Auras from your Skills grant #% increased Damage to you and Allies": 0,
+		"Bleeding you inflict deals Damage #% faster": 0,
+		"Gain #% of Maximum Life as Extra Maximum Energy Shield": 0,
+		"Ignites you inflict deal Damage #% faster": 0,
+		"Minions have # to Accuracy Rating": 0,
+		"Overwhelm #% Physical Damage Reduction": 0,
+		"Poisons you inflict deal Damage #% faster": 0,
 	}
 	# table to get the correct trade site json name
 	lookup_bases = {
@@ -313,8 +402,7 @@ def gensearchparams(dps, selections, base):
 		"Base Jewel": 'jewel.base',
 		"Abyss Jewel": 'jewel.abyss',
 		"Caster Weapon": 'weapon',
-		"Spellslinger MH": 'weapon.wand',
-		"Spellslinger DW": 'weapon.wand',
+		"Wand (Spellslinger)": 'weapon.wand',
 		"Amulet": 'accessory.amulet',
 		"Ring": 'accessory.ring',
 		"Belt": 'accessory.belt',
