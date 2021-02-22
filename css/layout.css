@@ -132,6 +132,11 @@ button:hover {
     color: rgb(255, 255, 255);
 }
 
+button.current_tab {
+    color: rgb(220,220,220);
+    background-color: rgb(70,70,70);
+}
+
 /* link legibility tweak */
 a:link {
     color: rgb(98, 110, 250);
