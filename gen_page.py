@@ -65,10 +65,10 @@ def generate_query(ev):
 
 def process_querystring():
 	if 'vals' in doc.query:
-		n_arr = doc.query['vals'].strip('[]').split(',')
+		n_arr = doc.query['vals'].split(',')
 		print(n_arr)
 		for c, val in enumerate(n_arr[1:]):
-			if val != '0':
+			if val:
 				doc[mjson[c]['name']].value = float(val)
 	else:
 		for elt in doc.get(selector='input[type="number"]'):
