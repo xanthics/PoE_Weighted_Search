@@ -170,7 +170,7 @@ mjson = {
 		{"name": "minionflatcold", "desc": "Minions deal 14 to 31 additional Cold Damage", "count": 22.5},
 		{"name": "minionflatfire", "desc": "Minions deal 21 to 34 additional Fire Damage", "count": 27.5},
 		{"name": "minionflatchaos", "desc": "Minions deal 4 to 7 additional Chaos Damage", "count": 5.5},
-		{"name": "minionflataccuracy", "desc": "Minions have 100 to Accuracy Rating", "count": 100},
+		{"name": "minionflataccuracy", "desc": "Minions have +100 to Accuracy Rating", "count": 100},
 		{"name": "minionpaccuracy", "desc": "10% increased Minion Accuracy Rating", "count": 10},
 		{"name": "pdot", "desc": "12% increased Damage over Time", "count": 12},
 		{"name": "pdotailment", "desc": "12% increased Damage with Ailments", "count": 12},
