@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/07/2021(m/d/y) 22:18:22 utc
+# Generated: 02/24/2021(m/d/y) 05:30:28 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -503,12 +503,21 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% reduced Mana Cost of Skills",
 			"#% to Global Critical Strike Multiplier",
+			"Anger has #% increased Aura Effect",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
+			"Determination has #% increased Aura Effect",
+			"Discipline has #% increased Aura Effect",
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
-			"Minions deal #% increased Damage"
+			"Grace has #% increased Aura Effect",
+			"Hatred has #% increased Aura Effect",
+			"Malevolence has #% increased Aura Effect",
+			"Minions deal #% increased Damage",
+			"Pride has #% increased Aura Effect",
+			"Wrath has #% increased Aura Effect",
+			"Zealotry has #% increased Aura Effect"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -788,10 +797,19 @@ r_mods = {
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
 			"#% to Critical Strike Multiplier during any Flask Effect",
+			"Anger has #% increased Aura Effect",
 			"Damage with Weapons Penetrates #% Cold Resistance",
 			"Damage with Weapons Penetrates #% Fire Resistance",
 			"Damage with Weapons Penetrates #% Lightning Resistance",
-			"Vaal Skills deal #% increased Damage"
+			"Determination has #% increased Aura Effect",
+			"Discipline has #% increased Aura Effect",
+			"Grace has #% increased Aura Effect",
+			"Hatred has #% increased Aura Effect",
+			"Malevolence has #% increased Aura Effect",
+			"Pride has #% increased Aura Effect",
+			"Vaal Skills deal #% increased Damage",
+			"Wrath has #% increased Aura Effect",
+			"Zealotry has #% increased Aura Effect"
 		],
 		"crafted": [
 			"# to Dexterity and Intelligence",
@@ -854,7 +872,10 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
+			"Determination has #% increased Aura Effect",
+			"Discipline has #% increased Aura Effect",
 			"Gain #% of Maximum Life as Extra Maximum Energy Shield",
+			"Grace has #% increased Aura Effect",
 			"Minions deal #% increased Damage"
 		],
 		"crafted": [
@@ -944,6 +965,7 @@ r_mods = {
 			"# to Maximum Endurance Charges",
 			"# to Maximum Frenzy Charges",
 			"# to Maximum Power Charges",
+			"# to Maximum Power Charges and Maximum Endurance Charges",
 			"# to Strength",
 			"# to Strength and Dexterity",
 			"# to all Attributes",
@@ -1102,6 +1124,7 @@ r_mods = {
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage (Local)",
 			"Adds # to # Physical Damage to Spells",
+			"Anger has #% increased Aura Effect",
 			"Auras from your Skills grant #% increased Damage to you and Allies",
 			"Bleeding you inflict deals Damage #% faster",
 			"Damage Penetrates #% Cold Resistance",
@@ -1118,7 +1141,9 @@ r_mods = {
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Gain #% of Physical Damage as Extra Lightning Damage",
+			"Hatred has #% increased Aura Effect",
 			"Ignites you inflict deal Damage #% faster",
+			"Malevolence has #% increased Aura Effect",
 			"Minions deal #% increased Damage",
 			"Minions have # to Accuracy Rating",
 			"Minions have #% chance to deal Double Damage",
@@ -1126,7 +1151,9 @@ r_mods = {
 			"Minions have #% increased Cast Speed",
 			"Overwhelm #% Physical Damage Reduction",
 			"Poisons you inflict deal Damage #% faster",
-			"Spells have a #% chance to deal Double Damage"
+			"Spells have a #% chance to deal Double Damage",
+			"Wrath has #% increased Aura Effect",
+			"Zealotry has #% increased Aura Effect"
 		],
 	},
 	"Gloves": {
@@ -1233,6 +1260,8 @@ r_mods = {
 			"Adds # to # Physical Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Physical Damage to Attacks",
 			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Fire Damage",
+			"Gain #% of Physical Damage as Extra Lightning Damage",
 			"Minions deal #% increased Damage"
 		],
 	},
@@ -1286,6 +1315,7 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Area Damage",
 			"#% increased Burning Damage",
+			"#% increased Critical Strike Chance if you've been Shocked Recently",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Intelligence",
@@ -1298,7 +1328,13 @@ r_mods = {
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage to Spells",
 			"Ignites you inflict deal Damage #% faster",
-			"Minions deal #% increased Damage"
+			"Minions deal #% increased Damage",
+			"Nearby Enemies have #% to Chaos Resistance",
+			"Nearby Enemies have #% to Cold Resistance",
+			"Nearby Enemies have #% to Fire Resistance",
+			"Nearby Enemies have #% to Lightning Resistance",
+			"Nearby Enemies take #% increased Elemental Damage",
+			"Nearby Enemies take #% increased Physical Damage"
 		],
 	},
 	"Quiver": {
@@ -1323,6 +1359,7 @@ r_mods = {
 			"#% increased Global Physical Damage",
 			"#% increased Intelligence",
 			"#% increased Lightning Damage",
+			"#% increased Strength",
 			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
 			"#% increased maximum Mana",
@@ -1332,8 +1369,10 @@ r_mods = {
 			"Adds # to # Lightning Damage to Bow Attacks",
 			"Adds # to # Physical Damage to Bow Attacks",
 			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",
-			"Gain #% of Physical Damage as Extra Lightning Damage"
+			"Gain #% of Physical Damage as Extra Lightning Damage",
+			"Grace has #% increased Aura Effect"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1372,6 +1411,7 @@ r_mods = {
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
+			"#% increased Vaal Skill Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Damage over Time Multiplier",
 			"#% to Fire Damage over Time Multiplier",
@@ -1433,11 +1473,20 @@ r_mods = {
 			"Adds # to # Lightning Damage",
 			"Adds # to # Lightning Damage to Spells and Attacks",
 			"Adds # to # Physical Damage to Attacks",
+			"Anger has #% increased Aura Effect",
 			"Bleeding you inflict deals Damage #% faster",
+			"Determination has #% increased Aura Effect",
+			"Discipline has #% increased Aura Effect",
 			"Gain #% of Physical Damage as Extra Fire Damage",
+			"Grace has #% increased Aura Effect",
+			"Hatred has #% increased Aura Effect",
 			"Ignites you inflict deal Damage #% faster",
+			"Malevolence has #% increased Aura Effect",
 			"Poisons you inflict deal Damage #% faster",
-			"Vaal Skills deal #% increased Damage"
+			"Pride has #% increased Aura Effect",
+			"Vaal Skills deal #% increased Damage",
+			"Wrath has #% increased Aura Effect",
+			"Zealotry has #% increased Aura Effect"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1764,6 +1813,7 @@ r_mods = {
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage (Local)",
 			"Adds # to # Physical Damage to Spells",
+			"Anger has #% increased Aura Effect",
 			"Auras from your Skills grant #% increased Damage to you and Allies",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
@@ -1778,14 +1828,18 @@ r_mods = {
 			"Gain #% of Physical Damage as Extra Cold Damage",
 			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Gain #% of Physical Damage as Extra Lightning Damage",
+			"Hatred has #% increased Aura Effect",
 			"Ignites you inflict deal Damage #% faster",
+			"Malevolence has #% increased Aura Effect",
 			"Minions deal #% increased Damage",
 			"Minions have # to Accuracy Rating",
 			"Minions have #% chance to deal Double Damage",
 			"Minions have #% increased Attack Speed",
 			"Minions have #% increased Cast Speed",
 			"Overwhelm #% Physical Damage Reduction",
-			"Spells have a #% chance to deal Double Damage"
+			"Spells have a #% chance to deal Double Damage",
+			"Wrath has #% increased Aura Effect",
+			"Zealotry has #% increased Aura Effect"
 		],
 	},
 }
