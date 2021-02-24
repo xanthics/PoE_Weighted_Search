@@ -44,9 +44,9 @@ Implicits: 0
 
 
 if __name__ == '__main__':
-	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	with open(f'{root_dir}/mods.json') as fin:
-		data = json.load(fin)
-		g_names = [x['desc'] for x in data]
-	gentxt(g_names, root_dir)
-	genxml(g_names, root_dir)
+	g_root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	with open(f'{g_root_dir}/mods.json') as fin:
+		g_data = json.load(fin)
+		g_names = [x['desc'] for x in g_data]
+	gentxt(g_names, g_root_dir)
+	genxml(g_names, g_root_dir)
