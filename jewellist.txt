@@ -594,39 +594,39 @@ Item Level: 1
 	
 	
 Rarity: Rare
-Nearby Enemies have 8% to Chaos Resistance
+Nearby Enemies have -8% to Chaos Resistance
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-Nearby Enemies have 8% to Chaos Resistance
+Nearby Enemies have -8% to Chaos Resistance
 	
 	
 Rarity: Rare
-Nearby Enemies have 8% to Cold Resistance
+Nearby Enemies have -8% to Cold Resistance
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-Nearby Enemies have 8% to Cold Resistance
+Nearby Enemies have -8% to Cold Resistance
 	
 	
 Rarity: Rare
-Nearby Enemies have 8% to Fire Resistance
+Nearby Enemies have -8% to Fire Resistance
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-Nearby Enemies have 8% to Fire Resistance
+Nearby Enemies have -8% to Fire Resistance
 	
 	
 Rarity: Rare
-Nearby Enemies have 8% to Lightning Resistance
+Nearby Enemies have -8% to Lightning Resistance
 Hypnotic Eye Jewel
 --------
 Item Level: 1
 --------
-Nearby Enemies have 8% to Lightning Resistance
+Nearby Enemies have -8% to Lightning Resistance
 	
 	
 Rarity: Rare

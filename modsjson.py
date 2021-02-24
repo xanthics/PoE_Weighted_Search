@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/24/2021(m/d/y) 05:30:29 utc
+# Generated: 02/24/2021(m/d/y) 06:20:32 utc
 mjson = {
 	0: [
 		{"name": "pdot", "desc": "12% increased Damage over Time", "count": 12},
@@ -155,10 +155,10 @@ mjson = {
 		{"name": "pmana", "desc": "7% increased maximum Mana", "count": 7},
 		{"name": "flatmana", "desc": "+40 to maximum Mana", "count": 40},
 		{"name": "pmanaskillreduce", "desc": "7% reduced Mana Cost of Skills", "count": 7},
-		{"name": "nerchaos", "desc": "Nearby Enemies have 8% to Chaos Resistance", "count": 8},
-		{"name": "nercold", "desc": "Nearby Enemies have 8% to Cold Resistance", "count": 8},
-		{"name": "nerfire", "desc": "Nearby Enemies have 8% to Fire Resistance", "count": 8},
-		{"name": "nerlightning", "desc": "Nearby Enemies have 8% to Lightning Resistance", "count": 8},
+		{"name": "nerchaos", "desc": "Nearby Enemies have -8% to Chaos Resistance", "count": -8},
+		{"name": "nercold", "desc": "Nearby Enemies have -8% to Cold Resistance", "count": -8},
+		{"name": "nerfire", "desc": "Nearby Enemies have -8% to Fire Resistance", "count": -8},
+		{"name": "nerlightning", "desc": "Nearby Enemies have -8% to Lightning Resistance", "count": -8},
 		{"name": "neiele", "desc": "Nearby Enemies take 8% increased Elemental Damage", "count": 8},
 		{"name": "neiphys", "desc": "Nearby Enemies take 8% increased Physical Damage", "count": 8},
 		{"name": "minionchancedoubledamage", "desc": "Minions have 1% chance to deal Double Damage", "count": 1},
