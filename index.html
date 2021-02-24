@@ -1,402 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Mod Search Generator</title>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.8/brython.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.8/brython_stdlib.js"></script>
-	<link href="css/layout.css" rel="stylesheet" type="text/css"/>
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body onload="brython(1)">
-<section class="main">
-	<p>Updated for 3.13</p>
-	<p>2021/02/08: Battlemage added, pseudomods re-enabled. Please report any issues.</p>
-	<br/>
-	<div id="instruction"></div>
-	<div id="instructions">
-		<h1>Using this page.</h1>
-		There are 2 primary ways to use this page. A script created by VolatilePulse and coldino, or manually adding the jewels with the necessary mods to PoB and copying the values over by hand.
-		<h3>Using VolatilePulse and coldino's script</h3>
-		Go to <a href='https://github.com/PathOfBuildingCommunity/PathOfBuilding/releases' target="_blank">PoB Fork releases page</a> and download Path Of Building(Community Fork).<br/>
-		install or extract files <br/>
-		Create and save a build. Leave PoB running <br/>
-		Navigate to <a href="https://github.com/VolatilePulse/PoB-Item-Tester" target="_blank">VolatilePulse's Github Repository</a> <br/>
-		Clone or download, unzip, and enter directory <br/>
-		Run TestItem.ahk, select the build you want from the list.<br/>
-		Ctrl+Windows+d and it should automatically open this page with values filled out. <br/>
-		Ctrl+Alt+Windows+d will prompt you to choose build and then automatically open this page. <br/><br/>
-		Double check all of the flags at the end to make sure they match what you are trying to do. EG if you are molten strike you probably don't care about the melee flag as the projectile part is more important <br/><br/><br/>
-		<strong>Troubleshooting:</strong> <br/>
-		After the first time you run TestItem.ahk it will generate TestItem.ini. You may need to modify "PathToPoB" <br/>
-		<h3>Manually copy from PoB</h3>
-		You need to add jewels to Path of Building, if you have not yet done so.<br/><br/>
-		<a href="jewellist.txt" target="_blank">Text file to add jewels by hand</a><br/><br/>
-		<a href="jewellistxml.txt" target="_blank">xml file to add jewels direction to Path of Building Settings (at your own risk).</a> As pointed out by github user coldino, you can edit your My Documents/Path of Building/Settings.xml directly. The lines from jewellistxml.txt should be added directly after the &lt;SharedItems&gt; tag. &lt;Shared Items&gt; should be right after &lt;/Accounts&gt;. If you only have &lt;SharedItems/&gt; in that file, you will need to replace it with &lt;SharedItems&gt;&lt;/SharedItems&gt;<br/><br/>
-		You then need to spec an empty jewel node on your tree in PoB and mouse over each added jewel for the values to add in this table. After filling in the table and selection the relevant mods, click "Generate Query" and a query string will be created for you.<br/><br/>
-	</div>
-	<br/>
-	<div id="error"><b>This page requires javascript in order to run.</b></div>
-	<div id="Character"><strong>Build Name:</strong></div>
-	<div id="Skill"><strong>Skill:</strong></div>
+	<head>
+		<meta name="robots" content="noindex" />
+		<meta charset="UTF-8">
+		<title>Mod Search Generator</title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js"></script>
+		<link href="css/layout.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	</head>
+	<body onload="brython(1)">
+		<section class="main">
+			<div id="specialnotice" style="display: none;"></div>
+			<p><strong>This page requires local storage to save state.</strong><br />Updated for 3.13</p>
+			<div id="loading">
+				This page requires javascript in order to work correctly.
+				<br><br>
+				This page may take a moment to load.
+			</div>
+			<div id="Character"><strong>Build Name:</strong></div>
+			<div id="Skill"><strong>Skill:</strong></div>
+			<div id="buttons"></div>
+			<div id="pages"></div>
+			<br /><br />
+			<div id="searchflags"></div>
+			<strong>Base:</strong> <span id="baselist"></span>. Only mods from selected base will be allowed in results.
+			<br/><br/>
+			<strong>League:</strong> <span id="leaguelist"></span>.<br/><br/>
+			<br/><br/>
+			<div id="generate"></div>
+			<br/>
+			<a href="" id="query" target="_blank">Search</a> Generated <span id="modcount"></span> mods<br/>
+			<div id="culled"></div>
+			<br/>
+			<div id="414by"> If you get "Query too complex" on the trade site, log in to pathofexile.com and try the link again. <br/>Raw query string:<input type="text" id="414bypass" onClick="this.select();" readonly>. <br/><br/></div>
+			<div id="notice">This url may take more than 1 try to load. I do not know why the official site fails some times. Note that the sum of the weights is an approximation as stats scale in relation to each other. EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable. Looking at each mod in isolation cannot perfectly recreate that.</div>
+			<br/><br/>
+			<p>
+				<a href="https://github.com/xanthics/PoE_Weighted_Search/discussions" target="_blank">Suggestions</a>
+				<br/>
+				<a href="https://github.com/xanthics/PoE_Weighted_Search/issues" target="_blank">Bugs</a>
+				<br/>
+				For AHK script issues that are not specific to this page <a href="https://github.com/VolatilePulse/PoB-Item-Tester" target="_blank">go here</a> for support options, including discord.
+			</p>
 
-	<table id="mod weights">
-	</table>
-	<br/><br/>
-
-	<strong>Charges:</strong> Do you sustain charges?<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="useFrenzyCharges">Frenzy</label></td>
-			<td><label><input type="checkbox" id="usePowerCharges">Power</label></td>
-			<td><label><input type="checkbox" id="useEnduranceCharges">Endurance</label></td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>Charge count:</strong> The max number of each type of charge your build sustains<br/>
-	<table>
-		<tr>
-			<td><input type="number" name="PowerCount" value="0" data-normal="1" style="width: 3em"></td>
-			<td>Power</td>
-		</tr>
-		<tr>
-			<td><input type="number" name="FrenzyCount" value="0" data-normal="1" style="width: 3em"></td>
-			<td>Frenzy</td>
-		</tr>
-		<tr>
-			<td><input type="number" name="EnduranceCount" value="0" data-normal="1" style="width: 3em"></td>
-			<td>Endurance</td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>Type:</strong> Generally select 1 based on your type of attack<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="Attack">Attack</label></td>
-			<td><label><input type="checkbox" id="Spell">Spell</label></td>
-	</table>
-	<br/><br/>
-
-	<strong>Class:</strong> If you are attack based, select 1 or more(Varunastra) weapon types. Trap/Mine/Totem if you are using those supports<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="Mace">Mace</label></td>
-			<td><label><input type="checkbox" id="Bow">Bow</label></td>
-			<td><label><input type="checkbox" id="Wand">Wand</label></td>
-			<td><label><input type="checkbox" id="Claw">Claw</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="Staff">Staff</label></td>
-			<td><label><input type="checkbox" id="Sword">Sword</label></td>
-			<td><label><input type="checkbox" id="Axe">Axe</label></td>
-			<td><label><input type="checkbox" id="Dagger">Dagger</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="Trap">Trap</label></td>
-			<td><label><input type="checkbox" id="Mine">Mine</label></td>
-			<td><label><input type="checkbox" id="Totem">Totem</label></td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>Tags:</strong> Check all the tags that match your primary skill<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="Melee">Melee</label></td>
-			<td><label><input type="checkbox" id="Area">Area</label></td>
-			<td><label><input type="checkbox" id="Projectile">Projectile</label></td>
-			<td><label><input type="checkbox" id="Elemental">Elemental</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="Fire">Fire</label></td>
-			<td><label><input type="checkbox" id="Cold">Cold</label></td>
-			<td><label><input type="checkbox" id="Lightning">Lightning</label></td>
-			<td><label><input type="checkbox" id="Spectre">Spectre</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="Vaal">Vaal</label></td>
-			<td><label><input type="checkbox" id="Trigger">Triggered</label></td>
-			<td><label><input type="checkbox" id="Exerted">Exerted</label></td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>Hands:</strong> choose 1 based on wielded weapons<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="Shield">Shield</label></td>
-			<td><label><input type="checkbox" id="DualWielding">Dual Wielding</label></td>
-			<td><label><input type="checkbox" id="TwoHandedWeapon">Two Handed Weapon</label></td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>Recently:</strong> Tic all the things your build can do 'recently'<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="conditionKilledRecently">You Kill</label></td>
-			<td><label><input type="checkbox" id="conditionMinionsKilledRecently">Minion Kill</label></td>
-			<td><label><input type="checkbox" id="NoRecentKill">Not Kill</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="conditionCritRecently">Crit</label></td>
-			<td><label><input type="checkbox" id="NoRecentCrit">Not Crit</label></td>
-			<td><label><input type="checkbox" id="conditionUsedMinionSkillRecently">Minion Skill</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="Stun">Stun</label></td>
-			<td><label><input type="checkbox" id="Shatter">Shatter</label></td>
-			<td><label><input type="checkbox" id="beShocked">Be Shocked</label></td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>Enemy is:</strong> status effects on your target<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="conditionEnemyPoisoned">Poisoned</label></td>
-			<td><label><input type="checkbox" id="conditionEnemyBlinded">Blinded</label></td>
-			<td><label><input type="checkbox" id="conditionEnemyShocked">Shocked</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="conditionEnemyIgnited">Ignited</label></td>
-			<td><label><input type="checkbox" id="conditionEnemyBurning">Burning</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="conditionEnemyChilled">Chilled</label></td>
-			<td><label><input type="checkbox" id="conditionEnemyFrozen">Frozen</label></td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>You are/have:</strong> Tic all the things affecting you<br/>
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="Spellslinger">Spellslinger</label></td>
-			<td><label><input type="checkbox" id="SpellslingerDW">Spellslinger(DW)</label></td>
-			<td><label><input type="checkbox" id="BattleMage">BattleMage</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="conditionUsingFlask">Flasked</label></td>
-			<td><label><input type="checkbox" id="leechLife">Leeching Life</label></td>
-			<td><label><input type="checkbox" id="leechMana">Leeching Mana</label></td>
-		</tr>
-	</table>
-	<p><strong>Spellslinger/Battlemage Notes</strong>: Only select, at max, one of the Spellslingers and remember Spellslinger only works with wands. Physical damage is not correct as it depends on base item, quality, %ipd. Existing search mods don't allow for a meaningful weight to be generated.</p>
-	<br/><br/>
-
-	<strong>Other options:</strong> choices that don't neatly fit a section<br/>
-	PseudoMods is experimental. Please report any issues.
-	<table>
-		<tr>
-			<td><label><input type="checkbox" id="NoCraftedMods">Ignore Crafted Mods</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="NoImplicitMods">Ignore Implicit Mods</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="NearbyRareUnique">Nearby Rare or Unique Monster</label></td>
-		</tr>
-		<tr>
-			<td><label><input type="checkbox" id="PseudoMods">Use PseudoMods in Search</label></td>
-		</tr>
-	</table>
-	<br/><br/>
-
-	<strong>Base:</strong> <span id="baselist"></span>. Only mods from selected base will be allowed in results.
-	<br/><br/>
-	<strong>League:</strong> <span id="leaguelist"></span>.<br/><br/>
-	<strong>Weights:</strong> Defaults should be fine. Trade site occassionally changes how expensive searches are. If you get "Query too complex" on the trade site, first try logging in to pathofexile.com and clicking the link again.<br/>
-	<table>
-		<tr>
-			<td><input type="number" name="MaxWeight" value="200" data-normal="1" style="width: 3em"></td>
-			<td>Maximum Allowed Query Weight</td>
-		</tr>
-		<tr>
-			<td><input type="number" name="BaseWeight" value="55" data-normal="1" style="width: 3em"></td>
-			<td>Base Query Weight</td>
-		</tr>
-		<tr>
-			<td><input type="number" name="WeightedMod" value="4" data-normal="1" style="width: 3em"></td>
-			<td>Per Weighted Mod Cost</td>
-		</tr>
-	</table>
-	<br/><br/>
-
-
-	<div id="generate"></div>
-	<br/>
-	<a href="" id="query" target="_blank">Search</a> Generated <span id="modcount"></span> mods<br/>
-	<div id="culled"></div>
-	<br/>
-	<div id="414by"> If you get "Query too complex" on the trade site, log in to pathofexile.com and try the link again. <br/>Raw query string:<input type="text" id="414bypass" onClick="this.select();" readonly>. <br/><br/></div>
-	<div id="notice">This url may take more than 1 try to load. I do not know why the official site fails some times. Note that the sum of the weights is an approximation as stats scale in relation to each other. EG crit multi becomes more valuable the higher your crit chance is, while crit chance becomes less valuable. Looking at each mod in isolation cannot perfectly recreate that.</div>
-	<br/><br/>
-	<p>
-		<a href="https://github.com/xanthics/PoE_Weighted_Search/discussions" target="_blank">Suggestions</a>
-		<br/>
-		<a href="https://github.com/xanthics/PoE_Weighted_Search/issues" target="_blank">Bugs</a>
-		<br/>
-		For AHK script issues that are not specific to this page <a href="https://github.com/VolatilePulse/PoB-Item-Tester" target="_blank">go here</a> for support options, including discord.
-	</p>
-
-	<div id="patreon"><a href="https://www.patreon.com/xanthics"><img alt="Become a Patron!" src="img/become_a_patron_button@2x.png" id="patreon_image"></a></div>
-
-	<script type="text/python">
-		# browser specific modules
-		from browser import document as doc
-		from browser import html
-		from browser.html import TABLE, TR, TH, TD, B, BR
-		from browser.local_storage import storage
-		# python modules
-		# my files
-		from gensearchparams import gensearchparams
-		from leaguelist import leagues
-		from baselist import bases
-		from modsjson import mjson
-
-		saved_states = ["NoCraftedMods", "NoImplicitMods", "NearbyRareUnique", "PseudoMods"]  # , "NoFracturedMods"
-
-		storage_key = "poe_weighted_search"
-
-		# Setter storage so that we can differentiate values on this site from others at the same domain
-		def set_storage(key, val):
-			storage["{}-{}".format(storage_key, key)] = val
-
-		# Getting for storage so that we can differentiate values on this site from others at the same domain
-		def get_storage(key):
-			return storage["{}-{}".format(storage_key, key)]
-
-		# Check if a value exists in storage
-		def check_storage(key):
-			return "{}-{}".format(storage_key, key) in storage
-
-		def generate_query(ev):
-			league = leagues[doc['league'].selectedIndex]
-			set_storage('league', league)
-			base = bases[doc['base'].selectedIndex]
-			set_storage('base', base)
-			for _f in saved_states:
-				if doc[_f].checked:
-					set_storage(_f, "T")
-				else:
-					set_storage(_f, "")
-			url_api = f'https://www.pathofexile.com/trade/search/{league}?q='
-			dps = {}
-			for elt in doc.get(selector='input[type="number"]'):
-				dps[elt.name] = float(elt.value)/float(elt.getAttribute("data-normal"))
-			dps['extrarandom'] = (dps['extrafire'] + dps['extracold'] + dps['extralightning']) / 3
-			selections = set()
-			for elt in doc.get(selector='input[type="checkbox"]'):
-				if elt.checked:
-					selections.add(elt.id)
-			querystring, count, culled = gensearchparams(dps, selections, base)
-			doc['culled'].text = ''
-			if culled:
-				mystr = ''
-				for _x in [BR() + x for x in culled]:
-					mystr += _x
-				doc['culled'] <= BR() + f'{len(culled)} mods were culled from query.' + BR() + mystr
-			doc["query"].href = url_api + querystring
-			doc["modcount"].text = count
-			doc["414bypass"].value = querystring
-			doc["query"].style.display = "inline"
-			doc["notice"].style.display = "inline"
-			doc["414by"].style.display = "inline"
-
-		def toggle_instructions(ev):
-			if doc["instructions"].style.display == "none":
-				doc["instructions"].style.display = "inline"
-			else:
-				doc["instructions"].style.display = "none"
-
-		def create_table():
-			t = TABLE()
-			th = TR()
-			th <= TH("Damage")
-			th <= TH("Jewel Mod")
-			t <= th
-			for m in mjson:
-				t <= TR( TD( '<input type="number" name="{}" value="0" data-normal="{}" step="0.1">'.format(m['name'], m['count']) ) + TD( m['desc'] ) )
-			doc['mod weights'] <= t
-
-		def process_querystring():
-			errorstring = ''
-			for elt in doc.get(selector='input[type="number"]'):
-				if elt.name not in ["MaxWeight", "BaseWeight", "WeightedMod"]:
-					try:
-						elt.value = doc.query[elt.name]
-					except KeyError:
-						elt.value = 0
-			try:
-				flags = doc.query["Flags"].strip(',').split(',')
-				for f in flags:
-					try:
-						doc[f].checked = True
-					except KeyError:
-						print("Flag '{}' recieved but not currently supported.".format(f))
-				if 'conditionCritRecently' not in flags:
-					doc["NoRecentCrit"].checked = True
-				if 'conditionKilledRecently' not in flags:
-					doc["NoRecentKill"].checked = True
-			except KeyError:
-				print("No Flags parameter passed in query string")
-
-			for val in ['Skill', 'Character']:
-				try:
-					if doc.query[val]:
-						doc[val] <= doc.query[val]
-				except KeyError:
-					doc[val].style.display = "none"
-
-			# Set default states
-#			doc["NoFracturedMods"].checked = True
-			doc["PseudoMods"].checked = True
-			for _f in saved_states:
-				if check_storage(_f):
-					doc[_f].checked = bool(get_storage(_f))
-
-
-		def create_league_list():
-			sel = html.SELECT(size=1, multiple=False, id="league")
-			for league in leagues:
-				sel <= html.OPTION(league)
-			doc['leaguelist'] <= sel
-			if check_storage('league') and get_storage('league') in leagues:
-				doc['league'].value = get_storage('league')
-
-		def create_base_list():
-			sel = html.SELECT(size=1, multiple=False, id="base")
-			for base in bases:
-				sel <= html.OPTION(base)
-			doc['baselist'] <= sel
-			if check_storage('base') and get_storage('base') in bases:
-				doc['base'].value = get_storage('base')
-
-		doc["query"].style.display = "none"
-		doc["notice"].style.display = "none"
-		doc["414by"].style.display = "none"
-		doc["instructions"].style.display = "none"
-		b_generate = html.BUTTON("Generate Query")
-		b_generate.bind("click", generate_query)
-		doc["generate"] <= b_generate
-		b_generate = html.BUTTON("<strong>Toggle Instructions</strong>")
-		b_generate.bind("click", toggle_instructions)
-		doc["instruction"] <= b_generate
-		create_table()
-		process_querystring()
-		create_league_list()
-		create_base_list()
-		doc["error"].style.display = "none"
-
-
-	
-
-	</script>
-
-
-</section>
-</body>
+			<div id="patreon"><a href="https://www.patreon.com/xanthics"><img alt="Become a Patron!" src="img/become_a_patron_button@2x.png" id="patreon_image"></a></div>
+		</section>
+		<script type="text/python" src="gen_page.py"></script>
+	</body>
 </html>
