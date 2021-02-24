@@ -1,98 +1,82 @@
 		<Item>
 			Rarity: RARE
-12% increased Damage over Time
++1 to Level of all Spell Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-12% increased Damage over Time
++1 to Level of all Spell Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-12% increased Damage with Ailments
++1 to Level of all Dexterity Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-12% increased Damage with Ailments
++1 to Level of all Dexterity Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-12% increased Damage with Bleeding
++1 to Level of all Strength Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-12% increased Damage with Bleeding
++1 to Level of all Strength Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-12% increased Damage with Poison
++1 to Level of all Intelligence Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-12% increased Damage with Poison
++1 to Level of all Intelligence Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-12% increased Burning Damage
++1 to Level of all Minion Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-12% increased Burning Damage
++1 to Level of all Minion Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+12% to Damage over Time Multiplier
++1 to Level of all Chaos Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+12% to Damage over Time Multiplier
++1 to Level of all Chaos Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+12% to Physical Damage over Time Multiplier
++1 to Level of all Cold Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+12% to Physical Damage over Time Multiplier
++1 to Level of all Cold Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+12% to Fire Damage over Time Multiplier
++1 to Level of all Fire Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+12% to Fire Damage over Time Multiplier
++1 to Level of all Fire Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+12% to Cold Damage over Time Multiplier
++1 to Level of all Lightning Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+12% to Cold Damage over Time Multiplier
++1 to Level of all Lightning Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
-+12% to Chaos Damage over Time Multiplier
++1 to Level of all Physical Skill Gems
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+12% to Chaos Damage over Time Multiplier
-		</Item>
-		<Item>
-			Rarity: RARE
-+100 to Accuracy Rating
-Hypnotic Eye Jewel
-Item Level: 1
-Implicits: 0
-+100 to Accuracy Rating
-		</Item>
-		<Item>
-			Rarity: RARE
-10% increased Global Accuracy Rating
-Hypnotic Eye Jewel
-Item Level: 1
-Implicits: 0
-10% increased Global Accuracy Rating
++1 to Level of all Physical Skill Gems
 		</Item>
 		<Item>
 			Rarity: RARE
@@ -176,6 +160,22 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
++100 to Accuracy Rating
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++100 to Accuracy Rating
+		</Item>
+		<Item>
+			Rarity: RARE
+10% increased Global Accuracy Rating
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+10% increased Global Accuracy Rating
+		</Item>
+		<Item>
+			Rarity: RARE
 16% increased Global Critical Strike Chance
 Hypnotic Eye Jewel
 Item Level: 1
@@ -245,6 +245,14 @@ Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Fire Resistance
+		</Item>
+		<Item>
+			Rarity: RARE
+Overwhelm 10% Physical Damage Reduction
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Overwhelm 10% Physical Damage Reduction
 		</Item>
 		<Item>
 			Rarity: RARE
@@ -520,6 +528,54 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
+Nearby Enemies have 8% to Chaos Resistance
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Nearby Enemies have 8% to Chaos Resistance
+		</Item>
+		<Item>
+			Rarity: RARE
+Nearby Enemies have 8% to Cold Resistance
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Nearby Enemies have 8% to Cold Resistance
+		</Item>
+		<Item>
+			Rarity: RARE
+Nearby Enemies have 8% to Fire Resistance
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Nearby Enemies have 8% to Fire Resistance
+		</Item>
+		<Item>
+			Rarity: RARE
+Nearby Enemies have 8% to Lightning Resistance
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Nearby Enemies have 8% to Lightning Resistance
+		</Item>
+		<Item>
+			Rarity: RARE
+Nearby Enemies take 8% increased Elemental Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Nearby Enemies take 8% increased Elemental Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+Nearby Enemies take 8% increased Physical Damage
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Nearby Enemies take 8% increased Physical Damage
+		</Item>
+		<Item>
+			Rarity: RARE
 Minions have 1% chance to deal Double Damage
 Hypnotic Eye Jewel
 Item Level: 1
@@ -592,81 +648,185 @@ Minions deal 4 to 7 additional Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Chaos Skill Gems
+Minions have 100 to Accuracy Rating
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Chaos Skill Gems
+Minions have 100 to Accuracy Rating
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Cold Skill Gems
+10% increased Minion Accuracy Rating
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Cold Skill Gems
+10% increased Minion Accuracy Rating
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Fire Skill Gems
+12% increased Damage over Time
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Fire Skill Gems
+12% increased Damage over Time
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Lightning Skill Gems
+12% increased Damage with Ailments
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Lightning Skill Gems
+12% increased Damage with Ailments
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Physical Skill Gems
+12% increased Damage with Bleeding
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Physical Skill Gems
+12% increased Damage with Bleeding
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Dexterity Skill Gems
+12% increased Damage with Poison
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Dexterity Skill Gems
+12% increased Damage with Poison
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Strength Skill Gems
+12% increased Burning Damage
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Strength Skill Gems
+12% increased Burning Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Intelligence Skill Gems
++12% to Damage over Time Multiplier
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Intelligence Skill Gems
++12% to Damage over Time Multiplier
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Minion Skill Gems
++12% to Physical Damage over Time Multiplier
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Minion Skill Gems
++12% to Physical Damage over Time Multiplier
 		</Item>
 		<Item>
 			Rarity: RARE
-+1 to Level of all Spell Skill Gems
++12% to Fire Damage over Time Multiplier
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-+1 to Level of all Spell Skill Gems
++12% to Fire Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
++12% to Cold Damage over Time Multiplier
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++12% to Cold Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
++12% to Chaos Damage over Time Multiplier
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
++12% to Chaos Damage over Time Multiplier
+		</Item>
+		<Item>
+			Rarity: RARE
+Anger has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Anger has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Determination has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Determination has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Discipline has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Discipline has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Grace has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Grace has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Hatred has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Hatred has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Malevolence has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Malevolence has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Pride has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Pride has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Wrath has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Wrath has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+Zealotry has 34% increased Aura Effect
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Zealotry has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+20% increased effect of Non-Curse Auras from your Skills
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+20% increased effect of Non-Curse Auras from your Skills
+		</Item>
+		<Item>
+			Rarity: RARE
+Auras from your Skills grant 4% increased Damage to you and Allies
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Auras from your Skills grant 4% increased Damage to you and Allies
 		</Item>
