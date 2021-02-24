@@ -175,6 +175,16 @@ def init_page():
 	init_flags()
 	init_change()
 
+	doc["query"].style.display = "none"
+	doc["notice"].style.display = "none"
+	doc["414by"].style.display = "none"
+	b_generate = BUTTON("Generate Query")
+	b_generate.bind("click", generate_query)
+	doc["generate"] <= b_generate
+	process_querystring()
+	init_main()
+	doc["loading"].style.display = "none"
+
 	# Make it so navigation buttons work
 	@bind('.page', 'click')
 	def change_page(ev):
@@ -192,6 +202,9 @@ def init_page():
 # Fill in the "about" page
 def init_about():
 	t = doc['About']
+	t <= H1('Usage Hint')
+	t <= P('This tool is for finding additions to your current gear set.  So if you are replacing an item, you should unequip it in PoB first and save, before doing a search.')
+	t <= H1('Design Choices')
 	t <= P("This page is designed for finding rares for any slot based on how they affect your damage.  Attack weapons are not supported due to them not being modelable with weights.  Additionally almost all unique only mods are ignored.")
 	t <= P("A summary of mods/items that aren't supported (yet?).  Some list items will be revisited after PoB 2.0 update.")
 	t <= UL(
@@ -374,12 +387,4 @@ def init_main():
 
 
 init_page()
-doc["query"].style.display = "none"
-doc["notice"].style.display = "none"
-doc["414by"].style.display = "none"
-b_generate = BUTTON("Generate Query")
-b_generate.bind("click", generate_query)
-doc["generate"] <= b_generate
-process_querystring()
-init_main()
-doc["loading"].style.display = "none"
+
