@@ -338,7 +338,8 @@ def init_flags():
 	doc['Flags'] <= STRONG('Enemy is:') + ' Status effects on your target' + t + BR()
 
 	data = ['Spellslinger', ('SpellslingerDW', 'Spellslinger(DW)'), 'BattleMage',
-	        ('UsingFlask', 'Flasked'), ('leechLife', 'Leeching Life'), ('leechMana', 'Leeching Mana')]
+	        ('Leeching', 'Leeching (Generic))'), ('leechLife', 'Leeching Life'), ('leechMana', 'Leeching Mana'),
+	        ('UsingFlask', 'Flasked'), ]
 	t = make_table(data, 3, 'You are/have')
 	doc['Flags'] <= STRONG('You are/have:') + ' Tic all the things affecting you' + t + P(STRONG('Spellslinger/Battlemage Notes:') + " Only select, at max, one of the Spellslingers and remember Spellslinger only works with wands. Physical damage is not correct as it depends on base item, quality, %ipd. Existing search mods don't allow for a meaningful weight to be generated.") + BR()
 

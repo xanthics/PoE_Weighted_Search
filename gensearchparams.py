@@ -107,7 +107,7 @@ def gensearchparams(dps, selections, base):
 		"Triggered Spells deal #% increased Spell Damage": [dps['pgeneric'][0] if {'Trigger'}.issubset(selections) else 0, dps['pgeneric'][1]],
 		"Exerted Attacks deal #% increased Damage": [dps['pgeneric'][0] if {'Exerted'}.issubset(selections) else 0, dps['pgeneric'][1]],
 		"#% increased Projectile Attack Damage during any Flask Effect": [dps['pgeneric'][0] if {'Projectile', "Attack", 'UsingFlask'}.issubset(selections) else 0, dps['pgeneric'][1]],
-		"#% increased Damage while Leeching": [dps['pgeneric'][0] if {'leechLife'}.issubset(selections) or {'leechMana'}.issubset(selections) else 0, dps['pgeneric'][1]],
+		"#% increased Damage while Leeching": [dps['pgeneric'][0] if {'Leeching'}.issubset(selections) else 0, dps['pgeneric'][1]],
 		"#% increased Damage while Leeching Life": [dps['pgeneric'][0] if {'leechLife'}.issubset(selections) else 0, dps['pgeneric'][1]],
 		"#% increased Damage while Leeching Mana": [dps['pgeneric'][0] if {'leechMana'}.issubset(selections) else 0, dps['pgeneric'][1]],
 		"#% increased Elemental Damage if you've dealt a Critical Strike Recently": [dps['pelemental'][0] if {'CritRecently'}.issubset(selections) else 0, dps['pelemental'][1]],
