@@ -294,7 +294,7 @@ def init_flags():
 	t <= TR(TD(INPUT(type="number", Id="PowerCount", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Power'))
 	t <= TR(TD(INPUT(type="number", Id="FrenzyCount", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Frenzy'))
 	t <= TR(TD(INPUT(type="number", Id="EnduranceCount", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Endurance'))
-	t <= TR(TD(INPUT(type="number", Id="impaleCount", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Number of Impales on Target'))
+	t <= TR(TD(INPUT(type="number", Id="multiplierImpalesOnEnemy", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Number of Impales on Target'))
 	doc['Flags'] <= STRONG('Misc Counts:') + ' The "count" of various things affecting your build.' + t + BR()
 
 	data = ['Attack', 'Spell']
@@ -370,9 +370,9 @@ def init_main():
 			flags[temp['data-type']].append(temp['data-id'])
 	# Special section for charge counts
 	charge_count = []
-	for elt in [doc['PowerCount'], doc['FrenzyCount'], doc['EnduranceCount'], doc['impaleCount']]:
+	for elt in [doc['PowerCount'], doc['FrenzyCount'], doc['EnduranceCount'], doc['multiplierImpalesOnEnemy']]:
 		if int(elt.value):
-			name = elt['id'][:-5] if elt['id'] != 'impaleCount' else "Number of Impales on Target"
+			name = elt['id'][:-5] if elt['id'] != 'multiplierImpalesOnEnemy' else "Number of Impales on Target"
 			charge_count.append(f"{name} ({elt.value})")
 	if charge_count:
 		flags['Misc Counts'] = charge_count

@@ -223,7 +223,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Lightning Damage": [dps['flatlightning'][0], dps['flatlightning'][1]],
 		"Adds # to # Lightning Damage to Spells and Attacks": [dps['flatlightning'][0] if {'Attack', 'Spell'}.intersection(selections) else 0, dps['flatlightning'][1]],
 		# Flat Damage - Physical
-		"Adds # to # Physical Damage for each Impale on Enemy": [dps['flatphys'][0] * dps['impaleCount'][0], dps['flatphys'][1] * dps['impaleCount'][1]],
+		"Adds # to # Physical Damage for each Impale on Enemy": [dps['flatphys'][0] * dps['multiplierImpalesOnEnemy'][0], dps['flatphys'][1] * dps['multiplierImpalesOnEnemy'][1]],
 		"Adds # to # Physical Damage to Attacks": [dps['flatphys'][0] if {'Attack'}.issubset(selections) else 0, dps['flatphys'][1]],
 		"Adds # to # Physical Damage to Axe Attacks": [dps['flatphys'][0] if {'Attack', 'Axe'}.issubset(selections) else 0, dps['flatphys'][1]],
 		"Adds # to # Physical Damage to Bow Attacks": [dps['flatphys'][0] if {'Attack', 'Bow'}.issubset(selections) else 0, dps['flatphys'][1]],
