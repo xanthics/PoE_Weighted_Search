@@ -108,13 +108,15 @@ def process_querystring():
 		try:
 			flags = doc.query["Flags"].strip(',').split(',')
 			for f in flags:
+				if f.startswith('condition'):
+					f = f[9:]
 				try:
 					doc[f].checked = True
 				except KeyError:
 					print("Flag '{}' recieved but not currently supported.".format(f))
-			if 'conditionCritRecently' not in flags:
+			if 'CritRecently' not in flags:
 				doc["NoRecentCrit"].checked = True
-			if 'conditionKilledRecently' not in flags:
+			if 'KilledRecently' not in flags:
 				doc["NoRecentKill"].checked = True
 		except KeyError:
 			print("No Flags parameter passed in query string")
@@ -294,7 +296,7 @@ def init_flags():
 	t <= TR(TD(INPUT(type="number", Id="PowerCount", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Power'))
 	t <= TR(TD(INPUT(type="number", Id="FrenzyCount", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Frenzy'))
 	t <= TR(TD(INPUT(type="number", Id="EnduranceCount", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Endurance'))
-	t <= TR(TD(INPUT(type="number", Id="multiplierImpalesOnEnemy", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Number of Impales on Target'))
+	t <= TR(TD(INPUT(type="number", Id="ImpaleStacks", value="0", data_normal="1", style={"width": "3em"}, Class="dps_val")) + TD('Number of Impales on Target'))
 	doc['Flags'] <= STRONG('Misc Counts:') + ' The "count" of various things affecting your build.' + t + BR()
 
 	data = ['Attack', 'Spell']
@@ -317,19 +319,19 @@ def init_flags():
 	t = make_table(data, 3, 'Hands')
 	doc['Flags'] <= STRONG('Hands:') + ' Choose 1 based on wielded weapons' + t + BR()
 
-	data = [('conditionKilledRecently', 'You Kill'), ('conditionMinionsKilledRecently', 'Minion Kill'), ('NoRecentKill', 'Not Kill'),
-	        ('conditionCritRecently', 'Crit'), ('NoRecentCrit', 'Not Crit'), ('conditionUsedMinionSkillRecently', 'Minion Skill'),
+	data = [('KilledRecently', 'You Kill'), ('MinionsKilledRecently', 'Minion Kill'), ('NoRecentKill', 'Not Kill'),
+	        ('CritRecently', 'Crit'), ('NoRecentCrit', 'Not Crit'), ('UsedMinionSkillRecently', 'Minion Skill'),
 	        'Stun', 'Shatter', ('beShocked', 'Be Shocked')]
 	t = make_table(data, 3, 'Recently')
 	doc['Flags'] <= STRONG('Recently:') + " Tic all the things your build can do 'recently'" + t + BR()
 
-	data = [('conditionEnemyPoisoned', 'Poisoned'), ('conditionEnemyBlinded', 'Blinded'), ('conditionEnemyIgnited', 'Ignited'), ('conditionEnemyBurning', 'Burning'),
-	        ('conditionEnemyChilled', 'Chilled'), ('conditionEnemyFrozen', 'Frozen'), ('conditionEnemyShocked', 'Shocked')]
+	data = [('EnemyPoisoned', 'Poisoned'), ('EnemyBlinded', 'Blinded'), ('EnemyIgnited', 'Ignited'), ('EnemyBurning', 'Burning'),
+	        ('EnemyChilled', 'Chilled'), ('EnemyFrozen', 'Frozen'), ('EnemyShocked', 'Shocked')]
 	t = make_table(data, 4, 'Enemy is')
 	doc['Flags'] <= STRONG('Enemy is:') + ' Status effects on your target' + t + BR()
 
 	data = ['Spellslinger', ('SpellslingerDW', 'Spellslinger(DW)'), 'BattleMage',
-	        ('conditionUsingFlask', 'Flasked'), ('leechLife', 'Leeching Life'), ('leechMana', 'Leeching Mana')]
+	        ('UsingFlask', 'Flasked'), ('leechLife', 'Leeching Life'), ('leechMana', 'Leeching Mana')]
 	t = make_table(data, 3, 'You are/have')
 	doc['Flags'] <= STRONG('You are/have:') + ' Tic all the things affecting you' + t + P(STRONG('Spellslinger/Battlemage Notes:') + " Only select, at max, one of the Spellslingers and remember Spellslinger only works with wands. Physical damage is not correct as it depends on base item, quality, %ipd. Existing search mods don't allow for a meaningful weight to be generated.") + BR()
 
@@ -370,9 +372,9 @@ def init_main():
 			flags[temp['data-type']].append(temp['data-id'])
 	# Special section for charge counts
 	charge_count = []
-	for elt in [doc['PowerCount'], doc['FrenzyCount'], doc['EnduranceCount'], doc['multiplierImpalesOnEnemy']]:
+	for elt in [doc['PowerCount'], doc['FrenzyCount'], doc['EnduranceCount'], doc['ImpaleStacks']]:
 		if int(elt.value):
-			name = elt['id'][:-5] if elt['id'] != 'multiplierImpalesOnEnemy' else "Number of Impales on Target"
+			name = elt['id'][:-5] if elt['id'] != 'ImpaleStacks' else "Number of Impales on Target"
 			charge_count.append(f"{name} ({elt.value})")
 	if charge_count:
 		flags['Misc Counts'] = charge_count
