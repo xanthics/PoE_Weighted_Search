@@ -80,7 +80,7 @@ def process_querystring():
 			version = int(n_arr[0])
 			if version in mjson:
 				if version != current_version:
-					doc['specialnotice'] <= H1("You are using an outdated version of mods.json" + BR() + f"Current version is {current_version}, you are using {version}.")
+					doc['specialnotice'] <= H1("You are using an outdated version of mods.json, this should automatically update when you start PoB-Item-Tester" + BR() + f"Current version is {current_version}, you are using {version}.")
 					doc['specialnotice'].style.display = 'block'
 					current_version = version
 				init_weight(current_version)
@@ -88,23 +88,30 @@ def process_querystring():
 					if val:
 						doc[mjson[version][c]['name']].value = float(val)
 			else:
-				doc['specialnotice'] <= H1("You are using an upsupported version of mods.json" + BR() + f"Current version is {current_version}, you are using {version}.")
+				doc['specialnotice'] <= H1("You are using an unsupported version of mods.json" + BR() + f"Current version is {current_version}, you are using {version}.")
 				doc['specialnotice'].style.display = 'block'
 				init_weight(current_version)
 			# Handle mods that aren't weights or flags
 			for key in doc.query:
 				if key not in ['Flags', 'vals']:
-					doc[key].value = doc.query[key]
+					try:
+						doc[key].value = doc.query[key]
+					except KeyError:
+						print(f"Key '{key}' recieved but not currently supported")
 
 		else:
 			init_weight(0)
-#			doc['specialnotice'] <= H1("You are using an outdated version of PoB-Item-Tester" + BR() + f"Current is {current_version}.")
+#			doc['specialnotice'] <= H1("You are using an outdated version of PoB-Item-Tester" + BR() + f"Update from " + A("VolatilePulse's Github Repository", href="https://github.com/VolatilePulse/PoB-Item-Tester", target="_blank"))
 			doc['specialnotice'] <= P("Several mods have been given support on this site ahead of changes to PoB-Item-Tester.  If you would like to see the updated Weights list, add &vals=1 to the end of the url (and hit enter)" + BR() + f"Current version is {current_version}.")
 			doc['specialnotice'].style.display = 'block'
 			current_version = 0
 			for key in doc.query:
 				if key not in ['Flags']:
-					doc[key].value = doc.query[key]
+					try:
+						doc[key].value = doc.query[key]
+					except KeyError:
+						print(f"Key '{key}' recieved but not currently supported")
+
 		try:
 			flags = doc.query["Flags"].strip(',').split(',')
 			for f in flags:
