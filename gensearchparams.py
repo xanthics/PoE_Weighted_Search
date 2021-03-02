@@ -392,21 +392,22 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Fire Damage (Local)": [dps['flatfire'][0] * localmulti, dps['flatfire'][1] * localmulti],
 		"Adds # to # Lightning Damage (Local)": [dps['flatlightning'][0] * localmulti, dps['flatlightning'][1] * localmulti],
 		"Adds # to # Physical Damage (Local)": [dps['flatphys'][0] * localmulti, dps['flatphys'][1] * localmulti],
+		# Rare or Precursor Emblem
+		"# to # Cold Damage per Frenzy Charge": [dps['flatcold'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges'}.issubset(selections) else 0, dps['flatcold'][1] * dps["FrenzyCount"][1]],
+		"#% increased Accuracy Rating per Frenzy Charge": [dps['paccuracy'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges'}.issubset(selections) else 0, dps['paccuracy'][1] * dps["FrenzyCount"][1]],
+		"#% increased Damage per Frenzy Charge": [dps['pgeneric'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["FrenzyCount"][1]],
+		"# to # Fire Damage per Endurance Charge": [dps['flatfire'][0] * dps["EnduranceCount"][0] if {'useEnduranceCharges'}.issubset(selections) else 0, dps['flatfire'][1] * dps["EnduranceCount"][1]],
+		"#% increased Damage per Endurance Charge": [dps['pgeneric'][0] * dps["EnduranceCount"][0] if {'useEnduranceCharges'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["EnduranceCount"][1]],
+		"# to # Lightning Damage per Power Charge": [dps['flatlightning'][0] * dps["PowerCount"][0] if {'usePowerCharges'}.issubset(selections) else 0, dps['flatlightning'][1] * dps["PowerCount"][1]],
+		"#% increased Damage per Power Charge": [dps['pgeneric'][0] * dps["PowerCount"][0] if {'usePowerCharges'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["PowerCount"][1]],
+		"#% increased Spell Damage per Power Charge": [dps['pgeneric'][0] * dps["PowerCount"][0] if {'usePowerCharges', 'Spell'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["PowerCount"][1]],
 		# Precursor Emblem
-		"# to # Cold Damage per Frenzy Charge": [dps['flatcold'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges', 'includeDelve'}.issubset(selections) else 0, dps['flatcold'][1] * dps["FrenzyCount"][1]],
-		"#% increased Accuracy Rating per Frenzy Charge": [dps['paccuracy'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges', 'includeDelve'}.issubset(selections) else 0, dps['paccuracy'][1] * dps["FrenzyCount"][1]],
 		"#% increased Critical Strike Chance per Frenzy Charge": [dps['critchance'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges', 'includeDelve'}.issubset(selections) else 0, dps['critchance'][1] * dps["FrenzyCount"][1]],
-		"#% increased Damage per Frenzy Charge": [dps['pgeneric'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges', 'includeDelve'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["FrenzyCount"][1]],
 		"Gain #% of Cold Damage as Extra Chaos Damage per Frenzy Charge": [dps['coldasextrachaos'][0] * dps["FrenzyCount"][0] if {'useFrenzyCharges', 'includeDelve'}.issubset(selections) else 0, dps['coldasextrachaos'][1] * dps["FrenzyCount"][1]],
-		"# to # Fire Damage per Endurance Charge": [dps['flatfire'][0] * dps["EnduranceCount"][0] if {'useEnduranceCharges', 'includeDelve'}.issubset(selections) else 0, dps['flatfire'][1] * dps["EnduranceCount"][1]],
 		"#% increased Attack and Cast Speed per Endurance Charge": [(dps['attackspeed'][0] + dps['castspeed'][0]) * dps["EnduranceCount"][0] if {'useEnduranceCharges', 'includeDelve'}.issubset(selections) else 0, (dps['attackspeed'][1] + dps['castspeed'][1]) * dps["EnduranceCount"][1] * dps["EnduranceCount"][1]],
 		"#% increased Critical Strike Chance per Endurance Charge": [dps['critchance'][0] * dps["EnduranceCount"][0] if {'useEnduranceCharges', 'includeDelve'}.issubset(selections) else 0, dps['critchance'][1] * dps["EnduranceCount"][1]],
-		"#% increased Damage per Endurance Charge": [dps['pgeneric'][0] * dps["EnduranceCount"][0] if {'useEnduranceCharges', 'includeDelve'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["EnduranceCount"][1]],
 		"Gain #% of Fire Damage as Extra Chaos Damage per Endurance Charge": [dps['fireasextrachaos'][0] * dps["EnduranceCount"][0] if {'useEnduranceCharges', 'includeDelve'}.issubset(selections) else 0, dps['fireasextrachaos'][1] * dps["EnduranceCount"][1]],
-		"# to # Lightning Damage per Power Charge": [dps['flatlightning'][0] * dps["PowerCount"][0] if {'usePowerCharges', 'includeDelve'}.issubset(selections) else 0, dps['flatlightning'][1] * dps["PowerCount"][1]],
 		"#% increased Attack and Cast Speed per Power Charge": [(dps['attackspeed'][0] + dps['castspeed'][0]) * dps["PowerCount"][0] if {'usePowerCharges', 'includeDelve'}.issubset(selections) else 0, (dps['attackspeed'][1] + dps['castspeed'][1]) * dps["PowerCount"][1] * dps["PowerCount"][1]],
-		"#% increased Damage per Power Charge": [dps['pgeneric'][0] * dps["PowerCount"][0] if {'usePowerCharges', 'includeDelve'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["PowerCount"][1]],
-		"#% increased Spell Damage per Power Charge": [dps['pgeneric'][0] * dps["PowerCount"][0] if {'usePowerCharges', 'Spell', 'includeDelve'}.issubset(selections) else 0, dps['pgeneric'][1] * dps["PowerCount"][1]],
 		"#% to Critical Strike Multiplier per Power Charge": [dps['critmulti'][0] * dps["PowerCount"][0] if {'usePowerCharges', 'includeDelve'}.issubset(selections) else 0, dps['critmulti'][1] * dps["PowerCount"][1]],
 		"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge": [dps['lightningasextrachaos'][0] * dps["PowerCount"][0] if {'usePowerCharges', 'includeDelve'}.issubset(selections) else 0, dps['lightningasextrachaos'][1] * dps["PowerCount"][1]],
 		# Unique item mods
@@ -416,7 +417,6 @@ def gensearchparams(dps, selections, base):
 		# Not yet implemented
 		"#% increased Energy Shield from Body Armour": [0, 0],
 		"Gain #% of Maximum Life as Extra Maximum Energy Shield": [0, 0],
-
 		"#% increased Duration of Ailments on Enemies": [0, 0],
 		"Ignites you inflict deal Damage #% faster": [0, 0],
 		"Bleeding you inflict deals Damage #% faster": [0, 0],
