@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/24/2021(m/d/y) 05:30:28 utc
+# Generated: 03/07/2021(m/d/y) 05:50:27 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -1127,6 +1127,7 @@ r_mods = {
 			"Anger has #% increased Aura Effect",
 			"Auras from your Skills grant #% increased Damage to you and Allies",
 			"Bleeding you inflict deals Damage #% faster",
+			"Culling Strike",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
@@ -1259,6 +1260,7 @@ r_mods = {
 			"Adds # to # Physical Damage for each Impale on Enemy",
 			"Adds # to # Physical Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Physical Damage to Attacks",
+			"Culling Strike",
 			"Gain #% of Physical Damage as Extra Cold Damage",
 			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Gain #% of Physical Damage as Extra Lightning Damage",

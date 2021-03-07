@@ -303,6 +303,7 @@ goodmod = [
 	"Attacks have #% to Critical Strike Chance",
 	"Auras from your Skills grant #% increased Damage to you and Allies",
 	"Bleeding you inflict deals Damage #% faster",
+	"Culling Strike",
 	"Damage Penetrates #% Cold Resistance",
 	"Damage Penetrates #% Elemental Resistance if you haven't Killed Recently",
 	"Damage Penetrates #% Elemental Resistances",

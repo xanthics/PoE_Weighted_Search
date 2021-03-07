@@ -413,6 +413,9 @@ def gensearchparams(dps, selections, base):
 		# Unique item mods
 		"#% increased Attack Damage if your other Ring is a Shaper Item": [dps['pattack'][0] if {'Attack', 'otherringshaper'}.issubset(selections) else 0, dps['pattack'][1]],
 		"#% increased Spell Damage if your other Ring is an Elder Item": [dps['pspell'][0] if {'Spell', 'otherringelder'}.issubset(selections) else 0, dps['pspell'][1]],
+		# Culling Strike
+		"Culling Strike": [dps['perfectcull'][0], dps['perfectcull'][1]],
+
 
 		# Not yet implemented
 		"#% increased Energy Shield from Body Armour": [0, 0],

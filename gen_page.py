@@ -350,6 +350,7 @@ def init_flags():
 
 # Initialize the changelog
 def init_change():
+	doc['Changelog'] <= P('2021/03/06: Added Culling Strike (v2 mods.json).  Note that culling dps assumes "perfect culls" at exactly 10% hp against non-healing targets, so actual damage gain will be less.')
 	doc['Changelog'] <= P('2021/03/02: Bugfix: Some Precursor mods that can also appear on rares were restricted.')
 	doc['Changelog'] <= P('2021/02/24: Implemented dozens of new mods including nearby resist(helmets) and aura effectiveness(weapons/corruptions).')
 	doc['Changelog'] <= P('2021/02/22: Mods are now sorted for culling based on their total weights, not per point.')

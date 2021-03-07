@@ -80,6 +80,14 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
+Culling Strike
+Hypnotic Eye Jewel
+Item Level: 1
+Implicits: 0
+Culling Strike
+		</Item>
+		<Item>
+			Rarity: RARE
 12% increased Physical Damage
 Hypnotic Eye Jewel
 Item Level: 1
@@ -648,11 +656,11 @@ Minions deal 4 to 7 additional Chaos Damage
 		</Item>
 		<Item>
 			Rarity: RARE
-Minions have 100 to Accuracy Rating
+Minions have +100 to Accuracy Rating
 Hypnotic Eye Jewel
 Item Level: 1
 Implicits: 0
-Minions have 100 to Accuracy Rating
+Minions have +100 to Accuracy Rating
 		</Item>
 		<Item>
 			Rarity: RARE

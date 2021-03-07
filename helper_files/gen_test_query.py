@@ -58,5 +58,5 @@ def resetmods():
 
 
 if __name__ == '__main__':
-#	resetmods()
+	resetmods()
 	main()
