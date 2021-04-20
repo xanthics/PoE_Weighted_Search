@@ -3,31 +3,33 @@ import json
 import os
 from helper_files.goodmod import goodmod
 from helper_files.badmod import badmod
-from modlist import mods
-from time import sleep
 from datetime import datetime
 from pyrate_limiter import *
 
 
-def post_api(requester, data, headers, cookies):
+def post_api(requester, data, headers, cookies, league):
 	print('post request')
-	post_url = 'https://www.pathofexile.com/api/trade/search/Ritual'
+	post_url = f'https://www.pathofexile.com/api/trade/search/{league}'
 	req = requester.post(post_url, cookies=cookies, headers=headers, json=data)
 	if req.status_code == 429:
 		raise ConnectionError(f"Post throttle error: {req.headers['X-Rate-Limit-Account-State']},{req.headers['X-Rate-Limit-Ip-State']}")
 	if req.status_code != 200:
 		raise Exception('(post) API response: {}'.format(req.status_code))
-	return req.json()
+	return req.json(), f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}", f"{req.headers['X-Rate-Limit-Account-State']},{req.headers['X-Rate-Limit-Ip-State']}"
 
 
-def fetch_api(requester, url, headers, cookies):
+def fetch_api(requester, url, headers, cookies, getheaders=False):
 	print('fetch request')
 	req = requester.get(url, cookies=cookies, headers=headers)
 	if req.status_code == 429:
+		print(f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}", f"{req.headers['X-Rate-Limit-Account-State']},{req.headers['X-Rate-Limit-Ip-State']}", sep='\n')
 		raise ConnectionError(f"Fetch throttle error: {req.headers['X-Rate-Limit-Account-State']},{req.headers['X-Rate-Limit-Ip-State']}")
 	if req.status_code != 200:
 		raise Exception('(fetch) API response: {}'.format(req.status_code))
-	return req.json()
+	if 'X-Rate-Limit-Ip-State' in req.headers and getheaders:
+		return req.json(), f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}", f"{req.headers['X-Rate-Limit-Account-State']},{req.headers['X-Rate-Limit-Ip-State']}"
+	else:
+		return req.json()
 
 
 def find_max_sleep(error):
@@ -35,11 +37,21 @@ def find_max_sleep(error):
 	return max([int(x.split(':')[2]) for x in vals])
 
 
+def check_for_zero(limit, current):
+	limits = [int(x.split(':')[0]) for x in limit.split(',')]
+	currents = [int(x.split(':')[0]) for x in current.split(',')]
+	return any(limits[x] <= currents[x] for x in range(len(limits)))
+
+
 # given a list of mods to check and a list of known mods, eliminate possibly bad mods
-def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit):
+def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit, league):
 	mod_count = 180  # number of mods to check at a time
 	fetch_url = 'https://www.pathofexile.com/api/trade/fetch/{}?query={}'
 	requester = requests.session()
+	limit = '1:1:1'
+	current = '0:0:0'
+	limit2 = '1:1:1'
+	current2 = '0:0:0'
 	for base in themods:
 		print(f"Gathering for: {base}")
 		if base not in goodmods:
@@ -50,7 +62,13 @@ def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit):
 			while True:
 				try:
 					post_limit.try_acquire('post')
-					var = post_api(requester, root_request, headers, cookies)
+					if check_for_zero(limit, current):
+						print("Desync between pyrate and header, pausing post")
+						limit = '1:1:1'
+						current = '0:0:0'
+						while True:
+							post_limit.try_acquire('post')
+					var, limit, current = post_api(requester, root_request, headers, cookies, league)
 					break
 				except BucketFullException as err:
 					print(err.meta_info)
@@ -66,7 +84,13 @@ def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit):
 					while True:
 						try:
 							fetch_limit.try_acquire('fetch')
-							var2 = fetch_api(requester, fetch_url.format(','.join(var['result'][idx:idx + 10]), var['id']), headers, cookies)
+							if check_for_zero(limit2, current2):
+								print("Desync between pyrate and header, pausing fetch")
+								limit2 = '1:1:1'
+								current2 = '0:0:0'
+								while True:
+									fetch_limit.try_acquire('fetch')
+							var2, limit2, current2 = fetch_api(requester, fetch_url.format(','.join(var['result'][idx:idx + 10]), var['id']), headers, cookies, True)
 							break
 						except BucketFullException as err:
 							print(err.meta_info)
@@ -90,10 +114,12 @@ def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit):
 			else:
 				print("No results", var)
 				themods[base] = themods[base][mod_count:]
-#			with open('modmap.json', 'w') as f:
-#				json.dump(goodmods, f)
+			# in case there is an interuption, save every result
+			with open('modmap.json', 'w') as f:
+				json.dump(goodmods, f)
 #		with open('modmap.json', 'w') as f:
 #			json.dump(goodmods, f)
+	# Should have all results saved by now, but make sure.
 	with open('modmap.json', 'w') as f:
 		json.dump(goodmods, f)
 	requester.close()
@@ -117,6 +143,7 @@ def gen_restrict_mods(goodmods, root_dir):
 		'armour.chest': "Body Armour",
 		'armour.boots': "Boots",
 	}
+	from modlist import mods
 	# reverse lookup to map mod hashes to human readable
 	rlookup = {mods[x][idx]: x for x in mods for idx in range(len(mods[x]))}
 	results = {}
@@ -190,7 +217,7 @@ def genmods(goodmods):
 		'armour.chest',
 		'armour.boots',
 	}
-
+	from modlist import mods
 	mod_set = []
 	for m in goodmod:
 		mod_set.extend(mods[m])
@@ -232,6 +259,18 @@ def handle_pseudos(pseudos, root_dir):
 		'+#% Quality to Elemental Damage Modifiers', '+#% Quality to Life and Mana Modifiers', '+#% Quality to Resistance Modifiers',
 		'+#% total Elemental Resistance', '+#% total Resistance', '+#% total to Chaos Resistance', '+#% total to Cold Resistance', '+#% total to Fire Resistance',
 		'+#% total to Lightning Resistance', '+#% total to all Elemental Resistances',
+		'# Incubator Kills (Blighted)', '# Incubator Kills (Maddening)', '# Incubator Kills (Morphing)', '+#% Quality to Critical Modifiers', '+#% Quality to Speed Modifiers', 'Has # Influences', 'Has Crusader Influence', 'Has Elder Influence', 'Has Hunter Influence', 'Has Redeemer Influence',
+		'Has Room: Antechamber', 'Has Room: Apex of Ascension (Tier 3)', 'Has Room: Arena of Valour (Tier 2)', "Has Room: Armourer's Workshop (Tier 1)", 'Has Room: Armoury (Tier 2)', 'Has Room: Atlas of Worlds (Tier 3)', 'Has Room: Automaton Lab (Tier 2)', 'Has Room: Banquet Hall', 'Has Room: Barracks (Tier 2)',
+		'Has Room: Breach Containment Chamber (Tier 2)', 'Has Room: Catalyst of Corruption (Tier 2)', 'Has Room: Cellar', 'Has Room: Chamber of Iron (Tier 3)', 'Has Room: Chasm', 'Has Room: Cloister', 'Has Room: Conduit of Lightning (Tier 3)', 'Has Room: Corruption Chamber (Tier 1)', 'Has Room: Court of Sealed Death (Tier 3)',
+		'Has Room: Crucible of Flame (Tier 3)', 'Has Room: Cultivar Chamber (Tier 2)', 'Has Room: Defense Research Lab (Tier 3)', 'Has Room: Demolition Lab (Tier 2)', 'Has Room: Department of Thaumaturgy (Tier 2)', "Has Room: Doryani's Institute (Tier 3)", 'Has Room: Engineering Department (Tier 2)', 'Has Room: Explosives Room (Tier 1)',
+		'Has Room: Factory (Tier 3)', 'Has Room: Flame Workshop (Tier 1)', "Has Room: Gemcutter's Workshop (Tier 1)", 'Has Room: Glittering Halls (Tier 3)', 'Has Room: Guardhouse (Tier 1)', 'Has Room: Hall of Champions (Tier 3)', 'Has Room: Hall of Heroes (Tier 2)', 'Has Room: Hall of Legends (Tier 3)', 'Has Room: Hall of Locks (Tier 2)',
+		'Has Room: Hall of Lords (Tier 2)', 'Has Room: Hall of Mettle (Tier 1)', 'Has Room: Hall of Offerings (Tier 2)', 'Has Room: Hall of War (Tier 3)', 'Has Room: Halls', 'Has Room: Hatchery (Tier 1)', 'Has Room: House of the Others (Tier 3)', 'Has Room: Hurricane Engine (Tier 2)', 'Has Room: Hybridisation Chamber (Tier 3)',
+		"Has Room: Jeweller's Workshop (Tier 1)", 'Has Room: Jewellery Forge (Tier 2)', 'Has Room: Lightning Workshop (Tier 1)', 'Has Room: Locus of Corruption (Tier 3)', 'Has Room: Museum of Artefacts (Tier 3)', 'Has Room: Office of Cartography (Tier 2)', 'Has Room: Omnitect Forge (Tier 2)', 'Has Room: Omnitect Reactor Plant (Tier 2)',
+		'Has Room: Passageways', 'Has Room: Pits', 'Has Room: Poison Garden (Tier 1)', 'Has Room: Pools of Restoration (Tier 1)', 'Has Room: Royal Meeting Room (Tier 1)', 'Has Room: Sacrificial Chamber (Tier 1)', "Has Room: Sadist's Den (Tier 3)", 'Has Room: Sanctum of Immortality (Tier 3)', 'Has Room: Sanctum of Unity (Tier 2)',
+		'Has Room: Sanctum of Vitality (Tier 2)', 'Has Room: Shrine of Empowerment (Tier 1)', 'Has Room: Shrine of Unmaking (Tier 3)', 'Has Room: Sparring Room (Tier 1)', 'Has Room: Splinter Research Lab (Tier 1)', 'Has Room: Storage Room (Tier 1)', 'Has Room: Storm of Corruption (Tier 3)', 'Has Room: Strongbox Chamber (Tier 1)',
+		"Has Room: Surveyor's Study (Tier 1)", 'Has Room: Tempest Generator (Tier 1)', 'Has Room: Temple Defense Workshop (Tier 2)', 'Has Room: Temple Nexus (Tier 3)', 'Has Room: Throne of Atziri (Tier 3)', 'Has Room: Tombs', 'Has Room: Torment Cells (Tier 1)', 'Has Room: Torture Cages (Tier 2)', 'Has Room: Toxic Grove (Tier 3)',
+		'Has Room: Trap Workshop (Tier 1)', 'Has Room: Treasury (Tier 2)', 'Has Room: Tunnels', 'Has Room: Vault (Tier 1)', 'Has Room: Warehouses (Tier 2)', 'Has Room: Wealth of the Vaal (Tier 3)', 'Has Room: Workshop (Tier 1)', 'Has Shaper Influence', 'Has Warlord Influence',
+
 		# mods that seem good but aren't
 		'+# total to all Attributes',  # eg 5 str, 11 dex, 14 int item will have value of 5
 
@@ -273,7 +312,7 @@ def handle_pseudos(pseudos, root_dir):
 		'Adds # to # Physical Damage to Attacks', 'Adds # to # Physical Damage to Spells',
 		'#% total increased maximum Energy Shield',  # global only
 	]
-	print("New mods:", ', '.join([f'{repr(k)}' for k in sorted(pseudos) if k not in bad_pseudos + good_pseudos]))
+	print("New pseudo mods:", ', '.join([f'{repr(k)}' for k in sorted(pseudos) if k not in bad_pseudos + good_pseudos]))
 
 	# list of mods that are good matches.
 	good_matches = {
@@ -317,6 +356,12 @@ def handle_pseudos(pseudos, root_dir):
 		'#% total increased Physical Damage': ['#% increased Global Physical Damage'],
 		'+#% total Attack Speed': ['#% increased Attack Speed'],
 	}
+	# Validate modes
+	for key in good_matches:
+		for mod in good_matches[key]:
+			if mod not in goodmod:
+				print(f"Outdated Mod: {mod}")
+
 	# Based on the contents of good_matches, set up if/elif/elif chains
 	good_matches_order = [
 		['+#% Global Critical Strike Chance'],
@@ -410,16 +455,29 @@ def updatemods(root_dir, headers, cookies):
 				mlist[cur].append(val)
 
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'mods = {']
-
+	newmods = []
 	for label in sorted(mlist):
 		if label.isascii():  # since we can't check for valid utf-8 encoding, this is all we get
 			if label not in goodmod and label not in badmod:
-				print(f"New mod: {label}")
+				newmods.append(label)
 			mlist[label].sort()
 			buf.append('\t"{}": ["{}"],'.format(label, '", "'.join(mlist[label])))
 		else:
 			print(f'skipping: {label.encode("utf-8")}')
 	buf.append('}')
+	if newmods:
+		newmods.sort()
+		newstr = '",\n\t"'.join(newmods)
+		print(f'New mod(s): \n\t"{newstr}"')
+	removed = []
+	for label in goodmod+badmod:
+		if label not in mlist:
+			removed.append(label)
+	if removed:
+		removed.sort()
+		newstr = '",\n\t"'.join(removed)
+		print(f'Removed mod(s): \n\t"{newstr}"')
+
 	# This should check for changes before generating/writing but won't implement
 	with open(f'{root_dir}/modlist.py', 'w') as f:
 		f.write('\n'.join(buf))
@@ -463,18 +521,19 @@ def updatejsonmods(root_dir):
 		print("modsjson.py is unchanged")
 
 
-def setup_limits(cookies, headers):
+def setup_limits(cookies, headers, league):
 	requester = requests.session()
-	post_url = 'https://www.pathofexile.com/api/trade/search/Ritual'
+	post_url = f'https://www.pathofexile.com/api/trade/search/{league}'
 	root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [], "value": {"min": 1}}], "filters": {"type_filters": {"filters": {"category": {"option": 'weapon'}, "rarity": {"option": "nonunique"}}}}}, "sort": {"price": "asc"}}
 	req = requester.post(post_url, cookies=cookies, headers=headers, json=root_request)
 	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
-	post_limit = Limiter(*[RequestRate(int(x[0]), int(x[1]) * Duration.SECOND) for x in arrs])
+	# Add 1 second for desync
+	post_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1])+1) * Duration.SECOND) for x in arrs])
 
 	fetch_url = 'https://www.pathofexile.com/api/trade/fetch/{}'
 	req = requester.get(fetch_url, cookies=cookies, headers=headers)
 	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
-	fetch_limit = Limiter(*[RequestRate(int(x[0]), int(x[1]) * Duration.SECOND) for x in arrs])
+	fetch_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1])+1) * Duration.SECOND) for x in arrs])
 
 	# try against both buckets to reflect setup request
 	post_limit.try_acquire('post')
@@ -484,14 +543,15 @@ def setup_limits(cookies, headers):
 
 if __name__ == "__main__":
 	root_dir_g = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	g_league = 'Ultimatum'
 	g_cookies = {'POESESSID': ''}
 	g_headers = {'User-Agent': '(poe discord: xan#7840) poe weighted search mod gen tool'}
-	g_post_limit, g_fetch_limit = setup_limits(g_cookies, g_headers)
+	g_post_limit, g_fetch_limit = setup_limits(g_cookies, g_headers, g_league)
+	updatemods(root_dir_g, g_headers, g_cookies)
 	with open('modmap.json', 'r') as fi:
 		knownmods = json.load(fi)
 	mymods = genmods(knownmods)
-	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit)
+	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit, g_league)
 	gen_restrict_mods(knownmods, root_dir_g)
-	updatemods(root_dir_g, g_headers, g_cookies)
 	updateleagues(root_dir_g, g_headers, g_cookies)
 	updatejsonmods(root_dir_g)
