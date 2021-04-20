@@ -332,7 +332,7 @@ def init_flags():
 	doc['Flags'] <= STRONG('Recently:') + " Tic all the things your build can do 'recently'" + t + BR()
 
 	data = [('EnemyPoisoned', 'Poisoned'), ('EnemyBlinded', 'Blinded'), ('EnemyIgnited', 'Ignited'), ('EnemyBurning', 'Burning'),
-	        ('EnemyChilled', 'Chilled'), ('EnemyFrozen', 'Frozen'), ('EnemyShocked', 'Shocked')]
+	        ('EnemyChilled', 'Chilled'), ('EnemyFrozen', 'Frozen'), ('EnemyShocked', 'Shocked'), ('EnemyMaimed', 'Maimed')]
 	t = make_table(data, 4, 'Enemy is')
 	doc['Flags'] <= STRONG('Enemy is:') + ' Status effects on your target' + t + BR()
 
@@ -349,6 +349,8 @@ def init_flags():
 
 # Initialize the changelog
 def init_change():
+	doc['Changelog'] <= P('2021/04/19: Updated mod wordings to match latest patch and added new mods.')
+	doc['Changelog'] <= P('2021/04/19: Updated league list.')
 	doc['Changelog'] <= P('2021/03/06: Added Culling Strike (v2 mods.json).  Note that culling dps assumes "perfect culls" at exactly 10% hp against non-healing targets, so actual damage gain will be less.')
 	doc['Changelog'] <= P('2021/03/02: Bugfix: Some Precursor mods that can also appear on rares were restricted.')
 	doc['Changelog'] <= P('2021/02/24: Implemented dozens of new mods including nearby resist(helmets) and aura effectiveness(weapons/corruptions).')

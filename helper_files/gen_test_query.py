@@ -40,16 +40,19 @@ def main():
 					l2 = l2[end + 1:]
 	# goodmod should be empty now if all mods are implemented
 	if goodmod:
-		print(f"Unimplemented good mods: {goodmod}")
+		goodmod.sort()
+		newstr = '": [0, 0],\n\t\t"'.join(goodmod)
+		print(f'Unimplemented good mods: \n\t\t"{newstr}": [0, 0],')
 	print('=111&'.join(sorted(dps)), '=111&', "Flags=", ','.join(sorted(selections)), sep='')
 
 
 # sorts goodmod and badmod
 def resetmods():
+	from modlist import mods
 	from helper_files.goodmod import goodmod
 	from helper_files.badmod import badmod
 	for d, fo in [[goodmod, 'goodmod'], [badmod, 'badmod']]:
-		d = list(set(d))
+		d = list(set(d) & set(mods))
 		d.sort()
 		with open(f'{fo}.py', 'w') as f:
 			f.write(f'{fo} = [\n\t"')
