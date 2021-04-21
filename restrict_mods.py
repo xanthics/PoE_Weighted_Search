@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 04/20/2021(m/d/y) 00:23:28 utc
+# Generated: 04/21/2021(m/d/y) 16:46:16 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -46,6 +46,7 @@ r_mods = {
 			"#% increased Damage with Ailments",
 			"#% increased Elemental Damage",
 			"#% increased Fire Damage",
+			"#% increased Fire Damage with Attack Skills",
 			"#% increased Fire Damage with Spell Skills",
 			"#% increased Global Critical Strike Chance",
 			"#% increased Lightning Damage",
@@ -73,6 +74,7 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Claws",
 			"#% to Critical Strike Multiplier with Daggers",
 			"#% to Critical Strike Multiplier with Maces or Sceptres",
+			"#% to Critical Strike Multiplier with Staves",
 			"#% to Critical Strike Multiplier with Swords",
 			"#% to Critical Strike Multiplier with Wands",
 			"#% to Global Critical Strike Multiplier",
@@ -236,6 +238,7 @@ r_mods = {
 			"#% increased Damage with Poison",
 			"#% increased Elemental Damage",
 			"#% increased Fire Damage",
+			"#% increased Fire Damage with Attack Skills",
 			"#% increased Fire Damage with Spell Skills",
 			"#% increased Global Critical Strike Chance",
 			"#% increased Global Physical Damage",
@@ -258,6 +261,7 @@ r_mods = {
 			"#% increased Spell Damage while Dual Wielding",
 			"#% increased Spell Damage while holding a Shield",
 			"#% increased Spell Damage while wielding a Staff",
+			"#% reduced Mana Cost of Skills",
 			"#% to Critical Strike Multiplier for Spells while Dual Wielding",
 			"#% to Critical Strike Multiplier for Spells while holding a Shield",
 			"#% to Critical Strike Multiplier for Spells while wielding a Staff",
@@ -266,6 +270,7 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Claws",
 			"#% to Critical Strike Multiplier with Daggers",
 			"#% to Critical Strike Multiplier with Maces or Sceptres",
+			"#% to Critical Strike Multiplier with Staves",
 			"#% to Critical Strike Multiplier with Swords",
 			"#% to Critical Strike Multiplier with Wands",
 			"#% to Global Critical Strike Multiplier",
@@ -670,6 +675,7 @@ r_mods = {
 			"#% increased Spell Damage while Dual Wielding",
 			"#% increased Spell Damage while holding a Shield",
 			"#% increased Spell Damage while wielding a Staff",
+			"#% reduced Mana Cost of Skills",
 			"#% to Global Critical Strike Multiplier",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
@@ -860,6 +866,7 @@ r_mods = {
 			"#% increased Spell Damage during any Flask Effect",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
+			"Damage Penetrates #% Elemental Resistances during any Flask Effect",
 			"Overwhelm #% Physical Damage Reduction"
 		],
 	},
@@ -921,6 +928,9 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
+			"Gain #% of Cold Damage as Extra Chaos Damage",
+			"Gain #% of Fire Damage as Extra Chaos Damage",
+			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Maximum Life as Extra Maximum Energy Shield"
 		],
 	},
@@ -1181,6 +1191,7 @@ r_mods = {
 	},
 	"Gloves": {
 		"implicit": [
+			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Maximum Frenzy Charges",
@@ -1364,28 +1375,36 @@ r_mods = {
 	},
 	"Quiver": {
 		"implicit": [
+			"# to # Added Cold Damage per Frenzy Charge",
 			"# to # Added Cold Damage with Bow Attacks",
 			"# to # Added Fire Damage with Bow Attacks",
 			"# to # Added Lightning Damage with Bow Attacks",
 			"# to # Added Physical Damage with Bow Attacks",
+			"# to Strength",
 			"#% increased Attack Speed",
 			"#% increased Attack and Cast Speed",
+			"#% increased Cold Damage",
+			"#% increased Damage while Leeching Mana",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
 			"#% increased Global Physical Damage",
+			"#% increased Lightning Damage",
 			"#% increased maximum Life",
 			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Gain #% of Physical Damage as Extra Lightning Damage"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
+			"# to Dexterity and Intelligence",
 			"# to Intelligence",
 			"# to Strength",
 			"# to Strength and Dexterity",
+			"# to Strength and Intelligence",
 			"# to all Attributes",
 			"# to maximum Energy Shield",
 			"# to maximum Life",
@@ -1662,6 +1681,7 @@ r_mods = {
 			"Adds # to # Fire Damage",
 			"Adds # to # Lightning Damage",
 			"Gain #% of Cold Damage as Extra Chaos Damage",
+			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Physical Damage as Extra Chaos Damage"
 		],
 		"explicit": [
@@ -1744,6 +1764,7 @@ r_mods = {
 			"Adds # to # Lightning Damage (Local)",
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage (Local)",
+			"Bleeding you inflict deals Damage #% faster",
 			"Damage Penetrates #% Elemental Resistances",
 			"Gain #% of Cold Damage as Extra Chaos Damage",
 			"Gain #% of Fire Damage as Extra Chaos Damage",
@@ -1790,8 +1811,10 @@ r_mods = {
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage (Local)",
 			"Gain #% of Cold Damage as Extra Chaos Damage",
+			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Non-Chaos Damage as extra Chaos Damage",
+			"Gain #% of Physical Damage as Extra Chaos Damage",
 			"Minions deal #% increased Damage",
 			"Minions have #% increased Attack Speed",
 			"Minions have #% increased Cast Speed"
@@ -1822,6 +1845,7 @@ r_mods = {
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
+			"#% increased Global Physical Damage",
 			"#% increased Lightning Damage",
 			"#% increased Mine Damage",
 			"#% increased Projectile Damage",
