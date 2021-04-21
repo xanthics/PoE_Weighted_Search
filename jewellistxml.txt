@@ -1,7 +1,7 @@
 		<Item>
 			Rarity: RARE
 +1 to Level of all Spell Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Spell Skill Gems
@@ -9,7 +9,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Dexterity Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Dexterity Skill Gems
@@ -17,7 +17,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Strength Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Strength Skill Gems
@@ -25,7 +25,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Intelligence Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Intelligence Skill Gems
@@ -33,7 +33,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Minion Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Minion Skill Gems
@@ -41,7 +41,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Chaos Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Chaos Skill Gems
@@ -49,7 +49,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Cold Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Cold Skill Gems
@@ -57,7 +57,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Fire Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Fire Skill Gems
@@ -65,7 +65,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Lightning Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Lightning Skill Gems
@@ -73,7 +73,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Physical Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Physical Skill Gems
@@ -81,7 +81,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Level of all Vaal Skill Gems
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Level of all Vaal Skill Gems
@@ -89,7 +89,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Culling Strike
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Culling Strike
@@ -97,7 +97,7 @@ Culling Strike
 		<Item>
 			Rarity: RARE
 12% increased Physical Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Physical Damage
@@ -105,7 +105,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Lightning Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Lightning Damage
@@ -113,7 +113,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Cold Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Cold Damage
@@ -121,7 +121,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Fire Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Fire Damage
@@ -129,7 +129,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Elemental Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Elemental Damage
@@ -137,7 +137,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Chaos Damage
@@ -145,7 +145,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Damage
@@ -153,7 +153,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Spell Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Spell Damage
@@ -161,7 +161,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Attack Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Attack Damage
@@ -169,7 +169,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Melee Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Melee Damage
@@ -177,7 +177,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +100 to Accuracy Rating
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +100 to Accuracy Rating
@@ -185,7 +185,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Global Accuracy Rating
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 10% increased Global Accuracy Rating
@@ -193,7 +193,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 16% increased Global Critical Strike Chance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 16% increased Global Critical Strike Chance
@@ -201,7 +201,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +16% to Global Critical Strike Multiplier
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +16% to Global Critical Strike Multiplier
@@ -209,7 +209,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1% Critical Strike Chance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1% Critical Strike Chance
@@ -217,7 +217,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Attack Speed
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 10% increased Attack Speed
@@ -225,7 +225,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Cast Speed
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 10% increased Cast Speed
@@ -233,7 +233,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Elemental Resistances
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Elemental Resistances
@@ -241,7 +241,7 @@ Damage Penetrates 8% Elemental Resistances
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Lightning Resistance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Lightning Resistance
@@ -249,7 +249,7 @@ Damage Penetrates 8% Lightning Resistance
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Cold Resistance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Cold Resistance
@@ -257,7 +257,7 @@ Damage Penetrates 8% Cold Resistance
 		<Item>
 			Rarity: RARE
 Damage Penetrates 8% Fire Resistance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Damage Penetrates 8% Fire Resistance
@@ -265,7 +265,7 @@ Damage Penetrates 8% Fire Resistance
 		<Item>
 			Rarity: RARE
 Overwhelm 10% Physical Damage Reduction
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Overwhelm 10% Physical Damage Reduction
@@ -273,7 +273,7 @@ Overwhelm 10% Physical Damage Reduction
 		<Item>
 			Rarity: RARE
 Adds 5 to 7 Physical Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Adds 5 to 7 Physical Damage
@@ -281,7 +281,7 @@ Adds 5 to 7 Physical Damage
 		<Item>
 			Rarity: RARE
 Adds 6 to 68 Lightning Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Adds 6 to 68 Lightning Damage
@@ -289,7 +289,7 @@ Adds 6 to 68 Lightning Damage
 		<Item>
 			Rarity: RARE
 Adds 14 to 31 Cold Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Adds 14 to 31 Cold Damage
@@ -297,7 +297,7 @@ Adds 14 to 31 Cold Damage
 		<Item>
 			Rarity: RARE
 Adds 21 to 34 Fire Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Adds 21 to 34 Fire Damage
@@ -305,7 +305,7 @@ Adds 21 to 34 Fire Damage
 		<Item>
 			Rarity: RARE
 Adds 4 to 7 Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Adds 4 to 7 Chaos Damage
@@ -313,7 +313,7 @@ Adds 4 to 7 Chaos Damage
 		<Item>
 			Rarity: RARE
 1% chance to deal Double Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 1% chance to deal Double Damage
@@ -321,7 +321,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Physical Damage as Extra Lightning Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 15% of Physical Damage as Extra Lightning Damage
@@ -329,7 +329,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Physical Damage as Extra Cold Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 15% of Physical Damage as Extra Cold Damage
@@ -337,7 +337,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Physical Damage as Extra Fire Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 15% of Physical Damage as Extra Fire Damage
@@ -345,7 +345,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Gain 15% of Non-Chaos damage as Extra Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Gain 15% of Non-Chaos damage as Extra Chaos Damage
@@ -353,7 +353,7 @@ Gain 15% of Non-Chaos damage as Extra Chaos Damage
 		<Item>
 			Rarity: RARE
 Gain 15% of Elemental Damage as Extra Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Gain 15% of Elemental Damage as Extra Chaos Damage
@@ -361,7 +361,7 @@ Gain 15% of Elemental Damage as Extra Chaos Damage
 		<Item>
 			Rarity: RARE
 15% of Physical Damage as Extra Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 15% of Physical Damage as Extra Chaos Damage
@@ -369,7 +369,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Lightning Damage as Extra Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 15% of Lightning Damage as Extra Chaos Damage
@@ -377,7 +377,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Cold Damage as Extra Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 15% of Cold Damage as Extra Chaos Damage
@@ -385,7 +385,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 15% of Fire Damage as Extra Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 15% of Fire Damage as Extra Chaos Damage
@@ -393,7 +393,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Maximum Power Charges
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Maximum Power Charges
@@ -401,7 +401,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Maximum Frenzy Charges
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Maximum Frenzy Charges
@@ -409,7 +409,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +1 to Maximum Endurance Charges
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +1 to Maximum Endurance Charges
@@ -417,7 +417,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +20 to Dexterity
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +20 to Dexterity
@@ -425,7 +425,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +20 to Intelligence
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +20 to Intelligence
@@ -433,7 +433,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +20 to Strength
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +20 to Strength
@@ -441,7 +441,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 1% increased Damage per 15 Dexterity
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 1% increased Damage per 15 Dexterity
@@ -449,7 +449,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 1% increased Damage per 15 Intelligence
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 1% increased Damage per 15 Intelligence
@@ -457,7 +457,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 1% increased Damage per 15 Strength
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 1% increased Damage per 15 Strength
@@ -465,7 +465,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Dexterity
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 10% increased Dexterity
@@ -473,7 +473,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Intelligence
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 10% increased Intelligence
@@ -481,7 +481,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 10% increased Strength
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 10% increased Strength
@@ -489,7 +489,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 7% increased maximum Life
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 7% increased maximum Life
@@ -497,7 +497,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +40 to maximum Life
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +40 to maximum Life
@@ -505,7 +505,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 7% increased maximum Energy Shield
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 7% increased maximum Energy Shield
@@ -513,7 +513,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +40 to maximum Energy Shield
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +40 to maximum Energy Shield
@@ -521,7 +521,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 7% increased maximum Mana
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 7% increased maximum Mana
@@ -529,7 +529,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +40 to maximum Mana
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +40 to maximum Mana
@@ -537,7 +537,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 7% reduced Mana Cost of Skills
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 7% reduced Mana Cost of Skills
@@ -545,7 +545,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Nearby Enemies have -8% to Chaos Resistance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Nearby Enemies have -8% to Chaos Resistance
@@ -553,7 +553,7 @@ Nearby Enemies have -8% to Chaos Resistance
 		<Item>
 			Rarity: RARE
 Nearby Enemies have -8% to Cold Resistance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Nearby Enemies have -8% to Cold Resistance
@@ -561,7 +561,7 @@ Nearby Enemies have -8% to Cold Resistance
 		<Item>
 			Rarity: RARE
 Nearby Enemies have -8% to Fire Resistance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Nearby Enemies have -8% to Fire Resistance
@@ -569,7 +569,7 @@ Nearby Enemies have -8% to Fire Resistance
 		<Item>
 			Rarity: RARE
 Nearby Enemies have -8% to Lightning Resistance
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Nearby Enemies have -8% to Lightning Resistance
@@ -577,7 +577,7 @@ Nearby Enemies have -8% to Lightning Resistance
 		<Item>
 			Rarity: RARE
 Nearby Enemies take 8% increased Elemental Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Nearby Enemies take 8% increased Elemental Damage
@@ -585,7 +585,7 @@ Nearby Enemies take 8% increased Elemental Damage
 		<Item>
 			Rarity: RARE
 Nearby Enemies take 8% increased Physical Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Nearby Enemies take 8% increased Physical Damage
@@ -593,7 +593,7 @@ Nearby Enemies take 8% increased Physical Damage
 		<Item>
 			Rarity: RARE
 Minions have 1% chance to deal Double Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions have 1% chance to deal Double Damage
@@ -601,7 +601,7 @@ Minions have 1% chance to deal Double Damage
 		<Item>
 			Rarity: RARE
 Minions deal 12% increased Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions deal 12% increased Damage
@@ -609,7 +609,7 @@ Minions deal 12% increased Damage
 		<Item>
 			Rarity: RARE
 Minions have 10% increased Attack Speed
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions have 10% increased Attack Speed
@@ -617,7 +617,7 @@ Minions have 10% increased Attack Speed
 		<Item>
 			Rarity: RARE
 Minions have 10% increased Cast Speed
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions have 10% increased Cast Speed
@@ -625,7 +625,7 @@ Minions have 10% increased Cast Speed
 		<Item>
 			Rarity: RARE
 Minions deal 5 to 7 additional Physical Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions deal 5 to 7 additional Physical Damage
@@ -633,7 +633,7 @@ Minions deal 5 to 7 additional Physical Damage
 		<Item>
 			Rarity: RARE
 Minions deal 6 to 68 additional Lightning Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions deal 6 to 68 additional Lightning Damage
@@ -641,7 +641,7 @@ Minions deal 6 to 68 additional Lightning Damage
 		<Item>
 			Rarity: RARE
 Minions deal 14 to 31 additional Cold Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions deal 14 to 31 additional Cold Damage
@@ -649,7 +649,7 @@ Minions deal 14 to 31 additional Cold Damage
 		<Item>
 			Rarity: RARE
 Minions deal 21 to 34 additional Fire Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions deal 21 to 34 additional Fire Damage
@@ -657,7 +657,7 @@ Minions deal 21 to 34 additional Fire Damage
 		<Item>
 			Rarity: RARE
 Minions deal 4 to 7 additional Chaos Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions deal 4 to 7 additional Chaos Damage
@@ -665,7 +665,7 @@ Minions deal 4 to 7 additional Chaos Damage
 		<Item>
 			Rarity: RARE
 Minions have +100 to Accuracy Rating
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Minions have +100 to Accuracy Rating
@@ -673,7 +673,7 @@ Minions have +100 to Accuracy Rating
 		<Item>
 			Rarity: RARE
 10% increased Minion Accuracy Rating
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 10% increased Minion Accuracy Rating
@@ -681,7 +681,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Damage over Time
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Damage over Time
@@ -689,7 +689,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Chaos Damage over Time
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Chaos Damage over Time
@@ -697,7 +697,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Physical Damage over Time
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Physical Damage over Time
@@ -705,7 +705,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Damage with Ailments
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Damage with Ailments
@@ -713,7 +713,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Damage with Bleeding
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Damage with Bleeding
@@ -721,7 +721,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Damage with Poison
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Damage with Poison
@@ -729,7 +729,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 12% increased Burning Damage
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 12% increased Burning Damage
@@ -737,7 +737,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +12% to Damage over Time Multiplier
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +12% to Damage over Time Multiplier
@@ -745,7 +745,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +12% to Physical Damage over Time Multiplier
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +12% to Physical Damage over Time Multiplier
@@ -753,7 +753,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +12% to Fire Damage over Time Multiplier
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +12% to Fire Damage over Time Multiplier
@@ -761,7 +761,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +12% to Cold Damage over Time Multiplier
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +12% to Cold Damage over Time Multiplier
@@ -769,7 +769,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 +12% to Chaos Damage over Time Multiplier
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 +12% to Chaos Damage over Time Multiplier
@@ -777,7 +777,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Anger has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Anger has 34% increased Aura Effect
@@ -785,7 +785,7 @@ Anger has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Determination has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Determination has 34% increased Aura Effect
@@ -793,7 +793,7 @@ Determination has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Discipline has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Discipline has 34% increased Aura Effect
@@ -801,7 +801,7 @@ Discipline has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Grace has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Grace has 34% increased Aura Effect
@@ -809,7 +809,7 @@ Grace has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Hatred has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Hatred has 34% increased Aura Effect
@@ -817,7 +817,7 @@ Hatred has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Malevolence has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Malevolence has 34% increased Aura Effect
@@ -825,7 +825,7 @@ Malevolence has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Pride has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Pride has 34% increased Aura Effect
@@ -833,7 +833,7 @@ Pride has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Wrath has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Wrath has 34% increased Aura Effect
@@ -841,7 +841,7 @@ Wrath has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 Zealotry has 34% increased Aura Effect
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Zealotry has 34% increased Aura Effect
@@ -849,7 +849,7 @@ Zealotry has 34% increased Aura Effect
 		<Item>
 			Rarity: RARE
 20% increased effect of Non-Curse Auras from your Skills
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 20% increased effect of Non-Curse Auras from your Skills
@@ -857,7 +857,7 @@ Implicits: 0
 		<Item>
 			Rarity: RARE
 Auras from your Skills grant 4% increased Damage to you and Allies
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Auras from your Skills grant 4% increased Damage to you and Allies

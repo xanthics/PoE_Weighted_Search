@@ -11,7 +11,7 @@ def gentxt(names, root_dir):
 	header = '''
 Rarity: Rare
 {0}
-Hypnotic Eye Jewel
+Cobalt Jewel
 --------
 Item Level: 1
 --------
@@ -31,7 +31,7 @@ def genxml(names, root_dir):
 	header = '''		<Item>
 			Rarity: RARE
 {0}
-Hypnotic Eye Jewel
+Cobalt Jewel
 Item Level: 1
 Implicits: 0
 {0}
