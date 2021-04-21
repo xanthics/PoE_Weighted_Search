@@ -101,8 +101,7 @@ def process_querystring():
 
 		else:
 			init_weight(0)
-#			doc['specialnotice'] <= H1("You are using an outdated version of PoB-Item-Tester" + BR() + f"Update from " + A("VolatilePulse's Github Repository", href="https://github.com/VolatilePulse/PoB-Item-Tester", target="_blank"))
-			doc['specialnotice'] <= P(f"Several mods have been given support on this site ahead of changes to PoB-Item-Tester.  If you would like to see the updated Weights list, add &vals={current_version} to the end of the url (and hit enter)" + BR() + f"Current version is {current_version}.")
+			doc['specialnotice'] <= H1("You are using an outdated version of PoB-Item-Tester" + BR() + f"Update from " + A("VolatilePulse's Github Repository", href="https://github.com/VolatilePulse/PoB-Item-Tester", target="_blank"))
 			doc['specialnotice'].style.display = 'block'
 			current_version = 0
 			for key in doc.query:
