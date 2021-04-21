@@ -90,6 +90,15 @@ Item Level: 1
 	
 	
 Rarity: Rare
++1 to Level of all Vaal Skill Gems
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
++1 to Level of all Vaal Skill Gems
+	
+	
+Rarity: Rare
 Culling Strike
 Hypnotic Eye Jewel
 --------
@@ -762,6 +771,24 @@ Hypnotic Eye Jewel
 Item Level: 1
 --------
 12% increased Damage over Time
+	
+	
+Rarity: Rare
+12% increased Chaos Damage over Time
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+12% increased Chaos Damage over Time
+	
+	
+Rarity: Rare
+12% increased Physical Damage over Time
+Hypnotic Eye Jewel
+--------
+Item Level: 1
+--------
+12% increased Physical Damage over Time
 	
 	
 Rarity: Rare
