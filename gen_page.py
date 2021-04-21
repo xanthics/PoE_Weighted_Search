@@ -80,7 +80,7 @@ def process_querystring():
 			version = int(n_arr[0])
 			if version in mjson:
 				if version != current_version:
-					doc['specialnotice'] <= H1("You are using an outdated version of mods.json, this should automatically update when you start PoB-Item-Tester" + BR() + f"Current version is {current_version}, you are using {version}.")
+					doc['specialnotice'] <= H1("You are using an outdated version of mods.json, this should automatically update when you (re)start PoB-Item-Tester" + BR() + f"Current version is {current_version}, you are using {version}.")
 					doc['specialnotice'].style.display = 'block'
 					current_version = version
 				init_weight(current_version)
