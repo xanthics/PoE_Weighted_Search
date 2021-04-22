@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 04/21/2021(m/d/y) 16:46:16 utc
+# Generated: 04/22/2021(m/d/y) 07:31:52 utc
 r_mods = {
 	"Abyss Jewel": {
 		"implicit": [
@@ -592,6 +592,7 @@ r_mods = {
 			"#% increased Damage per Endurance Charge",
 			"#% increased Damage per Frenzy Charge",
 			"#% increased Damage per Power Charge",
+			"#% increased Damage while Leeching",
 			"#% increased Dexterity",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
@@ -608,6 +609,7 @@ r_mods = {
 			"#% reduced Mana Cost of Skills",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
+			"#% to Damage over Time Multiplier",
 			"#% to Fire Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"#% to Physical Damage over Time Multiplier",
@@ -1385,6 +1387,7 @@ r_mods = {
 			"#% increased Attack and Cast Speed",
 			"#% increased Cold Damage",
 			"#% increased Damage while Leeching Mana",
+			"#% increased Elemental Damage",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
@@ -1586,6 +1589,7 @@ r_mods = {
 			"#% increased Damage per Power Charge",
 			"#% increased Damage with Bleeding",
 			"#% increased Damage with Poison",
+			"#% increased Damage with Vaal Skills",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
@@ -1682,6 +1686,7 @@ r_mods = {
 			"Adds # to # Lightning Damage",
 			"Gain #% of Cold Damage as Extra Chaos Damage",
 			"Gain #% of Fire Damage as Extra Chaos Damage",
+			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Physical Damage as Extra Chaos Damage"
 		],
 		"explicit": [
