@@ -476,6 +476,7 @@ def gensearchparams(dps, selections, base):
 				if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
 				   ('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
 										   mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['implicit'] or
+										   ({'NoSynthImplicitMods', 'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['implicit']) or
 										   ({'NoSynthImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['implicit']) or
 										   ({'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['synth_implicit']+r_mods[base]['implicit']))) or \
 				   ('explicit' in val and mod not in r_mods[base]['explicit']):
