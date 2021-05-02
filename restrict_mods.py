@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 04/22/2021(m/d/y) 07:31:52 utc
+# Generated: 05/02/2021(m/d/y) 01:32:27 utc
 r_mods = {
 	"Abyss Jewel": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
@@ -78,14 +78,22 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Swords",
 			"#% to Critical Strike Multiplier with Wands",
 			"#% to Global Critical Strike Multiplier",
+			"Minions deal #% increased Damage",
+			"Minions have #% increased Attack Speed",
+			"Minions have #% increased Cast Speed"
+		],
+		"corrupt_implicit": [
+			"#% increased Damage",
+			"#% increased Global Critical Strike Chance",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
 			"Minions deal #% increased Damage",
-			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Cast Speed",
 			"Overwhelm #% Physical Damage Reduction"
+		],
+		"implicit": [
+			""
 		],
 		"crafted": [
 			""
@@ -191,7 +199,7 @@ r_mods = {
 		],
 	},
 	"All Jewel": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
@@ -274,14 +282,22 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Swords",
 			"#% to Critical Strike Multiplier with Wands",
 			"#% to Global Critical Strike Multiplier",
+			"Minions deal #% increased Damage",
+			"Minions have #% increased Attack Speed",
+			"Minions have #% increased Cast Speed"
+		],
+		"corrupt_implicit": [
+			"#% increased Damage",
+			"#% increased Global Critical Strike Chance",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
 			"Minions deal #% increased Damage",
-			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Cast Speed",
 			"Overwhelm #% Physical Damage Reduction"
+		],
+		"implicit": [
+			""
 		],
 		"crafted": [
 			""
@@ -467,24 +483,16 @@ r_mods = {
 		],
 	},
 	"Amulet": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
-			"# to Dexterity and Intelligence",
 			"# to Intelligence",
 			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
 			"#% increased Area Damage",
-			"#% increased Attack Damage",
-			"#% increased Attack Speed",
 			"#% increased Attack and Cast Speed",
-			"#% increased Attributes",
 			"#% increased Cast Speed",
 			"#% increased Chaos Damage",
 			"#% increased Cold Damage",
-			"#% increased Damage",
 			"#% increased Damage per 15 Dexterity",
 			"#% increased Damage per 15 Intelligence",
 			"#% increased Damage per 15 Strength",
@@ -511,21 +519,61 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% reduced Mana Cost of Skills",
 			"#% to Global Critical Strike Multiplier",
-			"Anger has #% increased Aura Effect",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
 			"Determination has #% increased Aura Effect",
 			"Discipline has #% increased Aura Effect",
+			"Grace has #% increased Aura Effect",
+			"Minions deal #% increased Damage"
+		],
+		"corrupt_implicit": [
+			"# to Dexterity",
+			"# to Dexterity and Intelligence",
+			"# to Intelligence",
+			"# to Strength",
+			"# to Strength and Dexterity",
+			"# to Strength and Intelligence",
+			"# to all Attributes",
+			"#% increased Attack Damage",
+			"#% increased Attack Speed",
+			"#% increased Attack and Cast Speed",
+			"#% increased Attributes",
+			"#% increased Chaos Damage",
+			"#% increased Cold Damage",
+			"#% increased Damage",
+			"#% increased Dexterity",
+			"#% increased Elemental Damage with Attack Skills",
+			"#% increased Fire Damage",
+			"#% increased Global Critical Strike Chance",
+			"#% increased Global Physical Damage",
+			"#% increased Intelligence",
+			"#% increased Lightning Damage",
+			"#% increased Spell Damage",
+			"#% increased Strength",
+			"#% increased maximum Life",
+			"#% increased maximum Mana",
+			"#% to Global Critical Strike Multiplier",
+			"Anger has #% increased Aura Effect",
+			"Determination has #% increased Aura Effect",
+			"Discipline has #% increased Aura Effect",
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Grace has #% increased Aura Effect",
 			"Hatred has #% increased Aura Effect",
 			"Malevolence has #% increased Aura Effect",
-			"Minions deal #% increased Damage",
 			"Pride has #% increased Aura Effect",
 			"Wrath has #% increased Aura Effect",
 			"Zealotry has #% increased Aura Effect"
+		],
+		"implicit": [
+			"# to Dexterity",
+			"# to Dexterity and Intelligence",
+			"# to Intelligence",
+			"# to Strength",
+			"# to Strength and Dexterity",
+			"# to Strength and Intelligence",
+			"# to all Attributes"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -629,7 +677,7 @@ r_mods = {
 		],
 	},
 	"Base Jewel": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
@@ -679,14 +727,22 @@ r_mods = {
 			"#% increased Spell Damage while wielding a Staff",
 			"#% reduced Mana Cost of Skills",
 			"#% to Global Critical Strike Multiplier",
+			"Minions deal #% increased Damage",
+			"Minions have #% increased Attack Speed",
+			"Minions have #% increased Cast Speed"
+		],
+		"corrupt_implicit": [
+			"#% increased Damage",
+			"#% increased Global Critical Strike Chance",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
 			"Minions deal #% increased Damage",
-			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Cast Speed",
 			"Overwhelm #% Physical Damage Reduction"
+		],
+		"implicit": [
+			""
 		],
 		"crafted": [
 			""
@@ -786,18 +842,13 @@ r_mods = {
 		],
 	},
 	"Belt": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Strength",
-			"# to maximum Energy Shield",
-			"# to maximum Life",
-			"#% increased Attack Speed during any Flask Effect",
 			"#% increased Attack and Cast Speed",
-			"#% increased Cast Speed during any Flask Effect",
 			"#% increased Chaos Damage",
 			"#% increased Cold Damage",
-			"#% increased Critical Strike Chance during any Flask Effect",
 			"#% increased Damage",
 			"#% increased Damage with Ailments",
 			"#% increased Damage with Vaal Skills",
@@ -813,11 +864,25 @@ r_mods = {
 			"#% increased Strength",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
-			"#% to Critical Strike Multiplier during any Flask Effect",
-			"Anger has #% increased Aura Effect",
 			"Damage with Weapons Penetrates #% Cold Resistance",
 			"Damage with Weapons Penetrates #% Fire Resistance",
-			"Damage with Weapons Penetrates #% Lightning Resistance",
+			"Damage with Weapons Penetrates #% Lightning Resistance"
+		],
+		"corrupt_implicit": [
+			"# to Strength",
+			"# to maximum Energy Shield",
+			"# to maximum Life",
+			"#% increased Attack Speed during any Flask Effect",
+			"#% increased Cast Speed during any Flask Effect",
+			"#% increased Critical Strike Chance during any Flask Effect",
+			"#% increased Dexterity",
+			"#% increased Global Physical Damage",
+			"#% increased Intelligence",
+			"#% increased Strength",
+			"#% increased maximum Energy Shield",
+			"#% increased maximum Life",
+			"#% to Critical Strike Multiplier during any Flask Effect",
+			"Anger has #% increased Aura Effect",
 			"Determination has #% increased Aura Effect",
 			"Discipline has #% increased Aura Effect",
 			"Grace has #% increased Aura Effect",
@@ -826,6 +891,12 @@ r_mods = {
 			"Pride has #% increased Aura Effect",
 			"Wrath has #% increased Aura Effect",
 			"Zealotry has #% increased Aura Effect"
+		],
+		"implicit": [
+			"# to Strength",
+			"# to maximum Energy Shield",
+			"# to maximum Life",
+			"#% increased Global Physical Damage"
 		],
 		"crafted": [
 			"# to Dexterity and Intelligence",
@@ -873,10 +944,9 @@ r_mods = {
 		],
 	},
 	"Body Armour": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Dexterity",
 			"# to Intelligence",
-			"# to Level of all Vaal Skill Gems",
 			"# to Strength",
 			"# to all Attributes",
 			"# to maximum Life",
@@ -884,9 +954,7 @@ r_mods = {
 			"#% increased Attack Damage",
 			"#% increased Attack and Cast Speed",
 			"#% increased Attributes",
-			"#% increased Damage",
 			"#% increased Spell Damage",
-			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
 			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
@@ -896,6 +964,19 @@ r_mods = {
 			"Gain #% of Maximum Life as Extra Maximum Energy Shield",
 			"Grace has #% increased Aura Effect",
 			"Minions deal #% increased Damage"
+		],
+		"corrupt_implicit": [
+			"# to Level of all Vaal Skill Gems",
+			"# to maximum Mana",
+			"#% increased Damage",
+			"#% increased Spell Damage",
+			"#% increased maximum Energy Shield",
+			"#% increased maximum Life"
+		],
+		"implicit": [
+			"# to Level of all Vaal Skill Gems",
+			"# to maximum Mana",
+			"#% increased Spell Damage"
 		],
 		"crafted": [
 			"# to Dexterity",
@@ -922,6 +1003,7 @@ r_mods = {
 			"# to maximum Life",
 			"# to maximum Mana",
 			"#% increased Attributes",
+			"#% increased Damage per Power Charge",
 			"#% increased Dexterity",
 			"#% increased Intelligence",
 			"#% increased Strength",
@@ -937,7 +1019,7 @@ r_mods = {
 		],
 	},
 	"Boots": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Maximum Endurance Charges",
@@ -949,11 +1031,18 @@ r_mods = {
 			"#% increased Damage with Vaal Skills",
 			"#% increased Dexterity",
 			"#% increased Intelligence",
-			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
 			"#% increased maximum Mana",
 			"#% reduced Mana Cost of Skills",
 			"Minions deal #% increased Damage"
+		],
+		"corrupt_implicit": [
+			"# to Maximum Endurance Charges",
+			"#% increased maximum Energy Shield",
+			"#% increased maximum Life"
+		],
+		"implicit": [
+			""
 		],
 		"crafted": [
 			"# to Dexterity",
@@ -988,20 +1077,16 @@ r_mods = {
 		],
 	},
 	"Caster Weapon": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Maximum Endurance Charges",
 			"# to Maximum Frenzy Charges",
 			"# to Maximum Power Charges",
-			"# to Maximum Power Charges and Maximum Endurance Charges",
 			"# to Strength",
-			"# to Strength and Dexterity",
 			"# to all Attributes",
-			"# to maximum Energy Shield",
 			"# to maximum Mana",
 			"#% chance to deal Double Damage",
-			"#% increased Area Damage",
 			"#% increased Attack Damage",
 			"#% increased Burning Damage",
 			"#% increased Cast Speed",
@@ -1009,7 +1094,6 @@ r_mods = {
 			"#% increased Cold Damage",
 			"#% increased Critical Strike Chance for Spells",
 			"#% increased Damage",
-			"#% increased Damage over Time",
 			"#% increased Damage per Endurance Charge",
 			"#% increased Damage per Frenzy Charge",
 			"#% increased Damage per Power Charge",
@@ -1017,14 +1101,11 @@ r_mods = {
 			"#% increased Damage with Poison",
 			"#% increased Damage with Vaal Skills",
 			"#% increased Elemental Damage",
-			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
-			"#% increased Global Critical Strike Chance",
 			"#% increased Global Physical Damage",
 			"#% increased Lightning Damage",
 			"#% increased Spell Damage",
-			"#% increased Strength",
 			"#% increased maximum Energy Shield",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
@@ -1049,6 +1130,47 @@ r_mods = {
 			"Spells have a #% chance to deal Double Damage",
 			"Triggered Spells deal #% increased Spell Damage"
 		],
+		"corrupt_implicit": [
+			"# to Maximum Power Charges and Maximum Endurance Charges",
+			"# to Strength and Dexterity",
+			"#% chance to deal Double Damage",
+			"#% increased Area Damage",
+			"#% increased Cast Speed",
+			"#% increased Damage over Time",
+			"#% increased Elemental Damage",
+			"#% increased Elemental Damage with Attack Skills",
+			"#% increased Global Accuracy Rating",
+			"#% increased Global Critical Strike Chance",
+			"#% increased Global Physical Damage",
+			"#% increased Spell Damage",
+			"#% increased Strength",
+			"#% to Global Critical Strike Multiplier",
+			"Adds # to # Chaos Damage (Local)",
+			"Adds # to # Cold Damage (Local)",
+			"Adds # to # Fire Damage (Local)",
+			"Adds # to # Lightning Damage (Local)",
+			"Adds # to # Physical Damage (Local)",
+			"Damage Penetrates #% Elemental Resistances"
+		],
+		"implicit": [
+			"# to Maximum Power Charges and Maximum Endurance Charges",
+			"# to Strength and Dexterity",
+			"# to maximum Energy Shield",
+			"#% chance to deal Double Damage",
+			"#% increased Area Damage",
+			"#% increased Cast Speed",
+			"#% increased Elemental Damage",
+			"#% increased Elemental Damage with Attack Skills",
+			"#% increased Global Accuracy Rating",
+			"#% increased Global Critical Strike Chance",
+			"#% increased Global Physical Damage",
+			"#% increased Spell Damage",
+			"#% increased Strength",
+			"#% to Global Critical Strike Multiplier",
+			"Adds # to # Chaos Damage (Local)",
+			"Adds # to # Fire Damage (Local)",
+			"Damage Penetrates #% Elemental Resistances"
+		],
 		"crafted": [
 			"# to Dexterity",
 			"# to Intelligence",
@@ -1064,6 +1186,7 @@ r_mods = {
 			"#% increased Critical Strike Chance for Spells",
 			"#% increased Damage over Time",
 			"#% increased Damage per Endurance Charge",
+			"#% increased Damage per Frenzy Charge",
 			"#% increased Damage per Power Charge",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
@@ -1192,7 +1315,7 @@ r_mods = {
 		],
 	},
 	"Gloves": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
@@ -1219,18 +1342,34 @@ r_mods = {
 			"#% increased Global Physical Damage",
 			"#% increased Intelligence",
 			"#% increased Lightning Damage",
+			"#% increased Strength",
+			"#% increased Vaal Skill Critical Strike Chance",
+			"#% increased maximum Life",
+			"#% increased maximum Mana",
+			"Minions deal #% increased Damage"
+		],
+		"corrupt_implicit": [
+			"# to Maximum Frenzy Charges",
+			"#% increased Attack Speed",
+			"#% increased Cast Speed",
+			"#% increased Damage over Time",
 			"#% increased Melee Damage",
 			"#% increased Projectile Attack Damage",
 			"#% increased Spell Damage",
-			"#% increased Strength",
-			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
 			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
-			"Exerted Attacks deal #% increased Damage",
-			"Minions deal #% increased Damage"
+			"Exerted Attacks deal #% increased Damage"
+		],
+		"implicit": [
+			"#% increased Damage over Time",
+			"#% increased Melee Damage",
+			"#% increased Projectile Attack Damage",
+			"#% increased Spell Damage",
+			"#% increased maximum Mana",
+			"Exerted Attacks deal #% increased Damage"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1285,6 +1424,7 @@ r_mods = {
 			"#% increased Projectile Damage",
 			"#% increased Spell Damage",
 			"#% increased Trap Damage",
+			"#% increased Vaal Skill Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Fire Damage over Time Multiplier",
@@ -1296,14 +1436,17 @@ r_mods = {
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Lightning Damage to Attacks",
+			"Adds # to # Physical Damage for each Impale on Enemy",
 			"Adds # to # Physical Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Physical Damage to Attacks",
 			"Culling Strike",
+			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Lightning Damage",
 			"Minions deal #% increased Damage"
 		],
 	},
 	"Helmet": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
@@ -1312,23 +1455,34 @@ r_mods = {
 			"# to all Attributes",
 			"# to maximum Life",
 			"# to maximum Mana",
-			"#% increased Burning Damage",
 			"#% increased Dexterity",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Lightning Damage",
 			"#% increased Strength",
 			"#% increased effect of Non-Curse Auras from your Skills",
-			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
 			"#% increased maximum Mana",
 			"#% reduced Mana Cost of Skills",
-			"Adds # to # Cold Damage",
-			"Damage Penetrates #% Cold Resistance",
 			"Gain #% of Physical Damage as Extra Lightning Damage",
 			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Triggered Spells deal #% increased Spell Damage"
+		],
+		"corrupt_implicit": [
+			"# to Maximum Power Charges",
+			"#% increased Burning Damage",
+			"#% increased effect of Non-Curse Auras from your Skills",
+			"#% increased maximum Energy Shield",
+			"#% increased maximum Life",
+			"Adds # to # Cold Damage",
+			"Damage Penetrates #% Cold Resistance",
+			"Minions deal #% increased Damage"
+		],
+		"implicit": [
+			"Adds # to # Cold Damage",
+			"Damage Penetrates #% Cold Resistance",
+			"Minions deal #% increased Damage"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1366,6 +1520,7 @@ r_mods = {
 			"Adds # to # Fire Damage to Spells",
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage to Spells",
+			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Nearby Enemies have #% to Chaos Resistance",
 			"Nearby Enemies have #% to Cold Resistance",
@@ -1376,29 +1531,50 @@ r_mods = {
 		],
 	},
 	"Quiver": {
-		"implicit": [
+		"synth_implicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
-			"# to # Added Cold Damage with Bow Attacks",
-			"# to # Added Fire Damage with Bow Attacks",
-			"# to # Added Lightning Damage with Bow Attacks",
-			"# to # Added Physical Damage with Bow Attacks",
+			"# to Dexterity",
+			"# to Intelligence",
 			"# to Strength",
+			"# to maximum Mana",
 			"#% increased Attack Speed",
 			"#% increased Attack and Cast Speed",
+			"#% increased Chaos Damage",
 			"#% increased Cold Damage",
+			"#% increased Damage while Leeching Life",
 			"#% increased Damage while Leeching Mana",
+			"#% increased Damage with Poison",
 			"#% increased Elemental Damage",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
 			"#% increased Global Physical Damage",
+			"#% increased Intelligence",
 			"#% increased Lightning Damage",
+			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
-			"Gain #% of Physical Damage as Extra Cold Damage",
+			"#% to Global Critical Strike Multiplier",
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",
+			"Grace has #% increased Aura Effect"
+		],
+		"corrupt_implicit": [
+			"# to # Added Cold Damage with Bow Attacks",
+			"# to # Added Fire Damage with Bow Attacks",
+			"# to # Added Lightning Damage with Bow Attacks",
+			"# to # Added Physical Damage with Bow Attacks",
+			"#% increased Global Accuracy Rating",
+			"#% increased Global Critical Strike Chance",
+			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Gain #% of Physical Damage as Extra Lightning Damage"
+		],
+		"implicit": [
+			"# to # Added Fire Damage with Bow Attacks",
+			"# to # Added Physical Damage with Bow Attacks",
+			"#% increased Global Accuracy Rating",
+			"#% increased Global Critical Strike Chance"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1443,6 +1619,7 @@ r_mods = {
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
+			"#% increased Vaal Skill Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier with Attack Skills",
 			"#% to Critical Strike Multiplier with Bows",
 			"#% to Damage over Time Multiplier with Attack Skills",
@@ -1464,7 +1641,7 @@ r_mods = {
 		],
 	},
 	"Ring": {
-		"implicit": [
+		"synth_implicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
 			"# to Accuracy Rating",
 			"# to Dexterity",
@@ -1474,9 +1651,6 @@ r_mods = {
 			"# to Maximum Power Charges",
 			"# to Strength",
 			"# to all Attributes",
-			"# to maximum Energy Shield",
-			"# to maximum Life",
-			"# to maximum Mana",
 			"#% increased Attack Speed",
 			"#% increased Cast Speed",
 			"#% increased Chaos Damage",
@@ -1505,25 +1679,55 @@ r_mods = {
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Chaos Damage",
 			"Adds # to # Cold Damage",
-			"Adds # to # Cold Damage to Spells and Attacks",
 			"Adds # to # Fire Damage",
-			"Adds # to # Fire Damage to Spells and Attacks",
 			"Adds # to # Lightning Damage",
-			"Adds # to # Lightning Damage to Spells and Attacks",
-			"Adds # to # Physical Damage to Attacks",
-			"Anger has #% increased Aura Effect",
 			"Bleeding you inflict deals Damage #% faster",
 			"Determination has #% increased Aura Effect",
 			"Discipline has #% increased Aura Effect",
 			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Grace has #% increased Aura Effect",
-			"Hatred has #% increased Aura Effect",
 			"Ignites you inflict deal Damage #% faster",
+			"Poisons you inflict deal Damage #% faster"
+		],
+		"corrupt_implicit": [
+			"# to maximum Energy Shield",
+			"# to maximum Life",
+			"# to maximum Mana",
+			"#% increased Attack Speed",
+			"#% increased Cast Speed",
+			"#% increased Chaos Damage",
+			"#% increased Dexterity",
+			"#% increased Elemental Damage",
+			"#% increased Global Critical Strike Chance",
+			"#% increased Global Physical Damage",
+			"#% increased Intelligence",
+			"#% increased Strength",
+			"#% increased maximum Life",
+			"#% increased maximum Mana",
+			"Adds # to # Cold Damage to Spells and Attacks",
+			"Adds # to # Fire Damage to Spells and Attacks",
+			"Adds # to # Lightning Damage to Spells and Attacks",
+			"Adds # to # Physical Damage to Attacks",
+			"Anger has #% increased Aura Effect",
+			"Determination has #% increased Aura Effect",
+			"Discipline has #% increased Aura Effect",
+			"Grace has #% increased Aura Effect",
+			"Hatred has #% increased Aura Effect",
 			"Malevolence has #% increased Aura Effect",
-			"Poisons you inflict deal Damage #% faster",
 			"Pride has #% increased Aura Effect",
 			"Wrath has #% increased Aura Effect",
 			"Zealotry has #% increased Aura Effect"
+		],
+		"implicit": [
+			"# to maximum Energy Shield",
+			"# to maximum Life",
+			"# to maximum Mana",
+			"#% increased Chaos Damage",
+			"#% increased Elemental Damage",
+			"#% increased Global Critical Strike Chance",
+			"#% increased maximum Life",
+			"#% increased maximum Mana",
+			"Adds # to # Physical Damage to Attacks"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1629,7 +1833,7 @@ r_mods = {
 		],
 	},
 	"Shield": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
@@ -1657,7 +1861,6 @@ r_mods = {
 			"#% increased Lightning Damage",
 			"#% increased Spell Damage",
 			"#% increased Strength",
-			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
 			"#% increased maximum Mana",
 			"#% reduced Mana Cost of Skills",
@@ -1665,6 +1868,16 @@ r_mods = {
 			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Physical Damage as Extra Chaos Damage"
+		],
+		"corrupt_implicit": [
+			"# to maximum Life",
+			"#% increased Spell Damage",
+			"#% increased maximum Energy Shield",
+			"#% increased maximum Life"
+		],
+		"implicit": [
+			"# to maximum Life",
+			"#% increased Spell Damage"
 		],
 		"crafted": [
 			"# to Accuracy Rating",
@@ -1731,7 +1944,7 @@ r_mods = {
 		],
 	},
 	"Wand (Spellslinger)": {
-		"implicit": [
+		"synth_implicit": [
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Strength",
@@ -1781,6 +1994,18 @@ r_mods = {
 			"Spells have a #% chance to deal Double Damage",
 			"Triggered Spells deal #% increased Spell Damage"
 		],
+		"corrupt_implicit": [
+			"#% increased Cast Speed",
+			"#% increased Spell Damage",
+			"Adds # to # Cold Damage (Local)",
+			"Adds # to # Fire Damage (Local)",
+			"Adds # to # Lightning Damage (Local)",
+			"Damage Penetrates #% Elemental Resistances"
+		],
+		"implicit": [
+			"#% increased Cast Speed",
+			"#% increased Spell Damage"
+		],
 		"crafted": [
 			"# to Dexterity",
 			"# to Intelligence",
@@ -1796,6 +2021,7 @@ r_mods = {
 			"#% increased Critical Strike Chance for Spells",
 			"#% increased Damage over Time",
 			"#% increased Damage per Endurance Charge",
+			"#% increased Damage per Frenzy Charge",
 			"#% increased Damage per Power Charge",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",

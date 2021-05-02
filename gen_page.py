@@ -88,7 +88,7 @@ def process_querystring():
 					if val:
 						doc[mjson[version][c]['name']].value = float(val)
 			else:
-				doc['specialnotice'] <= H1("You are using an unsupported version of mods.json" + BR() + f"Current version is {current_version}, you are using {version}.")
+				doc['specialnotice'] <= H1("You are using an unsupported version of mods.json, this should automatically update when you (re)start PoB-Item-Tester" + BR() + f"Current version is {current_version}, you are using {version}.")
 				doc['specialnotice'].style.display = 'block'
 				init_weight(current_version)
 			# Handle mods that aren't weights or flags
@@ -175,7 +175,7 @@ def init_page():
 		if c:
 			doc[page].style.display = 'none'
 
-	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoCraftedMods', 'Ignore Crafted Mods'), ('NoImplicitMods', 'Ignore Implicit Mods'), ('PseudoMods', 'Use PseudoMods in Search')]
+	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoCraftedMods', 'Ignore Crafted Mods'), ('NoSynthImplicitMods', 'Ignore Synth only Implicit Mods'), ('NoCorruptImplicitMods', 'Ignore Corruption only Implicit Mods'), ('NoImplicitMods', 'Ignore All Implicit Mods including corrupt and synth'), ('PseudoMods', 'Use PseudoMods in Search')]
 	t = make_table(data, 1, 'ignore')
 	doc['searchflags'] <= STRONG('Options:') + ' choices that affect type of returned mods' + BR() + 'PseudoMods is experimental. Please report any issues.' + t + BR()
 
@@ -348,6 +348,7 @@ def init_flags():
 
 # Initialize the changelog
 def init_change():
+	doc['Changelog'] <= P('2021/05/01: Seperated out Synth and Corrupted implicits.  Added options to exclude.')
 	doc['Changelog'] <= P('2021/04/19: Updated mod wordings to match latest patch and added new mods.')
 	doc['Changelog'] <= P('2021/04/19: Updated league list.')
 	doc['Changelog'] <= P('2021/03/06: Added Culling Strike (v2 mods.json).  Note that culling dps assumes "perfect culls" at exactly 10% hp against non-healing targets, so actual damage gain will be less.')

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 04/20/2021(m/d/y) 00:23:28 utc
+# Generated: 05/02/2021(m/d/y) 01:02:19 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -1134,6 +1134,7 @@ mods = {
 	"#% increased Mana Regeneration Rate during any Flask Effect": ["explicit.stat_2993091567"],
 	"#% increased Mana Regeneration Rate per Power Charge": ["explicit.stat_2847548062"],
 	"#% increased Mana Regeneration Rate per Raised Spectre": ["explicit.stat_2666795121"],
+	"#% increased Mana Regeneration Rate while Shocked": ["explicit.stat_2076519255"],
 	"#% increased Mana Regeneration Rate while moving": ["explicit.stat_1327522346"],
 	"#% increased Mana Regeneration Rate while stationary": ["explicit.stat_3308030688"],
 	"#% increased Mana Reservation of Skills": ["explicit.stat_2227180465", "implicit.stat_2227180465"],
@@ -2668,7 +2669,7 @@ mods = {
 	"Flasks found in Areas have #% chance to drop with 20% Quality": ["explicit.stat_3291313404"],
 	"Flasks gain a Charge when you take a Critical Strike": ["crafted.stat_301104070"],
 	"Flesh and Stone has #% reduced Reservation": ["explicit.stat_1537296847"],
-	"Focus has #% increased Cooldown Recovery Rate": ["explicit.stat_3610263531"],
+	"Focus has #% increased Cooldown Recovery Rate": ["crafted.stat_3610263531", "explicit.stat_3610263531"],
 	"For each nearby corpse, Regenerate #% Life per second, up to 3%": ["explicit.stat_3845048660"],
 	"Fortify Buffs you create instead grant 30% more Evasion Rating": ["explicit.stat_3560157887"],
 	"Found Items have #% chance to drop Corrupted in Area": ["explicit.stat_728267040"],
@@ -3698,6 +3699,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Combustion": ["explicit.indexable_support_105", "explicit.stat_1828254451"],
 	"Socketed Gems are Supported by Level # Concentrated Effect": ["explicit.indexable_support_98", "explicit.stat_2388360415"],
 	"Socketed Gems are Supported by Level # Controlled Destruction": ["explicit.indexable_support_97", "explicit.stat_3718597497"],
+	"Socketed Gems are Supported by Level # Cruelty": ["explicit.indexable_support_136"],
 	"Socketed Gems are Supported by Level # Culling Strike": ["explicit.indexable_support_96", "explicit.stat_1135493957"],
 	"Socketed Gems are Supported by Level # Damage On Full Life": ["explicit.stat_2126431157"],
 	"Socketed Gems are Supported by Level # Damage on Full Life": ["explicit.indexable_support_47"],
@@ -3755,7 +3757,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Life Gain On Hit": ["explicit.stat_2032386732", "implicit.stat_2032386732"],
 	"Socketed Gems are Supported by Level # Life Gain on Hit": ["explicit.indexable_support_53"],
 	"Socketed Gems are Supported by Level # Life Leech": ["explicit.indexable_support_52"],
-	"Socketed Gems are Supported by Level # Lifetap": ["crafted.stat_1079239905", "explicit.stat_1079239905", "implicit.stat_1079239905"],
+	"Socketed Gems are Supported by Level # Lifetap": ["crafted.stat_1079239905", "explicit.indexable_support_137", "explicit.stat_1079239905", "implicit.stat_1079239905"],
 	"Socketed Gems are Supported by Level # Lightning Penetration": ["explicit.indexable_support_51", "explicit.stat_3354027870"],
 	"Socketed Gems are Supported by Level # Maim": ["explicit.indexable_support_50", "explicit.stat_3826977109"],
 	"Socketed Gems are Supported by Level # Mana Leech": ["explicit.indexable_support_49", "explicit.stat_2608615082"],

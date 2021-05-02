@@ -52,76 +52,78 @@ def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit, le
 	current = '0:0:0'
 	limit2 = '1:1:1'
 	current2 = '0:0:0'
-	for base in themods:
-		print(f"Gathering for: {base}")
-		if base not in goodmods:
-			goodmods[base] = []
-		while themods[base]:
-			print(f"Remaining ({base}): {len(themods[base])}")
-			root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [{'id': x} for x in themods[base][:mod_count]], "value": {"min": 1}}], "filters": {"type_filters": {"filters": {"category": {"option": base}, "rarity": {"option": "nonunique"}}}}}, "sort": {"price": "asc"}}
-			while True:
-				try:
-					post_limit.try_acquire('post')
-					if check_for_zero(limit, current):
-						print("Desync between pyrate and header, pausing post")
-						limit = '1:1:1'
-						current = '0:0:0'
+	for synth, corrupt, modset in [['false', 'false', 'normal'],
+								   ['true', 'false', 'synth'],
+								   ['false', 'true', 'corrupt']]:
+		for base in themods:
+			print(f"Gathering for: {base}")
+			if base not in goodmods:
+				goodmods[base] = {'normal': [], 'synth': [], 'corrupt': []}
+			while themods[base][modset]:
+				print(f"Remaining ({base}): {len(themods[base][modset])}")
+				root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [{'id': x} for x in themods[base][modset][:mod_count]], "value": {"min": 1}}],
+										  "filters": {"type_filters": {"filters": {"rarity": {"option": "nonunique"}, "category": {"option": base}}, "disabled": False}, "misc_filters": {"filters": {"synthesised_item": {"option": synth}, "corrupted": {"option": corrupt}}}}}, "sort": {"price": "asc"}}
+				while True:
+					try:
+						post_limit.try_acquire('post')
+						if check_for_zero(limit, current):
+							print("Desync between pyrate and header, pausing post")
+							limit = '1:1:1'
+							current = '0:0:0'
+							while True:
+								post_limit.try_acquire('post')
+						var, limit, current = post_api(requester, root_request, headers, cookies, league)
+						break
+					except BucketFullException as err:
+						print(err.meta_info)
+						sleep(err.meta_info['remaining_time'] + 1)
+					except ConnectionError as e:
+						print(e)
+						sleep(find_max_sleep(e.__str__()))
+				if var['result']:
+					idx = 0
+					thelen = 0
+					print(f"fetching: {var['id']}")
+					while idx < len(var['result']) and idx < min(50, mod_count):
 						while True:
-							post_limit.try_acquire('post')
-					var, limit, current = post_api(requester, root_request, headers, cookies, league)
-					break
-				except BucketFullException as err:
-					print(err.meta_info)
-					sleep(err.meta_info['remaining_time'] + 1)
-				except ConnectionError as e:
-					print(e)
-					sleep(find_max_sleep(e.__str__()))
-			if var['result']:
-				idx = 0
-				thelen = 0
-				print(f"fetching: {var['id']}")
-				while idx < len(var['result']) and idx < min(100, mod_count):
-					while True:
-						try:
-							fetch_limit.try_acquire('fetch')
-							if check_for_zero(limit2, current2):
-								print("Desync between pyrate and header, pausing fetch")
-								limit2 = '1:1:1'
-								current2 = '0:0:0'
-								while True:
-									fetch_limit.try_acquire('fetch')
-							var2, limit2, current2 = fetch_api(requester, fetch_url.format(','.join(var['result'][idx:idx + 10]), var['id']), headers, cookies, True)
-							break
-						except BucketFullException as err:
-							print(err.meta_info)
-							sleep(err.meta_info['remaining_time'] + 1)
-						except ConnectionError as e:
-							print(e)
-							sleep(find_max_sleep(e.__str__()))
-					idx += 10
-					for res in var2['result']:
-						for affix in res['item']['extended']['hashes']:
-							new_mods = [x[0] for x in res['item']['extended']['hashes'][affix] if x[0] in themods[base] and x[0] not in goodmods[base]]
-							if not thelen:
-								thelen += len(new_mods)
-							for x in new_mods:
-								del themods[base][themods[base].index(x)]
-							goodmods[base].extend(new_mods)
-				# so we don't get stuck in a loop when the only result has fractured crafting mods that can't be explicits
-				if not thelen:
-					print("Fractured crafting mod that matches explicit as only result.")
-					themods[base] = themods[base][mod_count:]
-			else:
-				print("No results", var)
-				themods[base] = themods[base][mod_count:]
-			# in case there is an interuption, save every result
-			with open('modmap.json', 'w') as f:
-				json.dump(goodmods, f)
-#		with open('modmap.json', 'w') as f:
-#			json.dump(goodmods, f)
-	# Should have all results saved by now, but make sure.
-	with open('modmap.json', 'w') as f:
-		json.dump(goodmods, f)
+							try:
+								fetch_limit.try_acquire('fetch')
+								if check_for_zero(limit2, current2):
+									print("Desync between pyrate and header, pausing fetch")
+									limit2 = '1:1:1'
+									current2 = '0:0:0'
+									while True:
+										fetch_limit.try_acquire('fetch')
+								var2, limit2, current2 = fetch_api(requester, fetch_url.format(','.join(var['result'][idx:idx + 10]), var['id']), headers, cookies, True)
+								break
+							except BucketFullException as err:
+								print(err.meta_info)
+								sleep(err.meta_info['remaining_time'] + 1)
+							except ConnectionError as e:
+								print(e)
+								sleep(find_max_sleep(e.__str__()))
+						idx += 10
+						for res in var2['result']:
+							for affix in res['item']['extended']['hashes']:
+								new_mods = [x[0] for x in res['item']['extended']['hashes'][affix] if x[0] in themods[base][modset] and x[0] not in goodmods[base][modset]]
+								if not thelen:
+									thelen += len(new_mods)
+								for x in new_mods:
+									del themods[base][modset][themods[base][modset].index(x)]
+								goodmods[base][modset].extend(new_mods)
+					# so we don't get stuck in a loop when the only result has fractured crafting mods that can't be explicits
+					if not thelen:
+						print("Fractured crafting mod that matches explicit as only result.")
+						themods[base][modset] = themods[base][modset][mod_count:]
+				else:
+					print("No results", var)
+					themods[base][modset] = themods[base][modset][mod_count:]
+				# in case there is an interuption, save every result
+				with open('modmap.json', 'w') as f:
+					json.dump(goodmods, f)
+		# Should have all results saved by now, but make sure.
+		with open('modmap.json', 'w') as f:
+			json.dump(goodmods, f)
 	requester.close()
 
 
@@ -148,10 +150,14 @@ def gen_restrict_mods(goodmods, root_dir):
 	rlookup = {mods[x][idx]: x for x in mods for idx in range(len(mods[x]))}
 	results = {}
 	for base in goodmods:
-		results[lookup_bases[base]] = {'implicit': [], 'crafted': [], 'explicit': []}
-		for m in goodmods[base]:
+		results[lookup_bases[base]] = {'synth_implicit': [], 'corrupt_implicit': [], 'implicit': [], 'crafted': [], 'explicit': []}
+		for m in goodmods[base]['normal']:
 			name = rlookup[m]
 			results[lookup_bases[base]][m.split('.')[0]].append(name)
+		for m in goodmods[base]['synth']:
+			results[lookup_bases[base]]['synth_implicit'].append(rlookup[m])
+		for m in goodmods[base]['corrupt']:
+			results[lookup_bases[base]]['corrupt_implicit'].append(rlookup[m])
 	# Add mods for specific uniques that are being considered.
 	missing_mods = {
 		'Ring': {
@@ -180,7 +186,9 @@ def gen_restrict_mods(goodmods, root_dir):
 			results[slot][gen_type].extend(missing_mods[slot][gen_type])
 
 	# Add a special section for all jewel mods
-	results['All Jewel'] = {'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
+	results['All Jewel'] = {'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
+							'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
+							'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
 							'crafted': list(set(results['Base Jewel']['crafted'] + results['Abyss Jewel']['crafted'])),
 							'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))}
 
@@ -223,13 +231,18 @@ def genmods(goodmods):
 		mod_set.extend(mods[m])
 	mod_list = list(mod_set)
 	mod_list.sort()
+	imp_list = [x for x in mod_list if x.startswith('implicit')]
 	ret = {}
 	for base in bases:
-		ret[base] = mod_list.copy()
+		ret[base] = {}
+		ret[base]['normal'] = mod_list.copy()
+		ret[base]['synth'] = imp_list.copy()
+		ret[base]['corrupt'] = imp_list.copy()
 
 	for base in goodmods:
-		for m in goodmods[base]:
-			del ret[base][ret[base].index(m)]
+		for modtype in ['normal', 'synth', 'corrupt']:
+			for m in goodmods[base][modtype]:
+				del ret[base][modtype][ret[base][modtype].index(m)]
 
 	return ret
 
