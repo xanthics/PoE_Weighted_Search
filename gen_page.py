@@ -9,7 +9,7 @@ from baselist import bases
 from modsjson import mjson
 
 # checkboxes that have their state saved
-saved_states = ["NoCraftedMods", "NoImplicitMods", "includeDelve", "PseudoMods"]
+saved_states = ["NoCraftedMods", "NoSynthImplicitMods", "NoCorruptImplicitMods", "NoImplicitMods", "includeDelve", "PseudoMods"]
 
 storage_key = "poe_weighted_search"
 
