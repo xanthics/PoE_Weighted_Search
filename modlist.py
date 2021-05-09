@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 05/02/2021(m/d/y) 01:02:19 utc
+# Generated: 05/09/2021(m/d/y) 06:48:18 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -3689,7 +3689,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Chance To Bleed": ["explicit.stat_4197676934"],
 	"Socketed Gems are Supported by Level # Chance to Bleed": ["explicit.indexable_support_106"],
 	"Socketed Gems are Supported by Level # Chance to Flee": ["explicit.indexable_support_81"],
-	"Socketed Gems are Supported by Level # Charged Mines": ["explicit.indexable_support_103"],
+	"Socketed Gems are Supported by Level # Charged Mines": ["explicit.indexable_support_103", "explicit.stat_1365328494"],
 	"Socketed Gems are Supported by Level # Charged Traps": ["explicit.indexable_support_78", "explicit.stat_479453859"],
 	"Socketed Gems are Supported by Level # Close Combat": ["explicit.indexable_support_102", "explicit.stat_694651314"],
 	"Socketed Gems are Supported by Level # Cluster Trap": ["explicit.stat_2854183975"],
@@ -4061,7 +4061,7 @@ mods = {
 	"Unique Monsters from Beyond have a #% chance to Summon another Unique Monster from Beyond when Slain": ["explicit.stat_531937370"],
 	"Unwavering Stance": ["explicit.stat_1683578560", "implicit.stat_1683578560"],
 	"Uses both hand slots": ["explicit.stat_2846730569"],
-	"Vaal Attack Skills Cost Rage instead of requiring Souls to Use": ["explicit.stat_1103075489"],
+	"Vaal Attack Skills you Use yourself Cost Rage instead of requiring Souls": ["explicit.stat_1103075489"],
 	"Vaal Pact": ["explicit.stat_2257118425"],
 	"Vaal Skills deal #% more Damage during Effect": ["explicit.stat_4147528862"],
 	"Vaal Skills have #% chance to regain consumed Souls when used": ["explicit.stat_2833218772"],

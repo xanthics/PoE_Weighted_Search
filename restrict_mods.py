@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 05/02/2021(m/d/y) 01:32:27 utc
+# Generated: 05/09/2021(m/d/y) 07:00:25 utc
 r_mods = {
 	"Abyss Jewel": {
 		"synth_implicit": [
@@ -928,6 +928,7 @@ r_mods = {
 			"#% increased Critical Strike Chance against Shocked Enemies",
 			"#% increased Damage",
 			"#% increased Damage with Hits against Chilled Enemies",
+			"#% increased Damage with Vaal Skills",
 			"#% increased Elemental Damage",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Energy Shield from Body Armour",
@@ -1133,6 +1134,7 @@ r_mods = {
 		"corrupt_implicit": [
 			"# to Maximum Power Charges and Maximum Endurance Charges",
 			"# to Strength and Dexterity",
+			"# to maximum Energy Shield",
 			"#% chance to deal Double Damage",
 			"#% increased Area Damage",
 			"#% increased Cast Speed",
@@ -1552,6 +1554,7 @@ r_mods = {
 			"#% increased Global Physical Damage",
 			"#% increased Intelligence",
 			"#% increased Lightning Damage",
+			"#% increased Strength",
 			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
 			"#% to Global Critical Strike Multiplier",
