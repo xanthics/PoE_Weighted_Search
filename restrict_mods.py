@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 05/09/2021(m/d/y) 07:00:25 utc
+# Generated: 05/20/2021(m/d/y) 21:51:47 utc
 r_mods = {
 	"Abyss Jewel": {
 		"synth_implicit": [
@@ -1443,6 +1443,7 @@ r_mods = {
 			"Adds # to # Physical Damage to Attacks",
 			"Culling Strike",
 			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Gain #% of Physical Damage as Extra Lightning Damage",
 			"Minions deal #% increased Damage"
 		],
@@ -1511,6 +1512,7 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Area Damage",
 			"#% increased Burning Damage",
+			"#% increased Critical Strike Chance if you've been Shocked Recently",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Intelligence",
