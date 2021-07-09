@@ -5,6 +5,7 @@ from helper_files.goodmod import goodmod
 from helper_files.badmod import badmod
 from datetime import datetime
 from pyrate_limiter import *
+from time import sleep
 
 
 def post_api(requester, data, headers, cookies, league):
@@ -539,14 +540,35 @@ def setup_limits(cookies, headers, league):
 	post_url = f'https://www.pathofexile.com/api/trade/search/{league}'
 	root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [], "value": {"min": 1}}], "filters": {"type_filters": {"filters": {"category": {"option": 'weapon'}, "rarity": {"option": "nonunique"}}}}}, "sort": {"price": "asc"}}
 	req = requester.post(post_url, cookies=cookies, headers=headers, json=root_request)
-	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
-	# Add 1 second for desync
-	post_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1])+1) * Duration.SECOND) for x in arrs])
+	arr_account = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')]
+	arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Ip'].split(',')]
+#	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
+#	post_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1]) + 1) * Duration.SECOND) for x in arrs])
+	# build new arrs
+	arrs = {}
+	for r, p, d in arr_account+arr_ip:
+		r = int(r)
+		p = int(p) + 1  # Add 1 second for desync
+		if p not in arrs:
+			arrs[p] = r
+	print(arrs)
+	post_limit = Limiter(*[RequestRate(arrs[x], x * Duration.SECOND) for x in sorted(arrs)])
 
 	fetch_url = 'https://www.pathofexile.com/api/trade/fetch/{}'
 	req = requester.get(fetch_url, cookies=cookies, headers=headers)
-	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
-	fetch_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1])+1) * Duration.SECOND) for x in arrs])
+	arr_account = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')]
+	arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Ip'].split(',')]
+#	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
+#	fetch_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1])+1) * Duration.SECOND) for x in arrs])
+	# build new arrs
+	arrs = {}
+	for r, p, d in arr_account+arr_ip:
+		r = int(r)
+		p = int(p) + 1  # Add 1 second for desync
+		if p not in arrs:
+			arrs[p] = r
+	print(arrs)
+	fetch_limit = Limiter(*[RequestRate(arrs[x], x * Duration.SECOND) for x in sorted(arrs)])
 
 	# try against both buckets to reflect setup request
 	post_limit.try_acquire('post')

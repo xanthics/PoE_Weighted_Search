@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 05/20/2021(m/d/y) 21:51:47 utc
+# Generated: 07/09/2021(m/d/y) 22:19:02 utc
 r_mods = {
 	"Abyss Jewel": {
 		"synth_implicit": [
@@ -588,6 +588,7 @@ r_mods = {
 			"# to maximum Life",
 			"# to maximum Mana",
 			"#% increased Area Damage",
+			"#% increased Attack and Cast Speed",
 			"#% increased Cast Speed",
 			"#% increased Chaos Damage",
 			"#% increased Cold Damage",
@@ -630,6 +631,7 @@ r_mods = {
 			"#% chance to deal Double Damage if you have Stunned an Enemy Recently",
 			"#% increased Area Damage",
 			"#% increased Attack Speed",
+			"#% increased Attack and Cast Speed",
 			"#% increased Attributes",
 			"#% increased Cast Speed",
 			"#% increased Chaos Damage",
@@ -1594,6 +1596,7 @@ r_mods = {
 			"# to maximum Life",
 			"# to maximum Mana",
 			"#% increased Attack Speed",
+			"#% increased Attack and Cast Speed",
 			"#% increased Elemental Damage if you've dealt a Critical Strike Recently",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Global Critical Strike Chance",
@@ -1617,6 +1620,7 @@ r_mods = {
 			"# to maximum Life",
 			"# to maximum Mana",
 			"#% increased Attack Speed",
+			"#% increased Attack and Cast Speed",
 			"#% increased Critical Strike Chance with Bows",
 			"#% increased Damage with Bleeding",
 			"#% increased Damage with Poison",

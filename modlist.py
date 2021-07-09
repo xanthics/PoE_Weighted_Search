@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 05/09/2021(m/d/y) 06:48:18 utc
+# Generated: 07/09/2021(m/d/y) 22:08:29 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -2444,7 +2444,7 @@ mods = {
 	"Chance to Block Spell Damage is Unlucky": ["explicit.stat_3551025193"],
 	"Channelling Skills deal #% increased Damage": ["explicit.stat_2733285506"],
 	"Channelling Skills deal #% increased Damage per 10 Devotion": ["explicit.stat_970844066"],
-	"Channelling Skills have # to Total Cost": ["crafted.stat_2421446548", "explicit.stat_2421446548"],
+	"Channelling Skills have # to Total Mana Cost": ["crafted.stat_2421446548", "explicit.stat_2421446548"],
 	"Chaos Damage can Ignite, Chill and Shock": ["explicit.stat_3470457445"],
 	"Chaos Damage does not bypass Energy Shield": ["explicit.stat_1119465199"],
 	"Chaos Damage does not bypass Energy Shield during effect": ["explicit.stat_2229840047"],
@@ -3657,9 +3657,12 @@ mods = {
 	"Socketed Gems are Supported by Level # Awakened Added Fire Damage": ["explicit.stat_339131601"],
 	"Socketed Gems are Supported by Level # Awakened Brutality": ["explicit.stat_3610200044"],
 	"Socketed Gems are Supported by Level # Awakened Chain": ["explicit.stat_2249251344"],
+	"Socketed Gems are Supported by Level # Awakened Cold Penetration": ["explicit.stat_1889095429"],
 	"Socketed Gems are Supported by Level # Awakened Elemental Damage With Attacks": ["explicit.stat_1786672841"],
+	"Socketed Gems are Supported by Level # Awakened Fire Penetration": ["explicit.stat_170274897"],
 	"Socketed Gems are Supported by Level # Awakened Fork": ["explicit.stat_1803865171"],
 	"Socketed Gems are Supported by Level # Awakened Greater Multiple Projectiles": ["explicit.stat_1980028507"],
+	"Socketed Gems are Supported by Level # Awakened Increased Area Of Effect": ["explicit.stat_2333301609"],
 	"Socketed Gems are Supported by Level # Awakened Melee Physical Damage": ["explicit.stat_2173069393"],
 	"Socketed Gems are Supported by Level # Awakened Melee Splash": ["explicit.stat_2253550081"],
 	"Socketed Gems are Supported by Level # Awakened Minion Damage": ["explicit.stat_2100048639"],
@@ -3699,7 +3702,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Combustion": ["explicit.indexable_support_105", "explicit.stat_1828254451"],
 	"Socketed Gems are Supported by Level # Concentrated Effect": ["explicit.indexable_support_98", "explicit.stat_2388360415"],
 	"Socketed Gems are Supported by Level # Controlled Destruction": ["explicit.indexable_support_97", "explicit.stat_3718597497"],
-	"Socketed Gems are Supported by Level # Cruelty": ["explicit.indexable_support_136"],
+	"Socketed Gems are Supported by Level # Cruelty": ["explicit.indexable_support_136", "explicit.stat_1679136"],
 	"Socketed Gems are Supported by Level # Culling Strike": ["explicit.indexable_support_96", "explicit.stat_1135493957"],
 	"Socketed Gems are Supported by Level # Damage On Full Life": ["explicit.stat_2126431157"],
 	"Socketed Gems are Supported by Level # Damage on Full Life": ["explicit.indexable_support_47"],
@@ -4061,7 +4064,7 @@ mods = {
 	"Unique Monsters from Beyond have a #% chance to Summon another Unique Monster from Beyond when Slain": ["explicit.stat_531937370"],
 	"Unwavering Stance": ["explicit.stat_1683578560", "implicit.stat_1683578560"],
 	"Uses both hand slots": ["explicit.stat_2846730569"],
-	"Vaal Attack Skills you Use yourself Cost Rage instead of requiring Souls": ["explicit.stat_1103075489"],
+	"Vaal Attack Skills not Used by Totems Cost Rage instead of requiring Souls": ["explicit.stat_1103075489"],
 	"Vaal Pact": ["explicit.stat_2257118425"],
 	"Vaal Skills deal #% more Damage during Effect": ["explicit.stat_4147528862"],
 	"Vaal Skills have #% chance to regain consumed Souls when used": ["explicit.stat_2833218772"],
