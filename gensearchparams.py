@@ -342,6 +342,7 @@ def gensearchparams(dps, selections, base):
 		"# to maximum Mana": [dps['flatmana'][0], dps['flatmana'][1]],
 		"#% increased maximum Mana": [dps['pmana'][0], dps['pmana'][1]],
 		'#% reduced Mana Cost of Skills': [dps['pmanaskillreduce'][0], dps['pmanaskillreduce'][1]],
+		"#% increased Totem Life": [dps['ptotemlife'][0], dps['ptotemlife'][1]],
 		# Minion % damage
 		"Minions have #% chance to deal Double Damage": [dps['minionchancedoubledamage'][0], dps['minionchancedoubledamage'][1]],
 		"Minions deal #% increased Damage": [dps['pminion'][0], dps['pminion'][1]],

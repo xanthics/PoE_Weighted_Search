@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/09/2021(m/d/y) 22:19:02 utc
+# Generated: 07/22/2021(m/d/y) 06:55:44 utc
 r_mods = {
 	"Abyss Jewel": {
 		"synth_implicit": [
@@ -436,6 +436,7 @@ r_mods = {
 			"#% increased Spell Damage while holding a Shield",
 			"#% increased Spell Damage while wielding a Staff",
 			"#% increased Totem Damage",
+			"#% increased Totem Life",
 			"#% increased Trap Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",

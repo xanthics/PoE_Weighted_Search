@@ -237,6 +237,7 @@ goodmod = [
 	"#% increased Spell Damage while wielding a Staff",
 	"#% increased Strength",
 	"#% increased Totem Damage",
+	"#% increased Totem Life",
 	"#% increased Trap Damage",
 	"#% increased Vaal Skill Critical Strike Chance",
 	"#% increased effect of Non-Curse Auras from your Skills",

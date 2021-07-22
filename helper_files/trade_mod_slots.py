@@ -284,7 +284,7 @@ def handle_pseudos(pseudos, root_dir):
 		'Has Room: Sanctum of Vitality (Tier 2)', 'Has Room: Shrine of Empowerment (Tier 1)', 'Has Room: Shrine of Unmaking (Tier 3)', 'Has Room: Sparring Room (Tier 1)', 'Has Room: Splinter Research Lab (Tier 1)', 'Has Room: Storage Room (Tier 1)', 'Has Room: Storm of Corruption (Tier 3)', 'Has Room: Strongbox Chamber (Tier 1)',
 		"Has Room: Surveyor's Study (Tier 1)", 'Has Room: Tempest Generator (Tier 1)', 'Has Room: Temple Defense Workshop (Tier 2)', 'Has Room: Temple Nexus (Tier 3)', 'Has Room: Throne of Atziri (Tier 3)', 'Has Room: Tombs', 'Has Room: Torment Cells (Tier 1)', 'Has Room: Torture Cages (Tier 2)', 'Has Room: Toxic Grove (Tier 3)',
 		'Has Room: Trap Workshop (Tier 1)', 'Has Room: Treasury (Tier 2)', 'Has Room: Tunnels', 'Has Room: Vault (Tier 1)', 'Has Room: Warehouses (Tier 2)', 'Has Room: Wealth of the Vaal (Tier 3)', 'Has Room: Workshop (Tier 1)', 'Has Shaper Influence', 'Has Warlord Influence',
-
+		'+#% Physical and Chaos Damage Modifiers', 'Has Room: Apex of Atzoatl'
 		# mods that seem good but aren't
 		'+# total to all Attributes',  # eg 5 str, 11 dex, 14 int item will have value of 5
 
@@ -540,13 +540,14 @@ def setup_limits(cookies, headers, league):
 	post_url = f'https://www.pathofexile.com/api/trade/search/{league}'
 	root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [], "value": {"min": 1}}], "filters": {"type_filters": {"filters": {"category": {"option": 'weapon'}, "rarity": {"option": "nonunique"}}}}}, "sort": {"price": "asc"}}
 	req = requester.post(post_url, cookies=cookies, headers=headers, json=root_request)
-	arr_account = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')]
 	arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Ip'].split(',')]
+	if 'X-Rate-Limit-Account' in req.headers:
+		arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')] + arr_ip
 #	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
 #	post_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1]) + 1) * Duration.SECOND) for x in arrs])
 	# build new arrs
 	arrs = {}
-	for r, p, d in arr_account+arr_ip:
+	for r, p, d in arr_ip:
 		r = int(r)
 		p = int(p) + 1  # Add 1 second for desync
 		if p not in arrs:
@@ -556,13 +557,14 @@ def setup_limits(cookies, headers, league):
 
 	fetch_url = 'https://www.pathofexile.com/api/trade/fetch/{}'
 	req = requester.get(fetch_url, cookies=cookies, headers=headers)
-	arr_account = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')]
 	arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Ip'].split(',')]
+	if 'X-Rate-Limit-Account' in req.headers:
+		arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')] + arr_ip
 #	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
 #	fetch_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1])+1) * Duration.SECOND) for x in arrs])
 	# build new arrs
 	arrs = {}
-	for r, p, d in arr_account+arr_ip:
+	for r, p, d in arr_ip:
 		r = int(r)
 		p = int(p) + 1  # Add 1 second for desync
 		if p not in arrs:
@@ -578,7 +580,7 @@ def setup_limits(cookies, headers, league):
 
 if __name__ == "__main__":
 	root_dir_g = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	g_league = 'Ultimatum'
+	g_league = 'Expedition'
 	g_cookies = {'POESESSID': ''}
 	g_headers = {'User-Agent': '(poe discord: xan#7840) poe weighted search mod gen tool'}
 	g_post_limit, g_fetch_limit = setup_limits(g_cookies, g_headers, g_league)
@@ -586,7 +588,7 @@ if __name__ == "__main__":
 	with open('modmap.json', 'r') as fi:
 		knownmods = json.load(fi)
 	mymods = genmods(knownmods)
-	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit, g_league)
+#	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit, g_league)
 	gen_restrict_mods(knownmods, root_dir_g)
 	updateleagues(root_dir_g, g_headers, g_cookies)
 	updatejsonmods(root_dir_g)

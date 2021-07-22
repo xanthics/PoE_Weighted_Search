@@ -1089,7 +1089,6 @@ badmod = [
 	"#% increased Taunt Duration",
 	"#% increased Total Heist Fee",
 	"#% increased Totem Damage per 10 Devotion",
-	"#% increased Totem Life",
 	"#% increased Totem Life per 10 Strength Allocated in Radius",
 	"#% increased Totem Placement speed",
 	"#% increased Trap Disarmament Experience gained",

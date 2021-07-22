@@ -549,6 +549,15 @@ Item Level: 1
 	
 	
 Rarity: Rare
+7% increased Totem Life
+Cobalt Jewel
+--------
+Item Level: 1
+--------
+7% increased Totem Life
+	
+	
+Rarity: Rare
 7% increased maximum Life
 Cobalt Jewel
 --------

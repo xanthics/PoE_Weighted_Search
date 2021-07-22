@@ -488,6 +488,14 @@ Implicits: 0
 		</Item>
 		<Item>
 			Rarity: RARE
+7% increased Totem Life
+Cobalt Jewel
+Item Level: 1
+Implicits: 0
+7% increased Totem Life
+		</Item>
+		<Item>
+			Rarity: RARE
 7% increased maximum Life
 Cobalt Jewel
 Item Level: 1
