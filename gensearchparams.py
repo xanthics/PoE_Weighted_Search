@@ -295,7 +295,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Accuracy Rating with Swords": [dps['paccuracy'][0] if {'Sword'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		"#% increased Accuracy Rating with Wands": [dps['paccuracy'][0] if {'Wand'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		'#% increased Global Accuracy Rating': [dps['paccuracy'][0], dps['paccuracy'][1]],
-		"#% increased Accuracy Rating if you haven't Killed Recently": [dps['paccuracy'][0] if {'NoRecentKill'}.issubset(selections) else 0, dps['paccuracy'][1]],
+#		"#% increased Accuracy Rating if you haven't Killed Recently": [dps['paccuracy'][0] if {'NoRecentKill'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		# Attributes
 		'# to Strength': [dps['20str'][0], dps['20str'][1]],
 		'# to Intelligence': [dps['20int'][0], dps['20int'][1]],

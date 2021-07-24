@@ -88,7 +88,6 @@ goodmod = [
 	"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby",
 	"#% chance to deal Double Damage",
 	"#% chance to deal Double Damage if you have Stunned an Enemy Recently",
-	"#% increased Accuracy Rating if you haven't Killed Recently",
 	"#% increased Accuracy Rating per Frenzy Charge",
 	"#% increased Accuracy Rating with Axes",
 	"#% increased Accuracy Rating with Bows",

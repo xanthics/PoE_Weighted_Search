@@ -1087,6 +1087,7 @@ badmod = [
 	"#% increased Stun Threshold",
 	"#% increased Stun and Block Recovery",
 	"#% increased Taunt Duration",
+	"#% increased Accuracy Rating if you haven't Killed Recently",
 	"#% increased Total Heist Fee",
 	"#% increased Totem Damage per 10 Devotion",
 	"#% increased Totem Life per 10 Strength Allocated in Radius",
