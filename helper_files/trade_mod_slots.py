@@ -588,7 +588,7 @@ if __name__ == "__main__":
 	with open('modmap.json', 'r') as fi:
 		knownmods = json.load(fi)
 	mymods = genmods(knownmods)
-#	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit, g_league)
+	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit, g_league)
 	gen_restrict_mods(knownmods, root_dir_g)
 	updateleagues(root_dir_g, g_headers, g_cookies)
 	updatejsonmods(root_dir_g)

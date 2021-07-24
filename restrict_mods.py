@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/22/2021(m/d/y) 06:55:44 utc
+# Generated: 07/24/2021(m/d/y) 23:11:09 utc
 r_mods = {
 	"Abyss Jewel": {
 		"synth_implicit": [
@@ -160,7 +160,6 @@ r_mods = {
 			"# to maximum Energy Shield",
 			"# to maximum Life",
 			"# to maximum Mana",
-			"#% increased Accuracy Rating if you haven't Killed Recently",
 			"#% increased Attack Speed",
 			"#% increased Attack Speed if you've dealt a Critical Strike Recently",
 			"#% increased Cast Speed",
@@ -364,7 +363,6 @@ r_mods = {
 			"# to maximum Energy Shield",
 			"# to maximum Life",
 			"# to maximum Mana",
-			"#% increased Accuracy Rating if you haven't Killed Recently",
 			"#% increased Area Damage",
 			"#% increased Attack Critical Strike Chance while Dual Wielding",
 			"#% increased Attack Damage while Dual Wielding",
@@ -822,6 +820,7 @@ r_mods = {
 			"#% increased Spell Damage while holding a Shield",
 			"#% increased Spell Damage while wielding a Staff",
 			"#% increased Totem Damage",
+			"#% increased Totem Life",
 			"#% increased Trap Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
