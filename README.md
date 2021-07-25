@@ -1,3 +1,5 @@
+This project works best in conjunction with [PoB-Item-Tester](https://github.com/VolatilePulse/PoB-Item-Tester)
+
 The web based version of this is hosted at [https://xanthics.github.io/PoE_Weighted_Search/](https://xanthics.github.io/PoE_Weighted_Search/)
 
 A collection of files for generating pathofexile.com/trade queries for jewels and statsticks
