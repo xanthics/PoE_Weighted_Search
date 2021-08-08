@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/24/2021(m/d/y) 23:11:09 utc
+# Generated: 08/08/2021(m/d/y) 19:25:31 utc
 r_mods = {
 	"Abyss Jewel": {
 		"synth_implicit": [
@@ -1561,6 +1561,7 @@ r_mods = {
 			"#% increased Strength",
 			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
+			"#% increased maximum Mana",
 			"#% to Global Critical Strike Multiplier",
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",

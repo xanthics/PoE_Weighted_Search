@@ -539,38 +539,38 @@ def setup_limits(cookies, headers, league):
 	requester = requests.session()
 	post_url = f'https://www.pathofexile.com/api/trade/search/{league}'
 	root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [], "value": {"min": 1}}], "filters": {"type_filters": {"filters": {"category": {"option": 'weapon'}, "rarity": {"option": "nonunique"}}}}}, "sort": {"price": "asc"}}
-	req = requester.post(post_url, cookies=cookies, headers=headers, json=root_request)
-	arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Ip'].split(',')]
-	if 'X-Rate-Limit-Account' in req.headers:
-		arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')] + arr_ip
-#	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
-#	post_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1]) + 1) * Duration.SECOND) for x in arrs])
+	request = requester.post(post_url, cookies=cookies, headers=headers, json=root_request)
+	x_rate_ip = [x.split(':') for x in request.headers['X-Rate-Limit-Ip'].split(',')]
+	if 'X-Rate-Limit-Account' in request.headers:
+		x_rate_ip.extend([x.split(':') for x in request.headers['X-Rate-Limit-Account'].split(',')])
 	# build new arrs
-	arrs = {}
-	for r, p, d in arr_ip:
-		r = int(r)
-		p = int(p) + 1  # Add 1 second for desync
-		if p not in arrs:
-			arrs[p] = r
-	print(arrs)
-	post_limit = Limiter(*[RequestRate(arrs[x], x * Duration.SECOND) for x in sorted(arrs)])
+	rate_limits = {}
+	for rate, period, delay in x_rate_ip:
+		rate = int(rate)
+		period = int(period) + 1  # Add 1 second for desync
+		if period in rate_limits:  # If 2 rules have the same period, take the rule with the worse rate limit
+			rate_limits[period] = min(rate, rate_limits[period])
+		else:
+			rate_limits[period] = rate
+	print(rate_limits)
+	post_limit = Limiter(*[RequestRate(rate_limits[x], x * Duration.SECOND) for x in sorted(rate_limits)])
 
 	fetch_url = 'https://www.pathofexile.com/api/trade/fetch/{}'
-	req = requester.get(fetch_url, cookies=cookies, headers=headers)
-	arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Ip'].split(',')]
-	if 'X-Rate-Limit-Account' in req.headers:
-		arr_ip = [x.split(':') for x in req.headers['X-Rate-Limit-Account'].split(',')] + arr_ip
-#	arrs = [x.split(':') for x in f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}".split(',')]
-#	fetch_limit = Limiter(*[RequestRate(int(x[0]), (int(x[1])+1) * Duration.SECOND) for x in arrs])
+	request = requester.get(fetch_url, cookies=cookies, headers=headers)
+	x_rate_ip = [x.split(':') for x in request.headers['X-Rate-Limit-Ip'].split(',')]
+	if 'X-Rate-Limit-Account' in request.headers:
+		x_rate_ip.extend([x.split(':') for x in request.headers['X-Rate-Limit-Account'].split(',')])
 	# build new arrs
-	arrs = {}
-	for r, p, d in arr_ip:
-		r = int(r)
-		p = int(p) + 1  # Add 1 second for desync
-		if p not in arrs:
-			arrs[p] = r
-	print(arrs)
-	fetch_limit = Limiter(*[RequestRate(arrs[x], x * Duration.SECOND) for x in sorted(arrs)])
+	rate_limits = {}
+	for rate, period, delay in x_rate_ip:
+		rate = int(rate)
+		period = int(period) + 1  # Add 1 second for desync
+		if period in rate_limits:  # If 2 rules have the same period, take the rule with the worse rate limit
+			rate_limits[period] = min(rate, rate_limits[period])
+		else:
+			rate_limits[period] = rate
+	print(rate_limits)
+	fetch_limit = Limiter(*[RequestRate(rate_limits[x], x * Duration.SECOND) for x in sorted(rate_limits)])
 
 	# try against both buckets to reflect setup request
 	post_limit.try_acquire('post')
