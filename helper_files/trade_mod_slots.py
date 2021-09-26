@@ -3,6 +3,7 @@ import json
 import os
 from helper_files.goodmod import goodmod
 from helper_files.badmod import badmod
+from helper_files.gen_test_query import resetmods
 from datetime import datetime
 from pyrate_limiter import *
 from time import sleep
@@ -284,7 +285,10 @@ def handle_pseudos(pseudos, root_dir):
 		'Has Room: Sanctum of Vitality (Tier 2)', 'Has Room: Shrine of Empowerment (Tier 1)', 'Has Room: Shrine of Unmaking (Tier 3)', 'Has Room: Sparring Room (Tier 1)', 'Has Room: Splinter Research Lab (Tier 1)', 'Has Room: Storage Room (Tier 1)', 'Has Room: Storm of Corruption (Tier 3)', 'Has Room: Strongbox Chamber (Tier 1)',
 		"Has Room: Surveyor's Study (Tier 1)", 'Has Room: Tempest Generator (Tier 1)', 'Has Room: Temple Defense Workshop (Tier 2)', 'Has Room: Temple Nexus (Tier 3)', 'Has Room: Throne of Atziri (Tier 3)', 'Has Room: Tombs', 'Has Room: Torment Cells (Tier 1)', 'Has Room: Torture Cages (Tier 2)', 'Has Room: Toxic Grove (Tier 3)',
 		'Has Room: Trap Workshop (Tier 1)', 'Has Room: Treasury (Tier 2)', 'Has Room: Tunnels', 'Has Room: Vault (Tier 1)', 'Has Room: Warehouses (Tier 2)', 'Has Room: Wealth of the Vaal (Tier 3)', 'Has Room: Workshop (Tier 1)', 'Has Shaper Influence', 'Has Warlord Influence',
-		'+#% Physical and Chaos Damage Modifiers', 'Has Room: Apex of Atzoatl'
+		'+#% Physical and Chaos Damage Modifiers', 'Has Room: Apex of Atzoatl',
+		'Has Logbook Area: Battleground Graves', 'Has Logbook Area: Bluffs', 'Has Logbook Area: Cemetery', 'Has Logbook Area: Desert Ruins', 'Has Logbook Area: Dried Riverbed', 'Has Logbook Area: Forest Ruins', 'Has Logbook Area: Karui Wargraves', 'Has Logbook Area: Mountainside', 'Has Logbook Area: Rotting Temple',
+		'Has Logbook Area: Sarn Slums', 'Has Logbook Area: Scrublands', 'Has Logbook Area: Shipwreck Reef', 'Has Logbook Area: Utzaal Outskirts', 'Has Logbook Area: Vaal Temple', 'Has Logbook Area: Volcanic Island', 'Has Logbook Faction: Black Scythe Mercenaries', 'Has Logbook Faction: Druids of the Broken Circle', 'Has Logbook Faction: Knights of the Sun',
+		'Has Logbook Faction: Order of the Chalice',
 		# mods that seem good but aren't
 		'+# total to all Attributes',  # eg 5 str, 11 dex, 14 int item will have value of 5
 
@@ -592,3 +596,4 @@ if __name__ == "__main__":
 	gen_restrict_mods(knownmods, root_dir_g)
 	updateleagues(root_dir_g, g_headers, g_cookies)
 	updatejsonmods(root_dir_g)
+	resetmods()
