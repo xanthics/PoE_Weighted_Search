@@ -1,4 +1,4 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 07/24/2021(m/d/y) 23:11:09 utc
-leagues = ['Standard', 'Hardcore', 'Expedition', 'Hardcore Expedition']
+# Generated: 10/24/2021(m/d/y) 01:41:23 utc
+leagues = ['Standard', 'Hardcore', 'Scourge', 'Hardcore Scourge']
