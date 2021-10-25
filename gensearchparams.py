@@ -113,10 +113,11 @@ def gensearchparams(dps, selections, base):
 		"#% increased Elemental Damage if you've dealt a Critical Strike Recently": [dps['pelemental'][0] if {'CritRecently'}.issubset(selections) else 0, dps['pelemental'][1]],
 		"#% increased Damage if you've Killed Recently": [dps['pgeneric'][0] if {'KilledRecently'}.issubset(selections) else 0, dps['pgeneric'][1]],
 		"#% increased Damage with Hits against Chilled Enemies": [dps['pgeneric'][0] if {'EnemyChilled'}.issubset(selections) and {'Attack', 'Spell'}.intersection(selections) else 0, dps['pgeneric'][1]],
-		# Double Damage
+		# *x Damage
 		"Spells have a #% chance to deal Double Damage": [dps['chancedoubledamage'][0] if {'Spell'}.issubset(selections) else 0, dps['chancedoubledamage'][1]],
 		"#% chance to deal Double Damage": [dps['chancedoubledamage'][0], dps['chancedoubledamage'][1]],
 		"#% chance to deal Double Damage if you have Stunned an Enemy Recently": [dps['chancedoubledamage'][0] if {'Stun'}.issubset(selections) else 0, dps['chancedoubledamage'][1]],
+		"#% chance to deal Triple Damage": [dps['chancetripledamage'][0], dps['chancetripledamage'][1]],
 		# Base Critical Strike chance
 		"#% to Spell Critical Strike Chance": [dps['basecrit'][0] if {'Spell'}.issubset(selections) else 0, dps['basecrit'][1]],  # Note that this is base crit.  Yes the space is in the main trade site
 		"Attacks have #% to Critical Strike Chance": [dps['basecrit'][0] if {'Attack'}.issubset(selections) else 0, dps['basecrit'][1]],  # Note that this is base crit.
@@ -256,6 +257,7 @@ def gensearchparams(dps, selections, base):
 		"Damage Penetrates #% Elemental Resistances": [dps['penall'][0], dps['penall'][1]],
 		"Damage Penetrates #% Fire Resistance": [dps['penfire'][0], dps['penfire'][1]],
 		"Damage Penetrates #% Lightning Resistance": [dps['penlightning'][0], dps['penlightning'][1]],
+		"Damage Penetrates #% Chaos Resistance": [dps['penchaos'][0], dps['penchaos'][1]],
 		"Damage with Weapons Penetrates #% Cold Resistance": [dps['pencold'][0] if {'Attack'}.issubset(selections) else 0, dps['pencold'][1]],
 		"Damage with Weapons Penetrates #% Fire Resistance": [dps['penfire'][0] if {'Attack'}.issubset(selections) else 0, dps['penfire'][1]],
 		"Damage with Weapons Penetrates #% Lightning Resistance": [dps['penlightning'][0] if {'Attack'}.issubset(selections) else 0, dps['penlightning'][1]],
@@ -388,6 +390,7 @@ def gensearchparams(dps, selections, base):
 		"Pride has #% increased Aura Effect": [dps['iaepride'][0], dps['iaepride'][1]],
 		"Wrath has #% increased Aura Effect": [dps['iaewrath'][0], dps['iaewrath'][1]],
 		"Zealotry has #% increased Aura Effect": [dps['iaezealotry'][0], dps['iaezealotry'][1]],
+		"#% increased Effect of Non-Curse Auras from your Skills on Enemies": [dps['iaeenemy'][0], dps['iaeenemy'][1]],
 		"#% increased effect of Non-Curse Auras from your Skills": [dps['iaenc'][0], dps['iaenc'][1]],
 		"Auras from your Skills grant #% increased Damage to you and Allies": [dps['pdpas'][0], dps['pdpas'][1]],
 		# Flasks
@@ -438,7 +441,7 @@ def gensearchparams(dps, selections, base):
 		"Ignites you inflict deal Damage #% faster": [0, 0],
 		"Bleeding you inflict deals Damage #% faster": [0, 0],
 		"Poisons you inflict deal Damage #% faster": [0, 0],
-
+		"Damaging Ailments deal damage #% faster": [0, 0],
 
 	}
 	# table to get the correct trade site json name

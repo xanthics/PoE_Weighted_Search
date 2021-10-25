@@ -175,7 +175,7 @@ def init_page():
 		if c:
 			doc[page].style.display = 'none'
 
-	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoCraftedMods', 'Ignore Crafted Mods'), ('NoSynthImplicitMods', 'Ignore Synth only Implicit Mods'), ('NoCorruptImplicitMods', 'Ignore Corruption only Implicit Mods'), ('NoImplicitMods', 'Ignore All Implicit Mods including corrupt and synth'), ('PseudoMods', 'Use PseudoMods in Search')]
+	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoCraftedMods', 'Ignore Crafted Mods'), ('NoScourgeImplicitMods', 'Ignore Scourge Mods'), ('NoSynthImplicitMods', 'Ignore Synth only Implicit Mods'), ('NoCorruptImplicitMods', 'Ignore Corruption only Implicit Mods'), ('NoImplicitMods', 'Ignore All Implicit Mods including corrupt and synth'), ('PseudoMods', 'Use PseudoMods in Search')]
 	t = make_table(data, 1, 'ignore')
 	doc['searchflags'] <= STRONG('Options:') + ' choices that affect type of returned mods' + BR() + 'PseudoMods is experimental. Please report any issues.' + t + BR()
 
@@ -348,6 +348,7 @@ def init_flags():
 
 # Initialize the changelog
 def init_change():
+	doc['Changelog'] <= P('2021/10/24: Added support for Scourge mods.')
 	doc['Changelog'] <= P('2021/05/01: Seperated out Synth and Corrupted implicits.  Added options to exclude.')
 	doc['Changelog'] <= P('2021/04/19: Updated mod wordings to match latest patch and added new mods.')
 	doc['Changelog'] <= P('2021/04/19: Updated league list.')

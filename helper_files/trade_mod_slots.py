@@ -16,7 +16,7 @@ def post_api(requester, data, headers, cookies, league):
 	if req.status_code == 429:
 		raise ConnectionError(f"Post throttle error: {req.headers['X-Rate-Limit-Account-State']},{req.headers['X-Rate-Limit-Ip-State']}")
 	if req.status_code != 200:
-		raise Exception('(post) API response: {}'.format(req.status_code))
+		raise Exception('(post) API response: {} {}'.format(req.status_code, req.content))
 	return req.json(), f"{req.headers['X-Rate-Limit-Account']},{req.headers['X-Rate-Limit-Ip']}", f"{req.headers['X-Rate-Limit-Account-State']},{req.headers['X-Rate-Limit-Ip-State']}"
 
 
@@ -54,17 +54,23 @@ def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit, le
 	current = '0:0:0'
 	limit2 = '1:1:1'
 	current2 = '0:0:0'
-	for synth, corrupt, modset in [['false', 'false', 'normal'],
-								   ['true', 'false', 'synth'],
-								   ['false', 'true', 'corrupt']]:
+	for synth, corrupt, scourge, modset in [['false', 'false', 'false', 'normal'],
+											['false', 'true', 'true', 'scourge'],
+											['true', 'false', 'false', 'synth'],
+											['false', 'true', 'false', 'corrupt']]:
 		for base in themods:
 			print(f"Gathering for: {base}")
 			if base not in goodmods:
-				goodmods[base] = {'normal': [], 'synth': [], 'corrupt': []}
+				goodmods[base] = {'normal': [], 'synth': [], 'scourge': [], 'corrupt': []}
 			while themods[base][modset]:
 				print(f"Remaining ({base}): {len(themods[base][modset])}")
 				root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [{'id': x} for x in themods[base][modset][:mod_count]], "value": {"min": 1}}],
-										  "filters": {"type_filters": {"filters": {"rarity": {"option": "nonunique"}, "category": {"option": base}}, "disabled": False}, "misc_filters": {"filters": {"synthesised_item": {"option": synth}, "corrupted": {"option": corrupt}}}}}, "sort": {"price": "asc"}}
+								"filters": {"misc_filters": {"filters": {"scourge_tier": {}, "corrupted": {"option": corrupt}, "synthesised_item": {"option": synth}}}, "type_filters": {"filters": {"category": {"option": base}, "rarity": {"option": "nonunique"}}}}},
+								"sort": {"price": "asc"}}
+				if scourge == 'true':
+					root_request["query"]['filters']["misc_filters"]['filters']['scourge_tier']['min'] = 1
+				else:
+					root_request["query"]['filters']["misc_filters"]['filters']['scourge_tier']['max'] = 0
 				while True:
 					try:
 						post_limit.try_acquire('post')
@@ -152,14 +158,20 @@ def gen_restrict_mods(goodmods, root_dir):
 	rlookup = {mods[x][idx]: x for x in mods for idx in range(len(mods[x]))}
 	results = {}
 	for base in goodmods:
-		results[lookup_bases[base]] = {'synth_implicit': [], 'corrupt_implicit': [], 'implicit': [], 'crafted': [], 'explicit': []}
-		for m in goodmods[base]['normal']:
-			name = rlookup[m]
-			results[lookup_bases[base]][m.split('.')[0]].append(name)
-		for m in goodmods[base]['synth']:
-			results[lookup_bases[base]]['synth_implicit'].append(rlookup[m])
-		for m in goodmods[base]['corrupt']:
-			results[lookup_bases[base]]['corrupt_implicit'].append(rlookup[m])
+		results[lookup_bases[base]] = {'scourge_implicit': [], 'synth_implicit': [], 'corrupt_implicit': [], 'implicit': [], 'crafted': [], 'explicit': []}
+		if 'normal' in goodmods[base]:
+			for m in goodmods[base]['normal']:
+				name = rlookup[m]
+				results[lookup_bases[base]][m.split('.')[0]].append(name)
+		if 'synth' in goodmods[base]:
+			for m in goodmods[base]['synth']:
+				results[lookup_bases[base]]['synth_implicit'].append(rlookup[m])
+		if 'scourge' in goodmods[base]:
+			for m in goodmods[base]['scourge']:
+				results[lookup_bases[base]]['scourge_implicit'].append(rlookup[m])
+		if 'corrupt' in goodmods[base]:
+			for m in goodmods[base]['corrupt']:
+				results[lookup_bases[base]]['corrupt_implicit'].append(rlookup[m])
 	# Add mods for specific uniques that are being considered.
 	missing_mods = {
 		'Ring': {
@@ -188,7 +200,8 @@ def gen_restrict_mods(goodmods, root_dir):
 			results[slot][gen_type].extend(missing_mods[slot][gen_type])
 
 	# Add a special section for all jewel mods
-	results['All Jewel'] = {'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
+	results['All Jewel'] = {'scourge_implicit': list(set(results['Base Jewel']['scourge_implicit'] + results['Abyss Jewel']['scourge_implicit'])),
+	                        'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
 							'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
 							'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
 							'crafted': list(set(results['Base Jewel']['crafted'] + results['Abyss Jewel']['crafted'])),
@@ -234,15 +247,19 @@ def genmods(goodmods):
 	mod_list = list(mod_set)
 	mod_list.sort()
 	imp_list = [x for x in mod_list if x.startswith('implicit')]
+	scourge_list = [x for x in mod_list if x.startswith('scourge')]
 	ret = {}
 	for base in bases:
 		ret[base] = {}
 		ret[base]['normal'] = mod_list.copy()
+		ret[base]['scourge'] = scourge_list.copy()
 		ret[base]['synth'] = imp_list.copy()
 		ret[base]['corrupt'] = imp_list.copy()
 
 	for base in goodmods:
-		for modtype in ['normal', 'synth', 'corrupt']:
+		for modtype in ['normal', 'synth', 'scourge', 'corrupt']:
+			if modtype not in goodmods[base]:
+				continue
 			for m in goodmods[base][modtype]:
 				del ret[base][modtype][ret[base][modtype].index(m)]
 
@@ -288,7 +305,7 @@ def handle_pseudos(pseudos, root_dir):
 		'+#% Physical and Chaos Damage Modifiers', 'Has Room: Apex of Atzoatl',
 		'Has Logbook Area: Battleground Graves', 'Has Logbook Area: Bluffs', 'Has Logbook Area: Cemetery', 'Has Logbook Area: Desert Ruins', 'Has Logbook Area: Dried Riverbed', 'Has Logbook Area: Forest Ruins', 'Has Logbook Area: Karui Wargraves', 'Has Logbook Area: Mountainside', 'Has Logbook Area: Rotting Temple',
 		'Has Logbook Area: Sarn Slums', 'Has Logbook Area: Scrublands', 'Has Logbook Area: Shipwreck Reef', 'Has Logbook Area: Utzaal Outskirts', 'Has Logbook Area: Vaal Temple', 'Has Logbook Area: Volcanic Island', 'Has Logbook Faction: Black Scythe Mercenaries', 'Has Logbook Faction: Druids of the Broken Circle', 'Has Logbook Faction: Knights of the Sun',
-		'Has Logbook Faction: Order of the Chalice',
+		'Has Logbook Faction: Order of the Chalice', '# Enchant Modifiers', '#% Base Defence Percentile',
 		# mods that seem good but aren't
 		'+# total to all Attributes',  # eg 5 str, 11 dex, 14 int item will have value of 5
 
@@ -449,7 +466,7 @@ def handle_pseudos(pseudos, root_dir):
 
 
 def updatemods(root_dir, headers, cookies):
-	results = {'Explicit': {}, 'Implicit': {}, 'Crafted': {}}
+	results = {'Explicit': {}, 'Implicit': {}, 'Crafted': {}, 'Scourge': {}}
 	pseudos = {}
 	modurl = "https://www.pathofexile.com/api/trade/data/stats"
 	vals = fetch_api(requests, modurl, headers, cookies)
@@ -458,6 +475,7 @@ def updatemods(root_dir, headers, cookies):
 			'Explicit',
 			'Implicit',
 			'Crafted',
+			'Scourge'
 		]:
 			results[i['label']] = {k['id']: k['text'] for k in i['entries']}
 		elif i['label'] == 'Pseudo':
@@ -584,8 +602,8 @@ def setup_limits(cookies, headers, league):
 
 if __name__ == "__main__":
 	root_dir_g = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	g_league = 'Expedition'
-	g_cookies = {'POESESSID': ''}
+	g_league = 'Scourge'
+	g_cookies = {'POESESSID': '162a31128d836d1769d88d08eb5cdc65'}
 	g_headers = {'User-Agent': '(poe discord: xan#7840) poe weighted search mod gen tool'}
 	g_post_limit, g_fetch_limit = setup_limits(g_cookies, g_headers, g_league)
 	updatemods(root_dir_g, g_headers, g_cookies)

@@ -264,6 +264,14 @@ Damage Penetrates 8% Fire Resistance
 		</Item>
 		<Item>
 			Rarity: RARE
+Damage Penetrates 8% Chaos Resistance
+Cobalt Jewel
+Item Level: 1
+Implicits: 0
+Damage Penetrates 8% Chaos Resistance
+		</Item>
+		<Item>
+			Rarity: RARE
 Overwhelm 10% Physical Damage Reduction
 Cobalt Jewel
 Item Level: 1
@@ -317,6 +325,14 @@ Cobalt Jewel
 Item Level: 1
 Implicits: 0
 1% chance to deal Double Damage
+		</Item>
+		<Item>
+			Rarity: RARE
+1% chance to deal Triple Damage
+Cobalt Jewel
+Item Level: 1
+Implicits: 0
+1% chance to deal Triple Damage
 		</Item>
 		<Item>
 			Rarity: RARE
@@ -853,6 +869,14 @@ Cobalt Jewel
 Item Level: 1
 Implicits: 0
 Zealotry has 34% increased Aura Effect
+		</Item>
+		<Item>
+			Rarity: RARE
+20% increased Effect of Non-Curse Auras from your Skills on Enemies
+Cobalt Jewel
+Item Level: 1
+Implicits: 0
+20% increased Effect of Non-Curse Auras from your Skills on Enemies
 		</Item>
 		<Item>
 			Rarity: RARE
