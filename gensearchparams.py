@@ -470,6 +470,15 @@ def gensearchparams(dps, selections, base):
 	reverse = {}
 	trimmed = []
 
+	# Handle Scourge mods before implementing pseudos as they do not overlap
+	for mod in modstr:
+		if modstr[mod][0]:
+			for val in mods[mod]:
+				if 'crafted' in val or 'implicit' in val or 'explicit' in val or ('scourge' in val and ({'NoScourgeImplicitMods'}.issubset(selections) or mod not in r_mods[base]['scourge_implicit'])):
+					continue
+				mlist[val] = (round(modstr[mod][0], 2), modstr[mod][1])
+				reverse[val] = mod
+
 	pseudos = {}
 	if {'PseudoMods'}.issubset(selections):
 		pseudos = pseudo_lookup(modstr, base, reverse, selections)
@@ -478,6 +487,7 @@ def gensearchparams(dps, selections, base):
 		if modstr[mod][0]:
 			for val in mods[mod]:
 				if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
+				   'scourge' in val or \
 				   ('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
 										   mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['implicit'] or
 										   ({'NoSynthImplicitMods', 'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['implicit']) or
