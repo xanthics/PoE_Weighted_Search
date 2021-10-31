@@ -117,7 +117,7 @@ def gensearchparams(dps, selections, base):
 		"Spells have a #% chance to deal Double Damage": [dps['chancedoubledamage'][0] if {'Spell'}.issubset(selections) else 0, dps['chancedoubledamage'][1]],
 		"#% chance to deal Double Damage": [dps['chancedoubledamage'][0], dps['chancedoubledamage'][1]],
 		"#% chance to deal Double Damage if you have Stunned an Enemy Recently": [dps['chancedoubledamage'][0] if {'Stun'}.issubset(selections) else 0, dps['chancedoubledamage'][1]],
-		"#% chance to deal Triple Damage": [dps['chancetripledamage'][0], dps['chancetripledamage'][1]],
+		"#% chance to deal Triple Damage": [dps['chancedoubledamage'][0]*2, dps['chancedoubledamage'][1]*2],
 		# Base Critical Strike chance
 		"#% to Spell Critical Strike Chance": [dps['basecrit'][0] if {'Spell'}.issubset(selections) else 0, dps['basecrit'][1]],  # Note that this is base crit.  Yes the space is in the main trade site
 		"Attacks have #% to Critical Strike Chance": [dps['basecrit'][0] if {'Attack'}.issubset(selections) else 0, dps['basecrit'][1]],  # Note that this is base crit.
@@ -477,8 +477,8 @@ def gensearchparams(dps, selections, base):
 	for mod in modstr:
 		if modstr[mod][0]:
 			for val in mods[mod]:
-				if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
-				   ('scourge' in val and ({'NoScourgeImplicitMods'}.issubset(selections) or mod not in r_mods[base]['scourge_implicit'])) or \
+				# if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
+				if ('scourge' in val and ({'NoScourgeImplicitMods'}.issubset(selections) or mod not in r_mods[base]['scourge_implicit'])) or \
 				   ('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
 										   mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['implicit'] or
 										   ({'NoSynthImplicitMods', 'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['implicit']) or

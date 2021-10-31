@@ -47,30 +47,33 @@ def check_for_zero(limit, current):
 
 # given a list of mods to check and a list of known mods, eliminate possibly bad mods
 def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit, league):
-	mod_count = 180  # number of mods to check at a time
+	mod_count = 178  # number of mods to check at a time
 	fetch_url = 'https://www.pathofexile.com/api/trade/fetch/{}?query={}'
 	requester = requests.session()
 	limit = '1:1:1'
 	current = '0:0:0'
 	limit2 = '1:1:1'
 	current2 = '0:0:0'
-	for synth, corrupt, scourge, modset in [['false', 'false', 'false', 'normal'],
-											['false', 'true', 'true', 'scourge'],
-											['true', 'false', 'false', 'synth'],
-											['false', 'true', 'false', 'corrupt']]:
-		for base in themods:
+	for synth, corrupt, scourge, crafted, modset in [['false', 'false', 'false', 'false', 'normal'],
+	                                        # ['false', 'false', 'false', 'true', 'crafted'],
+											['false', 'true', 'true', 'any', 'scourge'],
+											['true', 'false', 'false', 'any', 'synth'],
+											['false', 'true', 'false', 'any', 'corrupt']]:
+		for base in sorted(themods):
 			print(f"Gathering for: {base}")
 			if base not in goodmods:
-				goodmods[base] = {'normal': [], 'synth': [], 'scourge': [], 'corrupt': []}
+				goodmods[base] = {'normal': [], 'synth': [], 'scourge': [], 'corrupt': []}  # , 'crafted': []}
 			while themods[base][modset]:
-				print(f"Remaining ({base}): {len(themods[base][modset])}")
+				print(f"Remaining ({base} {modset}): {len(themods[base][modset])}")
 				root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [{'id': x} for x in themods[base][modset][:mod_count]], "value": {"min": 1}}],
-								"filters": {"misc_filters": {"filters": {"scourge_tier": {}, "corrupted": {"option": corrupt}, "synthesised_item": {"option": synth}}}, "type_filters": {"filters": {"category": {"option": base}, "rarity": {"option": "nonunique"}}}}},
+								"filters": {"misc_filters": {"filters": {'fractured_item': {'option': 'false'}, "scourge_tier": {}, "crafted": {"option": crafted}, "corrupted": {"option": corrupt}, "synthesised_item": {"option": synth}}}, "type_filters": {"filters": {"category": {"option": base}, "rarity": {"option": "nonunique"}}}}},
 								"sort": {"price": "asc"}}
 				if scourge == 'true':
 					root_request["query"]['filters']["misc_filters"]['filters']['scourge_tier']['min'] = 1
 				else:
 					root_request["query"]['filters']["misc_filters"]['filters']['scourge_tier']['max'] = 0
+				if crafted == 'any':
+					del root_request["query"]['filters']["misc_filters"]['filters']['crafted']
 				while True:
 					try:
 						post_limit.try_acquire('post')
@@ -158,11 +161,13 @@ def gen_restrict_mods(goodmods, root_dir):
 	rlookup = {mods[x][idx]: x for x in mods for idx in range(len(mods[x]))}
 	results = {}
 	for base in goodmods:
-		results[lookup_bases[base]] = {'scourge_implicit': [], 'synth_implicit': [], 'corrupt_implicit': [], 'implicit': [], 'crafted': [], 'explicit': []}
+		results[lookup_bases[base]] = {'scourge_implicit': [], 'synth_implicit': [], 'corrupt_implicit': [], 'implicit': [], 'explicit': []}  # 'crafted': []}
 		if 'normal' in goodmods[base]:
 			for m in goodmods[base]['normal']:
-				name = rlookup[m]
-				results[lookup_bases[base]][m.split('.')[0]].append(name)
+				results[lookup_bases[base]][m.split('.')[0]].append(rlookup[m])
+#		if 'crafted' in goodmods[base]:
+#			for m in goodmods[base]['crafted']:
+#				results[lookup_bases[base]]['crafted'].append(rlookup[m])
 		if 'synth' in goodmods[base]:
 			for m in goodmods[base]['synth']:
 				results[lookup_bases[base]]['synth_implicit'].append(rlookup[m])
@@ -204,7 +209,7 @@ def gen_restrict_mods(goodmods, root_dir):
 	                        'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
 							'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
 							'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
-							'crafted': list(set(results['Base Jewel']['crafted'] + results['Abyss Jewel']['crafted'])),
+							# 'crafted': list(set(results['Base Jewel']['crafted'] + results['Abyss Jewel']['crafted'])),
 							'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))}
 
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'r_mods = {']
@@ -251,13 +256,14 @@ def genmods(goodmods):
 	ret = {}
 	for base in bases:
 		ret[base] = {}
-		ret[base]['normal'] = mod_list.copy()
+		ret[base]['normal'] = [x for x in mod_list if not x.startswith('crafted')]
+		# ret[base]['crafted'] = [x for x in mod_list if x.startswith('crafted')]
 		ret[base]['scourge'] = scourge_list.copy()
 		ret[base]['synth'] = imp_list.copy()
 		ret[base]['corrupt'] = imp_list.copy()
 
 	for base in goodmods:
-		for modtype in ['normal', 'synth', 'scourge', 'corrupt']:
+		for modtype in ['normal', 'synth', 'scourge', 'corrupt']:  # , 'crafted']:
 			if modtype not in goodmods[base]:
 				continue
 			for m in goodmods[base][modtype]:
@@ -466,7 +472,7 @@ def handle_pseudos(pseudos, root_dir):
 
 
 def updatemods(root_dir, headers, cookies):
-	results = {'Explicit': {}, 'Implicit': {}, 'Crafted': {}, 'Scourge': {}}
+	results = {'Explicit': {}, 'Implicit': {}, 'Scourge': {}}  # 'Crafted': {}}
 	pseudos = {}
 	modurl = "https://www.pathofexile.com/api/trade/data/stats"
 	vals = fetch_api(requests, modurl, headers, cookies)
@@ -474,7 +480,7 @@ def updatemods(root_dir, headers, cookies):
 		if i['label'] in [
 			'Explicit',
 			'Implicit',
-			'Crafted',
+			# 'Crafted',
 			'Scourge'
 		]:
 			results[i['label']] = {k['id']: k['text'] for k in i['entries']}
@@ -597,6 +603,7 @@ def setup_limits(cookies, headers, league):
 	# try against both buckets to reflect setup request
 	post_limit.try_acquire('post')
 	fetch_limit.try_acquire('fetch')
+	requester.close()
 	return post_limit, fetch_limit
 
 
@@ -609,6 +616,7 @@ if __name__ == "__main__":
 	updatemods(root_dir_g, g_headers, g_cookies)
 	with open('modmap.json', 'r') as fi:
 		knownmods = json.load(fi)
+
 	mymods = genmods(knownmods)
 	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit, g_league)
 	gen_restrict_mods(knownmods, root_dir_g)

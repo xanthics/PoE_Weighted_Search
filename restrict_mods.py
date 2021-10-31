@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 10/28/2021(m/d/y) 21:24:28 utc
+# Generated: 10/31/2021(m/d/y) 11:21:21 utc
 r_mods = {
 	"Abyss Jewel": {
 		"scourge_implicit": [
@@ -96,9 +96,6 @@ r_mods = {
 			"Overwhelm #% Physical Damage Reduction"
 		],
 		"implicit": [
-			""
-		],
-		"crafted": [
 			""
 		],
 		"explicit": [
@@ -302,9 +299,6 @@ r_mods = {
 			"Overwhelm #% Physical Damage Reduction"
 		],
 		"implicit": [
-			""
-		],
-		"crafted": [
 			""
 		],
 		"explicit": [
@@ -603,47 +597,18 @@ r_mods = {
 			"# to Strength and Intelligence",
 			"# to all Attributes"
 		],
-		"crafted": [
-			"# to Accuracy Rating",
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Energy Shield",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Area Damage",
-			"#% increased Attack and Cast Speed",
-			"#% increased Cast Speed",
-			"#% increased Chaos Damage",
-			"#% increased Cold Damage",
-			"#% increased Damage while Leeching",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased Fire Damage",
-			"#% increased Global Critical Strike Chance",
-			"#% increased Global Physical Damage",
-			"#% increased Lightning Damage",
-			"#% increased Melee Damage",
-			"#% increased Projectile Damage",
-			"#% increased maximum Energy Shield",
-			"#% reduced Mana Cost of Skills",
-			"Adds # to # Chaos Damage to Attacks",
-			"Adds # to # Cold Damage to Attacks",
-			"Adds # to # Fire Damage to Attacks",
-			"Adds # to # Lightning Damage to Attacks",
-			"Adds # to # Physical Damage to Attacks"
-		],
 		"explicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Dexterity and Intelligence",
 			"# to Intelligence",
+			"# to Level of all Chaos Skill Gems",
 			"# to Level of all Cold Skill Gems",
 			"# to Level of all Dexterity Skill Gems",
+			"# to Level of all Fire Skill Gems",
+			"# to Level of all Intelligence Skill Gems",
 			"# to Level of all Lightning Skill Gems",
+			"# to Level of all Physical Skill Gems",
 			"# to Level of all Strength Skill Gems",
 			"# to Strength",
 			"# to Strength and Dexterity",
@@ -772,9 +737,6 @@ r_mods = {
 			"Overwhelm #% Physical Damage Reduction"
 		],
 		"implicit": [
-			""
-		],
-		"crafted": [
 			""
 		],
 		"explicit": [
@@ -938,17 +900,6 @@ r_mods = {
 			"# to maximum Life",
 			"#% increased Global Physical Damage"
 		],
-		"crafted": [
-			"# to Dexterity and Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to maximum Energy Shield",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Damage",
-			"#% increased Elemental Damage with Attack Skills"
-		],
 		"explicit": [
 			"# to # added Fire Damage against Burning Enemies",
 			"# to Dexterity",
@@ -1027,21 +978,6 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Spell Damage"
 		],
-		"crafted": [
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Attributes",
-			"#% increased maximum Life",
-			"#% increased maximum Mana",
-			"Gain #% of Maximum Life as Extra Maximum Energy Shield"
-		],
 		"explicit": [
 			"# to Dexterity",
 			"# to Dexterity and Intelligence",
@@ -1052,6 +988,7 @@ r_mods = {
 			"# to maximum Life",
 			"# to maximum Mana",
 			"#% increased Attributes",
+			"#% increased Damage per Power Charge",
 			"#% increased Dexterity",
 			"#% increased Intelligence",
 			"#% increased Strength",
@@ -1061,6 +998,7 @@ r_mods = {
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
 			"Gain #% of Cold Damage as Extra Chaos Damage",
+			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Maximum Life as Extra Maximum Energy Shield"
 		],
@@ -1097,17 +1035,6 @@ r_mods = {
 		],
 		"implicit": [
 			""
-		],
-		"crafted": [
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Life",
-			"# to maximum Mana"
 		],
 		"explicit": [
 			"# to Dexterity",
@@ -1262,55 +1189,9 @@ r_mods = {
 			"#% increased Spell Damage",
 			"#% increased Strength",
 			"#% to Global Critical Strike Multiplier",
+			"Adds # to # Chaos Damage (Local)",
 			"Adds # to # Fire Damage (Local)",
 			"Damage Penetrates #% Elemental Resistances"
-		],
-		"crafted": [
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Mana",
-			"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby",
-			"#% chance to deal Double Damage",
-			"#% increased Attack Speed while a Rare or Unique Enemy is Nearby",
-			"#% increased Cast Speed",
-			"#% increased Chaos Damage",
-			"#% increased Cold Damage",
-			"#% increased Critical Strike Chance for Spells",
-			"#% increased Damage over Time",
-			"#% increased Damage per Endurance Charge",
-			"#% increased Damage per Frenzy Charge",
-			"#% increased Damage per Power Charge",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased Fire Damage",
-			"#% increased Lightning Damage",
-			"#% increased Mine Damage",
-			"#% increased Spell Damage",
-			"#% increased Trap Damage",
-			"#% to Chaos Damage over Time Multiplier",
-			"#% to Cold Damage over Time Multiplier",
-			"#% to Fire Damage over Time Multiplier",
-			"#% to Global Critical Strike Multiplier",
-			"#% to Physical Damage over Time Multiplier",
-			"Adds # to # Cold Damage (Local)",
-			"Adds # to # Cold Damage to Spells",
-			"Adds # to # Fire Damage (Local)",
-			"Adds # to # Fire Damage to Spells",
-			"Adds # to # Lightning Damage (Local)",
-			"Adds # to # Lightning Damage to Spells",
-			"Adds # to # Physical Damage (Local)",
-			"Gain #% of Cold Damage as Extra Chaos Damage",
-			"Gain #% of Fire Damage as Extra Chaos Damage",
-			"Gain #% of Lightning Damage as Extra Chaos Damage",
-			"Gain #% of Non-Chaos Damage as extra Chaos Damage",
-			"Gain #% of Physical Damage as Extra Chaos Damage",
-			"Minions deal #% increased Damage",
-			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Cast Speed"
 		],
 		"explicit": [
 			"# to Dexterity",
@@ -1324,6 +1205,7 @@ r_mods = {
 			"# to Level of all Physical Spell Skill Gems",
 			"# to Level of all Spell Skill Gems",
 			"# to Maximum Endurance Charges",
+			"# to Maximum Frenzy Charges",
 			"# to Maximum Power Charges",
 			"# to Strength",
 			"# to Strength and Dexterity",
@@ -1331,6 +1213,7 @@ r_mods = {
 			"# to maximum Mana",
 			"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby",
 			"#% chance to deal Double Damage",
+			"#% increased Accuracy Rating per Frenzy Charge",
 			"#% increased Area Damage",
 			"#% increased Attack Speed while a Rare or Unique Enemy is Nearby",
 			"#% increased Burning Damage",
@@ -1482,30 +1365,6 @@ r_mods = {
 			"#% increased maximum Mana",
 			"Exerted Attacks deal #% increased Damage"
 		],
-		"crafted": [
-			"# to Accuracy Rating",
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Attack Speed",
-			"#% increased Damage during any Flask Effect",
-			"#% increased Damage while Leeching",
-			"#% increased Elemental Damage if you've dealt a Critical Strike Recently",
-			"#% increased Global Critical Strike Chance",
-			"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently",
-			"Adds # to # Chaos Damage to Attacks",
-			"Adds # to # Cold Damage to Attacks",
-			"Adds # to # Fire Damage to Attacks",
-			"Adds # to # Lightning Damage to Attacks",
-			"Adds # to # Physical Damage to Attacks",
-			"Minions deal #% increased Damage"
-		],
 		"explicit": [
 			"# to # added Fire Damage against Burning Enemies",
 			"# to Accuracy Rating",
@@ -1555,6 +1414,7 @@ r_mods = {
 			"Adds # to # Physical Damage to Attacks",
 			"Bleeding you inflict deals Damage #% faster",
 			"Culling Strike",
+			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Poisons you inflict deal Damage #% faster"
@@ -1610,18 +1470,6 @@ r_mods = {
 			"Damage Penetrates #% Cold Resistance",
 			"Minions deal #% increased Damage"
 		],
-		"crafted": [
-			"# to Accuracy Rating",
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Life",
-			"# to maximum Mana"
-		],
 		"explicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
@@ -1669,12 +1517,15 @@ r_mods = {
 		],
 		"synth_implicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
+			"# to Dexterity",
 			"# to Intelligence",
+			"# to Strength",
 			"#% increased Attack Speed",
 			"#% increased Attack and Cast Speed",
 			"#% increased Chaos Damage",
 			"#% increased Cold Damage",
 			"#% increased Damage while Leeching Life",
+			"#% increased Damage while Leeching Mana",
 			"#% increased Damage with Poison",
 			"#% increased Elemental Damage",
 			"#% increased Elemental Damage with Attack Skills",
@@ -1682,8 +1533,8 @@ r_mods = {
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
 			"#% increased Global Physical Damage",
+			"#% increased Intelligence",
 			"#% increased Lightning Damage",
-			"#% increased Strength",
 			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
 			"#% to Global Critical Strike Multiplier",
@@ -1708,37 +1559,13 @@ r_mods = {
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance"
 		],
-		"crafted": [
+		"explicit": [
+			"# to # Added Cold Damage per Frenzy Charge",
 			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Dexterity and Intelligence",
 			"# to Intelligence",
 			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Energy Shield",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Attack Speed",
-			"#% increased Attack and Cast Speed",
-			"#% increased Elemental Damage if you've dealt a Critical Strike Recently",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased Global Critical Strike Chance",
-			"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently",
-			"Adds # to # Chaos Damage to Attacks",
-			"Adds # to # Cold Damage",
-			"Adds # to # Cold Damage to Attacks",
-			"Adds # to # Fire Damage",
-			"Adds # to # Fire Damage to Attacks",
-			"Adds # to # Lightning Damage",
-			"Adds # to # Lightning Damage to Attacks",
-			"Adds # to # Physical Damage to Attacks"
-		],
-		"explicit": [
-			"# to Accuracy Rating",
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
 			"# to Strength and Dexterity",
 			"# to Strength and Intelligence",
 			"# to maximum Energy Shield",
@@ -1757,8 +1584,10 @@ r_mods = {
 			"#% to Critical Strike Multiplier with Bows",
 			"#% to Damage over Time Multiplier with Attack Skills",
 			"#% to Fire Damage over Time Multiplier with Attack Skills",
+			"#% to Global Critical Strike Multiplier",
 			"#% to Physical Damage over Time Multiplier with Attack Skills",
 			"Adds # to # Chaos Damage if you've dealt a Critical Strike Recently",
+			"Adds # to # Chaos Damage to Attacks",
 			"Adds # to # Cold Damage",
 			"Adds # to # Cold Damage to Attacks",
 			"Adds # to # Fire Damage",
@@ -1871,38 +1700,6 @@ r_mods = {
 			"#% increased maximum Mana",
 			"Adds # to # Physical Damage to Attacks"
 		],
-		"crafted": [
-			"# to Accuracy Rating",
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Energy Shield",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Attack Speed",
-			"#% increased Chaos Damage",
-			"#% increased Cold Damage",
-			"#% increased Damage",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased Fire Damage",
-			"#% increased Global Critical Strike Chance",
-			"#% increased Global Physical Damage",
-			"#% increased Lightning Damage",
-			"#% reduced Mana Cost of Skills",
-			"#% to Critical Strike Multiplier if you've Shattered an Enemy Recently",
-			"Adds # to # Chaos Damage to Attacks",
-			"Adds # to # Cold Damage",
-			"Adds # to # Cold Damage to Attacks",
-			"Adds # to # Fire Damage",
-			"Adds # to # Fire Damage to Attacks",
-			"Adds # to # Lightning Damage",
-			"Adds # to # Lightning Damage to Attacks",
-			"Adds # to # Physical Damage to Attacks"
-		],
 		"explicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
 			"# to # Cold Damage per Frenzy Charge",
@@ -1951,6 +1748,7 @@ r_mods = {
 			"#% reduced Mana Cost of Skills",
 			"#% to Critical Strike Multiplier if you've Shattered an Enemy Recently",
 			"#% to Critical Strike Multiplier per Power Charge",
+			"#% to Damage over Time Multiplier",
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Cold Damage",
 			"Adds # to # Cold Damage against Chilled or Frozen Enemies",
@@ -1966,6 +1764,7 @@ r_mods = {
 			"Gain #% of Cold Damage as Extra Chaos Damage per Frenzy Charge",
 			"Gain #% of Fire Damage as Extra Chaos Damage per Endurance Charge",
 			"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge",
+			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Minions deal #% increased Damage"
 		],
 	},
@@ -2011,6 +1810,7 @@ r_mods = {
 			"#% reduced Mana Cost of Skills",
 			"Gain #% of Cold Damage as Extra Chaos Damage",
 			"Gain #% of Fire Damage as Extra Chaos Damage",
+			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Physical Damage as Extra Chaos Damage"
 		],
 		"corrupt_implicit": [
@@ -2022,26 +1822,6 @@ r_mods = {
 		"implicit": [
 			"# to maximum Life",
 			"#% increased Spell Damage"
-		],
-		"crafted": [
-			"# to Accuracy Rating",
-			"# to Dexterity",
-			"# to Dexterity and Intelligence",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Dexterity",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% chance to deal Double Damage",
-			"#% increased Attack Speed",
-			"#% increased Cast Speed",
-			"#% increased Global Physical Damage",
-			"Adds # to # Cold Damage",
-			"Adds # to # Fire Damage",
-			"Adds # to # Lightning Damage",
-			"Gain #% of Physical Damage as Extra Chaos Damage"
 		],
 		"explicit": [
 			"# to Accuracy Rating",
@@ -2121,6 +1901,7 @@ r_mods = {
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Strength",
+			"# to all Attributes",
 			"# to maximum Mana",
 			"#% chance to deal Double Damage",
 			"#% increased Attack Damage",
@@ -2178,49 +1959,6 @@ r_mods = {
 			"#% increased Cast Speed",
 			"#% increased Spell Damage"
 		],
-		"crafted": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Strength",
-			"# to Strength and Intelligence",
-			"# to all Attributes",
-			"# to maximum Mana",
-			"#% Critical Strike Multiplier while a Rare or Unique Enemy is Nearby",
-			"#% chance to deal Double Damage",
-			"#% increased Attack Speed while a Rare or Unique Enemy is Nearby",
-			"#% increased Cast Speed",
-			"#% increased Chaos Damage",
-			"#% increased Cold Damage",
-			"#% increased Critical Strike Chance for Spells",
-			"#% increased Damage over Time",
-			"#% increased Damage per Frenzy Charge",
-			"#% increased Damage per Power Charge",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased Fire Damage",
-			"#% increased Lightning Damage",
-			"#% increased Mine Damage",
-			"#% increased Spell Damage",
-			"#% increased Trap Damage",
-			"#% to Chaos Damage over Time Multiplier",
-			"#% to Cold Damage over Time Multiplier",
-			"#% to Fire Damage over Time Multiplier",
-			"#% to Global Critical Strike Multiplier",
-			"#% to Physical Damage over Time Multiplier",
-			"Adds # to # Cold Damage (Local)",
-			"Adds # to # Cold Damage to Spells",
-			"Adds # to # Fire Damage (Local)",
-			"Adds # to # Fire Damage to Spells",
-			"Adds # to # Lightning Damage (Local)",
-			"Adds # to # Lightning Damage to Spells",
-			"Adds # to # Physical Damage (Local)",
-			"Gain #% of Cold Damage as Extra Chaos Damage",
-			"Gain #% of Fire Damage as Extra Chaos Damage",
-			"Gain #% of Lightning Damage as Extra Chaos Damage",
-			"Gain #% of Non-Chaos Damage as extra Chaos Damage",
-			"Minions deal #% increased Damage",
-			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Cast Speed"
-		],
 		"explicit": [
 			"# to Dexterity and Intelligence",
 			"# to Intelligence",
@@ -2273,11 +2011,13 @@ r_mods = {
 			"Adds # to # Physical Damage (Local)",
 			"Adds # to # Physical Damage to Spells",
 			"Anger has #% increased Aura Effect",
+			"Auras from your Skills grant #% increased Damage to you and Allies",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
 			"Damage Penetrates #% Lightning Resistance",
 			"Gain #% of Cold Damage as Extra Chaos Damage",
+			"Gain #% of Elemental Damage as Extra Chaos Damage",
 			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Non-Chaos Damage as extra Chaos Damage",
