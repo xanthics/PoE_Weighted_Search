@@ -216,6 +216,7 @@ def init_about():
 	t <= P("This page is designed for finding rares for any slot based on how they affect your damage.  Attack weapons are not supported due to them not being modelable with weights.  Additionally almost all unique only mods are ignored.")
 	t <= P("A summary of mods/items that aren't supported (yet?).  Some list items will be revisited after PoB 2.0 update.")
 	t <= UL(
+		LI('Curse/Mark on hit') +
 		LI('Flasks') +
 		LI('All uniques except delve rings and Shaper/Elder rings') +
 		LI('effect of non-damaging ailments') +
