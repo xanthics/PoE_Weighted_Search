@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 10/31/2021(m/d/y) 11:06:01 utc
+# Generated: 11/10/2021(m/d/y) 03:27:37 utc
 mods = {
 	" With at least 40 Strength in Radius, Hits with Cleave Fortify": ["explicit.stat_1248507170"],
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
@@ -3482,12 +3482,12 @@ mods = {
 	"Nova Spells have #% more Area of Effect": ["explicit.stat_200113086"],
 	"Number of Perandus Coins dropped in this Area is Doubled": ["explicit.stat_1271391587"],
 	"Offering Skills have #% increased Duration": ["explicit.stat_2957407601"],
+	"Often Shift into Nightmare on Killing a Rare or Unique Enemy": ["scourge.stat_3227755143"],
 	"Oils found in Areas have #% chance to be 1 tier higher": ["explicit.stat_3259960466"],
 	"On Killing a Poisoned Enemy, nearby Enemies are Poisoned": ["explicit.stat_456916387"],
-	"Only Shift into Nightmare on Killing a Rare or Unique Enemy": ["scourge.stat_3227755143"],
 	"Only Shift into and out of Nightmare randomly": ["scourge.stat_834961782"],
 	"Only affects Passives in # Ring": ["explicit.stat_3642528642"],
-	"Only shift into Nightmare on reaching maximum Blood Blood is not lost over time Lose 0.5% of Blood on Killing a Scourge Monster": ["scourge.stat_1721804958"],
+	"Only shift into Nightmare on reaching maximum Blood Lose Blood from Blood Crucible 90% slower Lose 0.4% of Blood on Killing a Scourge Monster Lose all Blood when you shift out of Nightmare": ["scourge.stat_1721804958"],
 	"Onslaught": ["implicit.stat_1619454789"],
 	"Orbs of Alchemy found in Areas have #% chance to drop as a full stack": ["explicit.stat_262769816"],
 	"Orbs of Alteration found in Areas have #% chance to drop as a full stack": ["explicit.stat_1857447509"],
@@ -3951,7 +3951,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Feeding Frenzy": ["explicit.indexable_support_83", "explicit.stat_2269282877"],
 	"Socketed Gems are Supported by Level # Fire Penetration": ["explicit.indexable_support_82", "explicit.stat_1979658770", "explicit.stat_3265951306"],
 	"Socketed Gems are Supported by Level # Fist of War": ["explicit.indexable_support_129"],
-	"Socketed Gems are Supported by Level # Focused Ballista": ["explicit.indexable_support_138"],
+	"Socketed Gems are Supported by Level # Focused Ballista": ["explicit.indexable_support_138", "explicit.stat_921536976"],
 	"Socketed Gems are Supported by Level # Fork": ["explicit.indexable_support_80"],
 	"Socketed Gems are Supported by Level # Fortify": ["explicit.indexable_support_79", "explicit.stat_107118693", "implicit.stat_107118693"],
 	"Socketed Gems are Supported by Level # Generosity": ["explicit.indexable_support_77", "explicit.stat_2593773031"],
