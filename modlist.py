@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 11/10/2021(m/d/y) 03:27:37 utc
+# Generated: 12/29/2021(m/d/y) 05:55:04 utc
 mods = {
 	" With at least 40 Strength in Radius, Hits with Cleave Fortify": ["explicit.stat_1248507170"],
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
@@ -1733,6 +1733,7 @@ mods = {
 	"#% to all Elemental Resistances": ["explicit.stat_2901986750", "implicit.stat_2901986750", "scourge.stat_2901986750"],
 	"#% to all Elemental Resistances if Corrupted": ["implicit.stat_3731630482"],
 	"#% to all Elemental Resistances per 10 Devotion": ["explicit.stat_1910205563"],
+	"#% to all Elemental Resistances per Endurance Charge": ["explicit.stat_1852896268"],
 	"#% to all Elemental Resistances per Grand Spectrum": ["explicit.stat_242161915"],
 	"#% to all Elemental Resistances while on Low Life": ["explicit.stat_1637928656"],
 	"#% to all Elemental Resistances while you have at least 200 Strength": ["explicit.stat_2415398184"],
@@ -2253,7 +2254,7 @@ mods = {
 	"Animated Guardian deals #% increased Damage per Animated Weapon": ["explicit.stat_759294825"],
 	"Animated Minions' Melee Attacks deal #% less Damage to surrounding targets": ["explicit.stat_478698670"],
 	"Animated Minions' Melee Attacks deal Splash Damage to surrounding targets": ["explicit.stat_91242932"],
-	"Arctic Armour has #% increased Mana Reservation Efficiency": ["explicit.stat_2351239732"],
+	"Arctic Armour has #% increased Mana Reservation Efficiency": ["explicit.stat_2351239732", "implicit.stat_2351239732"],
 	"Arctic Armour has #% reduced Mana Reservation Efficiency": ["explicit.stat_2605040931"],
 	"Arctic Armour has #% reduced Reservation": ["explicit.stat_2233726619"],
 	"Arctic Armour has no Reservation": ["explicit.stat_1483066460"],
@@ -3613,6 +3614,7 @@ mods = {
 	"Projectiles from Socketed Gems Fork": ["explicit.stat_1519665289"],
 	"Projectiles from Spells cannot Pierce": ["explicit.stat_3826125995"],
 	"Projectiles gain #% of Non-Chaos Damage as extra Chaos Damage per Chain": ["explicit.stat_1924041432"],
+	"Projectiles have #% chance to Return to you from final target": ["explicit.stat_2309305223"],
 	"Projectiles have #% chance to be able to Chain when colliding with terrain per Searching Eye Jewel affecting you, up to a maximum of 20%": ["explicit.stat_1485085047"],
 	"Projectiles that have Chained gain #% of Non-Chaos Damage as extra Chaos Damage": ["explicit.stat_1698276268"],
 	"Properties are doubled while in a Breach": ["implicit.stat_202275580"],
@@ -3871,6 +3873,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Archmage": ["explicit.indexable_support_122", "explicit.stat_3652278215"],
 	"Socketed Gems are Supported by Level # Arrogance": ["explicit.indexable_support_116", "explicit.stat_3922006600", "implicit.stat_3922006600"],
 	"Socketed Gems are Supported by Level # Arrow Nova": ["explicit.indexable_support_121", "explicit.stat_1331336999"],
+	"Socketed Gems are Supported by Level # Awakened Added Chaos Damage": ["explicit.stat_2722592119"],
 	"Socketed Gems are Supported by Level # Awakened Added Fire Damage": ["explicit.stat_339131601"],
 	"Socketed Gems are Supported by Level # Awakened Blasphemy": ["explicit.stat_1046449631"],
 	"Socketed Gems are Supported by Level # Awakened Brutality": ["explicit.stat_3610200044"],
@@ -3886,6 +3889,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Awakened Melee Splash": ["explicit.stat_2253550081"],
 	"Socketed Gems are Supported by Level # Awakened Minion Damage": ["explicit.stat_2100048639"],
 	"Socketed Gems are Supported by Level # Awakened Multistrike": ["explicit.stat_511417258"],
+	"Socketed Gems are Supported by Level # Awakened Spell Echo": ["explicit.stat_48859060"],
 	"Socketed Gems are Supported by Level # Awakened Swift Affliction": ["explicit.stat_4089933397"],
 	"Socketed Gems are Supported by Level # Awakened Unbound Ailments": ["explicit.stat_2116002108"],
 	"Socketed Gems are Supported by Level # Awakened Vicious Projectiles": ["explicit.stat_2647355055"],
@@ -4000,7 +4004,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Multiple Totems": ["explicit.indexable_support_40", "explicit.stat_807186595"],
 	"Socketed Gems are Supported by Level # Multiple Traps": ["explicit.indexable_support_39"],
 	"Socketed Gems are Supported by Level # Multistrike": ["explicit.indexable_support_41"],
-	"Socketed Gems are Supported by Level # Nightblade": ["explicit.indexable_support_38"],
+	"Socketed Gems are Supported by Level # Nightblade": ["explicit.indexable_support_38", "explicit.stat_2861649515"],
 	"Socketed Gems are Supported by Level # Onslaught": ["explicit.indexable_support_37", "explicit.stat_3237923082", "implicit.stat_3237923082"],
 	"Socketed Gems are Supported by Level # Physical To Lightning": ["explicit.stat_3327487371"],
 	"Socketed Gems are Supported by Level # Physical to Lightning": ["explicit.indexable_support_34"],

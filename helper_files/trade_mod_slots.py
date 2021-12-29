@@ -531,9 +531,9 @@ def updateleagues(root_dir, headers, cookies):
 	leagueurl = "http://api.pathofexile.com/leagues?realm=pc&compact=1"
 	vals = fetch_api(requests, leagueurl, headers, cookies)
 	from leaguelist import leagues
-	if set(leagues) != set([x['id'] for x in vals if not x['id'].startswith('SSF')]):
+	if set(leagues) != set([x['id'] for x in vals if 'SSF' not in x['id'] and 'Royale' not in x['id']]):
 		print("Updating League List")
-		buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", f"leagues = {[x['id'] for x in vals if not x['id'].startswith('SSF')]}"]
+		buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", f"leagues = {[x['id'] for x in vals if 'SSF' not in x['id'] and 'Royale' not in x['id']]}"]
 		with open(f'{root_dir}/leaguelist.py', 'w') as f:
 			f.write('\n'.join(buf))
 	else:

@@ -1,4 +1,4 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 10/24/2021(m/d/y) 01:41:23 utc
-leagues = ['Standard', 'Hardcore', 'Scourge', 'Hardcore Scourge']
+# Generated: 12/29/2021(m/d/y) 05:55:05 utc
+leagues = ['Standard', 'Hardcore', 'Scourge', 'Hardcore Scourge', 'Atlas Invasion (DE008)', 'Atlas Invasion HC (DE009)', 'Delirium Everywhere (DE012)', 'Delirium Everywhere HC (DE013)']

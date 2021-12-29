@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 11/10/2021(m/d/y) 03:42:58 utc
+# Generated: 12/29/2021(m/d/y) 05:55:04 utc
 r_mods = {
 	"Abyss Jewel": {
 		"scourge_implicit": [
@@ -1416,6 +1416,7 @@ r_mods = {
 			"Culling Strike",
 			"Gain #% of Physical Damage as Extra Cold Damage",
 			"Gain #% of Physical Damage as Extra Fire Damage",
+			"Gain #% of Physical Damage as Extra Lightning Damage",
 			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Poisons you inflict deal Damage #% faster"
@@ -1484,6 +1485,7 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Area Damage",
 			"#% increased Burning Damage",
+			"#% increased Critical Strike Chance if you've been Shocked Recently",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Intelligence",
@@ -1521,6 +1523,7 @@ r_mods = {
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Strength",
+			"# to maximum Mana",
 			"#% increased Attack Speed",
 			"#% increased Attack and Cast Speed",
 			"#% increased Chaos Damage",
