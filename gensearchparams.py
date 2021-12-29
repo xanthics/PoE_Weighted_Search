@@ -11,6 +11,11 @@ from pseudo_lookup import pseudo_lookup
 # TODO: Flag to round ele/spell % if they are close to an element
 # TODO: Implement unsupported mods (end of modstr)
 def gensearchparams(dps, selections, base):
+	if 'IgnoreCastSpeed' in selections:
+		dps['castspeed'] = [0, 0]
+	if 'IgnoreAttackSpeed' in selections:
+		dps['attackspeed'] = [0, 0]
+
 	localmulti = 0.5 if 'SpellslingerDW' in selections else 0
 	localmulti += sum(1 if x in selections else 0 for x in ['Spellslinger', 'BattleMage'])
 	# First element is per point value, second element is "total value" for sorting.

@@ -9,7 +9,7 @@ from baselist import bases
 from modsjson import mjson
 
 # checkboxes that have their state saved
-saved_states = ["NoSynthImplicitMods", "NoCorruptImplicitMods", "NoImplicitMods", "includeDelve", "PseudoMods"]  # "NoCraftedMods",
+saved_states = ["NoSynthImplicitMods", "NoCorruptImplicitMods", "NoImplicitMods", "includeDelve", "PseudoMods", 'IgnoreCastSpeed', 'IgnoreAttackSpeed']  # "NoCraftedMods",
 
 storage_key = "poe_weighted_search"
 
@@ -175,9 +175,9 @@ def init_page():
 		if c:
 			doc[page].style.display = 'none'
 
-	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoScourgeImplicitMods', 'Ignore Scourge Mods'), ('NoSynthImplicitMods', 'Ignore Synth only Implicit Mods'), ('NoCorruptImplicitMods', 'Ignore Corruption only Implicit Mods'), ('NoImplicitMods', 'Ignore All Implicit Mods including corrupt and synth'), ('PseudoMods', 'Use PseudoMods in Search')]  # ('NoCraftedMods', 'Ignore Crafted Mods'),
+	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoScourgeImplicitMods', 'Ignore Scourge Mods'), ('NoSynthImplicitMods', 'Ignore Synth only Implicit Mods'), ('NoCorruptImplicitMods', 'Ignore Corruption only Implicit Mods'), ('NoImplicitMods', 'Ignore All Implicit Mods including corrupt and synth'), ('PseudoMods', 'Use PseudoMods in Search'), ('IgnoreCastSpeed', 'Set Cast Speed Weight to 0'), ('IgnoreAttackSpeed', 'Set Attack Speed Weight to 0')]  # ('NoCraftedMods', 'Ignore Crafted Mods'),
 	t = make_table(data, 1, 'ignore')
-	doc['searchflags'] <= STRONG('Options:') + ' choices that affect type of returned mods' + BR() + 'PseudoMods is experimental. Please report any issues.' + t + BR()
+	doc['searchflags'] <= STRONG('Options:') + ' choices that affect type of returned mods' + BR() + t + BR()
 
 	init_about()
 	init_flags()
