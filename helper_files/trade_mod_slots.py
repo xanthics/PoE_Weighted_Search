@@ -8,6 +8,8 @@ from datetime import datetime
 from pyrate_limiter import *
 from time import sleep
 
+from secrets import user_agent, poe_sessid
+
 
 def post_api(requester, data, headers, cookies, league):
 	print('post request')
@@ -609,9 +611,9 @@ def setup_limits(cookies, headers, league):
 
 if __name__ == "__main__":
 	root_dir_g = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	g_league = 'Scourge'
-	g_cookies = {'POESESSID': '162a31128d836d1769d88d08eb5cdc65'}
-	g_headers = {'User-Agent': '(poe discord: xan#7840) poe weighted search mod gen tool'}
+	g_league = 'Archnemesis'
+	g_cookies = {'POESESSID': poe_sessid}
+	g_headers = {'User-Agent': user_agent}
 	g_post_limit, g_fetch_limit = setup_limits(g_cookies, g_headers, g_league)
 	updatemods(root_dir_g, g_headers, g_cookies)
 	with open('modmap.json', 'r') as fi:

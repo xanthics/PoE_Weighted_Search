@@ -21,3 +21,4 @@ querytest.py
 run_pob_gen.py
 watcherlistxml.txt
 watchers.py
+secrets.py
