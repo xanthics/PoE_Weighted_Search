@@ -1,9 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 12/29/2021(m/d/y) 05:55:04 utc
+# Generated: 02/08/2022(m/d/y) 19:09:31 utc
 r_mods = {
 	"Abyss Jewel": {
-		"scourge_implicit": [
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
 			""
 		],
 		"synth_implicit": [
@@ -198,9 +201,6 @@ r_mods = {
 		],
 	},
 	"All Jewel": {
-		"scourge_implicit": [
-			""
-		],
 		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",
@@ -442,7 +442,7 @@ r_mods = {
 			"#% reduced Mana Cost of Skills",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
-			"#% to Critical Strike Multiplier for Spells",
+			"#% to Critical Strike Multiplier for Spell Damage",
 			"#% to Critical Strike Multiplier if you've Killed Recently",
 			"#% to Critical Strike Multiplier while Dual Wielding",
 			"#% to Critical Strike Multiplier with Cold Skills",
@@ -484,26 +484,11 @@ r_mods = {
 		],
 	},
 	"Amulet": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Strength",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Area Damage",
-			"#% increased Cast Speed",
-			"#% increased Dexterity",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased Global Critical Strike Chance",
-			"#% increased Intelligence",
-			"#% increased Strength",
-			"#% increased Totem Life",
-			"#% to Damage over Time Multiplier",
-			"#% to Global Critical Strike Multiplier",
-			"Damage Penetrates #% Chaos Resistance",
-			"Damage Penetrates #% Cold Resistance",
-			"Damage Penetrates #% Fire Resistance",
-			"Damage Penetrates #% Lightning Resistance"
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
 		],
 		"synth_implicit": [
 			"# to Accuracy Rating",
@@ -604,12 +589,10 @@ r_mods = {
 			"# to Intelligence",
 			"# to Level of all Chaos Skill Gems",
 			"# to Level of all Cold Skill Gems",
-			"# to Level of all Dexterity Skill Gems",
 			"# to Level of all Fire Skill Gems",
-			"# to Level of all Intelligence Skill Gems",
 			"# to Level of all Lightning Skill Gems",
 			"# to Level of all Physical Skill Gems",
-			"# to Level of all Strength Skill Gems",
+			"# to Level of all Skill Gems",
 			"# to Strength",
 			"# to Strength and Dexterity",
 			"# to Strength and Intelligence",
@@ -669,7 +652,10 @@ r_mods = {
 		],
 	},
 	"Base Jewel": {
-		"scourge_implicit": [
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
 			""
 		],
 		"synth_implicit": [
@@ -819,7 +805,7 @@ r_mods = {
 			"#% reduced Mana Cost of Skills",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
-			"#% to Critical Strike Multiplier for Spells",
+			"#% to Critical Strike Multiplier for Spell Damage",
 			"#% to Critical Strike Multiplier while Dual Wielding",
 			"#% to Critical Strike Multiplier with Cold Skills",
 			"#% to Critical Strike Multiplier with Elemental Skills",
@@ -837,12 +823,11 @@ r_mods = {
 		],
 	},
 	"Belt": {
-		"scourge_implicit": [
-			"# to Strength",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased maximum Life"
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
 		],
 		"synth_implicit": [
 			"# to Dexterity",
@@ -935,14 +920,28 @@ r_mods = {
 		],
 	},
 	"Body Armour": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Strength",
-			"# to maximum Life",
+		"searing_item": [
+			"#% increased maximum Energy Shield",
+			"Anger has #% increased Aura Effect",
+			"Determination has #% increased Aura Effect",
+			"Discipline has #% increased Aura Effect",
+			"Grace has #% increased Aura Effect",
+			"Haste has #% increased Aura Effect",
+			"Hatred has #% increased Aura Effect",
+			"Malevolence has #% increased Aura Effect",
+			"Pride has #% increased Aura Effect",
+			"Wrath has #% increased Aura Effect",
+			"Zealotry has #% increased Aura Effect"
+		],
+		"tangled_item": [
+			"#% increased Chaos Damage",
+			"#% increased Cold Damage",
+			"#% increased Fire Damage",
+			"#% increased Global Physical Damage",
+			"#% increased Lightning Damage",
 			"#% increased effect of Non-Curse Auras from your Skills",
-			"#% increased maximum Life",
-			"#% increased maximum Mana"
+			"#% to Critical Strike Multiplier for Attack Damage",
+			"#% to Critical Strike Multiplier for Spell Damage"
 		],
 		"synth_implicit": [
 			"# to Dexterity",
@@ -988,7 +987,6 @@ r_mods = {
 			"# to maximum Life",
 			"# to maximum Mana",
 			"#% increased Attributes",
-			"#% increased Damage per Power Charge",
 			"#% increased Dexterity",
 			"#% increased Intelligence",
 			"#% increased Strength",
@@ -997,19 +995,29 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
-			"Gain #% of Cold Damage as Extra Chaos Damage",
-			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Maximum Life as Extra Maximum Energy Shield"
 		],
 	},
 	"Boots": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Strength",
-			"# to maximum Life",
-			"#% increased Totem Life"
+		"searing_item": [
+			"Bleeding you inflict deals Damage #% faster",
+			"Gain #% of Physical Damage as Extra Chaos Damage",
+			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Fire Damage",
+			"Gain #% of Physical Damage as Extra Lightning Damage",
+			"Ignites you inflict deal Damage #% faster",
+			"Poisons you inflict deal Damage #% faster"
+		],
+		"tangled_item": [
+			"#% increased Damage per Endurance Charge",
+			"#% increased Effect of the Buff granted by your Carrion Golems",
+			"#% increased Effect of the Buff granted by your Flame Golems",
+			"#% increased Effect of the Buff granted by your Ice Golems",
+			"#% increased Effect of the Buff granted by your Lightning Golems",
+			"Bone Offering has #% increased Effect",
+			"Flesh Offering has #% increased Effect",
+			"Spirit Offering has #% increased Effect"
 		],
 		"synth_implicit": [
 			"# to Dexterity",
@@ -1058,45 +1066,11 @@ r_mods = {
 		],
 	},
 	"Caster Weapon": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Level of all Chaos Spell Skill Gems",
-			"# to Level of all Cold Spell Skill Gems",
-			"# to Level of all Fire Spell Skill Gems",
-			"# to Level of all Lightning Spell Skill Gems",
-			"# to Level of all Physical Spell Skill Gems",
-			"# to Level of all Spell Skill Gems",
-			"# to Strength",
-			"#% chance to deal Triple Damage",
-			"#% increased Chaos Damage",
-			"#% increased Cold Damage",
-			"#% increased Elemental Damage",
-			"#% increased Fire Damage",
-			"#% increased Global Physical Damage",
-			"#% increased Lightning Damage",
-			"#% increased Spell Damage",
-			"#% to Chaos Damage over Time Multiplier",
-			"#% to Cold Damage over Time Multiplier",
-			"#% to Fire Damage over Time Multiplier",
-			"#% to Physical Damage over Time Multiplier",
-			"Adds # to # Chaos Damage (Local)",
-			"Adds # to # Cold Damage (Local)",
-			"Adds # to # Cold Damage to Spells",
-			"Adds # to # Fire Damage (Local)",
-			"Adds # to # Fire Damage to Spells",
-			"Adds # to # Lightning Damage (Local)",
-			"Adds # to # Lightning Damage to Spells",
-			"Adds # to # Physical Damage (Local)",
-			"Adds # to # Physical Damage to Spells",
-			"Bleeding you inflict deals Damage #% faster",
-			"Culling Strike",
-			"Damage Penetrates #% Chaos Resistance",
-			"Damage Penetrates #% Cold Resistance",
-			"Damage Penetrates #% Fire Resistance",
-			"Damage Penetrates #% Lightning Resistance",
-			"Ignites you inflict deal Damage #% faster",
-			"Poisons you inflict deal Damage #% faster"
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
 		],
 		"synth_implicit": [
 			"# to Dexterity",
@@ -1152,7 +1126,6 @@ r_mods = {
 			"Triggered Spells deal #% increased Spell Damage"
 		],
 		"corrupt_implicit": [
-			"# to Maximum Power Charges and Maximum Endurance Charges",
 			"# to Strength and Dexterity",
 			"# to maximum Energy Shield",
 			"#% chance to deal Double Damage",
@@ -1296,18 +1269,29 @@ r_mods = {
 		],
 	},
 	"Gloves": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Strength",
-			"# to maximum Life",
-			"#% increased Attack Speed",
-			"#% increased Duration of Ailments on Enemies",
+		"searing_item": [
+			"# to Accuracy Rating per Frenzy Charge",
+			"#% increased Damage per 100 Dexterity",
+			"#% increased Damage per 100 Intelligence",
+			"#% increased Damage per 100 Strength",
 			"#% increased Global Accuracy Rating",
-			"#% increased Projectile Damage",
-			"Minions deal #% increased Damage",
-			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Cast Speed"
+			"Exerted Attacks deal #% increased Damage",
+			"Overwhelm #% Physical Damage Reduction"
+		],
+		"tangled_item": [
+			"#% increased Attack Speed",
+			"#% increased Critical Strike Chance for Attacks",
+			"#% increased Damage per Frenzy Charge",
+			"#% to Chaos Damage over Time Multiplier",
+			"#% to Cold Damage over Time Multiplier",
+			"#% to Fire Damage over Time Multiplier",
+			"#% to Physical Damage over Time Multiplier",
+			"Adds # to # Chaos Damage to Attacks",
+			"Adds # to # Cold Damage to Attacks",
+			"Adds # to # Fire Damage to Attacks",
+			"Adds # to # Lightning Damage to Attacks",
+			"Adds # to # Physical Damage to Attacks",
+			"Minions deal #% increased Damage"
 		],
 		"synth_implicit": [
 			"# to Accuracy Rating",
@@ -1352,7 +1336,6 @@ r_mods = {
 			"#% increased Spell Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
-			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
 			"Exerted Attacks deal #% increased Damage"
@@ -1398,6 +1381,7 @@ r_mods = {
 			"#% increased Projectile Damage",
 			"#% increased Spell Damage",
 			"#% increased Trap Damage",
+			"#% increased Vaal Skill Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Fire Damage over Time Multiplier",
@@ -1409,31 +1393,35 @@ r_mods = {
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Lightning Damage to Attacks",
-			"Adds # to # Physical Damage for each Impale on Enemy",
 			"Adds # to # Physical Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Physical Damage to Attacks",
 			"Bleeding you inflict deals Damage #% faster",
 			"Culling Strike",
-			"Gain #% of Physical Damage as Extra Cold Damage",
-			"Gain #% of Physical Damage as Extra Fire Damage",
-			"Gain #% of Physical Damage as Extra Lightning Damage",
 			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Poisons you inflict deal Damage #% faster"
 		],
 	},
 	"Helmet": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Strength",
-			"# to maximum Life",
-			"#% increased maximum Mana",
-			"Nearby Enemies have #% to Chaos Resistance",
-			"Nearby Enemies have #% to Cold Resistance",
-			"Nearby Enemies have #% to Fire Resistance",
-			"Nearby Enemies have #% to Lightning Resistance",
-			"Nearby Enemies take #% increased Physical Damage"
+		"searing_item": [
+			"#% increased Attack Damage",
+			"#% increased Duration of Ailments on Enemies",
+			"#% increased Effect of Arcane Surge on you",
+			"#% increased Maximum Energy Shield from Equipped Gloves and Boots",
+			"#% increased Spell Damage",
+			"Damage Penetrates #% Cold Resistance",
+			"Damage Penetrates #% Fire Resistance",
+			"Damage Penetrates #% Lightning Resistance"
+		],
+		"tangled_item": [
+			"#% increased Cast Speed",
+			"#% increased Critical Strike Chance for Spells",
+			"#% increased Damage per Power Charge",
+			"Adds # to # Chaos Damage to Spells",
+			"Adds # to # Cold Damage to Spells",
+			"Adds # to # Fire Damage to Spells",
+			"Adds # to # Lightning Damage to Spells",
+			"Adds # to # Physical Damage to Spells"
 		],
 		"synth_implicit": [
 			"# to Accuracy Rating",
@@ -1463,8 +1451,6 @@ r_mods = {
 			"#% increased Burning Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
-			"Adds # to # Cold Damage",
-			"Damage Penetrates #% Cold Resistance",
 			"Minions deal #% increased Damage"
 		],
 		"implicit": [
@@ -1485,7 +1471,6 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Area Damage",
 			"#% increased Burning Damage",
-			"#% increased Critical Strike Chance if you've been Shocked Recently",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Intelligence",
@@ -1498,7 +1483,6 @@ r_mods = {
 			"Adds # to # Fire Damage to Spells",
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage to Spells",
-			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Nearby Enemies have #% to Chaos Resistance",
 			"Nearby Enemies have #% to Cold Resistance",
@@ -1509,21 +1493,17 @@ r_mods = {
 		],
 	},
 	"Quiver": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to maximum Life",
-			"#% increased Attack Speed",
-			"#% increased Critical Strike Chance with Bows",
-			"#% increased Elemental Damage with Attack Skills",
-			"#% increased Global Accuracy Rating",
-			"#% to Critical Strike Multiplier with Bows"
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
 		],
 		"synth_implicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Strength",
-			"# to maximum Mana",
 			"#% increased Attack Speed",
 			"#% increased Attack and Cast Speed",
 			"#% increased Chaos Damage",
@@ -1542,7 +1522,6 @@ r_mods = {
 			"#% increased Strength",
 			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
-			"#% increased maximum Mana",
 			"#% to Global Critical Strike Multiplier",
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",
@@ -1554,17 +1533,27 @@ r_mods = {
 			"# to # Added Fire Damage with Bow Attacks",
 			"# to # Added Lightning Damage with Bow Attacks",
 			"# to # Added Physical Damage with Bow Attacks",
+			"#% increased Attack Speed",
+			"#% increased Critical Strike Chance with Bows",
+			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
+			"Adds # to # Fire Damage to Attacks",
+			"Adds # to # Physical Damage to Attacks",
+			"Gain #% of Physical Damage as Extra Chaos Damage",
 			"Gain #% of Physical Damage as Extra Cold Damage",
 			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Gain #% of Physical Damage as Extra Lightning Damage"
 		],
 		"implicit": [
-			"# to # Added Fire Damage with Bow Attacks",
-			"# to # Added Physical Damage with Bow Attacks",
+			"#% increased Attack Speed",
+			"#% increased Critical Strike Chance with Bows",
+			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Global Accuracy Rating",
-			"#% increased Global Critical Strike Chance"
+			"#% increased Global Critical Strike Chance",
+			"Adds # to # Fire Damage to Attacks",
+			"Adds # to # Physical Damage to Attacks",
+			"Gain #% of Physical Damage as Extra Chaos Damage"
 		],
 		"explicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
@@ -1582,9 +1571,9 @@ r_mods = {
 			"#% increased Attack and Cast Speed",
 			"#% increased Critical Strike Chance with Bows",
 			"#% increased Damage with Bleeding",
+			"#% increased Damage with Bow Skills",
 			"#% increased Damage with Poison",
 			"#% increased Elemental Damage if you've dealt a Critical Strike Recently",
-			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier with Attack Skills",
@@ -1608,16 +1597,11 @@ r_mods = {
 		],
 	},
 	"Ring": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Maximum Endurance Charges",
-			"# to Maximum Frenzy Charges",
-			"# to Maximum Power Charges",
-			"# to Strength",
-			"# to maximum Life",
-			"# to maximum Mana",
-			"#% increased Elemental Damage with Attack Skills"
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
 		],
 		"synth_implicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
@@ -1739,7 +1723,6 @@ r_mods = {
 			"#% increased Damage per Power Charge",
 			"#% increased Damage with Bleeding",
 			"#% increased Damage with Poison",
-			"#% increased Damage with Vaal Skills",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
@@ -1777,13 +1760,11 @@ r_mods = {
 		],
 	},
 	"Shield": {
-		"scourge_implicit": [
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Level of all Spell Skill Gems",
-			"# to Strength",
-			"# to maximum Life",
-			"#% increased Attack Speed"
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
 		],
 		"synth_implicit": [
 			"# to Accuracy Rating",
@@ -1869,41 +1850,11 @@ r_mods = {
 		],
 	},
 	"Wand (Spellslinger)": {
-		"scourge_implicit": [
-			"# to Intelligence",
-			"# to Level of all Chaos Spell Skill Gems",
-			"# to Level of all Cold Spell Skill Gems",
-			"# to Level of all Fire Spell Skill Gems",
-			"# to Level of all Lightning Spell Skill Gems",
-			"# to Level of all Physical Spell Skill Gems",
-			"# to Level of all Spell Skill Gems",
-			"#% chance to deal Triple Damage",
-			"#% increased Chaos Damage",
-			"#% increased Cold Damage",
-			"#% increased Elemental Damage",
-			"#% increased Fire Damage",
-			"#% increased Global Physical Damage",
-			"#% increased Lightning Damage",
-			"#% increased Spell Damage",
-			"#% to Chaos Damage over Time Multiplier",
-			"#% to Cold Damage over Time Multiplier",
-			"#% to Fire Damage over Time Multiplier",
-			"#% to Physical Damage over Time Multiplier",
-			"Adds # to # Chaos Damage (Local)",
-			"Adds # to # Cold Damage (Local)",
-			"Adds # to # Cold Damage to Spells",
-			"Adds # to # Fire Damage (Local)",
-			"Adds # to # Fire Damage to Spells",
-			"Adds # to # Lightning Damage (Local)",
-			"Adds # to # Lightning Damage to Spells",
-			"Adds # to # Physical Damage (Local)",
-			"Adds # to # Physical Damage to Spells",
-			"Culling Strike",
-			"Damage Penetrates #% Chaos Resistance",
-			"Damage Penetrates #% Cold Resistance",
-			"Damage Penetrates #% Fire Resistance",
-			"Damage Penetrates #% Lightning Resistance",
-			"Ignites you inflict deal Damage #% faster"
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
 		],
 		"synth_implicit": [
 			"# to Dexterity",

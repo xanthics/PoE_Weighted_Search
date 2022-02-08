@@ -56,24 +56,25 @@ def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit, le
 	current = '0:0:0'
 	limit2 = '1:1:1'
 	current2 = '0:0:0'
-	for synth, corrupt, scourge, crafted, modset in [['false', 'false', 'false', 'false', 'normal'],
-	                                        # ['false', 'false', 'false', 'true', 'crafted'],
-											['false', 'true', 'true', 'any', 'scourge'],
-											['true', 'false', 'false', 'any', 'synth'],
-											['false', 'true', 'false', 'any', 'corrupt']]:
+	for synth, corrupt, searing_item, tangled_item, crafted, modset in [
+		['false', 'false', 'false', 'false', 'false', 'normal'],
+		['false', 'false', 'false', 'true', 'any', 'searing_item'],
+		['false', 'false', 'true', 'false', 'any', 'tangled_item'],
+		['true', 'false', 'false', 'false', 'any', 'synth'],
+		['false', 'true', 'false', 'false', 'any', 'corrupt']
+	]:
 		for base in sorted(themods):
 			print(f"Gathering for: {base}")
 			if base not in goodmods:
-				goodmods[base] = {'normal': [], 'synth': [], 'scourge': [], 'corrupt': []}  # , 'crafted': []}
+				goodmods[base] = {'normal': [], 'synth': [], 'searing_item': [], 'tangled_item': [], 'corrupt': []}  # , 'crafted': []}
+			# searing/eater can only spawn on armor
+			if modset in ['searing_item', 'tangled_item'] and base not in ['armour.gloves', 'armour.helmet', 'armour.chest', 'armour.boots']:
+				continue
 			while themods[base][modset]:
 				print(f"Remaining ({base} {modset}): {len(themods[base][modset])}")
 				root_request = {"query": {"status": {"option": "any"}, "stats": [{"type": "count", "filters": [{'id': x} for x in themods[base][modset][:mod_count]], "value": {"min": 1}}],
-								"filters": {"misc_filters": {"filters": {'fractured_item': {'option': 'false'}, "scourge_tier": {}, "crafted": {"option": crafted}, "corrupted": {"option": corrupt}, "synthesised_item": {"option": synth}}}, "type_filters": {"filters": {"category": {"option": base}, "rarity": {"option": "nonunique"}}}}},
+								"filters": {"misc_filters": {"filters": {"searing_item": {"option": searing_item}, "tangled_item": {"option": tangled_item}, 'fractured_item': {'option': 'false'}, "crafted": {"option": crafted}, "corrupted": {"option": corrupt}, "synthesised_item": {"option": synth}}}, "type_filters": {"filters": {"category": {"option": base}, "rarity": {"option": "nonunique"}}}}},
 								"sort": {"price": "asc"}}
-				if scourge == 'true':
-					root_request["query"]['filters']["misc_filters"]['filters']['scourge_tier']['min'] = 1
-				else:
-					root_request["query"]['filters']["misc_filters"]['filters']['scourge_tier']['max'] = 0
 				if crafted == 'any':
 					del root_request["query"]['filters']["misc_filters"]['filters']['crafted']
 				while True:
@@ -163,19 +164,19 @@ def gen_restrict_mods(goodmods, root_dir):
 	rlookup = {mods[x][idx]: x for x in mods for idx in range(len(mods[x]))}
 	results = {}
 	for base in goodmods:
-		results[lookup_bases[base]] = {'scourge_implicit': [], 'synth_implicit': [], 'corrupt_implicit': [], 'implicit': [], 'explicit': []}  # 'crafted': []}
+		results[lookup_bases[base]] = {'searing_item': [], 'tangled_item': [], 'synth_implicit': [], 'corrupt_implicit': [], 'implicit': [], 'explicit': []}  # 'crafted': []}
 		if 'normal' in goodmods[base]:
 			for m in goodmods[base]['normal']:
 				results[lookup_bases[base]][m.split('.')[0]].append(rlookup[m])
-#		if 'crafted' in goodmods[base]:
-#			for m in goodmods[base]['crafted']:
-#				results[lookup_bases[base]]['crafted'].append(rlookup[m])
 		if 'synth' in goodmods[base]:
 			for m in goodmods[base]['synth']:
 				results[lookup_bases[base]]['synth_implicit'].append(rlookup[m])
-		if 'scourge' in goodmods[base]:
-			for m in goodmods[base]['scourge']:
-				results[lookup_bases[base]]['scourge_implicit'].append(rlookup[m])
+		if 'searing_item' in goodmods[base]:
+			for m in goodmods[base]['searing_item']:
+				results[lookup_bases[base]]['searing_item'].append(rlookup[m])
+		if 'tangled_item' in goodmods[base]:
+			for m in goodmods[base]['tangled_item']:
+				results[lookup_bases[base]]['tangled_item'].append(rlookup[m])
 		if 'corrupt' in goodmods[base]:
 			for m in goodmods[base]['corrupt']:
 				results[lookup_bases[base]]['corrupt_implicit'].append(rlookup[m])
@@ -207,11 +208,9 @@ def gen_restrict_mods(goodmods, root_dir):
 			results[slot][gen_type].extend(missing_mods[slot][gen_type])
 
 	# Add a special section for all jewel mods
-	results['All Jewel'] = {'scourge_implicit': list(set(results['Base Jewel']['scourge_implicit'] + results['Abyss Jewel']['scourge_implicit'])),
-	                        'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
+	results['All Jewel'] = {'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
 							'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
 							'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
-							# 'crafted': list(set(results['Base Jewel']['crafted'] + results['Abyss Jewel']['crafted'])),
 							'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))}
 
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'r_mods = {']
@@ -254,18 +253,18 @@ def genmods(goodmods):
 	mod_list = list(mod_set)
 	mod_list.sort()
 	imp_list = [x for x in mod_list if x.startswith('implicit')]
-	scourge_list = [x for x in mod_list if x.startswith('scourge')]
 	ret = {}
 	for base in bases:
 		ret[base] = {}
 		ret[base]['normal'] = [x for x in mod_list if not x.startswith('crafted')]
 		# ret[base]['crafted'] = [x for x in mod_list if x.startswith('crafted')]
-		ret[base]['scourge'] = scourge_list.copy()
 		ret[base]['synth'] = imp_list.copy()
 		ret[base]['corrupt'] = imp_list.copy()
+		ret[base]['searing_item'] = imp_list.copy()
+		ret[base]['tangled_item'] = imp_list.copy()
 
 	for base in goodmods:
-		for modtype in ['normal', 'synth', 'scourge', 'corrupt']:  # , 'crafted']:
+		for modtype in ret[base].keys():  # , 'crafted']:
 			if modtype not in goodmods[base]:
 				continue
 			for m in goodmods[base][modtype]:
@@ -474,16 +473,14 @@ def handle_pseudos(pseudos, root_dir):
 
 
 def updatemods(root_dir, headers, cookies):
-	results = {'Explicit': {}, 'Implicit': {}, 'Scourge': {}}  # 'Crafted': {}}
+	results = {'Explicit': {}, 'Implicit': {}}
 	pseudos = {}
 	modurl = "https://www.pathofexile.com/api/trade/data/stats"
 	vals = fetch_api(requests, modurl, headers, cookies)
 	for i in vals['result']:
 		if i['label'] in [
 			'Explicit',
-			'Implicit',
-			# 'Crafted',
-			'Scourge'
+			'Implicit'
 		]:
 			results[i['label']] = {k['id']: k['text'] for k in i['entries']}
 		elif i['label'] == 'Pseudo':

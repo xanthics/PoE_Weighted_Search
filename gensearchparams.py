@@ -83,6 +83,7 @@ def gensearchparams(dps, selections, base):
 		'#% increased Attack Damage': [dps['pattack'][0] if {'Attack'}.issubset(selections) else 0, dps['pattack'][1]],
 		"#% increased Melee Damage": [dps['pmelee'][0] if {'Attack', 'Melee'}.issubset(selections) else 0, dps['pmelee'][1]],
 		"#% increased Damage with Axes": [dps['pattack'][0] if {'Attack', 'Axe'}.issubset(selections) else 0, dps['pattack'][1]],
+		"#% increased Damage with Bow Skills": [dps['pattack'][0] if {'Attack', 'Bow'}.issubset(selections) else 0, dps['pattack'][1]],
 		"#% increased Damage with Bows": [dps['pattack'][0] if {'Attack', 'Bow'}.issubset(selections) else 0, dps['pattack'][1]],
 		"#% increased Damage with Claws": [dps['pattack'][0] if {'Attack', 'Claw'}.issubset(selections) else 0, dps['pattack'][1]],
 		"#% increased Damage with Daggers": [dps['pattack'][0] if {'Attack', 'Dagger'}.issubset(selections) else 0, dps['pattack'][1]],
@@ -122,12 +123,12 @@ def gensearchparams(dps, selections, base):
 		"Spells have a #% chance to deal Double Damage": [dps['chancedoubledamage'][0] if {'Spell'}.issubset(selections) else 0, dps['chancedoubledamage'][1]],
 		"#% chance to deal Double Damage": [dps['chancedoubledamage'][0], dps['chancedoubledamage'][1]],
 		"#% chance to deal Double Damage if you have Stunned an Enemy Recently": [dps['chancedoubledamage'][0] if {'Stun'}.issubset(selections) else 0, dps['chancedoubledamage'][1]],
-		"#% chance to deal Triple Damage": [dps['chancedoubledamage'][0]*2, dps['chancedoubledamage'][1]*2],
 		# Base Critical Strike chance
 		"#% to Spell Critical Strike Chance": [dps['basecrit'][0] if {'Spell'}.issubset(selections) else 0, dps['basecrit'][1]],  # Note that this is base crit.  Yes the space is in the main trade site
 		"Attacks have #% to Critical Strike Chance": [dps['basecrit'][0] if {'Attack'}.issubset(selections) else 0, dps['basecrit'][1]],  # Note that this is base crit.
 		# Critical Strike Chance
 		"#% increased Vaal Skill Critical Strike Chance": [dps['critchance'][0] if {'Vaal'}.issubset(selections) else 0, dps['critchance'][1]],
+		"#% increased Critical Strike Chance for Attacks": [dps['critchance'][0] if {'Attack'}.issubset(selections) else 0, dps['critchance'][1]],
 		"#% increased Critical Strike Chance for Spells": [dps['critchance'][0] if {'Spell'}.issubset(selections) else 0, dps['critchance'][1]],
 		"#% increased Critical Strike Chance if you haven't dealt a Critical Strike Recently": [dps['critchance'][0] if {'NoRecentCrit'}.issubset(selections) else 0, dps['critchance'][1]],
 		"#% increased Attack Critical Strike Chance while Dual Wielding": [dps['critchance'][0] if {'Attack', 'DualWielding'}.issubset(selections) else 0, dps['critchance'][1]],
@@ -151,7 +152,8 @@ def gensearchparams(dps, selections, base):
 		"#% to Melee Critical Strike Multiplier": [dps['critmulti'][0] if {'Attack', 'Melee'}.issubset(selections) else 0, dps['critmulti'][1]],
 		"#% to Global Critical Strike Multiplier": [dps['critmulti'][0], dps['critmulti'][1]],
 		"#% to Critical Strike Multiplier with Elemental Skills": [dps['critmulti'][0] if {'Elemental'}.issubset(selections) else 0, dps['critmulti'][1]],
-		"#% to Critical Strike Multiplier for Spells": [dps['critmulti'][0] if {'Spell'}.issubset(selections) else 0, dps['critmulti'][1]],
+		"#% to Critical Strike Multiplier for Attack Damage": [dps['critmulti'][0] if {'Attack'}.issubset(selections) else 0, dps['critmulti'][1]],
+		"#% to Critical Strike Multiplier for Spell Damage": [dps['critmulti'][0] if {'Spell'}.issubset(selections) else 0, dps['critmulti'][1]],
 		"#% to Critical Strike Multiplier if you've Killed Recently": [dps['critmulti'][0] if {'KilledRecently'}.issubset(selections) else 0, dps['critmulti'][1]],
 		"#% to Critical Strike Multiplier while Dual Wielding": [dps['critmulti'][0] if {'DualWielding'}.issubset(selections) else 0, dps['critmulti'][1]],
 		"#% to Critical Strike Multiplier with Cold Skills": [dps['critmulti'][0] if {'Cold'}.issubset(selections) else 0, dps['critmulti'][1]],
@@ -262,7 +264,6 @@ def gensearchparams(dps, selections, base):
 		"Damage Penetrates #% Elemental Resistances": [dps['penall'][0], dps['penall'][1]],
 		"Damage Penetrates #% Fire Resistance": [dps['penfire'][0], dps['penfire'][1]],
 		"Damage Penetrates #% Lightning Resistance": [dps['penlightning'][0], dps['penlightning'][1]],
-		"Damage Penetrates #% Chaos Resistance": [dps['penchaos'][0], dps['penchaos'][1]],
 		"Damage with Weapons Penetrates #% Cold Resistance": [dps['pencold'][0] if {'Attack'}.issubset(selections) else 0, dps['pencold'][1]],
 		"Damage with Weapons Penetrates #% Fire Resistance": [dps['penfire'][0] if {'Attack'}.issubset(selections) else 0, dps['penfire'][1]],
 		"Damage with Weapons Penetrates #% Lightning Resistance": [dps['penlightning'][0] if {'Attack'}.issubset(selections) else 0, dps['penlightning'][1]],
@@ -293,6 +294,7 @@ def gensearchparams(dps, selections, base):
 		'# to Maximum Power Charges and Maximum Endurance Charges': [dps['1powercharge'][0] + dps['1endurancecharge'][0] if {'usePowerCharges'}.issubset(selections) or {'useEnduranceCharges'}.issubset(selections) else 0, dps['1powercharge'][1] + dps['1endurancecharge'][1]],
 		# Accuracy
 		'# to Accuracy Rating': [dps['flataccuracy'][0], dps['flataccuracy'][1]],
+		'# to Accuracy Rating per Frenzy Charge': [dps['accuracypf'][0], dps['accuracypf'][1]],
 		"#% increased Accuracy Rating with Axes": [dps['paccuracy'][0] if {'Axe'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		"#% increased Accuracy Rating with Bows": [dps['paccuracy'][0] if {'Bow'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		"#% increased Accuracy Rating with Claws": [dps['paccuracy'][0] if {'Claw'}.issubset(selections) else 0, dps['paccuracy'][1]],
@@ -302,7 +304,6 @@ def gensearchparams(dps, selections, base):
 		"#% increased Accuracy Rating with Swords": [dps['paccuracy'][0] if {'Sword'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		"#% increased Accuracy Rating with Wands": [dps['paccuracy'][0] if {'Wand'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		'#% increased Global Accuracy Rating': [dps['paccuracy'][0], dps['paccuracy'][1]],
-#		"#% increased Accuracy Rating if you haven't Killed Recently": [dps['paccuracy'][0] if {'NoRecentKill'}.issubset(selections) else 0, dps['paccuracy'][1]],
 		# Attributes
 		'# to Strength': [dps['20str'][0], dps['20str'][1]],
 		'# to Intelligence': [dps['20int'][0], dps['20int'][1]],
@@ -312,8 +313,11 @@ def gensearchparams(dps, selections, base):
 		'# to Dexterity and Intelligence': [dps['20int'][0] + dps['20dex'][0], dps['20int'][1] + dps['20dex'][1]],
 		'# to all Attributes': [dps['20int'][0] + dps['20dex'][0] + dps['20str'][0], dps['20int'][1] + dps['20dex'][1] + dps['20str'][1]],
 		'#% increased Damage per 15 Dexterity': [dps['damageperdex'][0], dps['damageperdex'][1]],
+		'#% increased Damage per 100 Dexterity': [dps['damageperdex'][0] * 0.15, dps['damageperdex'][1] * 0.15],
 		'#% increased Damage per 15 Intelligence': [dps['damageperint'][0], dps['damageperint'][1]],
+		'#% increased Damage per 100 Intelligence': [dps['damageperint'][0] * 0.15, dps['damageperint'][1] * 0.15],
 		'#% increased Damage per 15 Strength': [dps['damageperstr'][0], dps['damageperstr'][1]],
+		'#% increased Damage per 100 Strength': [dps['damageperstr'][0] * 0.15, dps['damageperstr'][1] * 0.15],
 		"#% increased Attributes": [dps['pstr'][0] + dps['pdex'][0] + dps['pint'][0], dps['pstr'][1] + dps['pdex'][1] + dps['pint'][1]],
 		"#% increased Strength": [dps['pstr'][0], dps['pstr'][1]],
 		"#% increased Intelligence": [dps['pint'][0], dps['pint'][1]],
@@ -366,7 +370,17 @@ def gensearchparams(dps, selections, base):
 		# Minion Accuracy
 		"#% increased Minion Accuracy Rating": [dps['minionpaccuracy'][0], dps['minionpaccuracy'][1]],
 		"Minions have # to Accuracy Rating": [dps['minionflataccuracy'][0], dps['minionflataccuracy'][1]],
+		# Golem Buffs
+		"#% increased Effect of the Buff granted by your Carrion Golems": [dps['golemcarrion'][0], dps['golemcarrion'][1]],
+		"#% increased Effect of the Buff granted by your Flame Golems": [dps['golemflame'][0], dps['golemflame'][1]],
+		"#% increased Effect of the Buff granted by your Ice Golems": [dps['golemice'][0], dps['golemice'][1]],
+		"#% increased Effect of the Buff granted by your Lightning Golems": [dps['golemlightning'][0], dps['golemlightning'][1]],
+		# Offering Effect
+		"Bone Offering has #% increased Effect": [dps['offeringbone'][0], dps['offeringbone'][1]],
+		"Flesh Offering has #% increased Effect": [dps['offeringflesh'][0], dps['offeringflesh'][1]],
+		"Spirit Offering has #% increased Effect": [dps['offeringspirit'][0], dps['offeringspirit'][1]],
 		# Gem Levels Generic
+		"# to Level of all Skill Gems": [dps['asg'][0], dps['asg'][1]],
 		"# to Level of all Chaos Skill Gems": [dps['achaossg'][0], dps['achaossg'][1]],
 		"# to Level of all Cold Skill Gems": [dps['acoldsg'][0], dps['acoldsg'][1]],
 		"# to Level of all Fire Skill Gems": [dps['afiresg'][0], dps['afiresg'][1]],
@@ -390,6 +404,7 @@ def gensearchparams(dps, selections, base):
 		"Determination has #% increased Aura Effect": [dps['iaedeterminaton'][0], dps['iaedeterminaton'][1]],
 		"Discipline has #% increased Aura Effect": [dps['iaediscipline'][0], dps['iaediscipline'][1]],
 		"Grace has #% increased Aura Effect": [dps['iaegrace'][0], dps['iaegrace'][1]],
+		"Haste has #% increased Aura Effect": [dps['iaegrace'][0], dps['iaegrace'][1]],
 		"Hatred has #% increased Aura Effect": [dps['iaehatred'][0], dps['iaehatred'][1]],
 		"Malevolence has #% increased Aura Effect": [dps['iaemalevolence'][0], dps['iaemalevolence'][1]],
 		"Pride has #% increased Aura Effect": [dps['iaepride'][0], dps['iaepride'][1]],
@@ -398,6 +413,7 @@ def gensearchparams(dps, selections, base):
 		"#% increased Effect of Non-Curse Auras from your Skills on Enemies": [dps['iaeenemy'][0], dps['iaeenemy'][1]],
 		"#% increased effect of Non-Curse Auras from your Skills": [dps['iaenc'][0], dps['iaenc'][1]],
 		"Auras from your Skills grant #% increased Damage to you and Allies": [dps['pdpas'][0], dps['pdpas'][1]],
+		"#% increased Effect of Arcane Surge on you": [dps['iearcanesurge'][0], dps['iearcanesurge'][1]],
 		# Flasks
 		"#% increased Critical Strike Chance during any Flask Effect": [dps['critchance'][0] if {'UsingFlask'}.issubset(selections) else 0, dps['critchance'][1]],
 		"#% to Critical Strike Multiplier during any Flask Effect": [dps['critmulti'][0] if {'UsingFlask'}.issubset(selections) else 0, dps['critmulti'][1]],
@@ -441,6 +457,7 @@ def gensearchparams(dps, selections, base):
 
 		# Not yet implemented
 		"#% increased Energy Shield from Body Armour": [0, 0],
+		"#% increased Maximum Energy Shield from Equipped Gloves and Boots": [0, 0],
 		"Gain #% of Maximum Life as Extra Maximum Energy Shield": [0, 0],
 		"#% increased Duration of Ailments on Enemies": [0, 0],
 		"Ignites you inflict deal Damage #% faster": [0, 0],
@@ -483,13 +500,16 @@ def gensearchparams(dps, selections, base):
 		if modstr[mod][0]:
 			for val in mods[mod]:
 				# if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
-				if ('scourge' in val and ({'NoScourgeImplicitMods'}.issubset(selections) or mod not in r_mods[base]['scourge_implicit'])) or \
-				   ('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
-										   mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['implicit'] or
-										   ({'NoSynthImplicitMods', 'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['implicit']) or
-										   ({'NoSynthImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['implicit']) or
-										   ({'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['synth_implicit']+r_mods[base]['implicit']))) or \
-				   ('explicit' in val and mod not in r_mods[base]['explicit']):
+				if (
+						('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
+						                        mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit'] or
+						                        ({'NoSynthImplicitMods', 'NoCorruptImplicitMods', 'NoSearingImplicitMods', 'NoTangledImplicitMods'}.issubset(selections) and mod not in r_mods[base]['implicit']) or
+						                        ({'NoSynthImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit']) or
+						                        ({'NoSearingImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['synth_implicit']+r_mods[base]['tangled_item']+r_mods[base]['implicit']) or
+						                        ({'NoTangledImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['synth_implicit']+r_mods[base]['implicit']) or
+						                        ({'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['synth_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit']))) or
+						('explicit' in val and mod not in r_mods[base]['explicit'])
+				):
 					continue
 				mlist[val] = (round(modstr[mod][0], 2), modstr[mod][1])
 				reverse[val] = mod

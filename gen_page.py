@@ -9,7 +9,7 @@ from baselist import bases
 from modsjson import mjson
 
 # checkboxes that have their state saved
-saved_states = ["NoSynthImplicitMods", "NoCorruptImplicitMods", "NoImplicitMods", "includeDelve", "PseudoMods", 'IgnoreCastSpeed', 'IgnoreAttackSpeed', 'NoScourgeImplicitMods']  # "NoCraftedMods",
+saved_states = ['NoSearingImplicitMods', 'NoTangledImplicitMods', "NoSynthImplicitMods", "NoCorruptImplicitMods", "NoImplicitMods", "includeDelve", "PseudoMods", 'IgnoreCastSpeed', 'IgnoreAttackSpeed']  # "NoCraftedMods",
 
 storage_key = "poe_weighted_search"
 
@@ -100,10 +100,10 @@ def process_querystring():
 						print(f"Key '{key}' recieved but not currently supported")
 
 		else:
-			init_weight(0)
+			init_weight(max(mjson))
 			doc['specialnotice'] <= H1("You are using an outdated version of PoB-Item-Tester" + BR() + f"Update from " + A("VolatilePulse's Github Repository", href="https://github.com/VolatilePulse/PoB-Item-Tester", target="_blank"))
 			doc['specialnotice'].style.display = 'block'
-			current_version = 0
+			current_version = max(mjson)
 			for key in doc.query:
 				if key not in ['Flags']:
 					try:
@@ -175,7 +175,7 @@ def init_page():
 		if c:
 			doc[page].style.display = 'none'
 
-	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoScourgeImplicitMods', 'Ignore Scourge Mods'), ('NoSynthImplicitMods', 'Ignore Synth only Implicit Mods'), ('NoCorruptImplicitMods', 'Ignore Corruption only Implicit Mods'), ('NoImplicitMods', 'Ignore All Implicit Mods including corrupt and synth'), ('PseudoMods', 'Use PseudoMods in Search'), ('IgnoreCastSpeed', 'Set Cast Speed Weight to 0'), ('IgnoreAttackSpeed', 'Set Attack Speed Weight to 0')]  # ('NoCraftedMods', 'Ignore Crafted Mods'),
+	data = [('includeDelve', 'Include Precursor Emblem mods'), ('NoSearingImplicitMods', 'Ignore Searing Exarch only Implicit Mods'), ('NoTangledImplicitMods', 'Ignore Eater of Worlds only Implicit Mods'), ('NoSynthImplicitMods', 'Ignore Synth only Implicit Mods'), ('NoCorruptImplicitMods', 'Ignore Corruption only Implicit Mods'), ('NoImplicitMods', 'Ignore All Implicit Mods including corrupt and synth'), ('PseudoMods', 'Use PseudoMods in Search'), ('IgnoreCastSpeed', 'Set Cast Speed Weight to 0'), ('IgnoreAttackSpeed', 'Set Attack Speed Weight to 0')]  # ('NoCraftedMods', 'Ignore Crafted Mods'),
 	t = make_table(data, 1, 'ignore')
 	doc['searchflags'] <= STRONG('Options:') + ' choices that affect type of returned mods' + BR() + t + BR()
 
@@ -349,6 +349,7 @@ def init_flags():
 
 # Initialize the changelog
 def init_change():
+	doc['Changelog'] <= P('2021/10/24: 3.17 updates.  Support for new implicits.  Removed support for Scourge mods.')
 	doc['Changelog'] <= P('2021/10/31: Disabled crafted mod support.  They are now a subset of explicit mods on the site for weighted searches')
 	doc['Changelog'] <= P('2021/10/24: Added support for Scourge mods.')
 	doc['Changelog'] <= P('2021/05/01: Seperated out Synth and Corrupted implicits.  Added options to exclude.')
