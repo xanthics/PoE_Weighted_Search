@@ -499,7 +499,6 @@ def gensearchparams(dps, selections, base):
 	for mod in modstr:
 		if modstr[mod][0]:
 			for val in mods[mod]:
-				# if ('crafted' in val and ({'NoCraftedMods'}.issubset(selections) or mod not in r_mods[base]['crafted'])) or \
 				if (
 						('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
 						                        mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit'] or

@@ -201,6 +201,12 @@ r_mods = {
 		],
 	},
 	"All Jewel": {
+		"searing_item": [
+			""
+		],
+		"tangled_item": [
+			""
+		],
 		"synth_implicit": [
 			"# to Accuracy Rating",
 			"# to Dexterity",

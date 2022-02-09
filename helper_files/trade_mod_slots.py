@@ -208,10 +208,14 @@ def gen_restrict_mods(goodmods, root_dir):
 			results[slot][gen_type].extend(missing_mods[slot][gen_type])
 
 	# Add a special section for all jewel mods
-	results['All Jewel'] = {'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
-							'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
-							'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
-							'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))}
+	results['All Jewel'] = {
+		"searing_item": [""],
+		"tangled_item": [""],
+		'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
+		'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
+		'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
+		'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))
+	}
 
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'r_mods = {']
 	for base in sorted(results):
