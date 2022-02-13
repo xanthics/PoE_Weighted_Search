@@ -2695,7 +2695,7 @@ badmod = [
 	"Grants Level 20 Summon Bestial # Skill",
 	"Grants Malachai's Endurance, Frenzy and Power for 6 seconds each, in sequence",
 	"Grants Perfect Agony during Flask effect",
-	"Grants Summon Harbinger of the Arcane Skill",
+	"Grants Summon Harbinger Skill",
 	"Grants all bonuses of Unallocated Small Passive Skills in Radius",
 	"Guards add additional Alert Level on Death",
 	"Guards deal #% increased Damage",

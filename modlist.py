@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/08/2022(m/d/y) 18:37:40 utc
+# Generated: 02/13/2022(m/d/y) 02:56:57 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -3058,7 +3058,7 @@ mods = {
 	"Grants Level 20 Summon Bestial # Skill": ["explicit.stat_2878779644"],
 	"Grants Malachai's Endurance, Frenzy and Power for 6 seconds each, in sequence": ["explicit.stat_2918150296"],
 	"Grants Perfect Agony during Flask effect": ["explicit.stat_3741365813"],
-	"Grants Summon Harbinger of the Arcane Skill": ["explicit.stat_3872739249"],
+	"Grants Summon Harbinger Skill": ["explicit.stat_3872739249"],
 	"Grants all bonuses of Unallocated Small Passive Skills in Radius": ["explicit.stat_737702863"],
 	"Guards add additional Alert Level on Death": ["explicit.stat_1535006826"],
 	"Guards deal #% increased Damage": ["explicit.stat_2569717992"],

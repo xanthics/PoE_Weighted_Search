@@ -49,7 +49,7 @@ def check_for_zero(limit, current):
 
 # given a list of mods to check and a list of known mods, eliminate possibly bad mods
 def gen_mod_map(themods, goodmods, cookies, headers, post_limit, fetch_limit, league):
-	mod_count = 178  # number of mods to check at a time
+	mod_count = 177  # number of mods to check at a time
 	fetch_url = 'https://www.pathofexile.com/api/trade/fetch/{}?query={}'
 	requester = requests.session()
 	limit = '1:1:1'
@@ -208,14 +208,15 @@ def gen_restrict_mods(goodmods, root_dir):
 			results[slot][gen_type].extend(missing_mods[slot][gen_type])
 
 	# Add a special section for all jewel mods
-	results['All Jewel'] = {
-		"searing_item": [""],
-		"tangled_item": [""],
-		'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
-		'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
-		'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
-		'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))
-	}
+#	results['All Jewel'] = {
+#		"searing_item": list(set(results['Base Jewel']['searing_item'] + results['Abyss Jewel']['searing_item'])),
+#		"tangled_item": list(set(results['Base Jewel']['tangled_item'] + results['Abyss Jewel']['tangled_item'])),
+#		'synth_implicit': list(set(results['Base Jewel']['synth_implicit'] + results['Abyss Jewel']['synth_implicit'])),
+#		'corrupt_implicit': list(set(results['Base Jewel']['corrupt_implicit'] + results['Abyss Jewel']['corrupt_implicit'])),
+#		'implicit': list(set(results['Base Jewel']['implicit'] + results['Abyss Jewel']['implicit'])),
+#		'explicit': list(set(results['Base Jewel']['explicit'] + results['Abyss Jewel']['explicit']))
+#	}
+	results['All Jewel'] = {x: list(set(results['Base Jewel'][x] + results['Abyss Jewel'][x])) for x in results['Base Jewel'].keys()}
 
 	buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'r_mods = {']
 	for base in sorted(results):
@@ -317,6 +318,7 @@ def handle_pseudos(pseudos, root_dir):
 		'Has Logbook Area: Battleground Graves', 'Has Logbook Area: Bluffs', 'Has Logbook Area: Cemetery', 'Has Logbook Area: Desert Ruins', 'Has Logbook Area: Dried Riverbed', 'Has Logbook Area: Forest Ruins', 'Has Logbook Area: Karui Wargraves', 'Has Logbook Area: Mountainside', 'Has Logbook Area: Rotting Temple',
 		'Has Logbook Area: Sarn Slums', 'Has Logbook Area: Scrublands', 'Has Logbook Area: Shipwreck Reef', 'Has Logbook Area: Utzaal Outskirts', 'Has Logbook Area: Vaal Temple', 'Has Logbook Area: Volcanic Island', 'Has Logbook Faction: Black Scythe Mercenaries', 'Has Logbook Faction: Druids of the Broken Circle', 'Has Logbook Faction: Knights of the Sun',
 		'Has Logbook Faction: Order of the Chalice', '# Enchant Modifiers', '#% Base Defence Percentile',
+		'+#% Quality to Physical and Chaos Damage Modifiers', 'Eater of Worlds Implicit Modifier (#)', 'Searing Exarch Implicit Modifier (#)',
 		# mods that seem good but aren't
 		'+# total to all Attributes',  # eg 5 str, 11 dex, 14 int item will have value of 5
 

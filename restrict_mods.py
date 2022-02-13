@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/08/2022(m/d/y) 19:09:31 utc
+# Generated: 02/13/2022(m/d/y) 03:10:22 utc
 r_mods = {
 	"Abyss Jewel": {
 		"searing_item": [
@@ -993,6 +993,7 @@ r_mods = {
 			"# to maximum Life",
 			"# to maximum Mana",
 			"#% increased Attributes",
+			"#% increased Damage per Power Charge",
 			"#% increased Dexterity",
 			"#% increased Intelligence",
 			"#% increased Strength",
@@ -1001,6 +1002,8 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
+			"Gain #% of Cold Damage as Extra Chaos Damage",
+			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Lightning Damage as Extra Chaos Damage",
 			"Gain #% of Maximum Life as Extra Maximum Energy Shield"
 		],
@@ -1132,6 +1135,7 @@ r_mods = {
 			"Triggered Spells deal #% increased Spell Damage"
 		],
 		"corrupt_implicit": [
+			"# to Maximum Power Charges and Maximum Endurance Charges",
 			"# to Strength and Dexterity",
 			"# to maximum Energy Shield",
 			"#% chance to deal Double Damage",
@@ -1342,6 +1346,7 @@ r_mods = {
 			"#% increased Spell Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
+			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
 			"Exerted Attacks deal #% increased Damage"
@@ -1399,6 +1404,7 @@ r_mods = {
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Lightning Damage to Attacks",
+			"Adds # to # Physical Damage for each Impale on Enemy",
 			"Adds # to # Physical Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Physical Damage to Attacks",
 			"Bleeding you inflict deals Damage #% faster",
@@ -1477,6 +1483,7 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Area Damage",
 			"#% increased Burning Damage",
+			"#% increased Critical Strike Chance if you've been Shocked Recently",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Intelligence",
@@ -1489,6 +1496,7 @@ r_mods = {
 			"Adds # to # Fire Damage to Spells",
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage to Spells",
+			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Nearby Enemies have #% to Chaos Resistance",
 			"Nearby Enemies have #% to Cold Resistance",
@@ -1510,6 +1518,7 @@ r_mods = {
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Strength",
+			"# to maximum Mana",
 			"#% increased Attack Speed",
 			"#% increased Attack and Cast Speed",
 			"#% increased Chaos Damage",
@@ -1528,6 +1537,7 @@ r_mods = {
 			"#% increased Strength",
 			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
+			"#% increased maximum Mana",
 			"#% to Global Critical Strike Multiplier",
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",
