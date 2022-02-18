@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/13/2022(m/d/y) 03:10:22 utc
+# Generated: 02/18/2022(m/d/y) 00:30:38 utc
 r_mods = {
 	"Abyss Jewel": {
 		"searing_item": [
@@ -1409,6 +1409,8 @@ r_mods = {
 			"Adds # to # Physical Damage to Attacks",
 			"Bleeding you inflict deals Damage #% faster",
 			"Culling Strike",
+			"Gain #% of Physical Damage as Extra Cold Damage",
+			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Poisons you inflict deal Damage #% faster"
@@ -1463,6 +1465,8 @@ r_mods = {
 			"#% increased Burning Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
+			"Adds # to # Cold Damage",
+			"Damage Penetrates #% Cold Resistance",
 			"Minions deal #% increased Damage"
 		],
 		"implicit": [
