@@ -493,21 +493,25 @@ def gensearchparams(dps, selections, base):
 	trimmed = []
 
 	pseudos = {}
-	if {'PseudoMods'}.issubset(selections):
+	if {'PseudoMods'}.issubset(selections) and {'NoExplicitMods'}.isdisjoint(selections):
 		pseudos = pseudo_lookup(modstr, base, reverse, selections)
 
 	for mod in modstr:
 		if modstr[mod][0]:
 			for val in mods[mod]:
 				if (
-						('implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
-						                        mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit'] or
-						                        ({'NoSynthImplicitMods', 'NoCorruptImplicitMods', 'NoSearingImplicitMods', 'NoTangledImplicitMods'}.issubset(selections) and mod not in r_mods[base]['implicit']) or
-						                        ({'NoSynthImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit']) or
-						                        ({'NoSearingImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['synth_implicit']+r_mods[base]['tangled_item']+r_mods[base]['implicit']) or
-						                        ({'NoTangledImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['synth_implicit']+r_mods[base]['implicit']) or
-						                        ({'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['synth_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit']))) or
-						('explicit' in val and mod not in r_mods[base]['explicit'])
+						(
+								'implicit' in val and ({'NoImplicitMods'}.issubset(selections) or
+								                       mod not in r_mods[base]['synth_implicit']+r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit'] or
+								                       ({'NoSynthImplicitMods', 'NoCorruptImplicitMods', 'NoSearingImplicitMods', 'NoTangledImplicitMods'}.issubset(selections) and mod not in r_mods[base]['implicit']) or
+								                       ({'NoSynthImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit']) or
+								                       ({'NoSearingImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['synth_implicit']+r_mods[base]['tangled_item']+r_mods[base]['implicit']) or
+								                       ({'NoTangledImplicitMods'}.issubset(selections) and mod not in r_mods[base]['corrupt_implicit']+r_mods[base]['searing_item']+r_mods[base]['synth_implicit']+r_mods[base]['implicit']) or
+								                       ({'NoCorruptImplicitMods'}.issubset(selections) and mod not in r_mods[base]['synth_implicit']+r_mods[base]['searing_item']+r_mods[base]['tangled_item']+r_mods[base]['implicit']))) or
+						(
+								'explicit' in val and (mod not in r_mods[base]['explicit'] or
+								                       {'NoExplicitMods'}.issubset(selections))
+						)
 				):
 					continue
 				mlist[val] = (round(modstr[mod][0], 2), modstr[mod][1])
