@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/18/2022(m/d/y) 00:30:38 utc
+# Generated: 03/15/2022(m/d/y) 13:21:27 utc
 r_mods = {
 	"Abyss Jewel": {
 		"searing_item": [

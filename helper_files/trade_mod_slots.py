@@ -1,14 +1,12 @@
 import requests
 import json
-import os
+
 from helper_files.goodmod import goodmod
 from helper_files.badmod import badmod
 from helper_files.gen_test_query import resetmods
 from datetime import datetime
 from pyrate_limiter import *
 from time import sleep
-
-from secrets import user_agent, poe_sessid
 
 
 def post_api(requester, data, headers, cookies, league):
@@ -159,7 +157,7 @@ def gen_restrict_mods(goodmods, root_dir):
 		'armour.chest': "Body Armour",
 		'armour.boots': "Boots",
 	}
-	from modlist import mods
+	from docs.modlist import mods
 	# reverse lookup to map mod hashes to human readable
 	rlookup = {mods[x][idx]: x for x in mods for idx in range(len(mods[x]))}
 	results = {}
@@ -230,7 +228,7 @@ def gen_restrict_mods(goodmods, root_dir):
 			buf.append(f'\t\t"{section}": [\n\t\t\t"{tblstr}"\n\t\t],')
 		buf.append('\t},')
 	buf.append('}\n')
-	with open(f"{root_dir}/restrict_mods.py", 'w') as f:
+	with open(f"{root_dir}/docs/restrict_mods.py", 'w') as f:
 		f.write('\n'.join(buf))
 
 
@@ -251,7 +249,7 @@ def genmods(goodmods):
 		'armour.chest',
 		'armour.boots',
 	}
-	from modlist import mods
+	from docs.modlist import mods
 	mod_set = []
 	for m in goodmod:
 		mod_set.extend(mods[m])
@@ -474,7 +472,7 @@ def handle_pseudos(pseudos, root_dir):
 	buf2.append('\treturn ret\n')
 
 	print(f"Mods not processed in good_matches: {good_matches.keys()}" if good_matches else "All mods handled")
-	with open(f'{root_dir}/pseudo_lookup.py', 'w') as f:
+	with open(f'{root_dir}/docs/pseudo_lookup.py', 'w') as f:
 		f.write('\n'.join(buf2))
 
 
@@ -526,7 +524,7 @@ def updatemods(root_dir, headers, cookies):
 		print(f'Removed mod(s): \n\t"{newstr}"')
 
 	# This should check for changes before generating/writing but won't implement
-	with open(f'{root_dir}/modlist.py', 'w') as f:
+	with open(f'{root_dir}/docs/modlist.py', 'w') as f:
 		f.write('\n'.join(buf))
 
 	handle_pseudos(pseudos, root_dir)
@@ -535,11 +533,11 @@ def updatemods(root_dir, headers, cookies):
 def updateleagues(root_dir, headers, cookies):
 	leagueurl = "http://api.pathofexile.com/leagues?realm=pc&compact=1"
 	vals = fetch_api(requests, leagueurl, headers, cookies)
-	from leaguelist import leagues
+	from docs.leaguelist import leagues
 	if set(leagues) != set([x['id'] for x in vals if 'SSF' not in x['id'] and 'Royale' not in x['id']]):
 		print("Updating League List")
 		buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", f"leagues = {[x['id'] for x in vals if 'SSF' not in x['id'] and 'Royale' not in x['id']]}"]
-		with open(f'{root_dir}/leaguelist.py', 'w') as f:
+		with open(f'{root_dir}/docs/leaguelist.py', 'w') as f:
 			f.write('\n'.join(buf))
 	else:
 		print("League List is unchanged")
@@ -547,11 +545,11 @@ def updateleagues(root_dir, headers, cookies):
 
 # because converting json to a python object for every page load is slow
 def updatejsonmods(root_dir):
-	with open(f"{root_dir}/mods.json", 'r') as f:
+	with open("mods.json", 'r') as f:
 		n_mjson = json.loads(f.read())
 	version = n_mjson[0]['version']
 	del n_mjson[0]['version']
-	from modsjson import mjson
+	from docs.modsjson import mjson
 	if version not in mjson:
 		mjson[version] = n_mjson
 		buf = ["#!/usr/bin/python", "# -*- coding: utf-8 -*-", f"# Generated: {datetime.utcnow().strftime('%m/%d/%Y(m/d/y) %H:%M:%S')} utc", 'mjson = {']
@@ -562,7 +560,7 @@ def updatejsonmods(root_dir):
 			buf.append('\t],')
 		buf.append('}')
 
-		with open(f'{root_dir}/modsjson.py', 'w') as f:
+		with open('docs/modsjson.py', 'w') as f:
 			f.write('\n'.join(buf))
 	else:
 		print("modsjson.py is unchanged")
@@ -612,19 +610,14 @@ def setup_limits(cookies, headers, league):
 	return post_limit, fetch_limit
 
 
-if __name__ == "__main__":
-	root_dir_g = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	g_league = 'Archnemesis'
-	g_cookies = {'POESESSID': poe_sessid}
-	g_headers = {'User-Agent': user_agent}
-	g_post_limit, g_fetch_limit = setup_limits(g_cookies, g_headers, g_league)
+def update_mods(g_league, root_dir_g, g_headers, g_cookies):
 	updatemods(root_dir_g, g_headers, g_cookies)
 	with open('modmap.json', 'r') as fi:
 		knownmods = json.load(fi)
 
 	mymods = genmods(knownmods)
+	g_post_limit, g_fetch_limit = setup_limits(g_cookies, g_headers, g_league)
 	gen_mod_map(mymods, knownmods, g_cookies, g_headers, g_post_limit, g_fetch_limit, g_league)
 	gen_restrict_mods(knownmods, root_dir_g)
-	updateleagues(root_dir_g, g_headers, g_cookies)
-	updatejsonmods(root_dir_g)
+
 	resetmods()

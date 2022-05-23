@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 02/18/2022(m/d/y) 00:18:22 utc
+# Generated: 03/15/2022(m/d/y) 13:09:59 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -3997,7 +3997,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Energy Leech": ["explicit.indexable_support_87", "explicit.stat_799443127"],
 	"Socketed Gems are Supported by Level # Enhance": ["explicit.stat_2556436882"],
 	"Socketed Gems are Supported by Level # Enlighten": ["explicit.stat_2065361612"],
-	"Socketed Gems are Supported by Level # Eternal Blessing": ["explicit.indexable_support_143"],
+	"Socketed Gems are Supported by Level # Eternal Blessing": ["explicit.indexable_support_143", "explicit.stat_3062849155"],
 	"Socketed Gems are Supported by Level # Faster Attacks": ["explicit.indexable_support_86", "explicit.stat_928701213"],
 	"Socketed Gems are Supported by Level # Faster Casting": ["explicit.indexable_support_85", "explicit.stat_2169938251", "implicit.stat_2169938251"],
 	"Socketed Gems are Supported by Level # Faster Projectiles": ["explicit.indexable_support_84"],

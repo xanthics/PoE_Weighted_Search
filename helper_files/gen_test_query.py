@@ -7,7 +7,7 @@ def main():
 	# sort goodmod based on str lens
 	goodmod.sort(key=len, reverse=True)
 
-	with open("../gensearchparams.py", "r") as f:
+	with open("../docs/gensearchparams.py", "r") as f:
 		m_check = False
 		for line in f:
 			l = line.strip()
@@ -48,7 +48,7 @@ def main():
 
 # sorts goodmod and badmod
 def resetmods():
-	from modlist import mods
+	from docs.modlist import mods
 	from helper_files.goodmod import goodmod
 	from helper_files.badmod import badmod
 	for d, fo in [[goodmod, 'goodmod'], [badmod, 'badmod']]:
