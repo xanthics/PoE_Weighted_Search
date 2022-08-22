@@ -29,7 +29,7 @@ def main():
 	updatejsonmods(root_dir_g)
 	update_mods('Kalandra', root_dir_g, g_headers, g_cookies)
 	# generate compact brython.js
-	#update_brython()
+	update_brython()
 
 
 if __name__ == '__main__':
