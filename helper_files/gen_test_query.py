@@ -54,12 +54,12 @@ def resetmods():
 	for d, fo in [[goodmod, 'goodmod'], [badmod, 'badmod']]:
 		d = list(set(d) & set(mods))
 		d.sort()
-		with open(f'{fo}.py', 'w') as f:
+		with open(f'helper_files/{fo}.py', 'w') as f:
 			f.write(f'{fo} = [\n\t"')
 			f.write('",\n\t"'.join(d))
 			f.write('"\n]\n')
 
 
 if __name__ == '__main__':
-	resetmods()
+#	resetmods()
 	main()

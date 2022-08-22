@@ -317,6 +317,15 @@ def handle_pseudos(pseudos, root_dir):
 		'Has Logbook Area: Sarn Slums', 'Has Logbook Area: Scrublands', 'Has Logbook Area: Shipwreck Reef', 'Has Logbook Area: Utzaal Outskirts', 'Has Logbook Area: Vaal Temple', 'Has Logbook Area: Volcanic Island', 'Has Logbook Faction: Black Scythe Mercenaries', 'Has Logbook Faction: Druids of the Broken Circle', 'Has Logbook Faction: Knights of the Sun',
 		'Has Logbook Faction: Order of the Chalice', '# Enchant Modifiers', '#% Base Defence Percentile',
 		'+#% Quality to Physical and Chaos Damage Modifiers', 'Eater of Worlds Implicit Modifier (#)', 'Searing Exarch Implicit Modifier (#)',
+
+		'Mirrored Tablet has # Islands', 'Reflection of Abyss (Difficulty #)', 'Reflection of Ambush (Difficulty #)', 'Reflection of Angling (Difficulty #)', 'Reflection of Azurite (Difficulty #)', 'Reflection of Bestiary (Difficulty #)', 'Reflection of Breach (Difficulty #)', 'Reflection of Brutality (Difficulty #)',
+		'Reflection of Camaraderie (Difficulty #)', 'Reflection of Catalysis (Difficulty #)', 'Reflection of Chaos (Difficulty #)', 'Reflection of Conflict (Difficulty #)', 'Reflection of Darkness (Difficulty #)', 'Reflection of Delirium (Difficulty #)', 'Reflection of Delve (Difficulty #)', 'Reflection of Demonfire (Difficulty #)',
+		'Reflection of Domination (Difficulty #)', 'Reflection of Entrapment (Difficulty #)', 'Reflection of Essence (Difficulty #)', 'Reflection of Experimentation (Difficulty #)', 'Reflection of Flame (Difficulty #)', 'Reflection of Fractured Dimensions (Difficulty #)', 'Reflection of Frost (Difficulty #)', 'Reflection of Guilt (Difficulty #)',
+		'Reflection of Imprisonment (Difficulty #)', 'Reflection of Kalandra (Difficulty #)', 'Reflection of Legion (Difficulty #)', 'Reflection of Metamorph (Difficulty #)', 'Reflection of Occultism (Difficulty #)', 'Reflection of Paradise (Difficulty #)', 'Reflection of Perverted Faith (Difficulty #)', 'Reflection of Phaaryl (Difficulty #)',
+		'Reflection of Possession (Difficulty #)', 'Reflection of Power (Difficulty #)', 'Reflection of Scourge (Difficulty #)', 'Reflection of Stasis (Difficulty #)', 'Reflection of Sulphite (Difficulty #)', 'Reflection of Thralldom (Difficulty #)', 'Reflection of Torment (Difficulty #)', 'Reflection of Tyranny (Difficulty #)',
+		'Reflection of the Black Scythe (Difficulty #)', 'Reflection of the Breachlord (Difficulty #)', 'Reflection of the Broken Circle (Difficulty #)', 'Reflection of the Chalice (Difficulty #)', 'Reflection of the Chasm (Difficulty #)', 'Reflection of the Dream (Difficulty #)', 'Reflection of the Harbingers (Difficulty #)',
+		'Reflection of the Hunter (Difficulty #)', 'Reflection of the Monolith (Difficulty #)', 'Reflection of the Nightmare (Difficulty #)', 'Reflection of the Storm (Difficulty #)', 'Reflection of the Sun (Difficulty #)', 'Reflection of the Trove (Difficulty #)', 'Reflection of the Wilderness (Difficulty #)',
+
 		# mods that seem good but aren't
 		'+# total to all Attributes',  # eg 5 str, 11 dex, 14 int item will have value of 5
 
@@ -612,7 +621,7 @@ def setup_limits(cookies, headers, league):
 
 def update_mods(g_league, root_dir_g, g_headers, g_cookies):
 	updatemods(root_dir_g, g_headers, g_cookies)
-	with open('modmap.json', 'r') as fi:
+	with open('helper_files/modmap.json', 'r') as fi:
 		knownmods = json.load(fi)
 
 	mymods = genmods(knownmods)

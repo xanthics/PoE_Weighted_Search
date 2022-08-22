@@ -22,14 +22,14 @@ def update_brython():
 
 
 def main():
-	root_dir_g = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	root_dir_g = os.path.dirname(os.path.abspath(__file__))
 	g_cookies = {'POESESSID': poe_sessid}
 	g_headers = {'User-Agent': user_agent}
 	updateleagues(root_dir_g, g_headers, g_cookies)
 	updatejsonmods(root_dir_g)
-	# update_mods('Sentinel', root_dir_g, g_headers, g_cookies)
+	update_mods('Kalandra', root_dir_g, g_headers, g_cookies)
 	# generate compact brython.js
-	update_brython()
+	#update_brython()
 
 
 if __name__ == '__main__':

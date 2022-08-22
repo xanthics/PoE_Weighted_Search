@@ -20,6 +20,8 @@ def gensearchparams(dps, selections, base):
 	localmulti += sum(1 if x in selections else 0 for x in ['Spellslinger', 'BattleMage'])
 	# First element is per point value, second element is "total value" for sorting.
 	modstr = {
+		# Action Speed
+		"#% increased Action Speed": [dps['actionspeed'][0], dps['actionspeed'][1]],
 		# Attack Speed
 		"#% increased Attack Speed": [dps['attackspeed'][0], dps['attackspeed'][1]],
 		"#% increased Attack Speed if you've dealt a Critical Strike Recently": [dps['attackspeed'][0] if {'CritRecently'}.issubset(selections) else 0, dps['attackspeed'][1]],
@@ -361,6 +363,8 @@ def gensearchparams(dps, selections, base):
 		"Minions have #% increased Cast Speed": [dps['minioncastspeed'][0], dps['minioncastspeed'][1]],
 		"Minions have #% increased Attack and Cast Speed if you or your Minions have Killed Recently": [dps['minionattackspeed'][0] + dps['minioncastspeed'][0] if {'KilledRecently', 'MinionsKilledRecently'}.intersection(selections) else 0, dps['minionattackspeed'][1] + dps['minioncastspeed'][1]],
 		"Minions deal #% increased Damage if you've used a Minion Skill Recently": [dps['pminion'][0] if {'UsedMinionSkillRecently'}.issubset(selections) else 0, dps['pminion'][1]],
+		"Minions have #% increased Attack and Cast Speed": [dps['minionattackspeed'][0] + dps['minioncastspeed'][0], dps['minionattackspeed'][1] + dps['minioncastspeed'][1]],
+		"Minions have #% increased Critical Strike Chance": [dps['minioncriticalstrike'][0], dps['minioncriticalstrike'][1]],
 		# Minion Flat Damage
 		"Minions deal # to # additional Physical Damage": [dps['minionflatphys'][0], dps['minionflatphys'][1]],
 		"Minions deal # to # additional Lightning Damage": [dps['minionflatlightning'][0], dps['minionflatlightning'][1]],

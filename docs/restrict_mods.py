@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 03/15/2022(m/d/y) 13:21:27 utc
+# Generated: 08/22/2022(m/d/y) 16:36:05 utc
 r_mods = {
 	"Abyss Jewel": {
 		"searing_item": [
@@ -196,7 +196,6 @@ r_mods = {
 			"Minions deal #% increased Damage if you've used a Minion Skill Recently",
 			"Minions have # to Accuracy Rating",
 			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Attack and Cast Speed if you or your Minions have Killed Recently",
 			"Minions have #% increased Cast Speed"
 		],
 	},
@@ -485,7 +484,6 @@ r_mods = {
 			"Minions deal #% increased Damage if you've used a Minion Skill Recently",
 			"Minions have # to Accuracy Rating",
 			"Minions have #% increased Attack Speed",
-			"Minions have #% increased Attack and Cast Speed if you or your Minions have Killed Recently",
 			"Minions have #% increased Cast Speed"
 		],
 	},
@@ -645,7 +643,6 @@ r_mods = {
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage to Attacks",
 			"Adds # to # Physical Damage to Attacks",
-			"Adds # to # Physical Damage to Spells",
 			"Damage Penetrates #% Cold Resistance",
 			"Damage Penetrates #% Elemental Resistances",
 			"Damage Penetrates #% Fire Resistance",
@@ -1002,10 +999,7 @@ r_mods = {
 			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
 			"Attacks have #% to Critical Strike Chance",
-			"Gain #% of Cold Damage as Extra Chaos Damage",
-			"Gain #% of Fire Damage as Extra Chaos Damage",
-			"Gain #% of Lightning Damage as Extra Chaos Damage",
-			"Gain #% of Maximum Life as Extra Maximum Energy Shield"
+			"Gain #% of Cold Damage as Extra Chaos Damage"
 		],
 	},
 	"Boots": {
@@ -1019,6 +1013,7 @@ r_mods = {
 			"Poisons you inflict deal Damage #% faster"
 		],
 		"tangled_item": [
+			"#% increased Action Speed",
 			"#% increased Damage per Endurance Charge",
 			"#% increased Effect of the Buff granted by your Carrion Golems",
 			"#% increased Effect of the Buff granted by your Flame Golems",
@@ -1135,9 +1130,7 @@ r_mods = {
 			"Triggered Spells deal #% increased Spell Damage"
 		],
 		"corrupt_implicit": [
-			"# to Maximum Power Charges and Maximum Endurance Charges",
 			"# to Strength and Dexterity",
-			"# to maximum Energy Shield",
 			"#% chance to deal Double Damage",
 			"#% increased Area Damage",
 			"#% increased Cast Speed",
@@ -1155,7 +1148,8 @@ r_mods = {
 			"Adds # to # Fire Damage (Local)",
 			"Adds # to # Lightning Damage (Local)",
 			"Adds # to # Physical Damage (Local)",
-			"Damage Penetrates #% Elemental Resistances"
+			"Damage Penetrates #% Elemental Resistances",
+			"Minions deal #% increased Damage"
 		],
 		"implicit": [
 			"# to Maximum Power Charges and Maximum Endurance Charges",
@@ -1174,7 +1168,8 @@ r_mods = {
 			"#% to Global Critical Strike Multiplier",
 			"Adds # to # Chaos Damage (Local)",
 			"Adds # to # Fire Damage (Local)",
-			"Damage Penetrates #% Elemental Resistances"
+			"Damage Penetrates #% Elemental Resistances",
+			"Minions deal #% increased Damage"
 		],
 		"explicit": [
 			"# to Dexterity",
@@ -1270,7 +1265,9 @@ r_mods = {
 			"Minions have # to Accuracy Rating",
 			"Minions have #% chance to deal Double Damage",
 			"Minions have #% increased Attack Speed",
+			"Minions have #% increased Attack and Cast Speed",
 			"Minions have #% increased Cast Speed",
+			"Minions have #% increased Critical Strike Chance",
 			"Overwhelm #% Physical Damage Reduction",
 			"Poisons you inflict deal Damage #% faster",
 			"Spells have a #% chance to deal Double Damage",
@@ -1346,10 +1343,8 @@ r_mods = {
 			"#% increased Spell Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
-			"#% increased maximum Mana",
 			"#% to Spell Critical Strike Chance",
-			"Attacks have #% to Critical Strike Chance",
-			"Exerted Attacks deal #% increased Damage"
+			"Attacks have #% to Critical Strike Chance"
 		],
 		"implicit": [
 			"#% increased Damage over Time",
@@ -1392,7 +1387,6 @@ r_mods = {
 			"#% increased Projectile Damage",
 			"#% increased Spell Damage",
 			"#% increased Trap Damage",
-			"#% increased Vaal Skill Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Fire Damage over Time Multiplier",
@@ -1404,13 +1398,10 @@ r_mods = {
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Lightning Damage to Attacks",
-			"Adds # to # Physical Damage for each Impale on Enemy",
 			"Adds # to # Physical Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Physical Damage to Attacks",
 			"Bleeding you inflict deals Damage #% faster",
 			"Culling Strike",
-			"Gain #% of Physical Damage as Extra Cold Damage",
-			"Gain #% of Physical Damage as Extra Fire Damage",
 			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Poisons you inflict deal Damage #% faster"
@@ -1438,7 +1429,6 @@ r_mods = {
 			"Adds # to # Physical Damage to Spells"
 		],
 		"synth_implicit": [
-			"# to Accuracy Rating",
 			"# to Dexterity",
 			"# to Intelligence",
 			"# to Maximum Power Charges",
@@ -1465,8 +1455,6 @@ r_mods = {
 			"#% increased Burning Damage",
 			"#% increased maximum Energy Shield",
 			"#% increased maximum Life",
-			"Adds # to # Cold Damage",
-			"Damage Penetrates #% Cold Resistance",
 			"Minions deal #% increased Damage"
 		],
 		"implicit": [
@@ -1479,6 +1467,7 @@ r_mods = {
 			"# to Dexterity",
 			"# to Dexterity and Intelligence",
 			"# to Intelligence",
+			"# to Level of all Minion Skill Gems",
 			"# to Maximum Power Charges",
 			"# to Strength",
 			"# to Strength and Dexterity",
@@ -1487,7 +1476,6 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Area Damage",
 			"#% increased Burning Damage",
-			"#% increased Critical Strike Chance if you've been Shocked Recently",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Intelligence",
@@ -1500,7 +1488,6 @@ r_mods = {
 			"Adds # to # Fire Damage to Spells",
 			"Adds # to # Lightning Damage to Spells",
 			"Adds # to # Physical Damage to Spells",
-			"Ignites you inflict deal Damage #% faster",
 			"Minions deal #% increased Damage",
 			"Nearby Enemies have #% to Chaos Resistance",
 			"Nearby Enemies have #% to Cold Resistance",
@@ -1519,12 +1506,7 @@ r_mods = {
 		],
 		"synth_implicit": [
 			"# to # Added Cold Damage per Frenzy Charge",
-			"# to Dexterity",
-			"# to Intelligence",
-			"# to Strength",
-			"# to maximum Mana",
 			"#% increased Attack Speed",
-			"#% increased Attack and Cast Speed",
 			"#% increased Chaos Damage",
 			"#% increased Cold Damage",
 			"#% increased Damage while Leeching Life",
@@ -1533,15 +1515,11 @@ r_mods = {
 			"#% increased Elemental Damage",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
-			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
 			"#% increased Global Physical Damage",
 			"#% increased Intelligence",
 			"#% increased Lightning Damage",
-			"#% increased Strength",
-			"#% increased Vaal Skill Critical Strike Chance",
 			"#% increased maximum Life",
-			"#% increased maximum Mana",
 			"#% to Global Critical Strike Multiplier",
 			"Gain #% of Physical Damage as Extra Damage of a random Element",
 			"Gain #% of Physical Damage as Extra Fire Damage",
@@ -1776,7 +1754,8 @@ r_mods = {
 			"Gain #% of Fire Damage as Extra Chaos Damage per Endurance Charge",
 			"Gain #% of Lightning Damage as Extra Chaos Damage per Power Charge",
 			"Gain #% of Physical Damage as Extra Fire Damage",
-			"Minions deal #% increased Damage"
+			"Minions deal #% increased Damage",
+			"Minions have #% increased Attack and Cast Speed"
 		],
 	},
 	"Shield": {
@@ -1826,11 +1805,13 @@ r_mods = {
 			"# to maximum Life",
 			"#% increased Spell Damage",
 			"#% increased maximum Energy Shield",
-			"#% increased maximum Life"
+			"#% increased maximum Life",
+			"Minions deal #% increased Damage"
 		],
 		"implicit": [
 			"# to maximum Life",
-			"#% increased Spell Damage"
+			"#% increased Spell Damage",
+			"Minions deal #% increased Damage"
 		],
 		"explicit": [
 			"# to Accuracy Rating",
@@ -1841,6 +1822,7 @@ r_mods = {
 			"# to Level of all Cold Spell Skill Gems",
 			"# to Level of all Fire Spell Skill Gems",
 			"# to Level of all Lightning Spell Skill Gems",
+			"# to Level of all Minion Skill Gems",
 			"# to Level of all Physical Spell Skill Gems",
 			"# to Strength",
 			"# to Strength and Dexterity",
@@ -1866,7 +1848,9 @@ r_mods = {
 			"Gain #% of Cold Damage as Extra Chaos Damage",
 			"Gain #% of Fire Damage as Extra Chaos Damage",
 			"Gain #% of Lightning Damage as Extra Chaos Damage",
-			"Gain #% of Physical Damage as Extra Chaos Damage"
+			"Gain #% of Physical Damage as Extra Chaos Damage",
+			"Minions deal #% increased Damage",
+			"Minions have #% increased Critical Strike Chance"
 		],
 	},
 	"Wand (Spellslinger)": {
@@ -1879,7 +1863,6 @@ r_mods = {
 		"synth_implicit": [
 			"# to Dexterity",
 			"# to Intelligence",
-			"# to Strength",
 			"# to all Attributes",
 			"# to maximum Mana",
 			"#% chance to deal Double Damage",
@@ -1932,11 +1915,13 @@ r_mods = {
 			"Adds # to # Cold Damage (Local)",
 			"Adds # to # Fire Damage (Local)",
 			"Adds # to # Lightning Damage (Local)",
-			"Damage Penetrates #% Elemental Resistances"
+			"Damage Penetrates #% Elemental Resistances",
+			"Minions deal #% increased Damage"
 		],
 		"implicit": [
 			"#% increased Cast Speed",
-			"#% increased Spell Damage"
+			"#% increased Spell Damage",
+			"Minions deal #% increased Damage"
 		],
 		"explicit": [
 			"# to Dexterity and Intelligence",
@@ -2011,7 +1996,9 @@ r_mods = {
 			"Minions have # to Accuracy Rating",
 			"Minions have #% chance to deal Double Damage",
 			"Minions have #% increased Attack Speed",
+			"Minions have #% increased Attack and Cast Speed",
 			"Minions have #% increased Cast Speed",
+			"Minions have #% increased Critical Strike Chance",
 			"Overwhelm #% Physical Damage Reduction",
 			"Spells have a #% chance to deal Double Damage",
 			"Wrath has #% increased Aura Effect",
