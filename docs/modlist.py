@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 09/02/2022(m/d/y) 17:10:18 utc
+# Generated: 09/15/2022(m/d/y) 17:32:50 utc
 mods = {
 	"# Accuracy Rating per 2 Intelligence": ["explicit.stat_2196657026"],
 	"# Added Passive Skills are Jewel Sockets": ["explicit.stat_4079888060"],
@@ -596,6 +596,7 @@ mods = {
 	"#% chance to inflict Lightning Exposure on Hit": ["explicit.stat_4265906483"],
 	"#% chance to inflict Withered for 2 seconds on Hit": ["explicit.stat_1957711555"],
 	"#% chance to inflict Withered for 2 seconds on Hit with this Weapon": ["explicit.stat_1226121733"],
+	"#% chance to lose 10% of Mana when you use a Skill": ["explicit.stat_2858930612"],
 	"#% chance to lose a Frenzy Charge on Kill": ["explicit.stat_2142803347"],
 	"#% chance to lose a Frenzy Charge when you use a Travel Skill": ["explicit.stat_445906009"],
 	"#% chance to lose a Power Charge on Kill": ["explicit.stat_2939195168"],
@@ -1476,6 +1477,7 @@ mods = {
 	"#% of Attack Damage Leeched as Mana per Power Charge": ["explicit.stat_2628721358"],
 	"#% of Chaos Damage Leeched as Life": ["explicit.stat_744082851", "implicit.stat_2238792070", "implicit.stat_744082851"],
 	"#% of Chaos Damage Leeched as Life during Flask effect": ["explicit.stat_1341148741"],
+	"#% of Chaos Damage Leeched by Enemy as Life": ["explicit.stat_334180828"],
 	"#% of Chaos Damage is taken from Mana before Life": ["explicit.stat_3967028570"],
 	"#% of Chaos Damage taken does not bypass Energy Shield": ["explicit.stat_1865744989"],
 	"#% of Cold Damage Converted to Fire Damage": ["explicit.stat_723832351"],
@@ -3398,6 +3400,7 @@ mods = {
 	"Lose # Mana per second": ["explicit.stat_838272676"],
 	"Lose # Mana when you use a Skill": ["explicit.stat_2924302129"],
 	"Lose #% of Energy Shield on Kill": ["explicit.stat_1699499433"],
+	"Lose #% of Energy Shield per second": ["explicit.stat_761102773"],
 	"Lose #% of Energy Shield when you deal a Critical Strike": ["explicit.stat_1229725509"],
 	"Lose #% of Life on Kill": ["explicit.stat_751813227"],
 	"Lose #% of Life per second": ["explicit.stat_1661347488"],
@@ -3878,6 +3881,7 @@ mods = {
 	"Recover #% of Mana when you Kill an Enemy during Flask Effect": ["explicit.stat_3247931236"],
 	"Recover #% of Mana when you Shock an Enemy": ["explicit.stat_2524029637"],
 	"Recover #% of your maximum Mana when you Block": ["explicit.stat_3041288981", "implicit.stat_3041288981"],
+	"Recover Energy Shield equal to #% of Armour when you Block": ["explicit.stat_3681057026"],
 	"Recover an additional #% of Flask's Life Recovery Amount over 10 seconds if used while not on Full Life": ["explicit.stat_307410279"],
 	"Red Beasts in your Maps have #% chance to grant double Experience": ["explicit.stat_3190100548"],
 	"Red Beasts in your Maps have #% increased chance to be from The Caverns": ["explicit.stat_1595637549"],
@@ -3965,7 +3969,6 @@ mods = {
 	"Removes Elemental Ailments on Rampage": ["explicit.stat_627889781"],
 	"Removes all Energy Shield": ["explicit.stat_1482608021"],
 	"Removes all but one Life on use Removed life is Regenerated as Energy Shield over # seconds": ["explicit.stat_4120779321"],
-	"Replenishes Energy Shield by #% of Armour when you Block": ["explicit.stat_3681057026"],
 	"Rerolling Favours at Ritual Altars in your Maps costs #% increased Tribute": ["explicit.stat_2282052746"],
 	"Reserves #% of Life": ["explicit.stat_2492660287"],
 	"Resolute Technique": ["explicit.stat_3943945975", "implicit.stat_3943945975"],
@@ -4202,7 +4205,7 @@ mods = {
 	"Socketed Gems are Supported by Level # Multistrike": ["explicit.indexable_support_41"],
 	"Socketed Gems are Supported by Level # Nightblade": ["explicit.indexable_support_38", "explicit.stat_2861649515"],
 	"Socketed Gems are Supported by Level # Onslaught": ["explicit.indexable_support_37", "explicit.stat_3237923082", "implicit.stat_3237923082"],
-	"Socketed Gems are Supported by Level # Overcharge": ["explicit.indexable_support_144"],
+	"Socketed Gems are Supported by Level # Overcharge": ["explicit.indexable_support_144", "explicit.stat_3462081007"],
 	"Socketed Gems are Supported by Level # Physical To Lightning": ["explicit.stat_3327487371"],
 	"Socketed Gems are Supported by Level # Physical to Lightning": ["explicit.indexable_support_34"],
 	"Socketed Gems are Supported by Level # Pierce": ["explicit.indexable_support_33", "explicit.stat_254728692"],

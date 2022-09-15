@@ -345,6 +345,12 @@ def gensearchparams(dps, selections, base):
 		"#% to Damage over Time Multiplier with Attack Skills": [dps['pdotmulti'][0] if {'Attack'}.intersection(selections) else 0, dps['pdotmulti'][1]],
 		"#% to Fire Damage over Time Multiplier with Attack Skills": [dps['pfiredotmulti'][0] if {'Attack'}.intersection(selections) else 0, dps['pfiredotmulti'][1]],
 		"#% to Physical Damage over Time Multiplier with Attack Skills": [dps['physdotmulti'][0] if {'Attack'}.intersection(selections) else 0, dps['physdotmulti'][1]],
+		# Damage Over Time Other Modifiers
+		"Ignites you inflict deal Damage #% faster": [dps['fasterignite'][0], dps['fasterignite'][1]],
+		"Bleeding you inflict deals Damage #% faster": [dps['fasterbleed'][0], dps['fasterbleed'][1]],
+		"Poisons you inflict deal Damage #% faster": [dps['fasterpoison'][0], dps['fasterpoison'][1]],
+		"Damaging Ailments deal damage #% faster": [dps['fasterdot'][0], dps['fasterdot'][1]],
+		"#% increased Duration of Ailments on Enemies": [dps['longerdot'][0], dps['longerdot'][1]],
 		# Damage Over Time Conditional
 		"Enemies Maimed by you take #% increased Damage Over Time": [dps['pdotmulti'][0] if {'EnemyMaimed'}.intersection(selections) else 0, dps['pdotmulti'][1]],
 		# Life, ES, and Mana
@@ -459,15 +465,10 @@ def gensearchparams(dps, selections, base):
 		"Culling Strike": [dps['perfectcull'][0], dps['perfectcull'][1]],
 
 
-		# Not yet implemented
+		# Not (yet?) implemented
 		"#% increased Energy Shield from Body Armour": [0, 0],
 		"#% increased Maximum Energy Shield from Equipped Gloves and Boots": [0, 0],
 		"Gain #% of Maximum Life as Extra Maximum Energy Shield": [0, 0],
-		"#% increased Duration of Ailments on Enemies": [0, 0],
-		"Ignites you inflict deal Damage #% faster": [0, 0],
-		"Bleeding you inflict deals Damage #% faster": [0, 0],
-		"Poisons you inflict deal Damage #% faster": [0, 0],
-		"Damaging Ailments deal damage #% faster": [0, 0],
 
 	}
 	# table to get the correct trade site json name

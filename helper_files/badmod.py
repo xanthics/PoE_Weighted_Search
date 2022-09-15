@@ -3562,7 +3562,6 @@ badmod = [
 	"Removes Elemental Ailments on Rampage",
 	"Removes all Energy Shield",
 	"Removes all but one Life on use Removed life is Regenerated as Energy Shield over # seconds",
-	"Replenishes Energy Shield by #% of Armour when you Block",
 	"Rerolling Favours at Ritual Altars in your Maps costs #% increased Tribute",
 	"Reserves #% of Life",
 	"Resolute Technique",

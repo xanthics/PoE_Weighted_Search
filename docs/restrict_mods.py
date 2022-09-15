@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Generated: 09/02/2022(m/d/y) 17:43:29 utc
+# Generated: 09/15/2022(m/d/y) 18:05:34 utc
 r_mods = {
 	"Abyss Jewel": {
 		"searing_item": [
@@ -908,6 +908,7 @@ r_mods = {
 			"#% increased Critical Strike Chance against Shocked Enemies",
 			"#% increased Damage",
 			"#% increased Damage with Hits against Chilled Enemies",
+			"#% increased Damage with Vaal Skills",
 			"#% increased Elemental Damage",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Energy Shield from Body Armour",
@@ -1394,6 +1395,7 @@ r_mods = {
 			"#% increased Projectile Damage",
 			"#% increased Spell Damage",
 			"#% increased Trap Damage",
+			"#% increased Vaal Skill Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier",
 			"#% to Cold Damage over Time Multiplier",
 			"#% to Fire Damage over Time Multiplier",
@@ -1405,7 +1407,6 @@ r_mods = {
 			"Adds # to # Fire Damage to Attacks",
 			"Adds # to # Lightning Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Lightning Damage to Attacks",
-			"Adds # to # Physical Damage for each Impale on Enemy",
 			"Adds # to # Physical Damage if you've dealt a Critical Strike Recently",
 			"Adds # to # Physical Damage to Attacks",
 			"Bleeding you inflict deals Damage #% faster",
@@ -1491,6 +1492,7 @@ r_mods = {
 			"# to maximum Mana",
 			"#% increased Area Damage",
 			"#% increased Burning Damage",
+			"#% increased Critical Strike Chance if you've been Shocked Recently",
 			"#% increased Elemental Damage",
 			"#% increased Global Accuracy Rating",
 			"#% increased Intelligence",
@@ -1599,6 +1601,7 @@ r_mods = {
 			"#% increased Elemental Damage if you've dealt a Critical Strike Recently",
 			"#% increased Global Accuracy Rating",
 			"#% increased Global Critical Strike Chance",
+			"#% increased Vaal Skill Critical Strike Chance",
 			"#% to Chaos Damage over Time Multiplier with Attack Skills",
 			"#% to Critical Strike Multiplier with Bows",
 			"#% to Damage over Time Multiplier with Attack Skills",
@@ -1746,6 +1749,7 @@ r_mods = {
 			"#% increased Damage per Power Charge",
 			"#% increased Damage with Bleeding",
 			"#% increased Damage with Poison",
+			"#% increased Damage with Vaal Skills",
 			"#% increased Elemental Damage with Attack Skills",
 			"#% increased Fire Damage",
 			"#% increased Global Accuracy Rating",
