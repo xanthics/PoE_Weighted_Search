@@ -262,7 +262,7 @@ def gensearchparams(dps, selections, base):
 		"Adds # to # Physical Damage if you've dealt a Critical Strike Recently": [dps['flatphys'][0] if {'CritRecently'}.issubset(selections) else 0, dps['flatphys'][1]],
 		# Damage Penetration
 		"Damage Penetrates #% Cold Resistance": [dps['pencold'][0], dps['pencold'][1]],
-		"Damage Penetrates #% Elemental Resistance if you haven't Killed Recently": [dps['penall'][0] if {'NoRecentKill'}.issubset(selections) else 0, dps['penall'][1]],
+		"Damage Penetrates #% Elemental Resistances if you haven't Killed Recently": [dps['penall'][0] if {'NoRecentKill'}.issubset(selections) else 0, dps['penall'][1]],
 		"Damage Penetrates #% Elemental Resistances": [dps['penall'][0], dps['penall'][1]],
 		"Damage Penetrates #% Fire Resistance": [dps['penfire'][0], dps['penfire'][1]],
 		"Damage Penetrates #% Lightning Resistance": [dps['penlightning'][0], dps['penlightning'][1]],
