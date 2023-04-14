@@ -466,7 +466,7 @@ def gensearchparams(dps, selections, base):
 
 
 		# Not (yet?) implemented
-		"#% increased Energy Shield from Body Armour": [0, 0],
+#		"#% increased Energy Shield from Body Armour": [0, 0],
 		"#% increased Maximum Energy Shield from Equipped Gloves and Boots": [0, 0],
 		"Gain #% of Maximum Life as Extra Maximum Energy Shield": [0, 0],
 

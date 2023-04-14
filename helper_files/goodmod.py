@@ -211,7 +211,6 @@ goodmod = [
 	"#% increased Elemental Damage",
 	"#% increased Elemental Damage if you've dealt a Critical Strike Recently",
 	"#% increased Elemental Damage with Attack Skills",
-	"#% increased Energy Shield from Body Armour",
 	"#% increased Fire Damage",
 	"#% increased Fire Damage with Attack Skills",
 	"#% increased Fire Damage with Spell Skills",

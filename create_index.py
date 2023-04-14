@@ -33,7 +33,7 @@ def main():
 	g_headers = {'User-Agent': user_agent}
 	updateleagues(root_dir_g, g_headers, g_cookies)
 	updatejsonmods(root_dir_g)
-	update_mods('Sanctum', root_dir_g, g_headers, g_cookies)
+	update_mods('Crucible', root_dir_g, g_headers, g_cookies)
 	# generate compact brython.js
 	update_brython()
 
